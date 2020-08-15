@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-    /* overflow: hidden; */
+     overflow: hidden;
 }
 
 header {
@@ -75,7 +75,7 @@ header .showTime {
   /* border: 2px solid rgba(40,207,162, 1);*/
   background:  url(../images/biankuang61.png) no-repeat;
   background-size:100% 100%;
-  padding: 0rem 0.2rem 0.5rem 0.2rem;
+  padding: 0rem 0.2rem 0.65rem 0.2rem;
   margin-bottom: 0.1875rem;
 /*
   box-shadow:
@@ -365,7 +365,7 @@ header .showTime {
 }
 
 .quarter-assess {
-  width: 49%;
+  width: 25%;
   height: 43%;
   float: left;
   padding: 0.1rem;

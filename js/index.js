@@ -796,13 +796,13 @@ function assess_2() {
             textStyle: {
                 rich: {
                     a: {
-                        fontSize: 17,
+                        fontSize: 19,
                         color: '#ffffff'
                     },
                     c: {
-                        fontSize: 10,
+                        fontSize: 12,
                         color: '#ffffff',
-                        padding: [3, 0]
+                        padding: [3, 3]
                     },
 
                 }
@@ -877,6 +877,26 @@ function assess_2() {
     myChart2.setOption(option);
     window.addEventListener("resize", function () {
         myChart2.resize();
+    });
+
+    value = 1758
+    title = '优秀人数'
+    option.title.text = '{a|' + value + '}\n{c|' + title + '}'
+    var myChart3 = echarts.init(document.querySelector("#assess_4"));
+    // 3. 把配置和数据给实例对象
+    myChart3.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart3.resize();
+    });
+
+    value = 89
+    title = '不称职人数'
+    option.title.text = '{a|' + value + '}\n{c|' + title + '}'
+    var myChart4 = echarts.init(document.querySelector("#assess_5"));
+    // 3. 把配置和数据给实例对象
+    myChart4.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart4.resize();
     });
 
 }
