@@ -55,19 +55,19 @@
                                 borderColor: {
                                     colorStops: [{
                                         offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
                                     }, {
                                         offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
                                     }]
                                 },
                                 color: { // 完成的圆环的颜色
                                     colorStops: [{
                                         offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
                                     }, {
                                         offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
                                     }]
                                 }
                             },
@@ -113,14 +113,14 @@
                     show: true,
                     lineStyle: {
                         width: 1,
-                        color: 'rgba(1,244,255, 0.9)'
+                        color: '#00f2f1'
                     }
                 },
                 splitLine: {
                     length: 12, //刻度节点线长度
                     lineStyle: {
                         width: 1,
-                        color: 'rgba(1,244,255, 0.9)'
+                        color: '#00f2f1'
                     } //刻度节点线
                 },
                 axisLabel: {
