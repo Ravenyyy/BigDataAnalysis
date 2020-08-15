@@ -75,35 +75,13 @@ header .showTime {
   /* border: 2px solid rgba(40,207,162, 1);*/
   background:  url(../images/biankuang61.png) no-repeat;
   background-size:100% 100%;
-  padding: 0 0.5rem 0.5rem ;
+  padding: 0rem 0.2rem 0.5rem 0.2rem;
   margin-bottom: 0.1875rem;
 /*
   box-shadow:
   0 0 10px #b9f2f0;*/
   /*border: #02a6b5 2px solid;*/
 }
-/*
-.panel::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
-}
-
-.panel::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-top: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
-}*/
 
 .panel .panel-footer {
   position: absolute;
@@ -112,28 +90,6 @@ header .showTime {
   width: 100%;
 }
 
-/*.panel .panel-footer::before {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
-}
-
-.panel .panel-footer::after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
-}*/
-
 .panel h2 {
     height: 0.6rem;
     line-height: 0.6rem;
@@ -141,7 +97,8 @@ header .showTime {
     color: #fff;
     font-size: 0.25rem;
     font-weight: 400;
-  }
+    border-bottom:2px solid #00FFFF
+}
 
 .panel h2 a {
   margin: 0 0.1875rem;
@@ -152,12 +109,6 @@ header .showTime {
 .panel .chart {
   height: 3rem;
 }
-
-/*.education .chart {
-  padding: 0 0.15rem 0.5rem ;
-  height: 3rem;
-  background: rgba(255, 255, 255, 0.2);
-}*/
 
 /* 2倍长方块*/
 .double-panel {
@@ -182,6 +133,7 @@ header .showTime {
   color: #fff;
   font-size: 0.25rem;
   font-weight: 400;
+  border-bottom:2px solid #00FFFF
 }
 
 .double-panel h2 a {

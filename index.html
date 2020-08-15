@@ -195,13 +195,6 @@
               <th>内容</th>
               <th>处理状态</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
           </table>
           <div class="panel-footer"></div>
         </div>
@@ -215,13 +208,6 @@
               <th>类型</th>
               <th>内容</th>
               <th>处理状态</th>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
             </tr>
           </table>
           <div class="panel-footer"></div>
@@ -358,7 +344,7 @@
               "<td>" + dataArray[i].flag + "</td>"+
               '</tr>';
     }
-    $('#wn_tb1 tr:last').remove()
+    $('#wn_tb1').append(tr);
   }
 
   function init_wn2() {
@@ -398,7 +384,7 @@
               "<td>" + dataArray[i].flag + "</td>"+
               '</tr>';
     }
-    $('#wn_tb2 tr:last').remove()
+    $('#wn_tb2').append(tr);
   }
 
 </script>
