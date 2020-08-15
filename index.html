@@ -101,8 +101,7 @@
                                     0 0 35px #00a67c,
                                     0 0 40px #00a67c,
                                     0 0 50px #00a67c,
-                                    0 0 75px #00a67c;"
-            >13241</li>
+                                    0 0 75px #00a67c;">13241</li>
             <li style="text-shadow: 0 0 5px #fff,
                                     0 0 10px #fff,
                                     0 0 15px #fff,
@@ -160,8 +159,8 @@
             <span class="localize_msg">xxx考试成绩不合格</span>
           </div>
         </div>-->
+        <h3>最新风险预警信息</h3>
         <div class="table">
-          <h3>最新风险预警信息</h3>
           <table id="wn_tb1">
             <tr>
               <th>支队</th>
@@ -170,18 +169,12 @@
               <th>内容</th>
               <th>处理状态</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
           </table>
+          <div class="panel-footer"></div>
         </div>
 
-        <div class="table">
-          <h3>待处理风险预警信息</h3>
+        <h3>待处理风险预警信息</h3>
+        <div class="table1">
           <table id="wn_tb2">
             <tr>
               <th>支队</th>
@@ -190,14 +183,8 @@
               <th>内容</th>
               <th>处理状态</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
           </table>
+          <div class="panel-footer"></div>
         </div>
         <div class="panel-footer"></div>
       </div>
@@ -321,16 +308,17 @@
         name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
       }
     ];
+    var tr = "";
     for(var i=0; i<dataArray.length; i++){
-      var $tr = $("#wn_tb1 tr:last").clone();
-      $("#wn_tb1 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
-      $("#wn_tb1 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
-      $("#wn_tb1 tr:last").find('td:nth-child(3)').html(dataArray[i].type);
-      $("#wn_tb1 tr:last").find('td:nth-child(4)').html(dataArray[i].content);
-      $("#wn_tb1 tr:last").find('td:nth-child(5)').html(dataArray[i].flag);
-      $("#wn_tb1").append($tr);
+      tr = tr+'<tr>'+
+              "<td>" + dataArray[i].name + "</td>"+
+              "<td>" + dataArray[i].time + "</td>"+
+              "<td>" + dataArray[i].type + "</td>"+
+              "<td>" + dataArray[i].content + "</td>"+
+              "<td>" + dataArray[i].flag + "</td>"+
+              '</tr>';
     }
-    $('#wn_tb1 tr:last').remove()
+    $("#wn_tb1").append(tr);
   }
 
   function init_wn2() {
@@ -360,16 +348,17 @@
         name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
       }
     ];
+    var tr = "";
     for(var i=0; i<dataArray.length; i++){
-      var $tr = $("#wn_tb2 tr:last").clone();
-      $("#wn_tb2 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
-      $("#wn_tb2 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
-      $("#wn_tb2 tr:last").find('td:nth-child(3)').html(dataArray[i].type);
-      $("#wn_tb2 tr:last").find('td:nth-child(4)').html(dataArray[i].content);
-      $("#wn_tb2 tr:last").find('td:nth-child(5)').html(dataArray[i].flag);
-      $("#wn_tb2").append($tr);
+      tr = tr+'<tr>'+
+              "<td>" + dataArray[i].name + "</td>"+
+              "<td>" + dataArray[i].time + "</td>"+
+              "<td>" + dataArray[i].type + "</td>"+
+              "<td>" + dataArray[i].content + "</td>"+
+              "<td>" + dataArray[i].flag + "</td>"+
+              '</tr>';
     }
-    $('#wn_tb2 tr:last').remove()
+    $("#wn_tb2").append(tr);
   }
 
   function toEducation(){
