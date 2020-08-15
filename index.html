@@ -108,8 +108,10 @@
           心理测询
         </h2>
         <!-- <div class="chart" id="heart"></div> -->
-        <div class="half-div" id="heart_1"></div>
-        <div class="half-div" id="heart_2"></div>
+        <div class="quarter-div" id="heart_1"></div>
+        <div class="quarter-div" id="heart_2"></div>
+        <div class="quarter-div" id="heart_3"></div>
+        <div class="quarter-div" id="heart_4"></div>
         <div class="panel-footer"></div>
       </div>
     </div>
@@ -124,7 +126,8 @@
                                     0 0 35px #00a67c,
                                     0 0 40px #00a67c,
                                     0 0 50px #00a67c,
-                                    0 0 75px #00a67c;">13241</li>
+                                    0 0 75px #00a67c;"
+            >13241</li>
             <li style="text-shadow: 0 0 5px #fff,
                                     0 0 10px #fff,
                                     0 0 15px #fff,
@@ -192,6 +195,13 @@
               <th>内容</th>
               <th>处理状态</th>
             </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
           </table>
           <div class="panel-footer"></div>
         </div>
@@ -205,6 +215,13 @@
               <th>类型</th>
               <th>内容</th>
               <th>处理状态</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
             </tr>
           </table>
           <div class="panel-footer"></div>
@@ -341,7 +358,7 @@
               "<td>" + dataArray[i].flag + "</td>"+
               '</tr>';
     }
-    $("#wn_tb1").append(tr);
+    $('#wn_tb1 tr:last').remove()
   }
 
   function init_wn2() {
@@ -381,7 +398,7 @@
               "<td>" + dataArray[i].flag + "</td>"+
               '</tr>';
     }
-    $("#wn_tb2").append(tr);
+    $('#wn_tb2 tr:last').remove()
   }
 
 </script>
