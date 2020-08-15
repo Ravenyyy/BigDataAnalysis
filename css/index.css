@@ -211,7 +211,7 @@ header .showTime {
 }
 
 .no {
-  background: rgba(255, 255, 255, 0.07) url(../images/line\(1\).png);
+  background: rgba(255, 255, 255, 0.07) url(../images/line.png);
   padding: 0.1775rem;
 }
 
@@ -289,6 +289,20 @@ header .showTime {
   height: 49%;
   float: left;
   padding: 0.1rem;
+}
+
+.triple-div {
+  width: 33%;
+  height: 49%;
+  float: left;
+  padding: 0.1rem;
+}
+
+.half-div2 {
+  width: 49%;
+  height: 100%;
+  float: left;
+  padding: 0.25rem;
 }
 
 .half-div {
@@ -390,7 +404,7 @@ header .showTime {
   height: 3.875rem;
   width: 16.95rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-  background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png);
+  background: rgba(255, 255, 255, 0.04) url(../images/line.png);
   padding: 0 0.1875rem 0.5rem;
   margin-bottom: 0.1875rem;
 }
