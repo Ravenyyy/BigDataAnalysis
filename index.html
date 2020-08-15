@@ -212,157 +212,26 @@
 <script>
   // onload
   $(function () {
-    init_edu();
-    init_wn1();
-    init_wn2();
+    heart_1();
+    heart_2();
+    heart_3();
+    heart_4();
+
+    smart();
+
+    assess_1();
+    assess_2();
+
+    dj_1();
+    dj_2();
+    dj_3();
+    dj_4();
+
+    tb_edu();
+    tb_wn1();
+    tb_wn2();
+
   });
-
-  function init_edu() {
-    var dataArray = [
-      {
-        name:"武汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"宜昌支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"鄂州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"襄阳支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"黄石支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"荆门支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"咸宁支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"十堰支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"随州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"孝感支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"荆州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"黄冈支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"恩施支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"江汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"训保支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-    ];
-    for(var i=0; i<dataArray.length; i++){
-      var $tr = $("#edu_tb tr:last").clone();
-      $("#edu_tb tr:last").find('td:nth-child(1)').html(dataArray[i].name);
-      $("#edu_tb tr:last").find('td:nth-child(2)').html(dataArray[i].compulsory);
-      $("#edu_tb tr:last").find('td:nth-child(3)').html(dataArray[i].elective);
-      $("#edu_tb tr:last").find('td:nth-child(4)').html(dataArray[i].exam);
-      $("#edu_tb tr:last").find('td:nth-child(5)').html(dataArray[i].finish);
-      $("#edu_tb tr:last").find('td:nth-child(6)').html(dataArray[i].average);
-      $("#edu_tb").append($tr);
-    }
-    $('#edu_tb tr:last').remove()
-  }
-
-  function init_wn1() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      }
-    ];
-    var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-      tr = tr+'<tr>'+
-              "<td>" + dataArray[i].name + "</td>"+
-              "<td>" + dataArray[i].time + "</td>"+
-              "<td>" + dataArray[i].type + "</td>"+
-              "<td>" + dataArray[i].content + "</td>"+
-              "<td>" + dataArray[i].flag + "</td>"+
-              '</tr>';
-    }
-    $('#wn_tb1').append(tr);
-  }
-
-  function init_wn2() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      }
-    ];
-    var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-      tr = tr+'<tr>'+
-              "<td>" + dataArray[i].name + "</td>"+
-              "<td>" + dataArray[i].time + "</td>"+
-              "<td>" + dataArray[i].type + "</td>"+
-              "<td>" + dataArray[i].content + "</td>"+
-              "<td>" + dataArray[i].flag + "</td>"+
-              '</tr>';
-    }
-    $('#wn_tb2').append(tr);
-  }
 
   function toEducation(){
     window.location = '/edu/education.html'
