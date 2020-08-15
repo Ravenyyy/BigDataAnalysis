@@ -40,25 +40,6 @@
           "秒";
         t = setTimeout(time, 1000); //设定定时器，循环运行
       }
-
-      // function TimeControl() {
-      //   $(".carousel").animate({
-      //       marginRight: 241
-      //     }, 800,
-      //     function () {
-      //       $(".carousel").css({
-      //         marginRight: 0
-      //       }); //把顶部的边界清零
-      //       $(".carousel .message-box:last").after($(".carousel .message-box:first")); //在第一个新闻后面插入最后一个新闻
-      //     });
-      // }
-      // var T1 = setInterval(TimeControl, 2300); //开始定时
-      // $(".carousel").mouseenter(function () {
-      //     clearInterval(T1); //停止定时
-      //   })
-      //   .mouseleave(function () {
-      //     T1 = setInterval(TimeControl, 2500); //再次定时
-      //   })
     </script>
   </header>
   <section class="mainbox">
@@ -73,12 +54,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education">
+      <div class="panel education" onclick="toEducation()">
         <h2>政治教育</h2>
-        <!-- <div class="quarter-div" id="edu_1"></div>
-        <div class="quarter-div" id="edu_2"></div>
-        <div class="quarter-div" id="edu_3"></div>
-        <div class="quarter-div" id="edu_4"></div> -->
         <div class="table">
           <table id="edu_tb">
             <tr>
@@ -161,7 +138,7 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment">
+      <div class="panel assessment" onclick="toAssessment()">
         <h2>全员考核</h2>
         <div class="quarter-assess" id="assess_2"></div>
         <div class="quarter-assess" id="assess_3"></div>
@@ -385,6 +362,14 @@
               '</tr>';
     }
     $('#wn_tb2').append(tr);
+  }
+
+  function toEducation(){
+    window.location = '/edu/education.html'
+  }
+
+  function toAssessment(){
+    window.location = '/assess/assessment.html'
   }
 
 </script>
