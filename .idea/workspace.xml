@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="facc40b3-efa8-449a-bdd2-012c810cb06b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597496288335</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改 首页-智慧党建、风险预警2">
+      <created>1597498187419</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597498187419</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,17 +104,18 @@
     <MESSAGE value="删除多余文件" />
     <MESSAGE value="修改 首页-智慧党建" />
     <MESSAGE value="修改 首页-智慧党建、风险预警" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改 首页-智慧党建、风险预警" />
+    <MESSAGE value="修改 首页-智慧党建、风险预警2" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改 首页-智慧党建、风险预警2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597466191851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597466191851" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597496284400">
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597498185889">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597496284400" />
+    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597498185889" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597464654905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -117,10 +124,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="725" y="129" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597466195444" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597496711673">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597498192154">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597496711673" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597498192154" />
     <state x="1104" y="428" key="com.intellij.ide.ui.customization.CustomizableActionsPanel$EditIconDialog" timestamp="1597466167241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -143,7 +143,7 @@
                         return '参评人数'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 14
                     }
                 },
                 data: [{
@@ -356,7 +356,7 @@
                         return '心理咨询师数量'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 14
                     }
                 },
                 data: [{
@@ -470,8 +470,8 @@
                         fontWeight: 'bold',
                     },
                     labelLine: {
-                        length: 2,
-                        length2: 2,
+                        length: 4,
+                        length2: 8,
                         show: true,
                         color: '#00ffff',
 
@@ -530,7 +530,7 @@
                         position: 'inner',
                         formatter: "{b}: {c}人",
                         textStyle: {
-                            fontSize: 10
+                            fontSize: 14
                         },
                     }
                 },
