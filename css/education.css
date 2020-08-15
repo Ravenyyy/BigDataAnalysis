@@ -79,10 +79,6 @@ header .showTime {
   text-decoration: underline;
 }
 
-.panel .rank {
-  height: 3.025rem;
-}
-
 /* 2倍长方块*/
 .double-panel {
   position: relative;
@@ -126,6 +122,10 @@ header .showTime {
 .double-panel .warnning {
   height: 3rem;
   margin-bottom: 0.65rem;
+}
+
+.panel .rank {
+  height: 3.025rem;
 }
 
 .rank table tr th:first-child, 
