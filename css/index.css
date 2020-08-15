@@ -18,17 +18,17 @@ body {
   margin: 0;
   padding: 0;
   /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
-  background: url(../images/bg2.jpg) no-repeat #000 ;
+  background: url(../images/bg2.jpg) no-repeat #000;
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-    overflow: hidden;
+  /* overflow: hidden; */
 }
 
 header {
   position: relative;
   height: 1.25rem;
-  background: url(../images/head_bg1.png) no-repeat top center ;
+  background: url(../images/head_bg1.png) no-repeat top center;
   background-size: 100% 100%;
 
 }
@@ -73,15 +73,16 @@ header .showTime {
   background-size: 100% 100%;
   background-repeat: no-repeat;*/
   /* border: 2px solid rgba(40,207,162, 1);*/
-  background:  url(../images/biankuang61.png) no-repeat;
-  background-size:100% 100%;
-  padding: 0 0.5rem 0.5rem ;
+  background: url(../images/biankuang61.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 0 0.5rem 0.5rem;
   margin-bottom: 0.1875rem;
-/*
+  /*
   box-shadow:
   0 0 10px #b9f2f0;*/
   /*border: #02a6b5 2px solid;*/
 }
+
 /*
 .panel::before {
   position: absolute;
@@ -135,13 +136,13 @@ header .showTime {
 }*/
 
 .panel h2 {
-    height: 0.6rem;
-    line-height: 0.6rem;
-    text-align: center;
-    color: #fff;
-    font-size: 0.25rem;
-    font-weight: 400;
-  }
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.25rem;
+  font-weight: 400;
+}
 
 .panel h2 a {
   margin: 0 0.1875rem;
@@ -163,11 +164,12 @@ header .showTime {
 .double-panel {
   position: relative;
   height: 7.95rem;
-  background:  url(../images/biankuang61.png) no-repeat;
-  background-size:100% 100%;
-  padding: 0 0.5rem 0.5rem ;
+  background: url(../images/biankuang61.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 0 0.5rem 0.5rem;
   margin-bottom: 0.1875rem;
 }
+
 .double-panel .panel-footer {
   position: absolute;
   left: 0;
@@ -446,17 +448,19 @@ header .showTime {
   }
 }
 
-.message_scroll{
+.message_scroll {
   border: #00FFFF 1px solid;
-  background-color: rgba(20,66,125,0.2);
+  background-color: rgba(20, 66, 125, 0.2);
   height: 29%;
   cursor: pointer;
   margin-bottom: 6px;
 }
-.scroll_top{
+
+.scroll_top {
   height: 25px;
 }
-.scroll_title{
+
+.scroll_title {
   float: left;
   border: #00FFFF 1px solid;
   background-image: url("../images/pushmessage_class.png");
@@ -467,28 +471,31 @@ header .showTime {
   font-size: 14px;
   text-align: center;
 }
-.scroll_level{
+
+.scroll_level {
   float: left;
   background-repeat: no-repeat;
   line-height: 25px;
   width: 56px;
-  background-position-y:3px;
+  background-position-y: 3px;
   color: white;
   font-size: 12px;
   text-align: center;
   margin-left: 8px;
 }
-.localize{
+
+.localize {
   display: block;
   line-height: 25px;
   margin-left: 8px;
   background-repeat: no-repeat;
-  background-position-y:3px;
+  background-position-y: 3px;
   width: 14px;
   height: 25px;
   float: left;
 }
-.scroll_timer{
+
+.scroll_timer {
   color: #4a97da;
   font-size: 12px;
   line-height: 25px;
@@ -497,7 +504,8 @@ header .showTime {
   float: right;
   margin-right: 5px;
 }
-.msg_cage{
+
+.msg_cage {
 
   padding-left: 10px;
   padding-right: 6px;
@@ -505,14 +513,17 @@ header .showTime {
   overflow: hidden;
   margin-top: 8px;
 }
-.localize_title{
+
+.localize_title {
   color: #2c85d2;
 }
-.localize_msg{
+
+.localize_msg {
   font-size: 14px;
   color: white;
 }
-.scroll_tool_outbox{
+
+.scroll_tool_outbox {
   height: 30px;
   width: 100%;
   position: absolute;
@@ -520,19 +531,22 @@ header .showTime {
   padding-left: 3px;
   padding-right: 3px;
   padding-bottom: 2px;
-  border-radius:0px 0px 15px 15px;
+  border-radius: 0px 0px 15px 15px;
   overflow: hidden;
   opacity: 0;
 }
-.scroll_tool_outbox_current{
+
+.scroll_tool_outbox_current {
   opacity: 1;
 }
-.scroll_tool_box{
+
+.scroll_tool_box {
   height: 100%;
   width: 100%;
-  background-color: rgba(6,10,19,0.9);
+  background-color: rgba(6, 10, 19, 0.9);
 }
-.scroll_tool{
+
+.scroll_tool {
   color: rgb(39, 206, 161);
   border: #28cfa2 1px solid;
   line-height: 20px;
@@ -547,25 +561,27 @@ header .showTime {
   text-decoration: none;
 }
 
-table{
+table {
   width: 100%;
   height: 97%;
   margin: 0 auto;
   border-collapse: separate;
   border-spacing: 0px 2px;
-/*  background-color: #2c85d2;*/
-}
-th{
-      text-align:center;
-      color: white;
-}
-td{
-      text-align:center;
-      background-color:rgba(0, 191, 255, 0.3);
-      color: white;
+  /*  background-color: #2c85d2;*/
 }
 
-tr:hover{
+th {
+  text-align: center;
+  color: white;
+}
+
+td {
+  text-align: center;
+  background-color: rgba(0, 191, 255, 0.3);
+  color: white;
+}
+
+tr:hover {
   background-color: rgba(185, 242, 240, 0.6);
 }
 

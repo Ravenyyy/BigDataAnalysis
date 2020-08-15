@@ -82,21 +82,21 @@
         <div class="table">
           <table id="edu_tb">
             <tr>
-                <th>支队</th>
-                <th>必修课</th>
-                <th>选修课</th>
-                <th>考试</th>
-                <th>完成率</th>
-                <th>平均分</th>
+              <th>支队</th>
+              <th>必修课</th>
+              <th>选修课</th>
+              <th>考试</th>
+              <th>完成率</th>
+              <th>平均分</th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
           </table>
         </div>
@@ -108,8 +108,10 @@
           心理测询
         </h2>
         <!-- <div class="chart" id="heart"></div> -->
-        <div class="half-div" id="heart_1"></div>
-        <div class="half-div" id="heart_2"></div>
+        <div class="quarter-div" id="heart_1"></div>
+        <div class="quarter-div" id="heart_2"></div>
+        <div class="quarter-div" id="heart_3"></div>
+        <div class="quarter-div" id="heart_4"></div>
         <div class="panel-footer"></div>
       </div>
     </div>
@@ -124,8 +126,7 @@
                                     0 0 35px #00a67c,
                                     0 0 40px #00a67c,
                                     0 0 50px #00a67c,
-                                    0 0 75px #00a67c;"
-            >13241</li>
+                                    0 0 75px #00a67c;">13241</li>
             <li style="text-shadow: 0 0 5px #fff,
                                     0 0 10px #fff,
                                     0 0 15px #fff,
@@ -251,54 +252,128 @@
   });
 
   function init_edu() {
-    var dataArray = [
-      {
-        name:"武汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+    var dataArray = [{
+        name: "武汉支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"宜昌支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "宜昌支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"鄂州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "鄂州支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"襄阳支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "襄阳支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"黄石支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "黄石支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"荆门支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "荆门支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"咸宁支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "咸宁支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"十堰支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "十堰支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"随州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "随州支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"孝感支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "孝感支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"荆州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "荆州支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"黄冈支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "黄冈支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"恩施支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "恩施支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"江汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "江汉支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
       {
-        name:"训保支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        name: "训保支队",
+        compulsory: 1,
+        elective: 1,
+        exam: 1,
+        finish: 1,
+        average: 1
       },
     ];
-    for(var i=0; i<dataArray.length; i++){
+    for (var i = 0; i < dataArray.length; i++) {
       var $tr = $("#edu_tb tr:last").clone();
       $("#edu_tb tr:last").find('td:nth-child(1)').html(dataArray[i].name);
       $("#edu_tb tr:last").find('td:nth-child(2)').html(dataArray[i].compulsory);
@@ -312,39 +387,78 @@
   }
 
   function init_wn1() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+    var dataArray = [{
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"最新预警"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "全员考核",
+        content: "武汉支队xxx训练考核不达标",
+        flag: "最新预警"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "心理健康",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "最新预警"
       }
     ];
-    for(var i=0; i<dataArray.length; i++){
+    for (var i = 0; i < dataArray.length; i++) {
       var $tr = $("#wn_tb1 tr:last").clone();
       $("#wn_tb1 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
       $("#wn_tb1 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
@@ -357,33 +471,64 @@
   }
 
   function init_wn2() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+    var dataArray = [{
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"正在处理"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "全员考核",
+        content: "武汉支队xxx训练考核不达标",
+        flag: "正在处理"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "心理健康",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "武汉支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       },
       {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        name: "宜昌支队",
+        time: "2020-8-15 8:00",
+        type: "政治教育",
+        content: "武汉支队xxx考试不及格",
+        flag: "正在处理"
       }
     ];
-    for(var i=0; i<dataArray.length; i++){
+    for (var i = 0; i < dataArray.length; i++) {
       var $tr = $("#wn_tb2 tr:last").clone();
       $("#wn_tb2 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
       $("#wn_tb2 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
@@ -394,6 +539,6 @@
     }
     $('#wn_tb2 tr:last').remove()
   }
-
 </script>
+
 </html>
