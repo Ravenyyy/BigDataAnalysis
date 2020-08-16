@@ -12,6 +12,14 @@
   <header>
     <h1>湖北消防队情研判大数据平台</h1>
     <div class="showTime"> 当前时间：2020年3月17-0时54分14秒</div>
+    <div class="bnt">
+      <ul>
+        <li><a href="#">分析报告</a></li>
+        <li><a href="#">月份选择</a></li>
+        <li><a href="#">人员列表</a></li>
+        <li><a href="#">返回首页</a></li>
+      </ul>
+    </div>
     <script>
       var t = null;
       t = setTimeout(time, 1000); //開始运行
@@ -87,31 +95,9 @@
       <div class="no">
         <div class="no-hd">
           <ul>
-            <li style="text-shadow: 0 0 5px #fff,
-                                    0 0 10px #fff,
-                                    0 0 15px #fff,
-                                    0 0 20px #00a67c,
-                                    0 0 35px #00a67c,
-                                    0 0 40px #00a67c,
-                                    0 0 50px #00a67c,
-                                    0 0 75px #00a67c;"
-            >13241</li>
-            <li style="text-shadow: 0 0 5px #fff,
-                                    0 0 10px #fff,
-                                    0 0 15px #fff,
-                                    0 0 20px #a0a673,
-                                    0 0 35px #a6a551,
-                                    0 0 40px #a6a62f,
-                                    0 0 50px #a4a620,
-                                    0 0 75px #a69c03;">10964</li>
-            <li style="text-shadow: 0 0 5px #fff,
-                                    0 0 10px #fff,
-                                    0 0 15px #fff,
-                                    0 0 20px #a68a7d,
-                                    0 0 35px #a65c5a,
-                                    0 0 40px #a6222d,
-                                    0 0 50px #a6114e,
-                                    0 0 75px #a60d48;">146</li>
+            <li class="shadow-green">13241</li>
+            <li class="shadow-yellow">10964</li>
+            <li class="shadow-red">146</li>
           </ul>
         </div>
         <div class="no-bd">
@@ -205,158 +191,26 @@
 <script>
   // onload
   $(function () {
-    init_edu();
-    init_wn1();
-    init_wn2();
+    heart_1();
+    heart_2();
+    heart_3();
+    heart_4();
+
+    smart();
+
+    assess_1();
+    assess_2();
+
+    dj_1();
+    dj_2();
+    dj_3();
+    dj_4();
+
+    tb_edu();
+    tb_wn1();
+    tb_wn2();
+
   });
-
-  function init_edu() {
-    var dataArray = [
-      {
-        name:"武汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"宜昌支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"鄂州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"襄阳支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"黄石支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"荆门支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"咸宁支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"十堰支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"随州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"孝感支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"荆州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"黄冈支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"恩施支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"江汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-      {
-        name:"训保支队",compulsory:1,elective:1,exam:1,finish:1,average:1
-      },
-    ];
-    var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-      tr = tr+'<tr>'+
-              "<td>" + dataArray[i].name + "</td>"+
-              "<td>" + dataArray[i].compulsory + "</td>"+
-              "<td>" + dataArray[i].elective + "</td>"+
-              "<td>" + dataArray[i].exam + "</td>"+
-              "<td>" + dataArray[i].finish + "</td>"+
-              "<td>" + dataArray[i].average + "</td>"+
-              '</tr>';
-    }
-    $("#edu_tb").append(tr);
-  }
-
-  function init_wn1() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
-      }
-    ];
-    var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-      tr = tr+'<tr>'+
-              "<td>" + dataArray[i].name + "</td>"+
-              "<td>" + dataArray[i].time + "</td>"+
-              "<td>" + dataArray[i].type + "</td>"+
-              "<td>" + dataArray[i].content + "</td>"+
-              "<td>" + dataArray[i].flag + "</td>"+
-              '</tr>';
-    }
-    $('#wn_tb1').append(tr);
-  }
-
-  function init_wn2() {
-    var dataArray = [
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      },
-      {
-        name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
-      }
-    ];
-    var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-      tr = tr+'<tr>'+
-              "<td>" + dataArray[i].name + "</td>"+
-              "<td>" + dataArray[i].time + "</td>"+
-              "<td>" + dataArray[i].type + "</td>"+
-              "<td>" + dataArray[i].content + "</td>"+
-              "<td>" + dataArray[i].flag + "</td>"+
-              '</tr>';
-    }
-    $('#wn_tb2').append(tr);
-  }
 
   function toEducation(){
     window.location = '/edu/education.html'

@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-    /* overflow: hidden; */
+     /* overflow: hidden; */
 }
 
 header {
@@ -43,11 +43,40 @@ header h1 {
 header .showTime {
   position: absolute;
   top: 0;
-  right: 0.375rem;
+  left: 0.375rem;
   line-height: 0.9375rem;
   font-size: 0.25rem;
   color: rgba(255, 255, 255, 0.7);
 }
+
+header .bnt {
+  position: absolute;
+  top: 0rem;
+  right: 0.375rem;
+}
+
+header .bnt ul{
+  display: flex;
+}
+header .bnt ul li{
+  position: relative;
+  top:0.2rem;
+  text-align: center;
+  font-size: 0.18rem;
+  color: #ffffff;
+  padding: 0.1rem 0.25rem;
+  margin-left: 0.45rem;
+  font-family: electronicFont;
+  background:url(../images/bnt.png)  rgba(44, 135, 209, 0.6) no-repeat center;
+  background-size:100% 100%;
+
+}
+
+header .bnt ul li a{
+  color:white;
+  text-decoration:none
+}
+
 
 .mainbox {
   min-width: 1080px;
@@ -75,7 +104,7 @@ header .showTime {
   /* border: 2px solid rgba(40,207,162, 1);*/
   background:  url(../images/biankuang61.png) no-repeat;
   background-size:100% 100%;
-  padding: 0rem 0.2rem 0.5rem 0.2rem;
+  padding: 0rem 0.2rem 0.65rem 0.2rem;
   margin-bottom: 0.1875rem;
 /*
   box-shadow:
@@ -339,6 +368,39 @@ header .showTime {
   font-size: 0.225rem;
   color: rgba(255, 255, 255, 0.7);
   padding-top: 0.125rem;
+}
+
+.shadow-red {
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 15px #fff,
+  0 0 20px #a68a7d,
+  0 0 35px #a65c5a,
+  0 0 40px #a6222d,
+  0 0 50px #a6114e,
+  0 0 75px #a60d48;
+  }
+
+.shadow-yellow {
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 15px #fff,
+  0 0 20px #a0a673,
+  0 0 35px #a6a551,
+  0 0 40px #a6a62f,
+  0 0 50px #a4a620,
+  0 0 75px #a69c03;
+}
+
+.shadow-green {
+  text-shadow: 0 0 5px #fff,
+  0 0 10px #fff,
+  0 0 15px #fff,
+  0 0 20px #00a67c,
+  0 0 35px #00a67c,
+  0 0 40px #00a67c,
+  0 0 50px #00a67c,
+  0 0 75px #00a67c;
 }
 
 .quarter-div {

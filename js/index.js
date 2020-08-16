@@ -1,5 +1,5 @@
 // 心理测询1
-(function () {
+function heart_1() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_1"));
     var value = 82;
@@ -210,9 +210,9 @@
         myChart.resize();
     });
 
-})();
+}
 // 心理测询2
-(function () {
+function heart_2() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_2"));
     var value = 82;
@@ -423,22 +423,28 @@
         myChart.resize();
     });
 
-})();
+}
 //心里测询3
-(function () {
+function heart_3() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_3"));
     // 指定配置和数据
-    var colorList = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', '#58D5FF'];
+    var colorList = ['#ff4343', '#ffff00', '#7fff00','#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
     option = {
         title: {
-            text: '301',
+            text: '异常人数',
             x: 'center',
             y: 'center',
+            subtext: '301',
             textStyle: {
-                color: "#FFFFFF",
-                fontSize: 14
-            }
+                color: '#f2f2f2',
+                fontSize: 12,
+                // align: 'center'
+            },
+            subtextStyle: {
+                fontSize: 14,
+                color: ['#ff4343'],
+            },
         },
         tooltip: {
             trigger: 'item'
@@ -453,7 +459,7 @@
         series: [{
             type: 'pie',
             center: ['50%', '50%'],
-            radius: ['42%', '63%'],
+            radius: ['60%', '80%'],
             // clockwise: true,
             // avoidLabelOverlap: true,
             hoverOffset: 15,
@@ -505,9 +511,9 @@
         myChart.resize();
     });
 
-})();
+}
 //心里测询4
-(function () {
+function heart_4() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_4"));
     // 指定配置和数据
@@ -518,7 +524,6 @@
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
         grid: {
-            left: 0
         },
         series: [{
                 name: "干预情况",
@@ -560,102 +565,138 @@
         myChart.resize();
     });
 
-})();
+}
 
 //智慧营区
-(function () {
+function smart() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('smart'));
 
+    var myColor=['#00FFFF','#00FFFF','#00FFFF','#00FFFF','#00FFFF'];
     option = {
         grid: {
-            left: 90,
-            top: 10,
-            bottom: 30
+            left: '6%',
+            top:'20%',
+            right: '0%',
+            bottom: '8%',
+            containLabel: true
         },
-        tooltip: {
-            trigger: 'item',
-            textStyle: {
-                fontSize: 14
-            },
-            formatter: '{b0}:{c0}'
-        },
-        xAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisTick: {
-                show: false
-            }
-        },
+        xAxis: [{
+            show: false,
+        }],
         yAxis: [{
-                type: 'category',
-                inverse: false,
-                data: [
-                    '手机违规使用人数',
-                    '违规驾驶人数',
-                    '训练不合格人数',
-                    '睡眠质量不良人数'
-                ],
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-                axisLabel: {
-                    margin: 1,
-                    textStyle: {
-                        color: '#fff',
-                        fontSize: 11
-                    }
-                },
-            },
-
-        ],
-        series: [{
-            type: 'pictorialBar',
-            symbol: 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADYElEQVR4nO2dz0sUYRjHP7tIdAmxQ1LdlhCKMohAIsgiyEuHjkUEFQTlpejS/xCCBB06RBGBBKIG4cGyH0qHBKE9eKyFqBQPRQeNCt06vGNY7bq7szPfeZLnAwuzM+/zgw/DDvMu70wOIVveLscJOwycA44A24CfwAfgKXAbeFVvovlC/o/vuVwuTj+x0FWiYdGbgXvA8RrjHgAXgIVaCbMU3SKr1BhtwEtgZx1jTwI7gG7ga5pNNUO+9pBMuEN9klfYD9xMqZdEsCj6AHAiRtxZYFeyrSSHRdGnYsblCD8jJrEoek8TsbsT6yJhLIrelFFsqlgUPZtRbKpYFP2kidjxxLpIGIuiB4AvMeLmgJGEe0kMi6I/AVdjxPVSx91hVlgUDXAXuEaY16jFMnAJeJhqR01iVTTAdeAYUFxjzBRwCLgl6agJrM51rDAO7AP2EmbxthPO8vfAc2Ams84axLpoCGKLrH1mm8eC6KPAGaAL2Fpj7AZgY7T9DfhRY/wc4eflPmH+OjOynI8uEGbpukXlJ4Dz84V8aWWHcj46q4thFzCNTjJRren2UrlLWPM3WYjuAMYIk/tq2oCx9lK5Q11YLboFGARaxXVX0woMtpfK0uuTWvRFoFNcsxKdhF5kqEX3iuuthbQXtehG/gdMG2kvlm/B1xUuWoSLFmFF9CRwg2TnM4pRzskEc8bGiugR4ArhNjkpJqKcJv51sSJ63eOiRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEWvTHKvs/p1izWu5qvaSCWvTlCvtmgeEUaw5TeUVtpV5SQy16COgBRoHXhMWb3aS7PnAhqjEQ1RwFeuYL+aEUa/5DFmtYHkefOEwQVmcBvKD+FQNvgNN/P+pHiV8MRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEixbhokVYEx3nudGKXE1jTfS6xUWLcNEiXLQIFy3CRYtw0SJctAgXLcJFi3DRIv430eUq2+axJvp7jePPqmzHySXFmuhHwFKVYzNA/6rv/VR/s9BSlMsM1kTPEN4DPkU4I8vAO6APOAgsrhq7GO3ri8aUo5ipKIep1zv9AtipgOACGIrLAAAAAElFTkSuQmCC',
-            symbolRepeat: true,
-            symbolMargin: '2.5%',
-            symbolClip: 'true',
-            symbolSize: 16,
-            symbolPosition: 'start',
-
-            label: {
-                normal: {
-                    show: true,
-                    position: 'insideRight',
-                    offset: [29, 2],
-                    color: '#fff',
-                    formatter: function (params) {
-                        return params.value;
-                    },
-                    textStyle: {
-                        fontSize: 14
-                    },
-
+            axisTick:'none',
+            axisLine:'none',
+            offset:'27',
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize:'14',
                 }
             },
-            symbolBoundingData: 10000,
-            data: [78, 11, 63, 121]
-        }]
+            data: ['手机违规使用人数',
+                '违规驾驶人数',
+                '训练不合格人数',
+                '睡眠质量不良人数']
+        }, {
+            axisTick:'none',
+            axisLine:'none',
+            axisLabel: {
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize:'16',
+                }
+            },
+            data: ['114','145','101','70']
+        },{
+            name:'',
+            nameGap:'50',
+            nameTextStyle:{
+                color:'#ffffff',
+                fontSize:'16',
+            },
+            axisLine:{
+                lineStyle:{
+                    color:'rgba(0,0,0,0)'
+                }
+            },
+            data: [],
+        }],
+        series: [{
+            name: '条',
+            type: 'bar',
+            yAxisIndex: 0,
+            data: ['114','145','101','70'],
+            barWidth: 8,
+            itemStyle: {
+                normal: {
+                    color: function(params) {
+                        var num=myColor.length;
+                        return myColor[params.dataIndex%num]
+                    },
+                }
+            },
+            z: 2
+        }, {
+            name: '白框',
+            type: 'bar',
+            yAxisIndex: 1,
+            barGap: '-100%',
+            data: [149,149,149,149],
+            barWidth: 12,
+            itemStyle: {
+                normal: {
+                    color: '#0e2147',
+                    barBorderRadius: 5,
+                }
+            },
+            z: 1
+        }, {
+            name: '外框',
+            type: 'bar',
+            yAxisIndex: 2,
+            barGap: '-100%',
+            data: [150,150,150,150],
+            barWidth: 18,
+            itemStyle: {
+                normal: {
+                    color: function(params) {
+                        var num=myColor.length;
+                        return myColor[params.dataIndex%num]
+                    },
+                    barBorderRadius: 5,
+                }
+            },
+            z: 0
+        },
+            {
+                name: '外圆',
+                type: 'scatter',
+                hoverAnimation: false,
+                data: [0,0,0,0],
+                yAxisIndex: 2,
+                symbolSize: 26,
+                itemStyle: {
+                    normal: {
+                        color: function(params) {
+                            var num=myColor.length;
+                            return myColor[params.dataIndex%num]
+                        },
+                        opacity: 1,
+                    }
+                },
+                z: 2
+            }]
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-})();
+}
 
 // 全员考核
-(function () {
+function assess_1() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.querySelector("#assess_1"));
 
@@ -683,7 +724,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ['武汉支队', '宜昌支队', '鄂州支队', '襄阳支队', '黄石支队', '荆门支队', '咸宁支队', '十堰支队', '随州支队', '孝感支队', '荆州支队', '黄冈支队', '恩施支队', '江汉支队', '训保支队'],
+            data: ['武汉','宜昌','鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '江汉', '训保'],
             axisLine: {
                 lineStyle: {
                     color: "white"
@@ -710,7 +751,7 @@
         series: [{
                 name: '优秀',
                 type: 'bar',
-                barWidth: '50%',
+                barWidth: '40%',
                 stack: '总量',
                 data: [320, 302, 301, 334, 390, 330, 320, 320, 302, 301, 334, 390, 330, 320, 230],
 
@@ -718,7 +759,7 @@
             {
                 name: '称职',
                 type: 'bar',
-                barWidth: '50%',
+                barWidth: '40%',
                 stack: '总量',
                 data: [220, 232, 201, 134, 230, 230, 210, 320, 132, 101, 194, 270, 230, 210, 300],
 
@@ -726,7 +767,7 @@
             {
                 name: '基本称职',
                 type: 'bar',
-                barWidth: '70%',
+                barWidth: '40%',
                 stack: '总量',
                 data: [220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330, 310, 199],
 
@@ -734,7 +775,7 @@
             {
                 name: '不称职',
                 type: 'bar',
-                barWidth: '50%',
+                barWidth: '40%',
                 stack: '总量',
                 data: [150, 212, 201, 154, 190, 330, 410, 150, 212, 201, 154, 190, 330, 410, 251],
 
@@ -751,10 +792,10 @@
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-})();
+}
 
 //全员考核的两个数字仪表盘
-(function () {
+function assess_2() {
 
     option = {
         title: {
@@ -867,11 +908,10 @@
         myChart4.resize();
     });
 
-})();
-
+}
 
 // 智慧党建
-(function () {
+function dj_1() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj1'));
 
@@ -1100,8 +1140,9 @@
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-})();
-(function () {
+}
+
+function dj_2() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj2'));
 
@@ -1327,13 +1368,238 @@
         }]
     };
 
+  // 使用刚指定的配置项和数据显示图表。
+  myChart.setOption(option);
+  window.addEventListener("resize",function(){
+    myChart.resize();
+  });
+}
+
+function dj_3() {
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('dj3'));
+
+    var placeHolderStyle = {
+        normal: {
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            color: "rgba(0,0,0,0)",
+            borderWidth: 0
+        },
+        emphasis: {
+            color: "rgba(0,0,0,0)",
+            borderWidth: 0
+        }
+    };
+
+
+    var dataStyle = {
+        normal: {
+            formatter: '{c}个',
+            position: 'center',
+            show: true,
+            textStyle: {
+                fontSize: '14',
+                fontWeight: 'normal',
+                color: '#ffffff'
+            }
+        }
+    };
+
+
+    option = {
+        title: [{
+            text: '党委数',
+            left: '20%',
+            y: 'bottom',
+            textAlign: 'center',
+            textStyle: {
+                fontWeight: 'normal',
+                fontSize: '14',
+                color: '#fff',
+                textAlign: 'center',
+            },
+        }, {
+            text: '支部数',
+            left: '75%',
+            y: 'bottom',
+            textAlign: 'center',
+            textStyle: {
+                color: '#fff',
+                fontWeight: 'normal',
+                fontSize: '14',
+                textAlign: 'center',
+            },
+        }],
+
+        //第一个图表
+        series: [{
+            type: 'pie',
+            hoverAnimation: false, //鼠标经过的特效
+            radius: ['55%', '75%'],
+            center: ['22%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            label: {
+                normal: {
+                    y:'40%'
+                }
+            },
+            data: [{
+                value: 100,
+                "itemStyle": {
+                    "normal": {
+                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            "offset": 0,
+                            "color": '#8470FF'
+                        }, {
+                            "offset": 1,
+                            "color": '#00FFFF'
+                        }]),
+                    }
+                },
+            }, {
+                value: 35,
+                itemStyle: placeHolderStyle,
+            },
+
+            ]
+        },
+            //上层环形配置
+            {
+                type: 'pie',
+                hoverAnimation: false, //鼠标经过的特效
+                radius: ['55%', '75%'],
+                center: ['22%', '42%'],
+                startAngle: 225,
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                label: {
+                    normal: {
+                        y:'40%'
+                    }
+                },
+                data: [{
+                    value: 212,
+                    "itemStyle": {
+                        "normal": {
+                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                "offset": 0,
+                                "color": '#8470FF'
+                            }, {
+                                "offset": 1,
+                                "color": '#00FFFF'
+                            }]),
+                        }
+                    },
+                    label: dataStyle,
+                }, {
+                    value: 220,
+                    itemStyle: placeHolderStyle,
+                },
+
+                ]
+            },
+
+
+            //第二个图表
+            {
+                type: 'pie',
+                hoverAnimation: false,
+                radius: ['55%', '75%'],
+                center: ['77%', '42%'],
+                startAngle: 225,
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                label: {
+                    normal: {
+                        y:'40%'
+                    }
+                },
+                data: [{
+                    value: 100,
+                    "itemStyle": {
+                        "normal": {
+                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                "offset": 0,
+                                "color": '#00FF00'
+                            }, {
+                                "offset": 1,
+                                "color": '#ffff00'
+                            }]),
+                        }
+                    },
+                }, {
+                    value: 35,
+                    itemStyle: placeHolderStyle,
+                },
+
+                ]
+            },
+
+            //上层环形配置
+            {
+                type: 'pie',
+                hoverAnimation: false,
+                radius: ['55%', '70%'],
+                center: ['77%', '42%'],
+                startAngle: 225,
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                label: {
+                    normal: {
+                        y:'40%'
+                    }
+                },
+                data: [{
+                    value: 984,
+                    "itemStyle": {
+                        "normal": {
+                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                "offset": 0,
+                                "color": '#00FF7F'
+                            }, {
+                                "offset": 1,
+                                "color": '#ffff00'
+                            }]),
+                        }
+                    },
+                    label: dataStyle,
+                }, {
+                    value: 1000,
+                    itemStyle: placeHolderStyle,
+                },
+
+                ]
+            }
+        ]
+    };
+
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-})();
-(function () {
+}
+
+function dj_4() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj4'));
 
@@ -1506,103 +1772,153 @@
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-})();
-(function () {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('dj3'));
+}
 
-    option = {
-        title: {
-            text: '组织数统计',
-            left: 'center',
-            y: 'bottom',
-            textStyle: {
-                color: '#fff',
-                fontSize: 14
-            }
+function tb_edu() {
+    var dataArray = [
+        {
+            name:"武汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
         },
-        grid: {
-            left: 40,
-            top: 10,
-            bottom: 30
+        {
+            name:"宜昌支队",compulsory:1,elective:1,exam:1,finish:1,average:1
         },
-        tooltip: {
-            trigger: 'item',
-            textStyle: {
-                fontSize: 14
-            },
-            formatter: '{b0}:{c0}'
+        {
+            name:"鄂州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
         },
-        xAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisTick: {
-                show: false
-            }
+        {
+            name:"襄阳支队",compulsory:1,elective:1,exam:1,finish:1,average:1
         },
-        yAxis: [{
-                type: 'category',
-                inverse: false,
-                data: [
-                    '党支部',
-                    '党委',
-                ],
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-                axisLabel: {
-                    margin: 3,
-                    textStyle: {
-                        color: '#fff',
-                        fontSize: 12
-                    }
-                },
-            },
+        {
+            name:"黄石支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"荆门支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"咸宁支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"十堰支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"随州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"孝感支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"荆州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"黄冈支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"恩施支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"江汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+        {
+            name:"训保支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+        },
+    ];
 
-        ],
-        series: [{
-            type: 'pictorialBar',
-            symbol: 'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAADYElEQVR4nO2dz0sUYRjHP7tIdAmxQ1LdlhCKMohAIsgiyEuHjkUEFQTlpejS/xCCBB06RBGBBKIG4cGyH0qHBKE9eKyFqBQPRQeNCt06vGNY7bq7szPfeZLnAwuzM+/zgw/DDvMu70wOIVveLscJOwycA44A24CfwAfgKXAbeFVvovlC/o/vuVwuTj+x0FWiYdGbgXvA8RrjHgAXgIVaCbMU3SKr1BhtwEtgZx1jTwI7gG7ga5pNNUO+9pBMuEN9klfYD9xMqZdEsCj6AHAiRtxZYFeyrSSHRdGnYsblCD8jJrEoek8TsbsT6yJhLIrelFFsqlgUPZtRbKpYFP2kidjxxLpIGIuiB4AvMeLmgJGEe0kMi6I/AVdjxPVSx91hVlgUDXAXuEaY16jFMnAJeJhqR01iVTTAdeAYUFxjzBRwCLgl6agJrM51rDAO7AP2EmbxthPO8vfAc2Ams84axLpoCGKLrH1mm8eC6KPAGaAL2Fpj7AZgY7T9DfhRY/wc4eflPmH+OjOynI8uEGbpukXlJ4Dz84V8aWWHcj46q4thFzCNTjJRren2UrlLWPM3WYjuAMYIk/tq2oCx9lK5Q11YLboFGARaxXVX0woMtpfK0uuTWvRFoFNcsxKdhF5kqEX3iuuthbQXtehG/gdMG2kvlm/B1xUuWoSLFmFF9CRwg2TnM4pRzskEc8bGiugR4ArhNjkpJqKcJv51sSJ63eOiRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEWvTHKvs/p1izWu5qvaSCWvTlCvtmgeEUaw5TeUVtpV5SQy16COgBRoHXhMWb3aS7PnAhqjEQ1RwFeuYL+aEUa/5DFmtYHkefOEwQVmcBvKD+FQNvgNN/P+pHiV8MRbhoES5ahIsW4aJFuGgRLlqEixbhokW4aBEuWoSLFuGiRbhoES5ahIsW4aJFuGgRLlqEixbhokVYEx3nudGKXE1jTfS6xUWLcNEiXLQIFy3CRYtw0SJctAgXLcJFi3DRIv430eUq2+axJvp7jePPqmzHySXFmuhHwFKVYzNA/6rv/VR/s9BSlMsM1kTPEN4DPkU4I8vAO6APOAgsrhq7GO3ri8aUo5ipKIep1zv9AtipgOACGIrLAAAAAElFTkSuQmCC',
-            symbolRepeat: true,
-            symbolMargin: '2.5%',
-            symbolClip: 'true',
-            symbolSize: 16,
-            symbolPosition: 'start',
+    var tr = "";
+    for(var i=0; i<dataArray.length; i++){
+        tr = tr+'<tr>'+
+            "<td>" + dataArray[i].name + "</td>"+
+            "<td>" + dataArray[i].compulsory + "</td>"+
+            "<td>" + dataArray[i].elective + "</td>"+
+            "<td>" + dataArray[i].exam + "</td>"+
+            "<td>" + dataArray[i].finish + "</td>"+
+            "<td>" + dataArray[i].average + "</td>"+
+            '</tr>';
+    }
+    $('#edu_tb').append(tr);
+}
 
-            label: {
-                normal: {
-                    show: true,
-                    position: 'insideRight',
-                    offset: [21, 2],
-                    color: '#fff',
-                    formatter: function (params) {
-                        return params.value;
-                    },
-                    textStyle: {
-                        fontSize: 14
-                    },
+function tb_wn1() {
+    var dataArray = [
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"最新预警"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+        }
+    ];
+    var tr = "";
+    for(var i=0; i<dataArray.length; i++){
+        tr = tr+'<tr>'+
+            "<td>" + dataArray[i].name + "</td>"+
+            "<td>" + dataArray[i].time + "</td>"+
+            "<td>" + dataArray[i].type + "</td>"+
+            "<td>" + dataArray[i].content + "</td>"+
+            "<td>" + dataArray[i].flag + "</td>"+
+            '</tr>';
+    }
+    $('#wn_tb1').append(tr);
+}
 
-                }
-            },
-            symbolBoundingData: 10000,
-            data: [10, 15]
-
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-})();
+function tb_wn2() {
+    var dataArray = [
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"正在处理"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        },
+        {
+            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+        }
+    ];
+    var tr = "";
+    for(var i=0; i<dataArray.length; i++){
+        tr = tr+'<tr>'+
+            "<td>" + dataArray[i].name + "</td>"+
+            "<td>" + dataArray[i].time + "</td>"+
+            "<td>" + dataArray[i].type + "</td>"+
+            "<td>" + dataArray[i].content + "</td>"+
+            "<td>" + dataArray[i].flag + "</td>"+
+            '</tr>';
+    }
+    $('#wn_tb2').append(tr);
+}
