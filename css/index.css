@@ -455,32 +455,6 @@ header .showTime {
   }
 }
 
-.carousel {
-  position: relative;
-  white-space: nowrap;
-  height: 3.875rem;
-  width: 16.95rem;
-  border: 1px solid rgba(25, 186, 139, 0.17);
-  background: rgba(255, 255, 255, 0.04) url(../images/line.png);
-  padding: 0 0.1875rem 0.5rem;
-  margin-bottom: 0.1875rem;
-}
-
-.carousel .message-box {
-  margin-top: 0.25rem;
-  margin-right: 2px;
-  display: inline-block;
-  height: 3.3125rem;
-  width: 3.39rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  font-size: 0.875rem;
-  color: #ffeb7b;
-  line-height: 2.75rem;
-  font-family: electronicFont;
-  font-weight: bold;
-  text-align: center;
-}
-
 @keyframes swiper {
 
   0%,

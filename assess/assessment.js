@@ -38,16 +38,17 @@ function init_wn1() {
         name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
         }
     ];
+    var tr = "";
     for(var i=0; i<dataArray.length; i++){
-        var $tr = $("#wn_tb1 tr:last").clone();
-        $("#wn_tb1 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
-        $("#wn_tb1 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
-        $("#wn_tb1 tr:last").find('td:nth-child(3)').html(dataArray[i].type);
-        $("#wn_tb1 tr:last").find('td:nth-child(4)').html(dataArray[i].content);
-        $("#wn_tb1 tr:last").find('td:nth-child(5)').html(dataArray[i].flag);
-        $("#wn_tb1").append($tr);
+      tr = tr+'<tr>'+
+              "<td>" + dataArray[i].name + "</td>"+
+              "<td>" + dataArray[i].time + "</td>"+
+              "<td>" + dataArray[i].type + "</td>"+
+              "<td>" + dataArray[i].content + "</td>"+
+              "<td>" + dataArray[i].flag + "</td>"+
+              '</tr>';
     }
-    $('#wn_tb1 tr:last').remove()
+    $('#wn_tb1').append(tr);
 }
 
 function init_wn2() {
@@ -77,16 +78,17 @@ function init_wn2() {
         name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
         }
     ];
+    var tr = "";
     for(var i=0; i<dataArray.length; i++){
-        var $tr = $("#wn_tb2 tr:last").clone();
-        $("#wn_tb2 tr:last").find('td:nth-child(1)').html(dataArray[i].name);
-        $("#wn_tb2 tr:last").find('td:nth-child(2)').html(dataArray[i].time);
-        $("#wn_tb2 tr:last").find('td:nth-child(3)').html(dataArray[i].type);
-        $("#wn_tb2 tr:last").find('td:nth-child(4)').html(dataArray[i].content);
-        $("#wn_tb2 tr:last").find('td:nth-child(5)').html(dataArray[i].flag);
-        $("#wn_tb2").append($tr);
+      tr = tr+'<tr>'+
+              "<td>" + dataArray[i].name + "</td>"+
+              "<td>" + dataArray[i].time + "</td>"+
+              "<td>" + dataArray[i].type + "</td>"+
+              "<td>" + dataArray[i].content + "</td>"+
+              "<td>" + dataArray[i].flag + "</td>"+
+              '</tr>';
     }
-    $('#wn_tb2 tr:last').remove()
+    $('#wn_tb2').append(tr);
 }
 
 function init_edu() {
@@ -139,12 +141,13 @@ function init_edu() {
     ];
 
     dataArray.sort(function(a, b){return b.pass - a.pass}); 
+    var tr = "";
     for(var i=0; i<dataArray.length; i++){
-        var $tr = $("#rank_tb tr:last").clone();
-        $("#rank_tb tr:last").find('td:nth-child(1)').html(i+1);
-        $("#rank_tb tr:last").find('td:nth-child(2)').html(dataArray[i].name);
-        $("#rank_tb tr:last").find('td:nth-child(3)').html(dataArray[i].pass+'%');
-        $("#rank_tb").append($tr);
+      tr = tr+'<tr>'+
+            "<td>" + (i+1) + "</td>"+
+            "<td>" + dataArray[i].name + "</td>"+
+            "<td>" + dataArray[i].pass + "%</td>"+
+            '</tr>';
     }
-    $('#rank_tb tr:last').remove()
+    $('#rank_tb').append(tr);
 }
