@@ -429,22 +429,22 @@ function heart_3() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_3"));
     // 指定配置和数据
-    var colorList = ['#ff4343', '#ffff00', '#7fff00','#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
+    var colorList = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
     option = {
         title: {
-            text: '异常人数',
+            text: '异常人数\n301 人',
             x: 'center',
-            y: 'center',
-            subtext: '301',
+            y: '39%',
+            // subtext: '301',
             textStyle: {
-                color: '#f2f2f2',
+                color: '#ffff00',
                 fontSize: 12,
                 // align: 'center'
             },
-            subtextStyle: {
-                fontSize: 14,
-                color: ['#ff4343'],
-            },
+            // subtextStyle: {
+            //     fontSize: 14,
+            //     color: ['#FD866A'],
+            // },
         },
         tooltip: {
             trigger: 'item'
@@ -523,8 +523,7 @@ function heart_4() {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        grid: {
-        },
+        grid: {},
         series: [{
                 name: "干预情况",
                 type: 'pie',
@@ -572,11 +571,11 @@ function smart() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('smart'));
 
-    var myColor=['#00FFFF','#00FFFF','#00FFFF','#00FFFF','#00FFFF'];
+    var myColor = ['#00FFFF', '#00FFFF', '#00FFFF', '#00FFFF', '#00FFFF'];
     option = {
         grid: {
             left: '6%',
-            top:'20%',
+            top: '20%',
             right: '0%',
             bottom: '8%',
             containLabel: true
@@ -585,108 +584,110 @@ function smart() {
             show: false,
         }],
         yAxis: [{
-            axisTick:'none',
-            axisLine:'none',
-            offset:'27',
+            axisTick: 'none',
+            axisLine: 'none',
+            offset: '27',
             axisLabel: {
                 textStyle: {
                     color: '#ffffff',
-                    fontSize:'14',
+                    fontSize: '14',
                 }
             },
             data: ['手机违规使用人数',
                 '违规驾驶人数',
                 '训练不合格人数',
-                '睡眠质量不良人数']
+                '睡眠质量不良人数'
+            ]
         }, {
-            axisTick:'none',
-            axisLine:'none',
+            axisTick: 'none',
+            axisLine: 'none',
             axisLabel: {
                 textStyle: {
                     color: '#ffffff',
-                    fontSize:'16',
+                    fontSize: '16',
                 }
             },
-            data: ['114','145','101','70']
-        },{
-            name:'',
-            nameGap:'50',
-            nameTextStyle:{
-                color:'#ffffff',
-                fontSize:'16',
+            data: ['114', '145', '101', '70']
+        }, {
+            name: '',
+            nameGap: '50',
+            nameTextStyle: {
+                color: '#ffffff',
+                fontSize: '16',
             },
-            axisLine:{
-                lineStyle:{
-                    color:'rgba(0,0,0,0)'
+            axisLine: {
+                lineStyle: {
+                    color: 'rgba(0,0,0,0)'
                 }
             },
             data: [],
         }],
         series: [{
-            name: '条',
-            type: 'bar',
-            yAxisIndex: 0,
-            data: ['114','145','101','70'],
-            barWidth: 8,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num=myColor.length;
-                        return myColor[params.dataIndex%num]
-                    },
-                }
+                name: '条',
+                type: 'bar',
+                yAxisIndex: 0,
+                data: ['114', '145', '101', '70'],
+                barWidth: 8,
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            var num = myColor.length;
+                            return myColor[params.dataIndex % num]
+                        },
+                    }
+                },
+                z: 2
+            }, {
+                name: '白框',
+                type: 'bar',
+                yAxisIndex: 1,
+                barGap: '-100%',
+                data: [149, 149, 149, 149],
+                barWidth: 12,
+                itemStyle: {
+                    normal: {
+                        color: '#0e2147',
+                        barBorderRadius: 5,
+                    }
+                },
+                z: 1
+            }, {
+                name: '外框',
+                type: 'bar',
+                yAxisIndex: 2,
+                barGap: '-100%',
+                data: [150, 150, 150, 150],
+                barWidth: 18,
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            var num = myColor.length;
+                            return myColor[params.dataIndex % num]
+                        },
+                        barBorderRadius: 5,
+                    }
+                },
+                z: 0
             },
-            z: 2
-        }, {
-            name: '白框',
-            type: 'bar',
-            yAxisIndex: 1,
-            barGap: '-100%',
-            data: [149,149,149,149],
-            barWidth: 12,
-            itemStyle: {
-                normal: {
-                    color: '#0e2147',
-                    barBorderRadius: 5,
-                }
-            },
-            z: 1
-        }, {
-            name: '外框',
-            type: 'bar',
-            yAxisIndex: 2,
-            barGap: '-100%',
-            data: [150,150,150,150],
-            barWidth: 18,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num=myColor.length;
-                        return myColor[params.dataIndex%num]
-                    },
-                    barBorderRadius: 5,
-                }
-            },
-            z: 0
-        },
             {
                 name: '外圆',
                 type: 'scatter',
                 hoverAnimation: false,
-                data: [0,0,0,0],
+                data: [0, 0, 0, 0],
                 yAxisIndex: 2,
                 symbolSize: 26,
                 itemStyle: {
                     normal: {
-                        color: function(params) {
-                            var num=myColor.length;
-                            return myColor[params.dataIndex%num]
+                        color: function (params) {
+                            var num = myColor.length;
+                            return myColor[params.dataIndex % num]
                         },
                         opacity: 1,
                     }
                 },
                 z: 2
-            }]
+            }
+        ]
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
@@ -724,7 +725,7 @@ function assess_1() {
         },
         xAxis: {
             type: 'category',
-            data: ['武汉','宜昌','鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
+            data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
             axisLine: {
                 lineStyle: {
                     color: "white"
@@ -915,7 +916,7 @@ function dj_1() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj1'));
 
-  option = {
+    option = {
         tooltip: {
             formatter: "{b}：{c}"
         },
@@ -1368,11 +1369,11 @@ function dj_2() {
         }]
     };
 
-  // 使用刚指定的配置项和数据显示图表。
-  myChart.setOption(option);
-  window.addEventListener("resize",function(){
-    myChart.resize();
-  });
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    });
 }
 
 function dj_3() {
@@ -1438,41 +1439,41 @@ function dj_3() {
 
         //第一个图表
         series: [{
-            type: 'pie',
-            hoverAnimation: false, //鼠标经过的特效
-            radius: ['55%', '75%'],
-            center: ['22%', '42%'],
-            startAngle: 225,
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            label: {
-                normal: {
-                    y:'40%'
-                }
-            },
-            data: [{
-                value: 100,
-                "itemStyle": {
-                    "normal": {
-                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                            "offset": 0,
-                            "color": '#8470FF'
-                        }, {
-                            "offset": 1,
-                            "color": '#00FFFF'
-                        }]),
+                type: 'pie',
+                hoverAnimation: false, //鼠标经过的特效
+                radius: ['55%', '75%'],
+                center: ['22%', '42%'],
+                startAngle: 225,
+                labelLine: {
+                    normal: {
+                        show: false
                     }
                 },
-            }, {
-                value: 35,
-                itemStyle: placeHolderStyle,
-            },
+                label: {
+                    normal: {
+                        y: '40%'
+                    }
+                },
+                data: [{
+                        value: 100,
+                        "itemStyle": {
+                            "normal": {
+                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    "offset": 0,
+                                    "color": '#8470FF'
+                                }, {
+                                    "offset": 1,
+                                    "color": '#00FFFF'
+                                }]),
+                            }
+                        },
+                    }, {
+                        value: 35,
+                        itemStyle: placeHolderStyle,
+                    },
 
-            ]
-        },
+                ]
+            },
             //上层环形配置
             {
                 type: 'pie',
@@ -1487,27 +1488,27 @@ function dj_3() {
                 },
                 label: {
                     normal: {
-                        y:'40%'
+                        y: '40%'
                     }
                 },
                 data: [{
-                    value: 212,
-                    "itemStyle": {
-                        "normal": {
-                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                "offset": 0,
-                                "color": '#8470FF'
-                            }, {
-                                "offset": 1,
-                                "color": '#00FFFF'
-                            }]),
-                        }
+                        value: 212,
+                        "itemStyle": {
+                            "normal": {
+                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    "offset": 0,
+                                    "color": '#8470FF'
+                                }, {
+                                    "offset": 1,
+                                    "color": '#00FFFF'
+                                }]),
+                            }
+                        },
+                        label: dataStyle,
+                    }, {
+                        value: 220,
+                        itemStyle: placeHolderStyle,
                     },
-                    label: dataStyle,
-                }, {
-                    value: 220,
-                    itemStyle: placeHolderStyle,
-                },
 
                 ]
             },
@@ -1527,26 +1528,26 @@ function dj_3() {
                 },
                 label: {
                     normal: {
-                        y:'40%'
+                        y: '40%'
                     }
                 },
                 data: [{
-                    value: 100,
-                    "itemStyle": {
-                        "normal": {
-                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                "offset": 0,
-                                "color": '#00FF00'
-                            }, {
-                                "offset": 1,
-                                "color": '#ffff00'
-                            }]),
-                        }
+                        value: 100,
+                        "itemStyle": {
+                            "normal": {
+                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    "offset": 0,
+                                    "color": '#00FF00'
+                                }, {
+                                    "offset": 1,
+                                    "color": '#ffff00'
+                                }]),
+                            }
+                        },
+                    }, {
+                        value: 35,
+                        itemStyle: placeHolderStyle,
                     },
-                }, {
-                    value: 35,
-                    itemStyle: placeHolderStyle,
-                },
 
                 ]
             },
@@ -1565,27 +1566,27 @@ function dj_3() {
                 },
                 label: {
                     normal: {
-                        y:'40%'
+                        y: '40%'
                     }
                 },
                 data: [{
-                    value: 984,
-                    "itemStyle": {
-                        "normal": {
-                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                "offset": 0,
-                                "color": '#00FF7F'
-                            }, {
-                                "offset": 1,
-                                "color": '#ffff00'
-                            }]),
-                        }
+                        value: 984,
+                        "itemStyle": {
+                            "normal": {
+                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                    "offset": 0,
+                                    "color": '#00FF7F'
+                                }, {
+                                    "offset": 1,
+                                    "color": '#ffff00'
+                                }]),
+                            }
+                        },
+                        label: dataStyle,
+                    }, {
+                        value: 1000,
+                        itemStyle: placeHolderStyle,
                     },
-                    label: dataStyle,
-                }, {
-                    value: 1000,
-                    itemStyle: placeHolderStyle,
-                },
 
                 ]
             }
@@ -1604,8 +1605,8 @@ function dj_4() {
     var myChart = echarts.init(document.getElementById('dj4'));
 
 
-    let color = ['#ff4343', '#ffff00', '#7fff00','#00f2f1'];
-    let names = ["普通党员", "预备党员", "书记","委员" ];
+    let color = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1'];
+    let names = ["普通党员", "预备党员", "书记", "委员"];
     let data = [1044, 40, 170, 380];
     let list = [];
     let total = 0;
@@ -1775,149 +1776,293 @@ function dj_4() {
 }
 
 function tb_edu() {
-    var dataArray = [
-        {
-            name:"武汉支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.7
+    var dataArray = [{
+            name: "武汉支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 97.7
         },
         {
-            name:"宜昌支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:95.3
+            name: "宜昌支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 95.3
         },
         {
-            name:"鄂州支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:98.2
+            name: "鄂州支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 98.2
         },
         {
-            name:"襄阳支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:96.5
+            name: "襄阳支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 96.5
         },
         {
-            name:"黄石支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:99.2
+            name: "黄石支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 99.2
         },
         {
-            name:"荆门支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.8
+            name: "荆门支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 97.8
         },
         {
-            name:"咸宁支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:98.3
+            name: "咸宁支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 98.3
         },
         {
-            name:"十堰支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:95.7
+            name: "十堰支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 95.7
         },
         {
-            name:"随州支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:99.1
+            name: "随州支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 99.1
         },
         {
-            name:"孝感支队",compulsory:"90%",elective:"90%",exam:"70%",finish:"82%",average:83.2
+            name: "孝感支队",
+            compulsory: "90%",
+            elective: "90%",
+            exam: "70%",
+            finish: "82%",
+            average: 83.2
         },
         {
-            name:"荆州支队",compulsory:"99%",elective:"99%",exam:"95%",finish:"96%",average:92.2
+            name: "荆州支队",
+            compulsory: "99%",
+            elective: "99%",
+            exam: "95%",
+            finish: "96%",
+            average: 92.2
         },
         {
-            name:"黄冈支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:89.2
+            name: "黄冈支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 89.2
         },
         {
-            name:"恩施支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:96.6
+            name: "恩施支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 96.6
         },
         {
-            name:"汉江支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.5
+            name: "汉江支队",
+            compulsory: "100%",
+            elective: "100%",
+            exam: "100%",
+            finish: "100%",
+            average: 97.5
         },
         {
-            name:"训保支队",compulsory:"90%",elective:"90%",exam:"80%",finish:"85%",average:89.2
+            name: "训保支队",
+            compulsory: "90%",
+            elective: "90%",
+            exam: "80%",
+            finish: "85%",
+            average: 89.2
         },
     ];
 
     var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-        tr = tr+'<tr>'+
-            "<td>" + dataArray[i].name + "</td>"+
-            "<td>" + dataArray[i].compulsory + "</td>"+
-            "<td>" + dataArray[i].elective + "</td>"+
-            "<td>" + dataArray[i].exam + "</td>"+
-            "<td>" + dataArray[i].finish + "</td>"+
-            "<td>" + dataArray[i].average + "</td>"+
+    for (var i = 0; i < dataArray.length; i++) {
+        tr = tr + '<tr>' +
+            "<td>" + dataArray[i].name + "</td>" +
+            "<td>" + dataArray[i].compulsory + "</td>" +
+            "<td>" + dataArray[i].elective + "</td>" +
+            "<td>" + dataArray[i].exam + "</td>" +
+            "<td>" + dataArray[i].finish + "</td>" +
+            "<td>" + dataArray[i].average + "</td>" +
             '</tr>';
     }
     $('#edu_tb').append(tr);
 }
 
 function tb_wn1() {
-    var dataArray = [
-        {
-            name:"武汉支队",time:"2020-8-17 9:10",type:"政治教育",content:"武汉支队本月11人考试不及格",flag:"最新预警"
+    var dataArray = [{
+            name: "武汉支队",
+            time: "2020-8-17 9:10",
+            type: "政治教育",
+            content: "武汉支队本月11人考试不及格",
+            flag: "最新预警"
         },
         {
-            name:"孝感支队",time:"2020-8-16 14:00",type:"政治教育",content:"孝感支队本月还有31人未参加学习",flag:"最新预警"
+            name: "孝感支队",
+            time: "2020-8-16 14:00",
+            type: "政治教育",
+            content: "孝感支队本月还有31人未参加学习",
+            flag: "最新预警"
         },
         {
-            name:"荆州支队",time:"2020-8-16 8:00",type:"智慧党建",content:"荆州支队有3个支部本月尚未开展主题党日活动",flag:"最新预警"
+            name: "荆州支队",
+            time: "2020-8-16 8:00",
+            type: "智慧党建",
+            content: "荆州支队有3个支部本月尚未开展主题党日活动",
+            flag: "最新预警"
         },
         {
-            name:"荆州支队",time:"2020-8-15 12:20",type:"智慧党建",content:"荆州支队有83人本月尚未参加主题党日活动",flag:"最新预警"
+            name: "荆州支队",
+            time: "2020-8-15 12:20",
+            type: "智慧党建",
+            content: "荆州支队有83人本月尚未参加主题党日活动",
+            flag: "最新预警"
         },
         {
-            name:"鄂州支队",time:"2020-8-15 10:00",type:"心理测询",content:"鄂州支队有12人心理测询异常",flag:"最新预警"
+            name: "鄂州支队",
+            time: "2020-8-15 10:00",
+            type: "心理测询",
+            content: "鄂州支队有12人心理测询异常",
+            flag: "最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-13 8:00",type:"全员考核",content:"宜昌支队有2个支部本月尚未开展全员考核",flag:"最新预警"
+            name: "宜昌支队",
+            time: "2020-8-13 8:00",
+            type: "全员考核",
+            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            flag: "最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-12 9:00",type:"全员考核",content:"宜昌支队有4人本月被评定为不称职",flag:"最新预警"
+            name: "宜昌支队",
+            time: "2020-8-12 9:00",
+            type: "全员考核",
+            content: "宜昌支队有4人本月被评定为不称职",
+            flag: "最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-10 11:00",type:"智慧党建",content:"宜昌支队有2个支部本月尚未开展全员考核",flag:"最新预警"
+            name: "宜昌支队",
+            time: "2020-8-10 11:00",
+            type: "智慧党建",
+            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            flag: "最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-09 13:00",type:"心理测询",content:"宜昌支队有12人睡眠质量一直不良",flag:"最新预警"
+            name: "宜昌支队",
+            time: "2020-8-09 13:00",
+            type: "心理测询",
+            content: "宜昌支队有12人睡眠质量一直不良",
+            flag: "最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-09 15:00",type:"心理测询",content:"宜昌支队有4人本月训练不合格",flag:"最新预警"
+            name: "宜昌支队",
+            time: "2020-8-09 15:00",
+            type: "心理测询",
+            content: "宜昌支队有4人本月训练不合格",
+            flag: "最新预警"
         }
     ];
     var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-        tr = tr+'<tr>'+
-            "<td>" + dataArray[i].name + "</td>"+
-            "<td>" + dataArray[i].time + "</td>"+
-            "<td>" + dataArray[i].type + "</td>"+
-            "<td>" + dataArray[i].content + "</td>"+
-            "<td>" + dataArray[i].flag + "</td>"+
+    for (var i = 0; i < dataArray.length; i++) {
+        tr = tr + '<tr>' +
+            "<td>" + dataArray[i].name + "</td>" +
+            "<td>" + dataArray[i].time + "</td>" +
+            "<td>" + dataArray[i].type + "</td>" +
+            "<td>" + dataArray[i].content + "</td>" +
+            "<td>" + dataArray[i].flag + "</td>" +
             '</tr>';
     }
     $('#wn_tb1').append(tr);
 }
 
 function tb_wn2() {
-    var dataArray = [
-        {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+    var dataArray = [{
+            name: "武汉支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"正在处理"
+            name: "武汉支队",
+            time: "2020-8-15 8:00",
+            type: "全员考核",
+            content: "武汉支队xxx训练考核不达标",
+            flag: "正在处理"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "宜昌支队",
+            time: "2020-8-15 8:00",
+            type: "心理健康",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "宜昌支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "武汉支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "武汉支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "武汉支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"正在处理"
+            name: "宜昌支队",
+            time: "2020-8-15 8:00",
+            type: "政治教育",
+            content: "武汉支队xxx考试不及格",
+            flag: "正在处理"
         }
     ];
     var tr = "";
-    for(var i=0; i<dataArray.length; i++){
-        tr = tr+'<tr>'+
-            "<td>" + dataArray[i].name + "</td>"+
-            "<td>" + dataArray[i].time + "</td>"+
-            "<td>" + dataArray[i].type + "</td>"+
-            "<td>" + dataArray[i].content + "</td>"+
-            "<td>" + dataArray[i].flag + "</td>"+
+    for (var i = 0; i < dataArray.length; i++) {
+        tr = tr + '<tr>' +
+            "<td>" + dataArray[i].name + "</td>" +
+            "<td>" + dataArray[i].time + "</td>" +
+            "<td>" + dataArray[i].type + "</td>" +
+            "<td>" + dataArray[i].content + "</td>" +
+            "<td>" + dataArray[i].flag + "</td>" +
             '</tr>';
     }
     $('#wn_tb2').append(tr);
