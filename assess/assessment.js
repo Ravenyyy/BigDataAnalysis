@@ -133,7 +133,7 @@ function init_edu() {
         name:"恩施支队",pass:83.5
         },
         {
-        name:"江汉支队",pass:89.6
+        name:"汉江支队",pass:89.6
         },
         {
         name:"训保支队",pass:74.5

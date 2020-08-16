@@ -32,7 +32,7 @@ function init_appActive() {
           type: "category",
           data: [
             '武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', 
-            '随州', '孝感', '荆州', '黄冈', '恩施', '江汉', '训保'
+            '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'
           ],
           axisTick: {
             alignWithLabel: true
@@ -157,7 +157,7 @@ function init_detail() {
         data:[10, 20, 30, 40]
     },
     {
-        areaName:"江汉",
+        areaName:"汉江",
         data:[10, 20, 30, 40]
     },
     {
@@ -228,7 +228,7 @@ function init_detail() {
         type: "category",
         boundaryGap: false,
         data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', 
-        '随州', '孝感', '荆州', '黄冈', '恩施', '江汉', '训保'],
+        '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
         // 去除刻度
         axisTick: {
             show: false
@@ -428,7 +428,7 @@ function init_edu() {
         name:"恩施支队",pass:83.5
         },
         {
-        name:"江汉支队",pass:89.6
+        name:"汉江支队",pass:89.6
         },
         {
         name:"训保支队",pass:74.5

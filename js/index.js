@@ -7,7 +7,7 @@ function heart_1() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `1498`,
+            text: `6776`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
@@ -724,7 +724,7 @@ function assess_1() {
         },
         xAxis: {
             type: 'category',
-            data: ['武汉','宜昌','鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '江汉', '训保'],
+            data: ['武汉','宜昌','鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
             axisLine: {
                 lineStyle: {
                     color: "white"
@@ -1605,8 +1605,8 @@ function dj_4() {
 
 
     let color = ['#ff4343', '#ffff00', '#7fff00','#00f2f1'];
-    let names = ["普通党员", "入党积极分子", "书记","委员" ];
-    let data = [1114, 444, 101, 500];
+    let names = ["普通党员", "预备党员", "书记","委员" ];
+    let data = [1044, 40, 170, 380];
     let list = [];
     let total = 0;
     for (let i in data) {
@@ -1777,49 +1777,49 @@ function dj_4() {
 function tb_edu() {
     var dataArray = [
         {
-            name:"武汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"武汉支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.7
         },
         {
-            name:"宜昌支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"宜昌支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:95.3
         },
         {
-            name:"鄂州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"鄂州支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:98.2
         },
         {
-            name:"襄阳支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"襄阳支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:96.5
         },
         {
-            name:"黄石支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"黄石支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:99.2
         },
         {
-            name:"荆门支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"荆门支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.8
         },
         {
-            name:"咸宁支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"咸宁支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:98.3
         },
         {
-            name:"十堰支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"十堰支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:95.7
         },
         {
-            name:"随州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"随州支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:99.1
         },
         {
-            name:"孝感支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"孝感支队",compulsory:"90%",elective:"90%",exam:"70%",finish:"82%",average:83.2
         },
         {
-            name:"荆州支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"荆州支队",compulsory:"99%",elective:"99%",exam:"95%",finish:"96%",average:92.2
         },
         {
-            name:"黄冈支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"黄冈支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:89.2
         },
         {
-            name:"恩施支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"恩施支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:96.6
         },
         {
-            name:"江汉支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"汉江支队",compulsory:"100%",elective:"100%",exam:"100%",finish:"100%",average:97.5
         },
         {
-            name:"训保支队",compulsory:1,elective:1,exam:1,finish:1,average:1
+            name:"训保支队",compulsory:"90%",elective:"90%",exam:"80%",finish:"85%",average:89.2
         },
     ];
 
@@ -1840,34 +1840,34 @@ function tb_edu() {
 function tb_wn1() {
     var dataArray = [
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"武汉支队",time:"2020-8-17 9:10",type:"政治教育",content:"武汉支队本月11人考试不及格",flag:"最新预警"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"全员考核",content:"武汉支队xxx训练考核不达标",flag:"最新预警"
+            name:"孝感支队",time:"2020-8-16 14:00",type:"政治教育",content:"孝感支队本月还有31人未参加学习",flag:"最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"心理健康",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"荆州支队",time:"2020-8-16 8:00",type:"智慧党建",content:"荆州支队有3个支部本月尚未开展主题党日活动",flag:"最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"荆州支队",time:"2020-8-15 12:20",type:"智慧党建",content:"荆州支队有83人本月尚未参加主题党日活动",flag:"最新预警"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"鄂州支队",time:"2020-8-15 10:00",type:"心理测询",content:"鄂州支队有12人心理测询异常",flag:"最新预警"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"宜昌支队",time:"2020-8-13 8:00",type:"全员考核",content:"宜昌支队有2个支部本月尚未开展全员考核",flag:"最新预警"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"宜昌支队",time:"2020-8-12 9:00",type:"全员考核",content:"宜昌支队有4人本月被评定为不称职",flag:"最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"宜昌支队",time:"2020-8-10 11:00",type:"智慧党建",content:"宜昌支队有2个支部本月尚未开展全员考核",flag:"最新预警"
         },
         {
-            name:"武汉支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"宜昌支队",time:"2020-8-09 13:00",type:"心理测询",content:"宜昌支队有12人睡眠质量一直不良",flag:"最新预警"
         },
         {
-            name:"宜昌支队",time:"2020-8-15 8:00",type:"政治教育",content:"武汉支队xxx考试不及格",flag:"最新预警"
+            name:"宜昌支队",time:"2020-8-09 15:00",type:"心理测询",content:"宜昌支队有4人本月训练不合格",flag:"最新预警"
         }
     ];
     var tr = "";
