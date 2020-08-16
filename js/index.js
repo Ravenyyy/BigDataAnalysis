@@ -429,16 +429,22 @@ function heart_3() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_3"));
     // 指定配置和数据
-    var colorList = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', '#58D5FF'];
+    var colorList = ['#ff4343', '#ffff00', '#7fff00','#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
     option = {
         title: {
-            text: '301',
+            text: '异常人数',
             x: 'center',
             y: 'center',
+            subtext: '301',
             textStyle: {
-                color: "#FFFFFF",
-                fontSize: 14
-            }
+                color: '#f2f2f2',
+                fontSize: 12,
+                // align: 'center'
+            },
+            subtextStyle: {
+                fontSize: 14,
+                color: ['#ff4343'],
+            },
         },
         tooltip: {
             trigger: 'item'
@@ -453,7 +459,7 @@ function heart_3() {
         series: [{
             type: 'pie',
             center: ['50%', '50%'],
-            radius: ['42%', '63%'],
+            radius: ['60%', '80%'],
             // clockwise: true,
             // avoidLabelOverlap: true,
             hoverOffset: 15,
@@ -518,7 +524,6 @@ function heart_4() {
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
         grid: {
-            left: 0
         },
         series: [{
                 name: "干预情况",
@@ -622,7 +627,7 @@ function smart() {
             type: 'bar',
             yAxisIndex: 0,
             data: ['114','145','101','70'],
-            barWidth: 12,
+            barWidth: 8,
             itemStyle: {
                 normal: {
                     color: function(params) {
@@ -638,7 +643,7 @@ function smart() {
             yAxisIndex: 1,
             barGap: '-100%',
             data: [149,149,149,149],
-            barWidth: 18,
+            barWidth: 12,
             itemStyle: {
                 normal: {
                     color: '#0e2147',
@@ -652,7 +657,7 @@ function smart() {
             yAxisIndex: 2,
             barGap: '-100%',
             data: [150,150,150,150],
-            barWidth: 20,
+            barWidth: 18,
             itemStyle: {
                 normal: {
                     color: function(params) {
@@ -670,7 +675,7 @@ function smart() {
                 hoverAnimation: false,
                 data: [0,0,0,0],
                 yAxisIndex: 2,
-                symbolSize: 30,
+                symbolSize: 26,
                 itemStyle: {
                     normal: {
                         color: function(params) {

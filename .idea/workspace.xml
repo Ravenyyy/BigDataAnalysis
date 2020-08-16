@@ -40,11 +40,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="Y:\BigDataAnalysis\images" />
       <recent name="C:\Users\85376\Desktop\测试用\echart\images" />
     </key>
   </component>
@@ -63,6 +64,7 @@
       <workItem from="1597451981547" duration="10930000" />
       <workItem from="1597464373455" duration="286000" />
       <workItem from="1597465694603" duration="15059000" />
+      <workItem from="1597536480485" duration="10851000" />
     </task>
     <task id="LOCAL-00001" summary="删除多余文件">
       <created>1597465808434</created>
@@ -106,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597503843853</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修改css">
+      <created>1597504763048</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1597504763048</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,17 +140,18 @@
     <MESSAGE value="修改 首页-智慧党建、风险预警" />
     <MESSAGE value="修改 首页-智慧党建、风险预警2" />
     <MESSAGE value="cccc" />
-    <option name="LAST_COMMIT_MESSAGE" value="cccc" />
+    <MESSAGE value="修改css" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改css" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597466191851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597466191851" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597503836772">
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597504761339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597503836772" />
+    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504761339" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597464654905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -154,10 +164,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597503842986">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597505027247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597503842986" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597505027247" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -170,6 +180,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="751" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597465844670" />
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog" timestamp="1597504952473">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504952473" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597484453313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
