@@ -14,9 +14,9 @@
     <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
     <div class="bnt">
       <ul>
-        <li><a href="#">分析报告</a></li>
+        <li><a href="#">报告下载</a></li>
         <li><a href="#">月份选择</a></li>
-        <li><a href="#">人员列表</a></li>
+        <li><a href="#">分析研判</a></li>
         <li><a href="#">返回首页</a></li>
       </ul>
     </div>
@@ -145,25 +145,23 @@
         <div class="table">
           <table id="wn_tb1">
             <tr>
-              <th>支队</th>
-              <th>时间</th>
-              <th>类型</th>
-              <th>内容</th>
-              <th>处理状态</th>
+              <th class="tb_zhidui">支队</th>
+              <th class="tb_time">时间</th>
+              <th class="tb_type">类型</th>
+              <th class="tb_content">内容</th>
             </tr>
           </table>
           <div class="panel-footer"></div>
         </div>
 
-        <h3>待处理风险预警信息</h3>
+        <h3>正在处理风险预警信息</h3>
         <div class="table1">
           <table id="wn_tb2">
             <tr>
-              <th>支队</th>
-              <th>时间</th>
-              <th>类型</th>
-              <th>内容</th>
-              <th>处理状态</th>
+              <th class="tb_zhidui">支队</th>
+              <th class="tb_time">时间</th>
+              <th class="tb_type">类型</th>
+              <th class="tb_content">内容</th>
             </tr>
           </table>
           <div class="panel-footer"></div>
@@ -191,6 +189,7 @@
 <script>
   // onload
   $(function () {
+
     heart_1();
     heart_2();
     heart_3();
@@ -219,7 +218,5 @@
   function toAssessment(){
     window.location = '/assess/assessment.html'
   }
-</script>
-
 </script>
 </html>

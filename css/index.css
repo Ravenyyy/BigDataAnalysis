@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-     /* overflow: hidden; */
+      overflow: hidden;
 }
 
 header {
@@ -104,7 +104,7 @@ header .bnt ul li a{
   /* border: 2px solid rgba(40,207,162, 1);*/
   background:  url(../images/biankuang61.png) no-repeat;
   background-size:100% 100%;
-  padding: 0rem 0.2rem 0.65rem 0.2rem;
+  padding: 0rem 0.2rem 0.5rem 0.2rem;
   margin-bottom: 0.1875rem;
 /*
   box-shadow:
@@ -662,6 +662,7 @@ table{
   margin: 0 auto;
   border-collapse: separate;
   border-spacing: 0px 2px;
+  table-layout: fixed;
 /*  background-color: #2c85d2;*/
 }
 th{
@@ -672,6 +673,9 @@ td{
       text-align:center;
       background-color:rgba(0, 191, 255, 0.3);
       color: white;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 }
 
 tr:hover{
@@ -690,4 +694,19 @@ table::after {
   height: 10px;
   border-bottom: 2px solid #02a6b5;
   border-right: 2px solid #02a6b5;
+}
+
+.tb_zhidui {
+  width: 60px;
+}
+
+.tb_time {
+  width: 110px;
+}
+
+.tb_type {
+  width: 60px;
+}
+
+.tb_content {
 }

@@ -998,7 +998,7 @@ function dj_1() {
             },
             name: '刻度',
             type: 'gauge',
-            radius: '115%',
+            radius: '105%',
             z: 1,
             min: 0,
             max: 1,
@@ -1047,7 +1047,7 @@ function dj_1() {
         }, {
             name: '本期',
             type: 'gauge',
-            radius: '105%',
+            radius: '95%',
             min: 0,
             max: 1,
             center: ['50%', '70%'],
@@ -1230,7 +1230,7 @@ function dj_2() {
             },
             name: '刻度',
             type: 'gauge',
-            radius: '115%',
+            radius: '105%',
             z: 1,
             min: 0,
             max: 1,
@@ -1279,7 +1279,7 @@ function dj_2() {
         }, {
             name: '本期',
             type: 'gauge',
-            radius: '105%',
+            radius: '95%',
             min: 0,
             max: 1,
             center: ['50%', '70%'],
@@ -1965,7 +1965,7 @@ function tb_wn1() {
         {
             name: "宜昌支队",
             time: "2020-8-10 11:00",
-            type: "智慧党建",
+            type: "全员考核",
             content: "宜昌支队有2个支部本月尚未开展全员考核",
             flag: "最新预警"
         },
@@ -1979,7 +1979,7 @@ function tb_wn1() {
         {
             name: "宜昌支队",
             time: "2020-8-09 15:00",
-            type: "心理测询",
+            type: "全员考核",
             content: "宜昌支队有4人本月训练不合格",
             flag: "最新预警"
         }
@@ -1987,11 +1987,10 @@ function tb_wn1() {
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
         tr = tr + '<tr>' +
-            "<td>" + dataArray[i].name + "</td>" +
-            "<td>" + dataArray[i].time + "</td>" +
-            "<td>" + dataArray[i].type + "</td>" +
-            "<td>" + dataArray[i].content + "</td>" +
-            "<td>" + dataArray[i].flag + "</td>" +
+            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
             '</tr>';
     }
     $('#wn_tb1').append(tr);
@@ -1999,70 +1998,86 @@ function tb_wn1() {
 
 function tb_wn2() {
     var dataArray = [{
-            name: "武汉支队",
-            time: "2020-8-15 8:00",
+            name: "黄石支队",
+            time: "2020-8-17 10:00",
+            type: "心理测询",
+            content: "黄石支队有9人心理测询异常",
+            flag: "最新预警"
+        },
+        {
+            name: "孝感支队",
+            time: "2020-8-17 9:10",
             type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
+            content: "孝感支队本月14人考试不及格",
+            flag: "最新预警"
+        },
+        {
+            name: "孝感支队",
+            time: "2020-8-16 8:00",
+            type: "智慧党建",
+            content: "孝感支队有1个支部本月尚未开展主题党日活动",
+            flag: "最新预警"
+        },
+        {
+            name: "鄂州支队",
+            time: "2020-8-15 13:00",
+            type: "心理测询",
+            content: "鄂州支队有4人睡眠质量一直不良",
+            flag: "最新预警"
+        },
+        {
+            name: "孝感支队",
+            time: "2020-8-15 14:00",
+            type: "政治教育",
+            content: "孝感支队本月还有18人未参加学习",
+            flag: "最新预警"
         },
         {
             name: "武汉支队",
-            time: "2020-8-15 8:00",
+            time: "2020-8-15 12:20",
+            type: "智慧党建",
+            content: "武汉支队有44人本月尚未参加主题党日活动",
+            flag: "最新预警"
+        },
+
+        {
+            name: "十堰支队",
+            time: "2020-8-13 8:00",
             type: "全员考核",
-            content: "武汉支队xxx训练考核不达标",
-            flag: "正在处理"
+            content: "十堰支队有3个支部本月尚未开展全员考核",
+            flag: "最新预警"
+        },
+        {
+            name: "训保支队",
+            time: "2020-8-12 9:00",
+            type: "全员考核",
+            content: "训保支队有14人本月被评定为不称职",
+            flag: "最新预警"
+        },
+        {
+            name: "鄂州支队",
+            time: "2020-8-09 15:00",
+            type: "全员考核",
+            content: "鄂州支队有2人本月训练不合格",
+            flag: "最新预警"
         },
         {
             name: "宜昌支队",
-            time: "2020-8-15 8:00",
-            type: "心理健康",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
+            time: "2020-8-09 11:00",
+            type: "全员考核",
+            content: "宜昌支队有19个支部本月尚未开展全员考核",
+            flag: "最新预警"
         },
-        {
-            name: "宜昌支队",
-            time: "2020-8-15 8:00",
-            type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
-        },
-        {
-            name: "武汉支队",
-            time: "2020-8-15 8:00",
-            type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
-        },
-        {
-            name: "武汉支队",
-            time: "2020-8-15 8:00",
-            type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
-        },
-        {
-            name: "武汉支队",
-            time: "2020-8-15 8:00",
-            type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-15 8:00",
-            type: "政治教育",
-            content: "武汉支队xxx考试不及格",
-            flag: "正在处理"
-        }
+
+
     ];
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
         tr = tr + '<tr>' +
-            "<td>" + dataArray[i].name + "</td>" +
-            "<td>" + dataArray[i].time + "</td>" +
-            "<td>" + dataArray[i].type + "</td>" +
-            "<td>" + dataArray[i].content + "</td>" +
-            "<td>" + dataArray[i].flag + "</td>" +
+            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
             '</tr>';
     }
     $('#wn_tb2').append(tr);
