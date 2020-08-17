@@ -42,7 +42,7 @@ function heart_1() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -105,7 +105,7 @@ function heart_1() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -143,7 +143,7 @@ function heart_1() {
                         return '参评人数'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
@@ -255,7 +255,7 @@ function heart_2() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -318,7 +318,7 @@ function heart_2() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -356,7 +356,7 @@ function heart_2() {
                         return '心理咨询师数量'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
@@ -648,7 +648,7 @@ function edu_1() {
                 // 修改y轴分割线的颜色
                 splitLine: {
                     lineStyle: {
-                        color: "#white"
+                        color: "rgba(255,255,255,0.2)",
                     }
                 }
             },
@@ -739,7 +739,7 @@ function smart() {
                     fontSize: '16',
                 }
             },
-            data: ['114', '145', '101', '70']
+            data: ['14', '12', '10', '7']
         }, {
             name: '',
             nameGap: '50',
@@ -857,7 +857,23 @@ function assess_1() {
         },
         xAxis: {
             type: 'category',
-            data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
+            data: [
+                "青山",
+                "洪山",
+                "武昌",
+                "江夏",
+                "东新",
+                "江汉",
+                "江岸",
+                "硚口",
+                "东西湖",
+                "新洲",
+                "黄陂",
+                "汉阳",
+                "经开",
+                "蔡甸",
+                "汉南"
+            ],
             axisLine: {
                 lineStyle: {
                     color: "white"
@@ -886,7 +902,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [320, 302, 301, 334, 390, 330, 320, 320, 302, 301, 334, 390, 330, 320, 230],
+                data: [22, 32, 21, 24, 32, 30, 20, 30, 22, 31, 24, 33, 20, 20, 20],
 
             },
             {
@@ -894,7 +910,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [220, 232, 201, 134, 230, 230, 210, 320, 132, 101, 194, 270, 230, 210, 300],
+                data: [19, 22, 11, 14, 20, 10, 21, 30, 12, 10, 14, 10, 30, 21, 30],
 
             },
             {
@@ -902,7 +918,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330, 310, 199],
+                data: [22, 12, 19, 24, 19, 21, 37, 17, 9, 11, 24, 20, 30, 10, 19],
 
             },
             {
@@ -910,7 +926,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [150, 212, 201, 154, 190, 330, 410, 150, 212, 201, 154, 190, 330, 410, 251],
+                data: [14, 21, 11, 14, 9, 30, 10, 10, 21, 21, 4, 19, 30, 30, 21],
 
             }
         ]
@@ -1000,7 +1016,7 @@ function assess_2() {
         }]
     };
 
-    let value = 50.3;
+    let value = 47.2;
     let title = '支部开展率';
 
     option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
@@ -1011,7 +1027,7 @@ function assess_2() {
         myChart1.resize();
     });
 
-    value = 78
+    value = 82
     title = '人员参与率'
     option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
     var myChart2 = echarts.init(document.querySelector("#assess_3"));
@@ -1021,7 +1037,7 @@ function assess_2() {
         myChart2.resize();
     });
 
-    value = 1758
+    value = 162
     title = '优秀人数'
     option.title.text = '{a|' + value + '}\n{c|' + title + '}'
     var myChart3 = echarts.init(document.querySelector("#assess_4"));
@@ -1031,7 +1047,7 @@ function assess_2() {
         myChart3.resize();
     });
 
-    value = 89
+    value = 9
     title = '不称职人数'
     option.title.text = '{a|' + value + '}\n{c|' + title + '}'
     var myChart4 = echarts.init(document.querySelector("#assess_5"));
@@ -1184,7 +1200,7 @@ function dj_1() {
             max: 1,
             center: ['50%', '70%'],
             data: [{
-                value: 0.89,
+                value: 0.82,
                 name: '支部开展率'
             }],
             splitNumber: 4, //刻度数量
@@ -1416,7 +1432,7 @@ function dj_2() {
             max: 1,
             center: ['50%', '70%'],
             data: [{
-                value: 0.71,
+                value: 0.74,
                 name: '党员参与率'
             }],
             splitNumber: 4, //刻度数量
@@ -1624,7 +1640,7 @@ function dj_3() {
                     }
                 },
                 data: [{
-                        value: 212,
+                        value: 23,
                         "itemStyle": {
                             "normal": {
                                 "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -1702,7 +1718,7 @@ function dj_3() {
                     }
                 },
                 data: [{
-                        value: 984,
+                        value: 110,
                         "itemStyle": {
                             "normal": {
                                 "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -1739,7 +1755,7 @@ function dj_4() {
 
     let color = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1'];
     let names = ["普通党员", "预备党员", "书记", "委员"];
-    let data = [1044, 40, 170, 380];
+    let data = [1268, 65, 200, 300];
     let list = [];
     let total = 0;
     for (let i in data) {
@@ -2046,73 +2062,66 @@ function tb_edu() {
 
 function tb_wn1() {
     var dataArray = [{
-            name: "武汉支队",
-            time: "2020-8-17 9:10",
+            name: "青山大队",
+            time: "2020-8-17 8:09",
             type: "政治教育",
-            content: "武汉支队本月11人考试不及格",
+            content: "青山大队本月3人考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-16 14:00",
+            name: "硚口大队",
+            time: "2020-8-15 13:00",
             type: "政治教育",
-            content: "孝感支队本月还有31人未参加学习",
+            content: "硚口大队本月还有3人未参加学习",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
-            time: "2020-8-16 8:00",
+            name: "汉阳大队",
+            time: "2020-8-15 8:00",
             type: "智慧党建",
-            content: "荆州支队有3个支部本月尚未开展主题党日活动",
+            content: "汉阳大队有3个站本月尚未开展主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
+            name: "黄陂大队",
             time: "2020-8-15 12:20",
             type: "智慧党建",
-            content: "荆州支队有83人本月尚未参加主题党日活动",
+            content: "黄陂大队有11人本月尚未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
-            time: "2020-8-15 10:00",
+            name: "蔡甸大队",
+            time: "2020-8-15 21:00",
             type: "心理测询",
-            content: "鄂州支队有12人心理测询异常",
+            content: "蔡甸大队有4人心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-13 8:00",
+            name: "经开大队",
+            time: "2020-8-12 9:40",
             type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            content: "经开大队有1人本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-12 9:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
+            name: "江夏大队",
             time: "2020-8-10 11:00",
             type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            content: "江夏大队有3个站本月尚未开展全员考核",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-09 13:00",
+            name: "东新大队",
+            time: "2020-8-09 12:00",
             type: "心理测询",
-            content: "宜昌支队有12人睡眠质量一直不良",
+            content: "东新大队有4人睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-09 15:00",
+            name: "江岸大队",
+            time: "2020-8-09 11:00",
             type: "全员考核",
-            content: "宜昌支队有4人本月训练不合格",
+            content: "江岸大队有1人本月训练不合格",
             flag: "最新预警"
         }
     ];
@@ -2130,74 +2139,74 @@ function tb_wn1() {
 
 function tb_wn2() {
     var dataArray = [{
-            name: "黄石支队",
-            time: "2020-8-17 10:00",
+            name: "江岸大队",
+            time: "2020-8-17 9:00",
             type: "心理测询",
-            content: "黄石支队有9人心理测询异常",
+            content: "黄石支队有2人心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-17 9:10",
+            name: "汉阳大队",
+            time: "2020-8-16 17:10",
             type: "政治教育",
-            content: "孝感支队本月14人考试不及格",
+            content: "汉阳大队本月4人考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
+            name: "经开大队",
             time: "2020-8-16 8:00",
             type: "智慧党建",
-            content: "孝感支队有1个支部本月尚未开展主题党日活动",
+            content: "经开大队有1个站本月尚未开展主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
+            name: "武昌大队",
             time: "2020-8-15 13:00",
             type: "心理测询",
-            content: "鄂州支队有4人睡眠质量一直不良",
+            content: "鄂州支队有2人睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-15 14:00",
+            name: "江夏大队",
+            time: "2020-8-15 12:30",
             type: "政治教育",
-            content: "孝感支队本月还有18人未参加学习",
+            content: "江夏大队本月还有3人未参加学习",
             flag: "最新预警"
         },
         {
-            name: "武汉支队",
-            time: "2020-8-15 12:20",
+            name: "汉阳大队",
+            time: "2020-8-14 12:20",
             type: "智慧党建",
-            content: "武汉支队有44人本月尚未参加主题党日活动",
+            content: "汉阳大队有4人本月尚未参加主题党日活动",
             flag: "最新预警"
         },
 
         {
-            name: "十堰支队",
-            time: "2020-8-13 8:00",
+            name: "东新大队",
+            time: "2020-8-13 14:00",
             type: "全员考核",
-            content: "十堰支队有3个支部本月尚未开展全员考核",
+            content: "东新大队有3个站本月尚未开展全员考核",
             flag: "最新预警"
         },
         {
-            name: "训保支队",
-            time: "2020-8-12 9:00",
+            name: "青山大队",
+            time: "2020-8-11 12:00",
             type: "全员考核",
-            content: "训保支队有14人本月被评定为不称职",
+            content: "青山大队有4人本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
-            time: "2020-8-09 15:00",
+            name: "洪山大队",
+            time: "2020-8-08 15:00",
             type: "全员考核",
-            content: "鄂州支队有2人本月训练不合格",
+            content: "洪山大队有1人本月训练不合格",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-09 11:00",
+            name: "武昌大队",
+            time: "2020-8-07 17:00",
             type: "全员考核",
-            content: "宜昌支队有19个支部本月尚未开展全员考核",
+            content: "武昌大队有2个支部本月尚未开展全员考核",
             flag: "最新预警"
         },
 

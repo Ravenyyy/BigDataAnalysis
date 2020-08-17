@@ -7,7 +7,7 @@ function heart_1() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `6776`,
+            text: `120`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
@@ -220,7 +220,7 @@ function heart_2() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `98`,
+            text: `6`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
@@ -432,7 +432,7 @@ function heart_3() {
     var colorList = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
     option = {
         title: {
-            text: '异常人数\n301 人',
+            text: '异常人数\n6 人',
             x: 'center',
             y: '39%',
             // subtext: '301',
@@ -476,8 +476,8 @@ function heart_3() {
                         fontWeight: 'bold',
                     },
                     labelLine: {
-                        length: 2,
-                        length2: 2,
+                        length: 3,
+                        length2: 3,
                         show: true,
                         color: '#00ffff',
 
@@ -486,22 +486,22 @@ function heart_3() {
             },
             data: [{
                 'name': '躁狂',
-                'value': 101
-            }, {
-                'name': '强迫',
-                'value': 29
-            }, {
-                'name': '其他',
-                'value': 15
+                'value': 1
             }, {
                 'name': '抑郁',
-                'value': 40
+                'value': 2
             }, {
                 'name': '敌对',
-                'value': 11
+                'value': 0
             }, {
                 'name': '焦虑',
-                'value': 105
+                'value': 1
+            }, {
+                'name': '强迫',
+                'value': 1
+            }, {
+                'name': '其他',
+                'value': 1
             }],
         }]
     };
@@ -545,10 +545,10 @@ function heart_4() {
                 },
                 data: [{
                     'name': '正在干预',
-                    'value': 81
+                    'value': 4
                 }, {
                     'name': '已干预',
-                    'value': 240
+                    'value': 2
                 }],
             },
             {
@@ -572,8 +572,8 @@ function edu_1() {
     var myChart = echarts.init(document.querySelector("#edu_1"));
     var data = {
         edu: [
-            [100, 100, 100, 100, 100, 100, 100, 100, 100, 82, 96, 100, 100, 100, 85],
-            [97.7, 95.3, 98.2, 96.5, 99.2, 97.8, 98.3, 95.7, 99.1, 83.2, 92.2, 89.2, 96.6, 97.5, 89.2]
+            [100, 99, 92, 100, ],
+            [95.1, 92.2, 89.2, 97.5]
         ]
     };
     // 指定配置和数据
@@ -597,7 +597,7 @@ function edu_1() {
             right: "12%",
             bottom: "10%",
             show: true,
-            borderColor: "rgba(255,255,255,0.2)",
+            borderColor: "white",
             containLabel: false
         },
         xAxis: {
@@ -607,21 +607,10 @@ function edu_1() {
                 type: 'shadow'
             },
             data: [
-                "武汉",
-                "宜昌",
-                "鄂州",
-                "襄阳",
-                "黄石",
-                "荆门",
-                "咸宁",
-                "十堰",
-                "随州",
-                "孝感",
-                "荆州",
-                "黄冈",
-                "恩施",
-                "汉江",
-                "训保"
+                "晴川",
+                "七里庙",
+                "墨水湖",
+                "黄金口"
             ],
             // 修饰刻度标签的颜色
             axisLine: {
@@ -637,7 +626,7 @@ function edu_1() {
         yAxis: [{
                 name: '平均分',
                 type: "value",
-                min: 70,
+                min: 60,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -655,7 +644,7 @@ function edu_1() {
             {
                 name: '总完成率',
                 type: "value",
-                min: 70,
+                min: 60,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -739,7 +728,7 @@ function smart() {
                     fontSize: '16',
                 }
             },
-            data: ['114', '145', '101', '70']
+            data: ['4', '6', '3', '1']
         }, {
             name: '',
             nameGap: '50',
@@ -857,7 +846,12 @@ function assess_1() {
         },
         xAxis: {
             type: 'category',
-            data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
+            data: [
+                "晴川",
+                "七里庙",
+                "墨水湖",
+                "黄金口"
+            ],
             axisLine: {
                 lineStyle: {
                     color: "white"
@@ -886,7 +880,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [320, 302, 301, 334, 390, 330, 320, 320, 302, 301, 334, 390, 330, 320, 230],
+                data: [6, 4, 3, 4],
 
             },
             {
@@ -894,7 +888,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [220, 232, 201, 134, 230, 230, 210, 320, 132, 101, 194, 270, 230, 210, 300],
+                data: [3, 6, 2, 4],
 
             },
             {
@@ -902,7 +896,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330, 310, 199],
+                data: [2, 3, 6, 4],
 
             },
             {
@@ -910,7 +904,7 @@ function assess_1() {
                 type: 'bar',
                 barWidth: '40%',
                 stack: '总量',
-                data: [150, 212, 201, 154, 190, 330, 410, 150, 212, 201, 154, 190, 330, 410, 251],
+                data: [4, 2, 2, 4],
 
             }
         ]
@@ -1000,7 +994,7 @@ function assess_2() {
         }]
     };
 
-    let value = 50.3;
+    let value = 54.1;
     let title = '支部开展率';
 
     option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
@@ -1011,7 +1005,7 @@ function assess_2() {
         myChart1.resize();
     });
 
-    value = 78
+    value = 91
     title = '人员参与率'
     option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
     var myChart2 = echarts.init(document.querySelector("#assess_3"));
@@ -1021,7 +1015,7 @@ function assess_2() {
         myChart2.resize();
     });
 
-    value = 1758
+    value = 16
     title = '优秀人数'
     option.title.text = '{a|' + value + '}\n{c|' + title + '}'
     var myChart3 = echarts.init(document.querySelector("#assess_4"));
@@ -1031,7 +1025,7 @@ function assess_2() {
         myChart3.resize();
     });
 
-    value = 89
+    value = 2
     title = '不称职人数'
     option.title.text = '{a|' + value + '}\n{c|' + title + '}'
     var myChart4 = echarts.init(document.querySelector("#assess_5"));
@@ -1184,7 +1178,7 @@ function dj_1() {
             max: 1,
             center: ['50%', '70%'],
             data: [{
-                value: 0.89,
+                value: 0.69,
                 name: '支部开展率'
             }],
             splitNumber: 4, //刻度数量
@@ -1416,7 +1410,7 @@ function dj_2() {
             max: 1,
             center: ['50%', '70%'],
             data: [{
-                value: 0.71,
+                value: 0.69,
                 name: '党员参与率'
             }],
             splitNumber: 4, //刻度数量
@@ -1624,7 +1618,7 @@ function dj_3() {
                     }
                 },
                 data: [{
-                        value: 212,
+                        value: 5,
                         "itemStyle": {
                             "normal": {
                                 "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -1702,7 +1696,7 @@ function dj_3() {
                     }
                 },
                 data: [{
-                        value: 984,
+                        value: 29,
                         "itemStyle": {
                             "normal": {
                                 "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -1738,8 +1732,8 @@ function dj_4() {
 
 
     let color = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1'];
-    let names = ["普通党员", "预备党员", "书记", "委员"];
-    let data = [1044, 40, 170, 380];
+    let names = ["预备党员", "书记", "委员", "普通党员"];
+    let data = [17, 10, 15, 226];
     let list = [];
     let total = 0;
     for (let i in data) {
@@ -2046,73 +2040,45 @@ function tb_edu() {
 
 function tb_wn1() {
     var dataArray = [{
-            name: "武汉支队",
-            time: "2020-8-17 09:10",
+            name: "晴川站",
+            time: "2020-8-17 8:20",
             type: "政治教育",
-            content: "武汉支队本月11人考试不及格",
+            content: "晴川站本月1人考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-16 14:00",
-            type: "政治教育",
-            content: "孝感支队本月还有31人未参加学习",
-            flag: "最新预警"
-        },
-        {
-            name: "荆州支队",
-            time: "2020-8-16 08:00",
+            name: "墨水湖站",
+            time: "2020-8-16 12:00",
             type: "智慧党建",
-            content: "荆州支队有3个支部本月尚未开展主题党日活动",
+            content: "墨水湖站有2人本月尚未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
-            time: "2020-8-15 12:20",
-            type: "智慧党建",
-            content: "荆州支队有83人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-15 10:00",
+            name: "墨水湖站",
+            time: "2020-8-15 11:00",
             type: "心理测询",
-            content: "鄂州支队有12人心理测询异常",
+            content: "墨水湖站有2人心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-13 08:00",
+            name: "七里庙站",
+            time: "2020-8-12 9:00",
             type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            content: "七里庙站有1人本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-12 09:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-10 11:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 13:00",
+            name: "黄金口站",
+            time: "2020-8-09 12:00",
             type: "心理测询",
-            content: "宜昌支队有12人睡眠质量一直不良",
+            content: "黄金口站有1人睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-09 15:00",
+            name: "七里庙站",
+            time: "2020-8-09 11:00",
             type: "全员考核",
-            content: "宜昌支队有4人本月训练不合格",
+            content: "七里庙站有1人本月训练不合格",
             flag: "最新预警"
         }
     ];
@@ -2130,78 +2096,54 @@ function tb_wn1() {
 
 function tb_wn2() {
     var dataArray = [{
-            name: "黄石支队",
-            time: "2020-8-17 10:00",
+            name: "墨水湖站",
+            time: "2020-8-17 9:00",
             type: "心理测询",
-            content: "黄石支队有9人心理测询异常",
+            content: "墨水湖站有1人心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-17 09:10",
+            name: "黄金口站",
+            time: "2020-8-16 11:10",
             type: "政治教育",
-            content: "孝感支队本月14人考试不及格",
+            content: "黄金口站本月2人考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-16 08:00",
-            type: "智慧党建",
-            content: "孝感支队有1个支部本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-15 13:00",
+            name: "晴川站",
+            time: "2020-8-15 11:00",
             type: "心理测询",
-            content: "鄂州支队有4人睡眠质量一直不良",
+            content: "晴川站有1人睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-15 14:00",
+            name: "七里庙站",
+            time: "2020-8-15 12:30",
             type: "政治教育",
-            content: "孝感支队本月还有18人未参加学习",
+            content: "七里庙站本月还有2人未参加学习",
             flag: "最新预警"
         },
         {
-            name: "武汉支队",
-            time: "2020-8-15 12:20",
+            name: "七里庙站",
+            time: "2020-8-14 12:20",
             type: "智慧党建",
-            content: "武汉支队有44人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-
-        {
-            name: "十堰支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "十堰支队有3个支部本月尚未开展全员考核",
+            content: "七里庙站有1人本月尚未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "训保支队",
-            time: "2020-8-12 09:00",
+            name: "晴川站",
+            time: "2020-8-11 12:00",
             type: "全员考核",
-            content: "训保支队有14人本月被评定为不称职",
+            content: "晴川站有2人本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
-            time: "2020-8-09 15:00",
+            name: "墨水湖站",
+            time: "2020-8-08 15:00",
             type: "全员考核",
-            content: "鄂州支队有2人本月训练不合格",
+            content: "墨水湖站有1人本月训练不合格",
             flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "宜昌支队有19个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-
-
+        }
     ];
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
