@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-      overflow: hidden;
+      /* overflow: hidden; */
 }
 
 header {
@@ -61,14 +61,17 @@ header .bnt ul{
 header .bnt ul li{
   position: relative;
   top:0.2rem;
+  border:1px solid rgb(78,110,242);
+  border-radius:8px;
+  background-color: rgb(78,110,242);
   text-align: center;
   font-size: 0.18rem;
   color: #ffffff;
   padding: 0.1rem 0.25rem;
   margin-left: 0.45rem;
   font-family: electronicFont;
-  background:url(../images/bnt.png)  rgba(44, 135, 209, 0.6) no-repeat center;
-  background-size:100% 100%;
+  /* background:url(../images/bnt.png)  rgba(44, 135, 209, 0.6) no-repeat center; */
+  /* background-size:100% 100%; */
 
 }
 
@@ -676,6 +679,10 @@ td{
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+}
+
+td:nth-child(2n+1) {
+  background-color:rgba(135,206,235, 0.5);
 }
 
 tr:hover{
