@@ -597,7 +597,7 @@ function edu_1() {
             right: "12%",
             bottom: "10%",
             show: true,
-            borderColor: "white",
+            borderColor: "rgba(255,255,255,0.2)",
             containLabel: false
         },
         xAxis: {
@@ -631,13 +631,13 @@ function edu_1() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 9
+                fontSize: 12
             },
         },
         yAxis: [{
                 name: '平均分',
                 type: "value",
-                min: 60,
+                min: 70,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -648,14 +648,14 @@ function edu_1() {
                 // 修改y轴分割线的颜色
                 splitLine: {
                     lineStyle: {
-                        color: "#white"
+                        color: "rgba(255,255,255,0.2)",
                     }
                 }
             },
             {
                 name: '总完成率',
                 type: "value",
-                min: 60,
+                min: 70,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -865,7 +865,7 @@ function assess_1() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 9
+                fontSize: 12
             },
         },
         yAxis: {
