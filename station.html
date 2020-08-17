@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/station.css" />
 </head>
 
 <body>
@@ -103,13 +103,19 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment" onclick="toAssessment()">
+      <div class="panel assessment">
         <h2>全员考核</h2>
-        <div class="quarter-assess" id="assess_2"></div>
-        <div class="quarter-assess" id="assess_3"></div>
-        <div class="quarter-assess" id="assess_4"></div>
-        <div class="quarter-assess" id="assess_5"></div>
         <div class="half-assess" id="assess_1"></div>
+        <div class="half-assess" id="assess_2">
+          <h3>优秀人员列表</h3>
+          <table id="asswss_tb">
+            <tr>
+              <th>排名</th>
+              <th>姓名</th>
+              <th>分数</th>
+            </tr>
+          </table>
+        </div>
         <div class="panel-footer"></div>
       </div>
 
@@ -171,7 +177,7 @@
 <script src="js/flexible.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/echarts.min.js"></script>
-<script src="js/index.js"></script>
+<script src="js/station.js"></script>
 <script src="js/hubei.js"></script>
 <script src="js/myMap.js"></script>
 <script>
