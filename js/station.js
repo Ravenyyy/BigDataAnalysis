@@ -42,7 +42,7 @@ function heart_1() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -105,7 +105,7 @@ function heart_1() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -143,7 +143,7 @@ function heart_1() {
                         return '参评人数'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
@@ -255,7 +255,7 @@ function heart_2() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -318,7 +318,7 @@ function heart_2() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -356,7 +356,7 @@ function heart_2() {
                         return '心理咨询师数量'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
@@ -570,10 +570,158 @@ function heart_4() {
 function edu_1() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#edu_1"));
+    // 指定配置和数据
+    option = {
+        color: ['#FD866A', '#9E87FF', '#ff4343'],
+        title: {
+            text: '课程完成情况占比',
+            x: 'center',
+            y: '85%',
+            // subtext: '301',
+            textStyle: {
+                color: 'white',
+                fontSize: 11,
+                // align: 'center'
+            },
+            // subtextStyle: {
+            //     fontSize: 14,
+            //     color: ['#FD866A'],
+            // },
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        grid: {},
+        series: [{
+                name: "课程完成情况",
+                type: 'pie',
+                selectedMode: 'single',
+                radius: [0, '78%'],
+                label: {
+                    normal: {
+                        position: 'inner',
+                        formatter: "{b}: {d}%",
+                        textStyle: {
+                            fontSize: 11
+                        },
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    },
+                },
+                data: [{
+                    'name': '已完成',
+                    'value': 10
+                }, {
+                    'name': '正在学习',
+                    'value': 22
+                }, {
+                    'name': '未学习',
+                    'value': 28
+                }],
+            },
+            {
+                name: '干预情况',
+                type: 'pie',
+                radius: ['100%', '100%']
+            }
+        ]
+    };
+    // 把配置给实例对象
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    });
+
+}
+//政治教育2
+function edu_2() {
+    // 实例化对象
+    var myChart = echarts.init(document.querySelector("#edu_2"));
+    // 指定配置和数据
+    var colorList = ['#FD866A', '#58D5FF'];
+    option = {
+        title: {
+            text: '考试完成情况',
+            x: 'center',
+            y: 'center',
+            // subtext: '301',
+            textStyle: {
+                color: 'white',
+                fontSize: 10,
+                // align: 'center'
+            },
+            // subtextStyle: {
+            //     fontSize: 14,
+            //     color: ['#FD866A'],
+            // },
+        },
+        tooltip: {
+            trigger: 'item'
+
+        },
+        grid: {
+            // top: '1%',
+            left: 1,
+            right: 1,
+            // bottom: 1,
+            containLabel: true
+        },
+        series: [{
+            type: 'pie',
+            center: ['50%', '50%'],
+            radius: ['68%', '88%'],
+            // clockwise: true,
+            // avoidLabelOverlap: true,
+            hoverOffset: 15,
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        return colorList[params.dataIndex]
+                    },
+                    label: {
+                        show: true,
+                        position: 'outside',
+                        formatter: "{b}\n{d}%",
+                        fontSize: 12,
+                        fontWeight: 'bold',
+                    },
+                    labelLine: {
+                        length: 2,
+                        length2: 2,
+                        show: true,
+                        color: '#00ffff',
+
+                    }
+                }
+            },
+            data: [{
+                'name': '未考试',
+                'value': 19
+            }, {
+                'name': '已考试',
+                'value': 41
+            }],
+        }]
+    };
+    // 把配置给实例对象
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    });
+
+}
+
+//政治教育3
+function edu_3() {
+    // 实例化对象
+    var myChart = echarts.init(document.querySelector("#edu_3"));
     var data = {
         edu: [
-            [100, 100, 100, 100, 100, 100, 100, 100, 100, 82, 96, 100, 100, 100, 85],
-            [97.7, 95.3, 98.2, 96.5, 99.2, 97.8, 98.3, 95.7, 99.1, 83.2, 92.2, 89.2, 96.6, 97.5, 89.2]
+            [2, 6, 14, 28, 10]
         ]
     };
     // 指定配置和数据
@@ -582,46 +730,36 @@ function edu_1() {
         tooltip: {
             trigger: 'axis',
         },
-        legend: {
-            top: "5%",
-            // 距离容器10%
-            right: "30%",
-            // 修饰图例文字的颜色
-            textStyle: {
-                color: "#FFFFFF"
-            }
-        },
+        // legend: {
+        //     top: "5%",
+        //     // 距离容器10%
+        //     right: "5%",
+        //     // 修饰图例文字的颜色
+        //     textStyle: {
+        //         color: "#FFFFFF"
+        //     }
+        // },
         grid: {
-            top: "20%",
-            left: "8%",
-            right: "12%",
-            bottom: "10%",
-            show: true,
-            borderColor: "rgba(255,255,255,0.2)",
+            top: "1%",
+            left: "10%",
+            right: "6%",
+            bottom: "30%",
+            // show: true,
+            borderColor: "white",
             containLabel: false
         },
         xAxis: {
             type: "category",
-            boundaryGap: false,
-            axisPointer: {
-                type: 'shadow'
-            },
+            // boundaryGap: false,
+            // axisPointer: {
+            //     type: 'shadow'
+            // },
             data: [
-                "武汉",
-                "宜昌",
-                "鄂州",
-                "襄阳",
-                "黄石",
-                "荆门",
-                "咸宁",
-                "十堰",
-                "随州",
-                "孝感",
-                "荆州",
-                "黄冈",
-                "恩施",
-                "汉江",
-                "训保"
+                "[50,60)",
+                "[60,70)",
+                "[70,80)",
+                "[80,90)",
+                "[90,100]"
             ],
             // 修饰刻度标签的颜色
             axisLine: {
@@ -631,64 +769,31 @@ function edu_1() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 12
+                fontSize: 13
             },
         },
         yAxis: [{
-                name: '平均分',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "rgba(255,255,255,0.2)",
-                    }
+            name: '平均分',
+            type: "value",
+            // 修饰刻度标签的颜色
+            axisLine: {
+                lineStyle: {
+                    color: "white"
                 }
             },
-            {
-                name: '总完成率',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "#white"
-                    }
-                },
-                axisLabel: {
-                    formatter: '{value} %'
+            // 修改y轴分割线的颜色
+            splitLine: {
+                lineStyle: {
+                    color: "rgba(255,255,255,0.2)",
                 }
-            },
-        ],
+            }
+        }],
 
         series: [{
-                name: "总完成率",
-                type: "line",
-                // 是否让线条圆滑显示
-                smooth: true,
-                data: data.edu[0]
-            },
-            {
-                name: "平均分",
-                type: "line",
-                smooth: true,
-                data: data.edu[1]
-            }
-        ]
+            type: "bar",
+            width: "5%",
+            data: data.edu[0]
+        }]
     };
     // 把配置给实例对象
     myChart.setOption(option);
@@ -703,26 +808,119 @@ function smart() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('smart'));
 
-var getData = [
-    {"day":"2020-08-01","count":16},{"day":"2020-08-02","count":61},{"day":"2020-08-03","count":26},
-    {"day":"2020-08-04","count":62},{"day":"2020-08-05","count":36},{"day":"2020-08-06","count":64},
-    {"day":"2020-08-07","count":56},{"day":"2020-08-08","count":66},{"day":"2020-08-09","count":67},
-    {"day":"2020-08-10","count":69},{"day":"2020-08-11","count":60},{"day":"2020-08-12","count":11},
-    {"day":"2020-08-13","count":23},{"day":"2020-08-14","count":34},{"day":"2020-08-15","count":41},
-    {"day":"2020-08-16","count":51},{"day":"2020-08-17","count":13},{"day":"2020-08-18","count":6},
-    {"day":"2020-08-19","count":65},{"day":"2020-08-20","count":0},{"day":"2020-08-21","count":1},
-    {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
-    {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
-    {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
-    {"day":"2020-08-31","count":16}]
+    var getData = [{
+            "day": "2020-08-01",
+            "count": 16
+        }, {
+            "day": "2020-08-02",
+            "count": 61
+        }, {
+            "day": "2020-08-03",
+            "count": 26
+        },
+        {
+            "day": "2020-08-04",
+            "count": 62
+        }, {
+            "day": "2020-08-05",
+            "count": 36
+        }, {
+            "day": "2020-08-06",
+            "count": 64
+        },
+        {
+            "day": "2020-08-07",
+            "count": 56
+        }, {
+            "day": "2020-08-08",
+            "count": 66
+        }, {
+            "day": "2020-08-09",
+            "count": 67
+        },
+        {
+            "day": "2020-08-10",
+            "count": 69
+        }, {
+            "day": "2020-08-11",
+            "count": 60
+        }, {
+            "day": "2020-08-12",
+            "count": 11
+        },
+        {
+            "day": "2020-08-13",
+            "count": 23
+        }, {
+            "day": "2020-08-14",
+            "count": 34
+        }, {
+            "day": "2020-08-15",
+            "count": 41
+        },
+        {
+            "day": "2020-08-16",
+            "count": 51
+        }, {
+            "day": "2020-08-17",
+            "count": 13
+        }, {
+            "day": "2020-08-18",
+            "count": 6
+        },
+        {
+            "day": "2020-08-19",
+            "count": 65
+        }, {
+            "day": "2020-08-20",
+            "count": 0
+        }, {
+            "day": "2020-08-21",
+            "count": 1
+        },
+        {
+            "day": "2020-08-22",
+            "count": 2
+        }, {
+            "day": "2020-08-23",
+            "count": 77
+        }, {
+            "day": "2020-08-24",
+            "count": 77
+        },
+        {
+            "day": "2020-08-25",
+            "count": 89
+        }, {
+            "day": "2020-08-26",
+            "count": 34
+        }, {
+            "day": "2020-08-27",
+            "count": 22
+        },
+        {
+            "day": "2020-08-28",
+            "count": 26
+        }, {
+            "day": "2020-08-29",
+            "count": 36
+        }, {
+            "day": "2020-08-30",
+            "count": 76
+        },
+        {
+            "day": "2020-08-31",
+            "count": 16
+        }
+    ]
     var data1 = [];
     for (var i = 0; i < getData.length; i++) {
-        data1.push([getData[i].day,getData[i].count]);
-    } 
+        data1.push([getData[i].day, getData[i].count]);
+    }
     var option = {
         tooltip: {
             trigger: 'item',
-            formatter:'{a}<br/>{c}',
+            formatter: '{a}<br/>{c}',
         },
         calendar: [{
             top: "10%",
@@ -738,7 +936,9 @@ var getData = [
                     type: 'solid'
                 }
             },
-            yearLabel: {show: false},
+            yearLabel: {
+                show: false
+            },
             dayLabel: {
                 firstDay: 1,
                 margin: 8,
@@ -747,10 +947,10 @@ var getData = [
                     color: '#ffffff'
                 }
             },
-            itemStyle:{
-                color:"rgba(0, 0, 0, 0)",
-                borderColor:"rgba(255, 255, 255, 0.5)",
-                borderWidth:1
+            itemStyle: {
+                color: "rgba(0, 0, 0, 0)",
+                borderColor: "rgba(255, 255, 255, 0.5)",
+                borderWidth: 1
             }
         }],
         series: [{
@@ -758,11 +958,11 @@ var getData = [
             type: 'effectScatter',
             coordinateSystem: 'calendar',
             data: data1,
-            symbolSize: function(val) {
-                    val = val[1] / 7;
-                    val = val <5 ? 5 : Math.min(val, 9);
-                    return val;
-                },
+            symbolSize: function (val) {
+                val = val[1] / 7;
+                val = val < 5 ? 5 : Math.min(val, 9);
+                return val;
+            },
             itemStyle: {
                 normal: {
                     color: '#FA8072'
@@ -770,7 +970,7 @@ var getData = [
             },
             label: {
                 show: true,
-                formatter (params) {
+                formatter(params) {
                     return params.value[0].split("-")[2]
                 },
                 offset: [11, -11],
@@ -814,7 +1014,7 @@ function assess_1() {
         }
     ];
 
-    let formatNumber = function(num) {
+    let formatNumber = function (num) {
         let reg = /(?=(\B)(\d{3})+$)/g;
         return num.toString().replace(reg, ',');
     }
@@ -859,7 +1059,7 @@ function assess_1() {
                     borderWidth: 2
                 }
             }
-            
+
         }]
     };
 
@@ -874,50 +1074,62 @@ function assess_1() {
 //全员考核的两个数字仪表盘
 function assess_2() {
 
-    var dataArray =[
-        {
-            name:"李志伟", score:99
+    var dataArray = [{
+            name: "李志伟",
+            score: 99
         },
         {
-            name:"张世君", score:93
+            name: "张世君",
+            score: 93
         },
         {
-            name:"胡城瑞", score:98
+            name: "胡城瑞",
+            score: 98
         },
         {
-            name:"夏乾胜", score:97
+            name: "夏乾胜",
+            score: 97
         },
         {
-            name:"肖露", score:95
+            name: "肖露",
+            score: 95
         },
         {
-            name:"刘健", score:92
+            name: "刘健",
+            score: 92
         },
         {
-            name:"宋奎", score:94
+            name: "宋奎",
+            score: 94
         },
         {
-            name:"黎飞", score:97
+            name: "黎飞",
+            score: 97
         },
         {
-            name:"徐志恒", score:95
+            name: "徐志恒",
+            score: 95
         },
         {
-            name:"余峰", score:90
+            name: "余峰",
+            score: 90
         },
         {
-            name:"郭海涛", score:91
+            name: "郭海涛",
+            score: 91
         },
     ]
 
-    dataArray.sort(function(a, b){return b.score - a.score}); 
+    dataArray.sort(function (a, b) {
+        return b.score - a.score
+    });
     var tr = "";
-    var length = dataArray.length>10 ? 10:dataArray.length
-    for(var i=0; i<length; i++){
-      tr = tr+'<tr>'+
-            "<td>" + (i+1) + "</td>"+
-            "<td>" + dataArray[i].name + "</td>"+
-            "<td>" + dataArray[i].score + "</td>"+
+    var length = dataArray.length > 10 ? 10 : dataArray.length
+    for (var i = 0; i < length; i++) {
+        tr = tr + '<tr>' +
+            "<td>" + (i + 1) + "</td>" +
+            "<td>" + dataArray[i].name + "</td>" +
+            "<td>" + dataArray[i].score + "</td>" +
             '</tr>';
     }
     $('#asswss_tb').append(tr);
