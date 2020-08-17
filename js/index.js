@@ -597,7 +597,7 @@ function edu_1() {
             right: "12%",
             bottom: "10%",
             show: true,
-            borderColor: "white",
+            borderColor: "rgba(255,255,255,0.2)",
             containLabel: false
         },
         xAxis: {
@@ -631,13 +631,13 @@ function edu_1() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 9
+                fontSize: 12
             },
         },
         yAxis: [{
                 name: '平均分',
                 type: "value",
-                min: 60,
+                min: 70,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -648,14 +648,14 @@ function edu_1() {
                 // 修改y轴分割线的颜色
                 splitLine: {
                     lineStyle: {
-                        color: "#white"
+                        color: "rgba(255,255,255,0.2)",
                     }
                 }
             },
             {
                 name: '总完成率',
                 type: "value",
-                min: 60,
+                min: 70,
                 max: 100,
                 // 修饰刻度标签的颜色
                 axisLine: {
@@ -865,7 +865,7 @@ function assess_1() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 9
+                fontSize: 12
             },
         },
         yAxis: {
@@ -2047,7 +2047,7 @@ function tb_edu() {
 function tb_wn1() {
     var dataArray = [{
             name: "武汉支队",
-            time: "2020-8-17 9:10",
+            time: "2020-8-17 09:10",
             type: "政治教育",
             content: "武汉支队本月11人考试不及格",
             flag: "最新预警"
@@ -2061,7 +2061,7 @@ function tb_wn1() {
         },
         {
             name: "荆州支队",
-            time: "2020-8-16 8:00",
+            time: "2020-8-16 08:00",
             type: "智慧党建",
             content: "荆州支队有3个支部本月尚未开展主题党日活动",
             flag: "最新预警"
@@ -2082,14 +2082,14 @@ function tb_wn1() {
         },
         {
             name: "宜昌支队",
-            time: "2020-8-13 8:00",
+            time: "2020-8-13 08:00",
             type: "全员考核",
             content: "宜昌支队有2个支部本月尚未开展全员考核",
             flag: "最新预警"
         },
         {
             name: "宜昌支队",
-            time: "2020-8-12 9:00",
+            time: "2020-8-12 09:00",
             type: "全员考核",
             content: "宜昌支队有4人本月被评定为不称职",
             flag: "最新预警"
@@ -2138,14 +2138,14 @@ function tb_wn2() {
         },
         {
             name: "孝感支队",
-            time: "2020-8-17 9:10",
+            time: "2020-8-17 09:10",
             type: "政治教育",
             content: "孝感支队本月14人考试不及格",
             flag: "最新预警"
         },
         {
             name: "孝感支队",
-            time: "2020-8-16 8:00",
+            time: "2020-8-16 08:00",
             type: "智慧党建",
             content: "孝感支队有1个支部本月尚未开展主题党日活动",
             flag: "最新预警"
@@ -2174,14 +2174,14 @@ function tb_wn2() {
 
         {
             name: "十堰支队",
-            time: "2020-8-13 8:00",
+            time: "2020-8-13 08:00",
             type: "全员考核",
             content: "十堰支队有3个支部本月尚未开展全员考核",
             flag: "最新预警"
         },
         {
             name: "训保支队",
-            time: "2020-8-12 9:00",
+            time: "2020-8-12 09:00",
             type: "全员考核",
             content: "训保支队有14人本月被评定为不称职",
             flag: "最新预警"
