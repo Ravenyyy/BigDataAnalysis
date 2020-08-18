@@ -651,7 +651,7 @@ function edu_2() {
             // subtext: '301',
             textStyle: {
                 color: 'white',
-                fontSize: 10,
+                fontSize: 11,
                 // align: 'center'
             },
             // subtextStyle: {
@@ -1109,869 +1109,350 @@ function assess_2() {
     $('#asswss_tb').append(tr);
 }
 
-// 智慧党建
+// 智慧党建1
 function dj_1() {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('dj1'));
-
-    option = {
-        tooltip: {
-            formatter: "{b}：{c}"
-        },
-        series: [{
-            tooltip: {
-                show: false
-            },
-            "name": 'wrap',
-            "type": 'pie',
-            "hoverAnimation": false,
-            "legendHoverLink": false,
-            center: ['50%', '70%'],
-            "radius": ['0%', '7%'],
-            "z": 5,
-            "label": {
-                "normal": {
-                    "show": false,
-                    "position": 'center'
-                },
-                "emphasis": {
-                    "show": false
-                }
-            },
-            "labelLine": {
-                "normal": {
-                    "show": false
-                }
-            },
-            "data": [{
-                "value": 100,
-                itemStyle: {
-                    normal: {
-                        color: "#072B79"
-                    },
-                    emphasis: {
-                        color: "#072B79"
-                    }
-                }
-            }]
-        }, {
-            tooltip: {
-                show: false
-            },
-            "name": 'wrap',
-            "type": 'pie',
-            "hoverAnimation": false,
-            "legendHoverLink": false,
-            center: ['50%', '70%'],
-            "radius": ['6%', '8%'],
-            "z": 5,
-            "label": {
-                "normal": {
-                    "show": false,
-                    "position": 'center'
-                },
-                "emphasis": {
-                    "show": false
-                }
-            },
-            "labelLine": {
-                "normal": {
-                    "show": false
-                }
-            },
-            "data": [{
-                "value": 100,
-                itemStyle: {
-                    normal: {
-                        color: "#24D8E7"
-                    },
-                    emphasis: {
-                        color: "#24D8E7"
-                    }
-                }
-            }]
-        }, {
-            tooltip: {
-                show: false
-            },
-            name: '刻度',
-            type: 'gauge',
-            radius: '105%',
-            z: 1,
-            min: 0,
-            max: 1,
-            center: ['50%', '70%'],
-            splitNumber: 5, //刻度数量
-            startAngle: 180,
-            endAngle: 0,
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    width: 4,
-                    color: [
-                        [0.2, '#ed3f35'],
-                        [0.4, '#F88168'],
-                        [0.6, '#ffff00'],
-                        [0.8, '#00f2f1'],
-                        [1, '#7FFF00'],
-                    ]
-                }
-            }, //仪表盘轴线
-            axisLabel: {
-                show: false
-            }, //刻度标签。
-            axisTick: {
-                show: true,
-                lineStyle: {
-                    color: 'auto',
-                    width: 0
-                },
-                length: -15
-            }, //刻度样式
-            splitLine: {
-                show: true,
-                length: 0,
-                lineStyle: {
-                    color: 'auto',
-                    width: 2
-                }
-            }, //分隔线样式
-            detail: {
-                show: false
-            },
-            pointer: {
-                show: false
-            }
-        }, {
-            name: '本期',
-            type: 'gauge',
-            radius: '95%',
-            min: 0,
-            max: 1,
-            center: ['50%', '70%'],
-            data: [{
-                value: 0.89,
-                name: '支部开展率'
-            }],
-            splitNumber: 4, //刻度数量
-            startAngle: 180,
-            endAngle: 0,
-            z: 5,
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    width: 0,
-                    color: [
-                        [0.2, '#ed3f35'],
-                        [0.4, '#F88168'],
-                        [0.6, '#ffff00'],
-                        [0.8, '#00f2f1'],
-                        [1, '#7FFF00'],
-                    ]
-                }
-            }, //仪表盘轴线
-            axisLabel: {
-                show: true,
-                color: '#fff',
-                fontSize: 12,
-                distance: -35,
-                formatter: function (params) {
-                    var value = params.toFixed(2)
-                    if (value == 0.00) {
-                        return '危'
-                    } else if (value == 0.25) {
-                        return '差'
-                    } else if (value == 0.50) {
-                        return '中'
-                    } else if (value == 0.75) {
-                        return '良'
-                    } else if (value == 1.00) {
-                        return '优'
-                    } else {
-                        return ''
-                    }
-                }
-            }, //刻度标签。
-            axisTick: {
-                splitNumber: 10,
-                show: true,
-                lineStyle: {
-                    color: 'auto',
-                    width: 2
-                },
-                length: 6,
-            }, //刻度样式
-            splitLine: {
-                show: true,
-                length: 12,
-                lineStyle: {
-                    color: 'auto',
-                    width: 1
-                }
-            }, //分隔线样式
-
-            "itemStyle": {
-                "normal": {
-                    "color": "#24D8E7" //指针颜色
-                }
-            },
-            pointer: {
-                width: 5,
-                length: '85%'
-            },
-            detail: {
-                formatter: function (params) {
-                    return (params * 100).toFixed(0) + '%'
-                },
-                fontSize: 14,
-                offsetCenter: ['0%', '-50%']
-            },
-            title: {
-                offsetCenter: ['0', '40%'],
-                fontSize: 14,
-                color: "#fff",
-                show: true
-            },
-        }]
-    };
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-}
-
-function dj_2() {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('dj2'));
-
-
-    option = {
-        tooltip: {
-            formatter: "{b}：{c}"
-        },
-        series: [{
-            tooltip: {
-                show: false
-            },
-            "name": 'wrap',
-            "type": 'pie',
-            "hoverAnimation": false,
-            "legendHoverLink": false,
-            center: ['50%', '70%'],
-            "radius": ['0%', '7%'],
-            "z": 5,
-            "label": {
-                "normal": {
-                    "show": false,
-                    "position": 'center'
-                },
-                "emphasis": {
-                    "show": false
-                }
-            },
-            "labelLine": {
-                "normal": {
-                    "show": false
-                }
-            },
-            "data": [{
-                "value": 100,
-                itemStyle: {
-                    normal: {
-                        color: "#072B79"
-                    },
-                    emphasis: {
-                        color: "#072B79"
-                    }
-                }
-            }]
-        }, {
-            tooltip: {
-                show: false
-            },
-            "name": 'wrap',
-            "type": 'pie',
-            "hoverAnimation": false,
-            "legendHoverLink": false,
-            center: ['50%', '70%'],
-            "radius": ['6%', '8%'],
-            "z": 5,
-            "label": {
-                "normal": {
-                    "show": false,
-                    "position": 'center'
-                },
-                "emphasis": {
-                    "show": false
-                }
-            },
-            "labelLine": {
-                "normal": {
-                    "show": false
-                }
-            },
-            "data": [{
-                "value": 100,
-                itemStyle: {
-                    normal: {
-                        color: "#24D8E7"
-                    },
-                    emphasis: {
-                        color: "#24D8E7"
-                    }
-                }
-            }]
-        }, {
-            tooltip: {
-                show: false
-            },
-            name: '刻度',
-            type: 'gauge',
-            radius: '105%',
-            z: 1,
-            min: 0,
-            max: 1,
-            center: ['50%', '70%'],
-            splitNumber: 5, //刻度数量
-            startAngle: 180,
-            endAngle: 0,
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    width: 4,
-                    color: [
-                        [0.2, '#ed3f35'],
-                        [0.4, '#F88168'],
-                        [0.6, '#ffff00'],
-                        [0.8, '#00f2f1'],
-                        [1, '#7FFF00'],
-                    ]
-                }
-            }, //仪表盘轴线
-            axisLabel: {
-                show: false
-            }, //刻度标签。
-            axisTick: {
-                show: true,
-                lineStyle: {
-                    color: 'auto',
-                    width: 0
-                },
-                length: -15
-            }, //刻度样式
-            splitLine: {
-                show: true,
-                length: 0,
-                lineStyle: {
-                    color: 'auto',
-                    width: 2
-                }
-            }, //分隔线样式
-            detail: {
-                show: false
-            },
-            pointer: {
-                show: false
-            }
-        }, {
-            name: '本期',
-            type: 'gauge',
-            radius: '95%',
-            min: 0,
-            max: 1,
-            center: ['50%', '70%'],
-            data: [{
-                value: 0.71,
-                name: '党员参与率'
-            }],
-            splitNumber: 4, //刻度数量
-            startAngle: 180,
-            endAngle: 0,
-            z: 5,
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    width: 0,
-                    color: [
-                        [0.2, '#ed3f35'],
-                        [0.4, '#F88168'],
-                        [0.6, '#ffff00'],
-                        [0.8, '#00f2f1'],
-                        [1, '#7FFF00'],
-                    ]
-                }
-            }, //仪表盘轴线
-            axisLabel: {
-                show: true,
-                color: '#fff',
-                fontSize: 12,
-                distance: -35,
-                formatter: function (params) {
-                    var value = params.toFixed(2)
-                    if (value == 0.00) {
-                        return '危'
-                    } else if (value == 0.25) {
-                        return '差'
-                    } else if (value == 0.50) {
-                        return '中'
-                    } else if (value == 0.75) {
-                        return '良'
-                    } else if (value == 1.00) {
-                        return '优'
-                    } else {
-                        return ''
-                    }
-                }
-            }, //刻度标签。
-            axisTick: {
-                splitNumber: 10,
-                show: true,
-                lineStyle: {
-                    color: 'auto',
-                    width: 2
-                },
-                length: 6,
-            }, //刻度样式
-            splitLine: {
-                show: true,
-                length: 12,
-                lineStyle: {
-                    color: 'auto',
-                    width: 1
-                }
-            }, //分隔线样式
-
-            "itemStyle": {
-                "normal": {
-                    "color": "#24D8E7" //指针颜色
-                }
-            },
-            pointer: {
-                width: 5,
-                length: '85%'
-            },
-            detail: {
-                formatter: function (params) {
-                    return (params * 100).toFixed(0) + '%'
-                },
-                fontSize: 14,
-                offsetCenter: ['0%', '-50%']
-            },
-            title: {
-                offsetCenter: ['0', '40%'],
-                fontSize: 14,
-                color: "#fff",
-                show: true
-            },
-        }]
-    };
-
-    // 使用刚指定的配置项和数据显示图表。
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-}
-
-function dj_3() {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('dj3'));
-
-    var placeHolderStyle = {
-        normal: {
-            label: {
-                show: false
-            },
-            labelLine: {
-                show: false
-            },
-            color: "rgba(0,0,0,0)",
-            borderWidth: 0
-        },
-        emphasis: {
-            color: "rgba(0,0,0,0)",
-            borderWidth: 0
-        }
-    };
-
-
-    var dataStyle = {
-        normal: {
-            formatter: '{c}个',
-            position: 'center',
-            show: true,
-            textStyle: {
-                fontSize: '14',
-                fontWeight: 'normal',
-                color: '#ffffff'
-            }
-        }
-    };
-
-
-    option = {
-        title: [{
-            text: '党委数',
-            left: '20%',
-            y: 'bottom',
-            textAlign: 'center',
-            textStyle: {
-                fontWeight: 'normal',
-                fontSize: '14',
-                color: '#fff',
-                textAlign: 'center',
-            },
-        }, {
-            text: '支部数',
-            left: '75%',
-            y: 'bottom',
-            textAlign: 'center',
-            textStyle: {
-                color: '#fff',
-                fontWeight: 'normal',
-                fontSize: '14',
-                textAlign: 'center',
-            },
-        }],
-
-        //第一个图表
-        series: [{
-                type: 'pie',
-                hoverAnimation: false, //鼠标经过的特效
-                radius: ['55%', '75%'],
-                center: ['22%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 100,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#8470FF'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#00FFFF'
-                                }]),
-                            }
-                        },
-                    }, {
-                        value: 35,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
-            },
-            //上层环形配置
-            {
-                type: 'pie',
-                hoverAnimation: false, //鼠标经过的特效
-                radius: ['55%', '75%'],
-                center: ['22%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 212,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#8470FF'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#00FFFF'
-                                }]),
-                            }
-                        },
-                        label: dataStyle,
-                    }, {
-                        value: 220,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
-            },
-
-
-            //第二个图表
-            {
-                type: 'pie',
-                hoverAnimation: false,
-                radius: ['55%', '75%'],
-                center: ['77%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 100,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#00FF00'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#ffff00'
-                                }]),
-                            }
-                        },
-                    }, {
-                        value: 35,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
-            },
-
-            //上层环形配置
-            {
-                type: 'pie',
-                hoverAnimation: false,
-                radius: ['55%', '70%'],
-                center: ['77%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 984,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#00FF7F'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#ffff00'
-                                }]),
-                            }
-                        },
-                        label: dataStyle,
-                    }, {
-                        value: 1000,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
-            }
+    // 实例化对象
+    var myChart = echarts.init(document.querySelector("#dj1"));
+    var data = {
+        dj1: [
+            [95, 92, 98, 89, 82, 91, 92, 97, 95, 93]
         ]
     };
+    var color = ["#FD866A", "#00f2f1", '#FFE4C4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#9ACD32', "#CD4F39"],
+        // 指定配置和数据
+        option = {
+            tooltip: {
+                // trigger: 'axis',
+                trigger: 'item',
+                formatter: "开展情况<br/>{c}%"
+            },
+            grid: {
+                top: "10%",
+                left: "30%",
+                right: "1%",
+                bottom: "10%",
+                // show: true,
+                borderColor: "white",
+                containLabel: false
+            },
+            yAxis: {
+                type: "category",
+                data: [
+                    "缴纳党费",
+                    "重温誓词",
+                    "诵读党章",
+                    "集中学习",
+                    "民主议事",
+                    "特色实践",
+                    "党员汇报",
+                    "民主监督",
+                    "积分考评",
+                    "组织生活"
+                ],
+                // 修饰刻度标签的颜色
+                axisLine: {
+                    lineStyle: {
+                        color: "white"
+                    }
+                },
+                axisLabel: {
+                    // interval: 0,
+                    fontSize: 10
+                },
+            },
+            xAxis: [{
+                // name: '开展情况',
+                type: "value",
+                // 修饰刻度标签的颜色
+                min: 60,
+                // max: 100,
+                axisLine: {
+                    lineStyle: {
+                        color: "white",
+                        fontSize: 10
+                    }
+                },
+                // 修改y轴分割线的颜色
+                splitLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,0.2)",
+                    }
+                },
+                axisLabel: {
+                    formatter: '{value}%'
+                }
+            }],
 
-    // 使用刚指定的配置项和数据显示图表。
+            series: [{
+                type: "bar",
+                // width: "5%",
+                data: data.dj1[0],
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            return color[params.dataIndex]
+                        }
+                    }
+                },
+            }]
+        };
+    // 把配置给实例对象
     myChart.setOption(option);
     window.addEventListener("resize", function () {
         myChart.resize();
     });
+
 }
+//智慧党建2
+function dj_2() {
+    // 实例化对象
+    var myChart = echarts.init(document.querySelector("#dj2"));
+    var xData = ['党员大会', '支委会', '党小组会', '党课'];
+    var yData = ['70', '75', '82', '90'];
 
-function dj_4() {
-    // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('dj4'));
-
-
-    let color = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1'];
-    let names = ["普通党员", "预备党员", "书记", "委员"];
-    let data = [1044, 40, 170, 380];
-    let list = [];
-    let total = 0;
-    for (let i in data) {
-        total += data[i]
-    }
-
-    let placeHolderStyle = {
-        normal: {
-            label: {
-                show: false
-            },
-            labelLine: {
-                show: false
-            },
-            color: 'rgba(0, 0, 0, 0)',
-            borderColor: 'rgba(0, 0, 0, 0)',
-            borderWidth: 0
-        }
-    };
-
-    let rich = {
-        white: {
-            align: 'center',
-            padding: [3, 0]
-        }
-    };
-
-    for (let i in data) {
-        list.push({
-            value: data[i],
-            name: names[i],
-            itemStyle: {
-                normal: {
-                    borderWidth: 5,
-                    shadowBlur: 20,
-                    borderColor: color[i],
-                    shadowColor: color[i],
-                    color: color[i]
-                }
-            }
-        }, {
-            value: total / 30,
-            name: '',
-            itemStyle: placeHolderStyle
-        })
-    }
-
-    let func = (params) => {
-        let percent = ((params.value / total) * 100).toFixed(1)
-        let name = params.name.replace(/\n/g, '')
-        if (params.name !== '') {
-            return name + '\n{white|' + percent + '%}'
+    function rand(m, n) {
+        if (!n) {
+            return Math.floor(Math.random() * m);
         } else {
-            return ''
+            var c = n - m + 1;
+            return Math.floor(Math.random() * c + m);
         }
     }
 
+    function getMax(arr, key) {
+        var max = 0,
+            len = arr.length;
+        for (var i = 0; i < len; i++) {
+            var item = arr[i][key];
+            if (max < item) max = item;
+        }
+        return max;
+    }
+
+    function getValArr(arr, key) {
+        var val = [],
+            len = arr.length;
+        for (var i = 0; i < len; i++) {
+            val.push(arr[i][key]);
+        }
+        return val;
+    }
+
+    var arr = [];
+    for (var i = 0; i < 4; i++) {
+        arr.push({
+            name: xData[i],
+            amount: yData[i] // 采购金额
+        });
+    }
+
+    var max = getMax(arr, 'amount'),
+        angleAxisData = getValArr(arr, 'name');
+    $.each(arr, function (i, e) {
+        e.value = (e.amount / max * 100).toFixed(2);
+    });
+    // 指定配置和数据
     option = {
-        title: {
-            text: '人员概况',
-            left: 'center',
-            y: 'bottom',
-            textStyle: {
-                color: '#fff',
-                fontSize: 14
-            }
-        },
         tooltip: {
             trigger: 'item',
+            formatter: '{b}:{c}%',
             textStyle: {
-                fontSize: 14
-            },
-            formatter: '{b}:{c}人'
+                fontSize: 10,
+                color: '#fff',
+                fontFamily: 'Microsoft YaHei'
+            }
         },
-        series: [{
-                name: '',
-                type: 'pie',
-                clockWise: false,
-                startAngle: '90',
-                center: ['50%', '40%'],
-                radius: ['65%', '70%'],
-                hoverAnimation: false,
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,
-                            position: 'outside',
-                            formatter: func,
-                            rich: rich,
-                            fontSize: 8,
-                            fontWeight: 'bold',
-                        },
-                        labelLine: {
-                            length: 10,
-                            length2: 10,
-                            show: true,
-                            color: '#00ffff',
-
-                        }
-                    }
-                },
-                data: list,
-                animationType: 'scale',
-                animationEasing: 'elasticOut',
-                animationDelay: function (idx) {
-                    return idx * 50;
+        grid: {
+            top: "1%",
+            left: "10%",
+            right: "15%",
+            bottom: "10%",
+            // show: true,
+            borderColor: "white",
+            containLabel: false
+        },
+        angleAxis: {
+            type: 'category',
+            axisLine: {
+                lineStyle: {
+                    color: '#6d8a92'
                 }
             },
-            {
-                name: '',
-                type: 'pie',
-                center: ['50%', '40%'],
-                radius: ['49%', '49%'],
-                itemStyle: {
-                    color: 'transparant'
-                },
-                tooltip: {
-                    show: false
-                },
-                startAngle: '90',
-                data: [{
-                    value: total,
-                    name: '',
-                    label: {
-                        normal: {
-                            show: true,
-                            formatter: "党员人数\n{c|{c}} {b|}人",
-                            rich: {
-                                c: {
-                                    color: '#00f2f1',
-                                    fontSize: 14,
-                                    fontWeight: 'bold',
-                                    lineHeight: 5
-                                },
-                                b: {
-                                    color: '#00f2f1',
-                                    fontSize: 10,
-                                    lineHeight: 5
-                                }
-                            },
-                            textStyle: {
-                                fontSize: 14,
-                                fontWeight: 'bold',
-                                color: '#00f2f1',
-                            },
-                            position: 'center'
-                        }
-                    }
-                }]
+            axisLabel: {
+                interval: 0,
+                fontSize: 11,
+                color: '#fff',
+                fontFamily: 'Microsoft YaHei'
+            },
+            axisTick: {
+                show: false
+            },
+            data: angleAxisData,
+            z: 10
+        },
+        radiusAxis: {
+            max: 100,
+            min: 50,
+            axisTick: {
+                show: false
+            },
+            axisLine: {
+                show: true,
+                lineStyle: {
+                    color: '#6d8a92'
+                }
+            },
+            axisLabel: {
+                // formatter: '{value}%',
+                // textStyle: {
+                //     fontSize: 11,
+                //     color: '#61d9fb',
+                //     fontFamily: 'Microsoft YaHei'
+                // }
+                show: false
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    color: '#6d8a92'
+                }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: 'transparent'
+                }
             }
-        ]
+        },
+        polar: {
+            center: ['50%', '50%'],
+            radius: '65%',
+        },
+        series: [{
+            type: 'bar',
+            data: arr,
+            itemStyle: {
+                color: function (params) {
+                    var colorList = ['#5cc6ca', '#d87a7f', '#f5b97f', '#b6a2de'];
+                    return colorList[params.dataIndex];
+                }
+            },
+            coordinateSystem: 'polar',
+        }]
     };
-
-    // 使用刚指定的配置项和数据显示图表。
+    // 把配置给实例对象
     myChart.setOption(option);
     window.addEventListener("resize", function () {
         myChart.resize();
     });
+
 }
+//智慧党建2
+// function dj_2() {
+//     // 实例化对象
+//     var myChart = echarts.init(document.querySelector("#dj2"));
+//     var xData = ['党员大会', '支委会', '党小组会', '党课'];
+//     var yData = ['70', '75', '82', '90'];
+//     var colorList = ["#FD866A", "#00f2f1", '#FFE4C4', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#9ACD32', "#CD4F39"];
+//     // var colorList = ['#97e7ff', '#75f5ff', '#00deff', '#0093ff', '#2a5fcf']
+//     var visualMapPiecesData = [];
+//     for (var i = 0; i < xData.length; i++) {
+//         visualMapPiecesData.push({
+//             value: yData[i],
+//             label: xData[i],
+//             color: colorList[i]
+//         })
+//     }
+//     // 指定配置和数据
+//     option = {
+//         // title: {
+//         //     text: '早餐统计',
+//         //     textStyle: {
+//         //         fontSize: 12,
+//         //         color: "white"
+//         //     }
+//         // },
+//         tooltip: {
+//             trigger: 'item',
+//             formatter: function (params, ticket, callback) {
+//                 return params.name + ' : ' + ' (' + params.data + '%)'
+//             }
+//         },
+//         angleAxis: {
+//             axisLine: {
+//                 show: false
+//             },
+//             axisTick: {
+//                 show: false
+//             },
+//             axisLabel: {
+//                 show: false
+//             },
+//             splitLine: {
+//                 show: false
+//             },
+//             clockwise: false
+//         },
+//         radiusAxis: {
+//             type: 'category',
+//             data: xData,
+//             // radius: "100%",
+//             z: 100,
+//             axisLine: {
+//                 show: false
+//             },
+//             axisTick: {
+//                 show: false
+//             },
+//             axisLabel: {
+//                 show: false
+//             },
+//             splitLine: {
+//                 show: false
+//             }
+//         },
+//         polar: {},
+//         grid: {
+//             top: 0,
+//             left: "10%",
+//             right: "6%",
+//             bottom: "50%",
+//             // show: true,
+//             borderColor: "white",
+//             containLabel: false
+//         },
+//         visualMap: {
+//             top: 0,
+//             x: 'left',
+//             orient: 'vertical',
+//             textStyle: {
+//                 color: '#white'
+//             },
+//             pieces: visualMapPiecesData,
+//             outOfRange: {
+//                 color: '#999'
+//             }
+//         },
+//         series: [{
+//             type: 'bar',
+//             data: yData,
+//             coordinateSystem: 'polar',
+//             itemStyle: {
+//                 normal: {
+//                     // 定制显示（按顺序）
+//                     color: function (params) {
+//                         return colorList[params.dataIndex]
+//                     }
+//                 }
+//             }
+//         }]
+//     };
+//     // 把配置给实例对象
+//     myChart.setOption(option);
+//     window.addEventListener("resize", function () {
+//         myChart.resize();
+//     });
+
+// }
 
 function tb_edu() {
     var dataArray = [{
