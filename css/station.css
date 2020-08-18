@@ -477,6 +477,8 @@
     z-index: 5;
     height: 6.25rem;
     width: 100%;
+    background: url(../images/station.jpg);
+    background-size: 100% 100%;
   }
   
   .map .map1 {
@@ -685,6 +687,11 @@
     margin-right: 8px;
     text-decoration: none;
   }
+
+  /* .half-assess table{
+    overflow-x: auto;
+    height: 97%;
+  } */
   
   table {
     width: 100%;

@@ -950,12 +950,36 @@ function assess_2() {
         {
             name:"郭海涛", score:91
         },
+        {
+            name:"夏乾胜", score:97
+        },
+        {
+            name:"肖露", score:95
+        },
+        {
+            name:"刘健", score:92
+        },
+        {
+            name:"宋奎", score:94
+        },
+        {
+            name:"黎飞", score:97
+        },
+        {
+            name:"徐志恒", score:95
+        },
+        {
+            name:"余峰", score:90
+        },
+        {
+            name:"郭海涛", score:91
+        },
     ]
 
     dataArray.sort(function(a, b){return b.score - a.score}); 
     var tr = "";
     var length = dataArray.length>10 ? 10:dataArray.length
-    for(var i=0; i<length; i++){
+    for(var i=0; i<dataArray.length; i++){
       tr = tr+'<tr>'+
             "<td>" + (i+1) + "</td>"+
             "<td>" + dataArray[i].name + "</td>"+
