@@ -7,12 +7,12 @@ function heart_1() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `6776`,
+            text: `60`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
                 color: '#fff',
-                fontSize: 14,
+                fontSize: 18,
                 fontFamily: 'DINAlternate-Bold',
             }
         },
@@ -42,7 +42,7 @@ function heart_1() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["53%", "51%"],
+                radius: ["63%", "61%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -105,7 +105,7 @@ function heart_1() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "67%",
+                radius: "77%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -143,7 +143,7 @@ function heart_1() {
                         return '参评人数'
                     },
                     textStyle: {
-                        fontSize: 12
+                        fontSize: 14
                     }
                 },
                 data: [{
@@ -155,7 +155,7 @@ function heart_1() {
             //最外层圈
             {
                 "type": "pie",
-                "radius": ["0%", "70%"],
+                "radius": ["0%", "77%"],
                 "center": ["50%", "50%"],
                 "avoidLabelOverlap": false,
                 hoverAnimation: false,
@@ -220,12 +220,12 @@ function heart_2() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `98`,
+            text: `2`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
                 color: '#fff',
-                fontSize: 14,
+                fontSize: 18,
                 fontFamily: 'DINAlternate-Bold',
             }
         },
@@ -255,7 +255,7 @@ function heart_2() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["53%", "51%"],
+                radius: ["63%", "61%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -318,7 +318,7 @@ function heart_2() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "67%",
+                radius: "77%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -356,7 +356,7 @@ function heart_2() {
                         return '心理咨询师数量'
                     },
                     textStyle: {
-                        fontSize: 12
+                        fontSize: 14
                     }
                 },
                 data: [{
@@ -368,7 +368,7 @@ function heart_2() {
             //最外层圈
             {
                 "type": "pie",
-                "radius": ["0%", "70%"],
+                "radius": ["0%", "77%"],
                 "center": ["50%", "50%"],
                 "avoidLabelOverlap": false,
                 hoverAnimation: false,
@@ -429,16 +429,16 @@ function heart_3() {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_3"));
     // 指定配置和数据
-    var colorList = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
+    var colorList = ['#FF6EB4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
     option = {
         title: {
-            text: '异常人数\n301 人',
+            text: '异常人数\n3',
             x: 'center',
             y: '39%',
             // subtext: '301',
             textStyle: {
                 color: '#ffff00',
-                fontSize: 12,
+                fontSize: 16,
                 // align: 'center'
             },
             // subtextStyle: {
@@ -472,12 +472,12 @@ function heart_3() {
                         show: true,
                         position: 'outside',
                         formatter: "{b}\n{d}%",
-                        fontSize: 9,
+                        fontSize: 14,
                         fontWeight: 'bold',
                     },
                     labelLine: {
-                        length: 2,
-                        length2: 2,
+                        length: 15,
+                        length2: 10,
                         show: true,
                         color: '#00ffff',
 
@@ -534,7 +534,7 @@ function heart_4() {
                         position: 'inner',
                         formatter: "{b}: {c}人",
                         textStyle: {
-                            fontSize: 10
+                            fontSize: 16
                         },
                     }
                 },
@@ -545,10 +545,10 @@ function heart_4() {
                 },
                 data: [{
                     'name': '正在干预',
-                    'value': 81
+                    'value': 2
                 }, {
                     'name': '已干预',
-                    'value': 240
+                    'value': 1
                 }],
             },
             {
