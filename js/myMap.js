@@ -36,8 +36,8 @@ $(function () {
       },
       itemStyle: {
         normal: {
-          borderColor: '#fff',
-          areaColor: '#fff',
+          borderColor: '#2C87D1',
+          areaColor: '#2C87D1',
           borderWidth: 2,
         },//正常样式
         emphasis: {

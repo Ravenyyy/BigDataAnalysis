@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="修改首页部分细节">
+    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/myMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/whTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/whTeam.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/whMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +151,8 @@
     <MESSAGE value="修改 首页-智慧党建、风险预警2" />
     <MESSAGE value="cccc" />
     <MESSAGE value="修改css" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改css" />
+    <MESSAGE value="修改湖北地图、武汉地图" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改湖北地图、武汉地图" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597466191851">
@@ -164,10 +163,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597588646089" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597588266795">
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597718664222">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597588266795" />
+    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718664222" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597464654905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -180,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597586046761">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597718807305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597586046761" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718807305" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -196,10 +195,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="751" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597465844670" />
-    <state x="739" y="298" key="git4idea.merge.GitMergeDialog" timestamp="1597504952473">
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog" timestamp="1597718721256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504952473" />
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718721256" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597484453313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
