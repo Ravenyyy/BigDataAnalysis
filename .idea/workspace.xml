@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/hyTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/hyTeam.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/myMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/whMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/whTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whTeam.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +45,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
-    <property name="settings.editor.selected.configurable" value="preferences.customizations" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -135,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597727298152</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="修改字体大小">
+      <created>1597747768054</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597747768054</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +164,8 @@
     <MESSAGE value="cccc" />
     <MESSAGE value="修改css" />
     <MESSAGE value="修改湖北地图、武汉地图" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改湖北地图、武汉地图" />
+    <MESSAGE value="修改字体大小" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改字体大小" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597466191851">
@@ -173,10 +176,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597588646089" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597718664222">
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597747766101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718664222" />
+    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597747766101" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597464654905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -189,18 +192,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="660" y="226" key="MultipleFileMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597743354787" />
-    <state x="725" y="129" key="SettingsEditor" timestamp="1597466195444">
+    <state x="725" y="129" key="SettingsEditor" timestamp="1597747814118">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="725" y="129" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597466195444" />
+    <state x="725" y="129" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597747814118" />
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog" timestamp="1597504000848">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597727537913">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597747817633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597727537913" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597747817633" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
