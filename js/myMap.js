@@ -59,37 +59,37 @@ $(function () {
         {name: '黄冈市',name2:'黄冈支队' , value: 15000},
         {name: '咸宁市',name2:'咸宁支队' , value: 20000},
         {name: '随州市',name2:'随州支队' , value: 38000},
-        {name: '仙桃市',name2:'汉江支队' , value: 23000},
-        {name: '潜江市',name2:'汉江支队' , value: 23000},
+        {name: '仙桃市',name2:'' , value: 23000},
+        {name: '潜江市',name2:'' , value: 23000},
         {name: '天门市',name2:'汉江支队' , value: 23000},
         {name: '恩施土家族苗族自治州',name2:'恩施支队' , value: 0},
-        {name: '神农架林区',name2:'汉江支队' , value: 23000},
+        {name: '神农架林区',name2:'' , value: 23000},
       ],//value的值是上面visualMap属性中设置的颜色色系区间的值，即0~45000
       label: {
-        normal: {
-          show: true,
-          color:'#FFF',
-          fontSize:14,
-          formatter:function(val){
-            var area_content =  val['data'].name2 ;
-            return area_content.split("-").join("\n");
-          },//让series 中的文字进行换行
-        },
-        emphasis: {show: true}
-      },//地图中文字内容及样式控制
-    }]
+      normal: {
+        show: true,
+        color:'#FFF',
+        fontSize:14,
+        formatter:function(val){
+          var area_content =  val['data'].name2 ;
+          return area_content.split("-").join("\n");
+        },//让series 中的文字进行换行
+      },
+      emphasis: {show: true}
+    },//地图中文字内容及样式控制
+  }]
   };
   myChart.setOption(option, true);
-  /*myChart.on('click', function(params){
+  myChart.on('click', function(params){
       console.log(params.name);//此处写点击事件内容
       switch(params.name){
           case '武汉市':
-              location.href='new_wuhanindex.html';
+              location.href='whTeam.html';
               break;
           default:
               break;
       }
-  });//点击事件，此事件还可以用到柱状图等其他地图*/
+  });//点击事件，此事件还可以用到柱状图等其他地图
   window.addEventListener("resize", function () {
     myChart.resize();
   });
