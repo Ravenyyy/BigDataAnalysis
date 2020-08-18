@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/hyTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/hyTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/myMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/whMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/whTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whTeam.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597504763048</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="修改湖北地图、武汉地图细节">
+      <created>1597727298152</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1597727298152</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +181,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597464654905" />
+    <state x="184" y="86" key="MergeDialog" timestamp="1597743354773">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="86" key="MergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597743354773" />
+    <state x="660" y="226" key="MultipleFileMergeDialog" timestamp="1597743354787">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="660" y="226" key="MultipleFileMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597743354787" />
     <state x="725" y="129" key="SettingsEditor" timestamp="1597466195444">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -179,10 +197,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597718807305">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597727537913">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718807305" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597727537913" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

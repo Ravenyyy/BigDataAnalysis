@@ -73,7 +73,7 @@ $(function () {
                 normal: {
                     show: true,
                     color:'#FFF',
-                    fontSize:14,
+                    fontSize:16,
                     formatter:function(val){
                         var area_content =  val['data'].name2 ;
                         return area_content.split("-").join("\n");
