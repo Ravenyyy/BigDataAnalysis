@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="修改首页部分细节">
+    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/myMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/myMap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/whMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whMap.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -20,7 +26,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="cui" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,16 +46,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="settings.editor.selected.configurable" value="preferences.customizations" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="Y:\github\BigDataAnalysis\js" />
       <recent name="Y:\BigDataAnalysis" />
       <recent name="Y:\BigDataAnalysis\js" />
       <recent name="Y:\BigDataAnalysis\css" />
       <recent name="Y:\BigDataAnalysis\images" />
-      <recent name="C:\Users\85376\Desktop\测试用\echart\images" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -57,7 +63,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="facc40b3-efa8-449a-bdd2-012c810cb06b" name="Default Changelist" comment="" />
+      <changelist id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="修改首页部分细节" />
       <created>1597222129485</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -68,6 +74,7 @@
       <workItem from="1597464373455" duration="286000" />
       <workItem from="1597465694603" duration="15059000" />
       <workItem from="1597536480485" duration="10851000" />
+      <workItem from="1597718027455" duration="539000" />
     </task>
     <task id="LOCAL-00001" summary="删除多余文件">
       <created>1597465808434</created>
@@ -144,7 +151,8 @@
     <MESSAGE value="修改 首页-智慧党建、风险预警2" />
     <MESSAGE value="cccc" />
     <MESSAGE value="修改css" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改css" />
+    <MESSAGE value="修改湖北地图、武汉地图" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改湖北地图、武汉地图" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1042" y="122" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1597466191851">
@@ -155,10 +163,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597588646089" />
-    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597588266795">
+    <state x="558" y="24" key="CommitChangelistDialog2" timestamp="1597718664222">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597588266795" />
+    <state x="558" y="24" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718664222" />
     <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1597464654905">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -171,10 +179,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597586046761">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597718807305">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597586046761" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718807305" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -187,10 +195,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="751" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597465844670" />
-    <state x="739" y="298" key="git4idea.merge.GitMergeDialog" timestamp="1597504952473">
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog" timestamp="1597718721256">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504952473" />
+    <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718721256" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597484453313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

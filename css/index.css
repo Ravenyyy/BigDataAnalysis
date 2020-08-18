@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-  /* overflow: hidden; */
+   overflow: hidden;
 }
 
 header {
