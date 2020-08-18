@@ -1,6 +1,6 @@
 
 $(function () {
-  var myChart = echarts.init(document.getElementById('map'));
+  // var myChart = echarts.init(document.getElementById('map'));
   var option = {
     tooltip: {
       trigger: 'item',
@@ -79,7 +79,7 @@ $(function () {
       },//地图中文字内容及样式控制
     }]
   };
-  myChart.setOption(option, true);
+  // myChart.setOption(option, true);
   /*myChart.on('click', function(params){
       console.log(params.name);//此处写点击事件内容
       switch(params.name){
@@ -90,8 +90,8 @@ $(function () {
               break;
       }
   });//点击事件，此事件还可以用到柱状图等其他地图*/
-  window.addEventListener("resize", function () {
-    myChart.resize();
-  });
+  // window.addEventListener("resize", function () {
+  //   myChart.resize();
+  // });
 })
 

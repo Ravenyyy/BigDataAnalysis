@@ -254,89 +254,125 @@ function smart() {
 // 全员考核
 function assess_1() {
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.querySelector("#assess_1"));
+    var myChart = echarts.init(document.querySelector("#assess"));
+
+    var placeHolderStyle = {
+        normal: {
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            color: "rgba(0,0,0,0)",
+            borderWidth: 0
+        },
+        emphasis: {
+            color: "rgba(0,0,0,0)",
+            borderWidth: 0
+        }
+    };
+
+    var dataStyle = {
+        normal: {
+            formatter: '{c}',
+            position: 'center',
+            show: true,
+            textStyle: {
+                fontSize: '30',
+                fontWeight: 'normal',
+                color: '#ffffff'
+            }
+        }
+    };
 
     option = {
-        color: ["#ed3f35", "#BBFFFF", "#4EEE94", "#FAD860"],
-        tooltip: {
-            trigger: 'axis',
-            axisPointer: { // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
-        },
-        legend: {
-            top: '0',
-            data: ['优秀', '称职', '基本称职', '不称职'],
+        title: {
+            text: '本月考核',
+            left: '45%',
+            bottom: '20%',
+            textAlign: 'center',
             textStyle: {
-                color: "white"
-            }
+                color: '#fff',
+                fontWeight: 'normal',
+                fontSize: '25',
+                textAlign: 'center',
+            },
         },
-        grid: {
-            top: '10%',
-            left: '3%',
-            right: '5%',
-            bottom: '3%',
-            containLabel: true
-        },
-        xAxis: {
-            type: 'category',
-            data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
-            axisLine: {
-                lineStyle: {
-                    color: "white"
+        series:[{
+            type: 'pie',
+            hoverAnimation: false,
+            radius: ['55%', '75%'],
+            center: ['45%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
                 }
             },
-            axisLabel: {
-                interval: 0,
-                fontSize: 12
-            },
-        },
-        yAxis: {
-            type: 'value',
-            axisLine: {
-                lineStyle: {
-                    color: "white"
+            label: {
+                normal: {
+                    y: '40%'
                 }
             },
-            splitLine: {
-                lineStyle: {
-                    color: "rgba(255,255,255,0.1)",
-                }
-            }
+            data: [{
+                    value: 100,
+                    "itemStyle": {
+                        "normal": {
+                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                "offset": 0,
+                                "color": '#00FF00'
+                            }, {
+                                "offset": 1,
+                                "color": '#ffff00'
+                            }]),
+                        }
+                    },
+                }, {
+                    value: 35,
+                    itemStyle: placeHolderStyle,
+                },
+
+            ]
         },
-        series: [{
-                name: '优秀',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [320, 302, 301, 334, 390, 330, 320, 320, 302, 301, 334, 390, 330, 320, 230],
 
+        //上层环形配置
+        {
+            type: 'pie',
+            hoverAnimation: false,
+            radius: ['55%', '70%'],
+            center: ['45%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
             },
-            {
-                name: '称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [220, 232, 201, 134, 230, 230, 210, 320, 132, 101, 194, 270, 230, 210, 300],
-
+            label: {
+                normal: {
+                    y: '40%'
+                }
             },
-            {
-                name: '基本称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 234, 290, 330, 310, 199],
-
-            },
-            {
-                name: '不称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [150, 212, 201, 154, 190, 330, 410, 150, 212, 201, 154, 190, 330, 410, 251],
-
-            }
-        ]
+            data: [{
+                    value: "称职",
+                    "itemStyle": {
+                        "normal": {
+                            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                "offset": 0,
+                                "color": '#00FF7F'
+                            }, {
+                                "offset": 1,
+                                "color": '#ffff00'
+                            }]),
+                        }
+                    },
+                    label: dataStyle,
+                }, {
+                    value: 1000,
+                    itemStyle: placeHolderStyle,
+                },
+            ]
+        }]
     };
 
 
@@ -348,122 +384,6 @@ function assess_1() {
     window.addEventListener("resize", function () {
         myChart.resize();
     });
-}
-
-//全员考核的两个数字仪表盘
-function assess_2() {
-
-    option = {
-        title: {
-            text: '',
-            x: 'center',
-            y: 'center',
-            textStyle: {
-                rich: {
-                    a: {
-                        fontSize: 19,
-                        color: '#ffffff'
-                    },
-                    c: {
-                        fontSize: 12,
-                        color: '#ffffff',
-                        padding: [3, 3]
-                    },
-
-                }
-            }
-        },
-        grid: {
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0
-        },
-        series: [{
-            type: 'gauge',
-            radius: '90%',
-            clockwise: false,
-            startAngle: '90',
-            endAngle: '-269.9999',
-            //调整间隔距离
-            splitNumber: 0,
-            detail: {
-                offsetCenter: [0, -20],
-                formatter: ' '
-            },
-            pointer: {
-                show: false
-            },
-            axisLine: {
-                show: true,
-                lineStyle: {
-                    color: [
-                        [0, '#468EFD'],
-                        //计算比例
-                        [0.7622, 'rgba(32,187,252,0.15)'],
-
-                        [1, '#00F5FF']
-                    ],
-                    width: 6
-                }
-            },
-            axisTick: {
-                show: false
-            },
-            splitLine: {
-                show: true,
-                length: 0,
-                lineStyle: {
-                    width: 6
-                }
-            },
-            axisLabel: {
-                show: false
-            }
-        }]
-    };
-
-    let value = 50.3;
-    let title = '支部开展率';
-
-    option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
-    var myChart1 = echarts.init(document.querySelector("#assess_2"));
-    // 3. 把配置和数据给实例对象
-    myChart1.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart1.resize();
-    });
-
-    value = 78
-    title = '人员参与率'
-    option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
-    var myChart2 = echarts.init(document.querySelector("#assess_3"));
-    // 3. 把配置和数据给实例对象
-    myChart2.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart2.resize();
-    });
-
-    value = 1758
-    title = '优秀人数'
-    option.title.text = '{a|' + value + '}\n{c|' + title + '}'
-    var myChart3 = echarts.init(document.querySelector("#assess_4"));
-    // 3. 把配置和数据给实例对象
-    myChart3.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart3.resize();
-    });
-
-    value = 89
-    title = '不称职人数'
-    option.title.text = '{a|' + value + '}\n{c|' + title + '}'
-    var myChart4 = echarts.init(document.querySelector("#assess_5"));
-    // 3. 把配置和数据给实例对象
-    myChart4.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart4.resize();
-    });
-
 }
 
 // 智慧党建
@@ -1469,80 +1389,45 @@ function tb_edu() {
 
 function tb_wn1() {
     var dataArray = [{
-            name: "武汉支队",
             time: "2020-8-17 09:10",
             type: "政治教育",
-            content: "武汉支队本月11人考试不及格",
+            content: "考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
             time: "2020-8-16 14:00",
             type: "政治教育",
-            content: "孝感支队本月还有31人未参加学习",
+            content: "未参加学习",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
             time: "2020-8-16 08:00",
             type: "智慧党建",
-            content: "荆州支队有3个支部本月尚未开展主题党日活动",
+            content: "未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
             time: "2020-8-15 12:20",
             type: "智慧党建",
-            content: "荆州支队有83人本月尚未参加主题党日活动",
+            content: "参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
             time: "2020-8-15 10:00",
             type: "心理测询",
-            content: "鄂州支队有12人心理测询异常",
+            content: "心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
+            time: "2020-8-15 12:20",
+            type: "智慧党建",
+            content: "参加主题党日活动",
             flag: "最新预警"
         },
-        {
-            name: "宜昌支队",
-            time: "2020-8-12 09:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-10 11:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 13:00",
-            type: "心理测询",
-            content: "宜昌支队有12人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 15:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月训练不合格",
-            flag: "最新预警"
-        }
     ];
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
         tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
             "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
             "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
             "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
@@ -1553,87 +1438,82 @@ function tb_wn1() {
 
 function tb_wn2() {
     var dataArray = [{
-            name: "黄石支队",
             time: "2020-8-17 10:00",
             type: "心理测询",
-            content: "黄石支队有9人心理测询异常",
+            content: "心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
-            time: "2020-8-17 09:10",
-            type: "政治教育",
-            content: "孝感支队本月14人考试不及格",
-            flag: "最新预警"
-        },
-        {
-            name: "孝感支队",
             time: "2020-8-16 08:00",
             type: "智慧党建",
-            content: "孝感支队有1个支部本月尚未开展主题党日活动",
+            content: "未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
             time: "2020-8-15 13:00",
             type: "心理测询",
-            content: "鄂州支队有4人睡眠质量一直不良",
+            content: "睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
             time: "2020-8-15 14:00",
             type: "政治教育",
-            content: "孝感支队本月还有18人未参加学习",
+            content: "未参加学习",
             flag: "最新预警"
         },
         {
-            name: "武汉支队",
-            time: "2020-8-15 12:20",
+            time: "2020-8-16 08:00",
             type: "智慧党建",
-            content: "武汉支队有44人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-
-        {
-            name: "十堰支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "十堰支队有3个支部本月尚未开展全员考核",
+            content: "未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "训保支队",
-            time: "2020-8-12 09:00",
-            type: "全员考核",
-            content: "训保支队有14人本月被评定为不称职",
+            time: "2020-8-15 10:00",
+            type: "心理测询",
+            content: "心理测询异常",
             flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-09 15:00",
-            type: "全员考核",
-            content: "鄂州支队有2人本月训练不合格",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "宜昌支队有19个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-
-
+        }
     ];
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
         tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
             "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
             "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
             "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
             '</tr>';
     }
     $('#wn_tb2').append(tr);
+}
+
+function assess_tb() {
+    var dataArray = [{
+            name: "巡查",
+            content: "管控区域"
+        },
+        {
+            name: "训练",
+            content: "工作内容"
+        },
+        {
+            name: "执行任务",
+            content: "出警执行任务"
+        },
+        {
+            name: "执行任务",
+            content: "工作内容"
+        },
+        {
+            name: "训练",
+            content: "心理测询"
+        }
+    ];
+    var tr = "";
+    for (var i = 0; i < dataArray.length; i++) {
+        tr = tr + '<tr>' +
+            "<td>" + (i+1) + "</td>" +
+            "<td>" + dataArray[i].name + "</td>" +
+            "<td>" + dataArray[i].content + "</td>" +
+            '</tr>';
+    }
+    $('#assess_tb').append(tr);
 }
