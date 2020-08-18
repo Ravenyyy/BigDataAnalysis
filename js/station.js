@@ -704,12 +704,24 @@ function smart() {
     var myChart = echarts.init(document.getElementById('smart'));
 
 var getData = [
-    // {"day":"2020-08-01","count":16},{"day":"2020-08-02","count":61},{"day":"2020-08-03","count":26},
-    // {"day":"2020-08-04","count":62},{"day":"2020-08-05","count":36},{"day":"2020-08-06","count":64},
-    // {"day":"2020-08-07","count":56},{"day":"2020-08-08","count":66},{"day":"2020-08-09","count":67},
-    // {"day":"2020-08-10","count":69},{"day":"2020-08-11","count":60},{"day":"2020-08-12","count":11},
-    // {"day":"2020-08-13","count":23},{"day":"2020-08-14","count":34},{"day":"2020-08-15","count":41},
-    // {"day":"2020-08-16","count":51},{"day":"2020-08-17","count":13},{"day":"2020-08-18","count":6},
+    {day:"2020-08-01", sleep:9, train:11, drive:13, phone:25},
+    {day:"2020-08-02", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-03", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-04", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-05", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-06", sleep:9, train:11, drive:13, phone:25},
+    {day:"2020-08-07", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-08", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-09", sleep:9, train:11, drive:13, phone:25},
+    {day:"2020-08-10", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-11", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-12", sleep:9, train:11, drive:13, phone:25},
+    {day:"2020-08-13", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-14", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-15", sleep:9, train:11, drive:13, phone:25},
+    {day:"2020-08-16", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-17", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-18", sleep:9, train:11, drive:13, phone:25},
     {day:"2020-08-19", sleep:4, train:6, drive:9, phone:12},
     {day:"2020-08-20", sleep:7, train:3, drive:8, phone:10},
     {day:"2020-08-21", sleep:9, train:11, drive:13, phone:25},
@@ -918,7 +930,7 @@ function assess_2() {
 
     var dataArray =[
         {
-            name:"李志伟", score:99
+            name:"赵章全", score:99
         },
         {
             name:"张世君", score:93
@@ -927,22 +939,22 @@ function assess_2() {
             name:"胡城瑞", score:98
         },
         {
-            name:"夏乾胜", score:97
+            name:"谢杨", score:97
         },
         {
-            name:"肖露", score:95
+            name:"童更", score:95
         },
         {
             name:"刘健", score:92
         },
         {
-            name:"宋奎", score:94
+            name:"金星原", score:94
         },
         {
-            name:"黎飞", score:97
+            name:"李玉潇", score:97
         },
         {
-            name:"徐志恒", score:95
+            name:"尤黎明", score:95
         },
         {
             name:"余峰", score:90

@@ -451,7 +451,15 @@
     padding: 0.1rem;
   }
 
-  .half-assess h3 {
+  .half-assess2 {
+    width: 50%;
+    height: 90%;
+    float: left;
+    padding: 0.1rem;
+  }
+  
+
+  .half-assess2 h3 {
     height: 0.3rem;
     line-height: 0.3rem;
     text-align: center;
@@ -460,10 +468,12 @@
     font-weight: 400;
   }
 
-  .half-assess table{
+  .half-assess2 table{
     height: 2.75rem;
     width: 80%;
   }
+
+
   
   .map {
     position: relative;
