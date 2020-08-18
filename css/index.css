@@ -22,7 +22,7 @@ body {
   background-size: cover;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
-      /* overflow: hidden; */
+  /* overflow: hidden; */
 }
 
 header {
@@ -61,10 +61,10 @@ header .bnt ul {
 
 header .bnt ul li {
   position: relative;
-  top:0.2rem;
-  border:1px solid rgb(78,110,242);
-  border-radius:8px;
-  background-color: rgb(78,110,242);
+  top: 0.2rem;
+  border: 1px solid rgb(78, 110, 242);
+  border-radius: 8px;
+  background-color: rgb(78, 110, 242);
   text-align: center;
   font-size: 0.18rem;
   color: #ffffff;
@@ -465,6 +465,15 @@ header .bnt ul li a {
   width: 100%;
 }
 
+.map .images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 6.25rem;
+  width: 100%;
+}
+
 .map .map1 {
   width: 3.9875rem;
   height: 3.9875rem;
@@ -697,10 +706,10 @@ td {
 }
 
 td:nth-child(2n+1) {
-  background-color:rgba(135,206,235, 0.5);
+  background-color: rgba(135, 206, 235, 0.5);
 }
 
-tr:hover{
+tr:hover {
   background-color: rgba(185, 242, 240, 0.6);
 }
 

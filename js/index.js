@@ -42,7 +42,7 @@ function heart_1() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -105,7 +105,7 @@ function heart_1() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -143,7 +143,7 @@ function heart_1() {
                         return '参评人数'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
@@ -255,7 +255,7 @@ function heart_2() {
             // 进度圈
             {
                 type: 'pie',
-                radius: ["55%", "53%"],
+                radius: ["53%", "51%"],
                 startAngle: 270,
                 z: 10,
                 clockwise: false,
@@ -318,7 +318,7 @@ function heart_2() {
             {
                 // name: "白色圈刻度",
                 type: "gauge",
-                radius: "70%",
+                radius: "67%",
                 startAngle: 225, //刻度起始
                 endAngle: -134.8, //刻度结束
                 z: 4,
@@ -356,7 +356,7 @@ function heart_2() {
                         return '心理咨询师数量'
                     },
                     textStyle: {
-                        fontSize: 10
+                        fontSize: 12
                     }
                 },
                 data: [{
