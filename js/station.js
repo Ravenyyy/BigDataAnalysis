@@ -792,6 +792,7 @@ function edu_3() {
         series: [{
             type: "bar",
             width: "5%",
+            barWidth: '55%',
             data: data.edu[0]
         }]
     };
@@ -882,7 +883,7 @@ var getData = [
             left: 'center',
             range: '2020-08',
             orient: 'vertical',
-            cellSize: 36,
+            cellSize: [50, 36],
             splitLine: {
                 show: false,
                 lineStyle: {
@@ -907,7 +908,7 @@ var getData = [
             },
             itemStyle: {
                 color: "rgba(0, 0, 0, 0)",
-                borderColor: "rgba(255, 255, 255, 0.5)",
+                borderColor: "rgba(255, 255, 255, 1)",
                 borderWidth: 1
             }
         }],
@@ -1019,6 +1020,9 @@ function assess_1() {
                     borderColor: "rgba(255,255,255,0.2)",
                     borderWidth: 2
                 }
+            },
+            label:{
+                fontSize: 16
             }
 
         }]
@@ -1142,8 +1146,8 @@ function dj_1() {
             },
             grid: {
                 top: "10%",
-                left: "30%",
-                right: "1%",
+                left: "27%",
+                right: "8%",
                 bottom: "10%",
                 // show: true,
                 borderColor: "white",
@@ -1171,7 +1175,7 @@ function dj_1() {
                 },
                 axisLabel: {
                     // interval: 0,
-                    fontSize: 10
+                    fontSize: 12
                 },
             },
             xAxis: [{
@@ -1278,7 +1282,7 @@ function dj_2() {
         },
         grid: {
             top: "1%",
-            left: "10%",
+            left: "15%",
             right: "15%",
             bottom: "10%",
             // show: true,
@@ -1294,7 +1298,7 @@ function dj_2() {
             },
             axisLabel: {
                 interval: 0,
-                fontSize: 11,
+                fontSize: 15,
                 color: '#fff',
                 fontFamily: 'Microsoft YaHei'
             },
@@ -1322,7 +1326,7 @@ function dj_2() {
                 //     fontSize: 11,
                 //     color: '#61d9fb',
                 //     fontFamily: 'Microsoft YaHei'
-                // }
+                // },
                 show: false
             },
             splitLine: {

@@ -427,7 +427,7 @@ header .bnt ul li a {
   width: 49%;
   height: 100%;
   float: left;
-  padding: 0.25rem;
+  padding: 0.05rem;
 }
 
 .half-div {
@@ -440,13 +440,6 @@ header .bnt ul li a {
 .quarter-assess {
   width: 25%;
   height: 43%;
-  float: left;
-  padding: 0.1rem;
-}
-
-.half-assess2 {
-  width: 50%;
-  height: 90%;
   float: left;
   padding: 0.1rem;
 }
@@ -470,6 +463,15 @@ header .bnt ul li a {
 .half-assess table {
   height: 2.75rem;
   width: 80%;
+}
+
+.half-assess tr{
+  height: 0.21rem;
+}
+
+.half-assess table tr th:first-child, 
+.half-assess table tr td:first-child {
+  width: 0.6rem;;
 }
 
 .map {

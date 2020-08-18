@@ -405,12 +405,12 @@ function dj_1() {
             },
             grid: {
                 top: "10%",
-                left: "30%",
-                right: "1%",
+                left: "27%",
+                right: "8%",
                 bottom: "10%",
                 // show: true,
                 borderColor: "white",
-                containLabel: false
+                // containLabel: false
             },
             yAxis: {
                 type: "category",
@@ -434,7 +434,7 @@ function dj_1() {
                 },
                 axisLabel: {
                     // interval: 0,
-                    fontSize: 10
+                    fontSize: 11
                 },
             },
             xAxis: [{
@@ -486,12 +486,21 @@ function dj_2() {
     var myChart = echarts.init(document.querySelector("#dj2"));
     var data = {
         dj1: [
-            [0, 1, 1, 1]
+            [1, 2, 2, 2]
         ]
     };
     var color = ["#FD866A", "#00f2f1", '#FFE4C4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#9ACD32', "#CD4F39"],
         // 指定配置和数据
         option = {
+            title:{
+                show:true,
+                text:'三会一课参与情况',
+                right:"0",
+                textStyle:{
+                    fontSize:13,
+                    color:"#ffffff"
+                }
+            },
             tooltip: {
                 // trigger: 'axis',
                 trigger: 'item',
@@ -499,7 +508,7 @@ function dj_2() {
             },
             grid: {
                 top: "25%",
-                left: "25%",
+                left: "10%",
                 right: "10%",
                 bottom: "10%",
                 // show: true,
@@ -516,16 +525,16 @@ function dj_2() {
                     }
                 },
                 axisLabel: {
-                    // interval: 0,
+                    interval: 0,
                     fontSize: 10
                 },
             },
             yAxis: [{
-                name: '三会一课参与情况',
+                name: '次数',
                 type: "value",
                 // 修饰刻度标签的颜色
                 min: 0,
-                max: 1,
+                max: 3,
                 interval: 1,
                 axisLine: {
                     lineStyle: {
