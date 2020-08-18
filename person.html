@@ -63,9 +63,31 @@
       <div class="panel education" onclick="toEducation()">
         <h2>政治教育</h2>
         <div class="chart">
-          <div class="edu_line"></div>
-          <div class="edu_line"></div>
-          <div class="edu_line"></div>
+          <div class="edu_line">
+            <div class="edu_col1">课程完成情况</div>
+            <div class="edu_col2">
+              <div class="block">5</div>
+              <div class="block">/</div>
+              <div class="block">8</div>
+            </div>
+          </div>
+          <div class="edu_line">
+            <div class="edu_col1">考试完成情况</div>
+            <div class="edu_col2">
+              <div class="block">1</div>
+              <div class="block">0</div>
+              <div class="block">0</div>
+              <div class="block">%</div>
+            </div>
+          </div>
+          <div class="edu_line">
+            <div class="edu_col1">考试分数</div>
+            <div class="edu_col2">
+              <div class="block">0</div>
+              <div class="block">9</div>
+              <div class="block">6</div>
+            </div>
+          </div>
         </div>
         <div class="panel-footer"></div>
       </div>
@@ -96,7 +118,7 @@
         </div>
       </div>
       <div class="map">
-        <div class="chart" id="map"></div>
+        <!-- <div class="chart" id="map"></div> -->
         <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div>
@@ -104,11 +126,22 @@
 
       <div class="panel assessment" onclick="toAssessment()">
         <h2>全员考核</h2>
-        <div class="quarter-assess" id="assess_2"></div>
-        <div class="quarter-assess" id="assess_3"></div>
-        <div class="quarter-assess" id="assess_4"></div>
-        <div class="quarter-assess" id="assess_5"></div>
-        <div class="half-assess" id="assess_1"></div>
+        <div class="half-assess" id="assess"></div>
+        <div class="half-assess">
+          <div class="assess_row1">
+            <table id="assess_tb">
+              <tr>
+                <th class="tb_time">序号</th>
+                <th class="tb_type">工作名称</th>
+                <th class="tb_content">内容</th>
+              </tr>
+            </table>
+          </div>
+          <div class="assess_row2">
+            <div class="result">互评：称职（5/8）</div>
+            <div class="result">组织评定：优秀（3/5）</div>
+          </div>
+        </div>
         <div class="panel-footer"></div>
       </div>
 
@@ -132,7 +165,6 @@
         <div class="table">
           <table id="wn_tb1">
             <tr>
-              <th class="tb_zhidui">支队</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -145,7 +177,6 @@
         <div class="table1">
           <table id="wn_tb2">
             <tr>
-              <th class="tb_zhidui">支队</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -171,8 +202,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/person.js"></script>
-<script src="js/hubei.js"></script>
-<script src="js/myMap.js"></script>
+<!-- <script src="js/hubei.js"></script> -->
+<!-- <script src="js/myMap.js"></script> -->
 <script>
   // onload
   $(function () {
@@ -181,7 +212,6 @@
     smart();
 
     assess_1();
-    assess_2();
 
     dj_1();
     dj_2();
@@ -191,6 +221,7 @@
     tb_edu();
     tb_wn1();
     tb_wn2();
+    assess_tb();
 
   });
 

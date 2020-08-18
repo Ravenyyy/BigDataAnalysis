@@ -107,15 +107,17 @@
       <div class="panel assessment">
         <h2>全员考核</h2>
         <div class="half-assess" id="assess_1"></div>
-        <div class="half-assess" id="assess_2">
+        <div class="half-assess" id="assess_2" style="overflow-y: scroll;">
           <h3>优秀人员列表</h3>
-          <table id="asswss_tb">
-            <tr>
-              <th>排名</th>
-              <th>姓名</th>
-              <th>分数</th>
-            </tr>
-          </table>
+          <div class="flow" >
+            <table id="asswss_tb" onclick="toPerson()">
+              <tr>
+                <th>排名</th>
+                <th>姓名</th>
+                <th>分数</th>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="panel-footer"></div>
       </div>
@@ -179,8 +181,8 @@
 <script src="js/jquery.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/station.js"></script>
-<script src="js/hubei.js"></script>
-<script src="js/myMap.js"></script>
+<!-- <script src="js/hubei.js"></script> -->
+<!-- <script src="js/myMap.js"></script> -->
 <script>
   // onload
   $(function () {
@@ -214,6 +216,10 @@
 
   function toAssessment() {
     window.location = '/assess/assessment.html'
+  }
+
+  function toPerson(){
+    window.location = '/person.html'
   }
 </script>
 
