@@ -64,7 +64,11 @@
 
       <div class="panel education" onclick="toEducation()">
         <h2>政治教育</h2>
-        <div class="chart" id="edu_1"></div>
+        <div class="chart">
+          <div class="edu_line"></div>
+          <div class="edu_line"></div>
+          <div class="edu_line"></div>
+        </div>
         <div class="panel-footer"></div>
       </div>
 
@@ -72,10 +76,7 @@
         <h2>
           心理测询
         </h2>
-        <div class="quarter-div" id="heart_1"></div>
-        <div class="quarter-div" id="heart_2"></div>
-        <div class="quarter-div" id="heart_3"></div>
-        <div class="quarter-div" id="heart_4"></div>
+        <div class="chart" id="heart"></div>
         <div class="panel-footer"></div>
       </div>
     </div>
@@ -178,12 +179,7 @@
   // onload
   $(function () {
 
-    heart_1();
-    heart_2();
-    heart_3();
-    heart_4();
-
-    edu_1();
+    heart();
     smart();
 
     assess_1();
