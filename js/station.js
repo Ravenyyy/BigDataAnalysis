@@ -704,25 +704,61 @@ function smart() {
     var myChart = echarts.init(document.getElementById('smart'));
 
 var getData = [
-    {"day":"2020-08-01","count":16},{"day":"2020-08-02","count":61},{"day":"2020-08-03","count":26},
-    {"day":"2020-08-04","count":62},{"day":"2020-08-05","count":36},{"day":"2020-08-06","count":64},
-    {"day":"2020-08-07","count":56},{"day":"2020-08-08","count":66},{"day":"2020-08-09","count":67},
-    {"day":"2020-08-10","count":69},{"day":"2020-08-11","count":60},{"day":"2020-08-12","count":11},
-    {"day":"2020-08-13","count":23},{"day":"2020-08-14","count":34},{"day":"2020-08-15","count":41},
-    {"day":"2020-08-16","count":51},{"day":"2020-08-17","count":13},{"day":"2020-08-18","count":6},
-    {"day":"2020-08-19","count":65},{"day":"2020-08-20","count":0},{"day":"2020-08-21","count":1},
-    {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
-    {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
-    {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
-    {"day":"2020-08-31","count":16}]
+    // {"day":"2020-08-01","count":16},{"day":"2020-08-02","count":61},{"day":"2020-08-03","count":26},
+    // {"day":"2020-08-04","count":62},{"day":"2020-08-05","count":36},{"day":"2020-08-06","count":64},
+    // {"day":"2020-08-07","count":56},{"day":"2020-08-08","count":66},{"day":"2020-08-09","count":67},
+    // {"day":"2020-08-10","count":69},{"day":"2020-08-11","count":60},{"day":"2020-08-12","count":11},
+    // {"day":"2020-08-13","count":23},{"day":"2020-08-14","count":34},{"day":"2020-08-15","count":41},
+    // {"day":"2020-08-16","count":51},{"day":"2020-08-17","count":13},{"day":"2020-08-18","count":6},
+    {day:"2020-08-19", sleep:4, train:6, drive:9, phone:12},
+    {day:"2020-08-20", sleep:7, train:3, drive:8, phone:10},
+    {day:"2020-08-21", sleep:9, train:11, drive:13, phone:25},
+    // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
+    // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
+    // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
+    {day:"2020-08-31", sleep:8, train:7, drive:9, phone:17}]
     var data1 = [];
     for (var i = 0; i < getData.length; i++) {
-        data1.push([getData[i].day,getData[i].count]);
+        var sum = getData[i].sleep+getData[i].train+getData[i].drive+getData[i].phone
+        data1.push([getData[i].day,sum])
     } 
+
+    var color = ["#00f2f1", "#ed3f35", "#BBFFFF", "#4EEE94"]
+
     var option = {
         tooltip: {
             trigger: 'item',
-            formatter:'{a}<br/>{c}',
+            formatter:function (params, ticket, callback) {
+                console.log(params);
+                var htmlStr = '';
+                var seriesName = params.seriesName;//图例名称    
+                htmlStr += seriesName + '<br/>';//x轴的名称
+                // console.log(getData);
+
+                for(var j=0; j<4; j++){
+                    var sname = ''
+                    var svalue = ''
+                    if(j==0){
+                        sname = '睡眠质量不良'
+                        svalue = getData[j].sleep
+                    }else if(j==1){
+                        sname = '训练不合格'
+                        svalue = getData[j].train
+                    }else if(j==2){
+                        sname = '违规驾驶'
+                        svalue = getData[j].drive
+                    }else if(j==3){
+                        sname = '手机违规使用'
+                        svalue = getData[j].phone
+                    }
+
+                    htmlStr +='<div>';
+                    htmlStr += '<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:'+color[j]+';"></span>';
+                    htmlStr += sname + '：' + svalue
+                    htmlStr += '</div>'
+                } 
+                return htmlStr;
+            }
         },
         calendar: [{
             top: "10%",
@@ -739,6 +775,7 @@ var getData = [
                 }
             },
             yearLabel: {show: false},
+            monthLabel:{show: false},
             dayLabel: {
                 firstDay: 1,
                 margin: 8,
@@ -753,30 +790,35 @@ var getData = [
                 borderWidth:1
             }
         }],
-        series: [{
-            name: '活跃用户统计',
-            type: 'effectScatter',
-            coordinateSystem: 'calendar',
-            data: data1,
-            symbolSize: function(val) {
-                    val = val[1] / 7;
-                    val = val <5 ? 5 : Math.min(val, 9);
-                    return val;
+        series: [
+            {
+                name: '违规人员统计',
+                type: 'effectScatter',
+                coordinateSystem: 'calendar',
+                data: data1,
+                symbolSize: function(val) {
+                        val = val[1] / 7;
+                        if(val != 0){
+                            val = val <5 ? 5 : Math.min(val, 9);
+                        }
+                        return val;
+                    },
+                itemStyle: {
+                    normal: {
+                        color: '#FA8072'
+                    }
                 },
-            itemStyle: {
-                normal: {
-                    color: '#FA8072'
+                label: {
+                    show: true,
+                    formatter (params) {
+                        return params.value[0].split("-")[2]
+                    },
+                    offset: [11, -11],
+                    color: '#FFFFFF'
                 }
-            },
-            label: {
-                show: true,
-                formatter (params) {
-                    return params.value[0].split("-")[2]
-                },
-                offset: [11, -11],
-                color: '#FFFFFF'
             }
-        }]
+        ]
+
     };
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
@@ -1926,73 +1968,52 @@ function tb_edu() {
 
 function tb_wn1() {
     var dataArray = [{
-            name: "武汉支队",
+            name: "翁超",
             time: "2020-8-17 09:10",
             type: "政治教育",
-            content: "武汉支队本月11人考试不及格",
+            content: "考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
+            name: "刘彦淇",
             time: "2020-8-16 14:00",
             type: "政治教育",
-            content: "孝感支队本月还有31人未参加学习",
+            content: "未参加学习",
             flag: "最新预警"
         },
         {
-            name: "荆州支队",
-            time: "2020-8-16 08:00",
-            type: "智慧党建",
-            content: "荆州支队有3个支部本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "荆州支队",
+            name: "王功行",
             time: "2020-8-15 12:20",
             type: "智慧党建",
-            content: "荆州支队有83人本月尚未参加主题党日活动",
+            content: "未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
+            name: "文军",
             time: "2020-8-15 10:00",
             type: "心理测询",
-            content: "鄂州支队有12人心理测询异常",
+            content: "心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
+            name: "赵章全",
             time: "2020-8-12 09:00",
             type: "全员考核",
-            content: "宜昌支队有4人本月被评定为不称职",
+            content: "本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
-            time: "2020-8-10 11:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
+            name: "王锦巍",
             time: "2020-8-09 13:00",
             type: "心理测询",
-            content: "宜昌支队有12人睡眠质量一直不良",
+            content: "睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "宜昌支队",
+            name: "李玉潇",
             time: "2020-8-09 15:00",
             type: "全员考核",
-            content: "宜昌支队有4人本月训练不合格",
+            content: "本月训练不合格",
             flag: "最新预警"
         }
     ];
@@ -2010,77 +2031,61 @@ function tb_wn1() {
 
 function tb_wn2() {
     var dataArray = [{
-            name: "黄石支队",
+            name: "史意芳",
             time: "2020-8-17 10:00",
             type: "心理测询",
-            content: "黄石支队有9人心理测询异常",
+            content: "心理测询异常",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
+            name: "潘栋",
             time: "2020-8-17 09:10",
             type: "政治教育",
-            content: "孝感支队本月14人考试不及格",
+            content: "考试不及格",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
+            name: "余峰",
             time: "2020-8-16 08:00",
             type: "智慧党建",
-            content: "孝感支队有1个支部本月尚未开展主题党日活动",
+            content: "未参加主题党日活动",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
+            name: "曹雷",
             time: "2020-8-15 13:00",
             type: "心理测询",
-            content: "鄂州支队有4人睡眠质量一直不良",
+            content: "睡眠质量一直不良",
             flag: "最新预警"
         },
         {
-            name: "孝感支队",
+            name: "何予栋",
             time: "2020-8-15 14:00",
             type: "政治教育",
-            content: "孝感支队本月还有18人未参加学习",
+            content: "本月还未参加学习",
             flag: "最新预警"
         },
         {
-            name: "武汉支队",
-            time: "2020-8-15 12:20",
-            type: "智慧党建",
-            content: "武汉支队有44人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-
-        {
-            name: "十堰支队",
+            name: "孙小康",
             time: "2020-8-13 08:00",
             type: "全员考核",
-            content: "十堰支队有3个支部本月尚未开展全员考核",
+            content: "未参加全员考核",
             flag: "最新预警"
         },
         {
-            name: "训保支队",
+            name: "谌基海",
             time: "2020-8-12 09:00",
             type: "全员考核",
-            content: "训保支队有14人本月被评定为不称职",
+            content: "本月被评定为不称职",
             flag: "最新预警"
         },
         {
-            name: "鄂州支队",
+            name: "张云",
             time: "2020-8-09 15:00",
             type: "全员考核",
-            content: "鄂州支队有2人本月训练不合格",
+            content: "本月训练不合格",
             flag: "最新预警"
         },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "宜昌支队有19个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-
 
     ];
     var tr = "";

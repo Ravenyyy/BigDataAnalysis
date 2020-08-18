@@ -1,695 +1,118 @@
 // 心理测询1
-function heart_1() {
+function heart() {
     // 实例化对象
-    var myChart = echarts.init(document.querySelector("#heart_1"));
-    var value = 82;
+    var myChart = echarts.init(document.querySelector("#heart"));
     // 指定配置和数据
     var option = {
-        color: ["#ff9d6f", "#00f2f1"],
-        title: {
-            text: `6776`,
-            left: 'center',
-            top: 'center', //top待调整
-            textStyle: {
-                color: '#fff',
-                fontSize: 14,
-                fontFamily: 'DINAlternate-Bold',
-            }
+        title:{
+          text:"无需干预",
+          right: "10%",
+          textStyle:{
+              color:"#7CFC00"
+          }
         },
-        xAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            }
-        },
-        yAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            }
-        },
-        series: [
-            // 进度圈
-            {
-                type: 'pie',
-                radius: ["55%", "53%"],
-                startAngle: 270,
-                z: 10,
-                clockwise: false,
-                hoverAnimation: false,
-                data: [{
-                        value: value,
-                        itemStyle: {
-                            normal: {
-                                borderWidth: 3,
-                                borderColor: {
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                                    }]
-                                },
-                                color: { // 完成的圆环的颜色
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                                    }]
-                                }
-                            },
-                        },
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        pointer: {
-                            show: false
-                        },
-                    },
-                    {
-                        name: 'gap',
-                        value: 110 - value,
-                        itemStyle: {
-                            normal: {
-                                label: {
-                                    show: false
-                                },
-                                labelLine: {
-                                    show: false
-                                },
-                                color: 'rgba(0, 0, 0, 0)',
-                                borderColor: 'rgba(0, 0, 0, 0)',
-                                borderWidth: 0,
-                            }
-                        },
-                    }
-                ]
-            },
-            //刻度尺
-            {
-                // name: "白色圈刻度",
-                type: "gauge",
-                radius: "70%",
-                startAngle: 225, //刻度起始
-                endAngle: -134.8, //刻度结束
-                z: 4,
-                axisTick: {
-                    show: true,
-                    lineStyle: {
-                        width: 1,
-                        color: '#00f2f1'
-                    }
-                },
-                splitLine: {
-                    length: 12, //刻度节点线长度
-                    lineStyle: {
-                        width: 1,
-                        color: '#00f2f1'
-                    } //刻度节点线
-                },
-                axisLabel: {
-                    color: 'rgba(255,255,255,0)',
-                    fontSize: 12,
-                }, //刻度节点文字颜色
-                pointer: {
-                    show: false
-                },
-                axisLine: {
-                    lineStyle: {
-                        opacity: 0
-                    }
-                },
-                detail: {
-                    show: true,
-                    offsetCenter: [0, '120%'],
-                    color: '#fff',
-                    formatter: function (params) {
-                        return '参评人数'
-                    },
-                    textStyle: {
-                        fontSize: 10
-                    }
-                },
-                data: [{
-                    value: 0,
-                    name: ""
-                }]
-            },
-
-            //最外层圈
-            {
-                "type": "pie",
-                "radius": ["0%", "70%"],
-                "center": ["50%", "50%"],
-                "avoidLabelOverlap": false,
-                hoverAnimation: false,
-
-                "label": {
-                    "normal": {
-                        "show": false,
-                        "position": "center"
-                    },
-                    "emphasis": {
-                        "show": false,
-                        "textStyle": {
-                            "fontWeight": "bold"
-                        }
-                    }
-                },
-                "itemStyle": {
-                    "normal": {
-                        "color": {
-                            "type": "radial",
-                            "x": 0.5,
-                            "y": 0.5,
-                            "r": 0.5,
-                            "colorStops": [{
-                                "offset": 0.05,
-                                "color": "rgba(21,24,65, 0.2)"
-                            }, {
-                                "offset": 0.5,
-                                "color": "rgba(21,24,65, 0.3)"
-                            }, {
-                                "offset": 0.95,
-                                "color": "rgba(4,121,112,.6)",
-                            }]
-                        }
-                    }
-                },
-                "labelLine": {
-                    "normal": {
-                        "show": false
-                    }
-                },
-                "data": [{
-                    "value": 3235
-                }]
-            }
-        ]
-    };
-
-    // 把配置给实例对象
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-
-}
-// 心理测询2
-function heart_2() {
-    // 实例化对象
-    var myChart = echarts.init(document.querySelector("#heart_2"));
-    var value = 82;
-    // 指定配置和数据
-    var option = {
-        color: ["#ff9d6f", "#00f2f1"],
-        title: {
-            text: `98`,
-            left: 'center',
-            top: 'center', //top待调整
-            textStyle: {
-                color: '#fff',
-                fontSize: 14,
-                fontFamily: 'DINAlternate-Bold',
-            }
-        },
-        xAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            }
-        },
-        yAxis: {
-            splitLine: {
-                show: false
-            },
-            axisLabel: {
-                show: false
-            },
-            axisLine: {
-                show: false
-            }
-        },
-        series: [
-            // 进度圈
-            {
-                type: 'pie',
-                radius: ["55%", "53%"],
-                startAngle: 270,
-                z: 10,
-                clockwise: false,
-                hoverAnimation: false,
-                data: [{
-                        value: value,
-                        itemStyle: {
-                            normal: {
-                                borderWidth: 3,
-                                borderColor: {
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                                    }]
-                                },
-                                color: { // 完成的圆环的颜色
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                                    }]
-                                }
-                            },
-                        },
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        pointer: {
-                            show: false
-                        },
-                    },
-                    {
-                        name: 'gap',
-                        value: 110 - value,
-                        itemStyle: {
-                            normal: {
-                                label: {
-                                    show: false
-                                },
-                                labelLine: {
-                                    show: false
-                                },
-                                color: 'rgba(0, 0, 0, 0)',
-                                borderColor: 'rgba(0, 0, 0, 0)',
-                                borderWidth: 0,
-                            }
-                        },
-                    }
-                ]
-            },
-            //刻度尺
-            {
-                // name: "白色圈刻度",
-                type: "gauge",
-                radius: "70%",
-                startAngle: 225, //刻度起始
-                endAngle: -134.8, //刻度结束
-                z: 4,
-                axisTick: {
-                    show: true,
-                    lineStyle: {
-                        width: 1,
-                        color: 'rgba(1,244,255, 0.9)'
-                    }
-                },
-                splitLine: {
-                    length: 12, //刻度节点线长度
-                    lineStyle: {
-                        width: 1,
-                        color: 'rgba(1,244,255, 0.9)'
-                    } //刻度节点线
-                },
-                axisLabel: {
-                    color: 'rgba(255,255,255,0)',
-                    fontSize: 12,
-                }, //刻度节点文字颜色
-                pointer: {
-                    show: false
-                },
-                axisLine: {
-                    lineStyle: {
-                        opacity: 0
-                    }
-                },
-                detail: {
-                    show: true,
-                    offsetCenter: [0, '120%'],
-                    color: '#fff',
-                    formatter: function (params) {
-                        return '心理咨询师数量'
-                    },
-                    textStyle: {
-                        fontSize: 10
-                    }
-                },
-                data: [{
-                    value: 0,
-                    name: ""
-                }]
-            },
-
-            //最外层圈
-            {
-                "type": "pie",
-                "radius": ["0%", "70%"],
-                "center": ["50%", "50%"],
-                "avoidLabelOverlap": false,
-                hoverAnimation: false,
-
-                "label": {
-                    "normal": {
-                        "show": false,
-                        "position": "center"
-                    },
-                    "emphasis": {
-                        "show": false,
-                        "textStyle": {
-                            "fontWeight": "bold"
-                        }
-                    }
-                },
-                "itemStyle": {
-                    "normal": {
-                        "color": {
-                            "type": "radial",
-                            "x": 0.5,
-                            "y": 0.5,
-                            "r": 0.5,
-                            "colorStops": [{
-                                "offset": 0.05,
-                                "color": "rgba(21,24,65, 0.2)"
-                            }, {
-                                "offset": 0.5,
-                                "color": "rgba(21,24,65, 0.3)"
-                            }, {
-                                "offset": 0.95,
-                                "color": "rgba(4,121,112,.6)",
-                            }]
-                        }
-                    }
-                },
-                "labelLine": {
-                    "normal": {
-                        "show": false
-                    }
-                },
-                "data": [{
-                    "value": 3235
-                }]
-            }
-        ]
-    };
-
-    // 把配置给实例对象
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-
-}
-//心里测询3
-function heart_3() {
-    // 实例化对象
-    var myChart = echarts.init(document.querySelector("#heart_3"));
-    // 指定配置和数据
-    var colorList = ['#ff4343', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
-    option = {
-        title: {
-            text: '异常人数\n301 人',
-            x: 'center',
-            y: '39%',
-            // subtext: '301',
-            textStyle: {
-                color: '#ffff00',
-                fontSize: 12,
-                // align: 'center'
-            },
-            // subtextStyle: {
-            //     fontSize: 14,
-            //     color: ['#FD866A'],
-            // },
+        grid:{
+            top:"12%",
+            bottom:"12%"
         },
         tooltip: {
-            trigger: 'item'
+            show: true,
+            trigger: 'item',
+            padding: [5, 10],
+            formatter: function(params) {
+              let parm = [{
+                    name: '躁狂',
+                    max: 10
+                },
+                {
+                    name: '抑郁',
+                    max: 10
+                },
+                {
+                    name: '焦虑',
+                    max: 10
+                },
+                {
+                    name: '敌对',
+                    max: 10
+                },
+                {
+                    name: '强迫',
+                    max: 10
+                },
+                {
+                    name: '其他',
+                    max: 10
+                }
+            ]
+              let obj = ''
+              for (let i=0;i<parm.length;i++) {
+                obj =  obj + '<div style="display: flex;align-items:center;justify-content:space-between;"><span>' + parm[i].name 
+                + '：</span><span style="margin-left:5px">' + (params.data.value[i]-3) + '分</span></div>\n'
+              }
+              return params.seriesName + obj
+            }
+            
         },
-        grid: {
-            // top: '1%',
-            left: 1,
-            right: 1,
-            // bottom: 1,
-            containLabel: true
+        radar: {
+            splitNumber: 4,
+            name: {
+                textStyle: {
+                    color: '#fff',
+                    backgroundColor: 'rgba(255,255,255,0.2)',
+                    borderRadius: 3,
+                    padding: [2, 2]
+                }
+            },
+            indicator: [{
+                    name: '躁狂',
+                    max: 10
+                },
+                {
+                    name: '抑郁',
+                    max: 10
+                },
+                {
+                    name: '焦虑',
+                    max: 10
+                },
+                {
+                    name: '敌对',
+                    max: 10
+                },
+                {
+                    name: '强迫',
+                    max: 10
+                },
+                {
+                    name: '其他',
+                    max: 10
+                }
+            ]
         },
         series: [{
-            type: 'pie',
-            center: ['50%', '50%'],
-            radius: ['60%', '80%'],
-            // clockwise: true,
-            // avoidLabelOverlap: true,
-            hoverOffset: 15,
-            itemStyle: {
+            name: '心理测询',
+            type: 'radar',
+            areaStyle: {
                 normal: {
-                    color: function (params) {
-                        return colorList[params.dataIndex]
-                    },
-                    label: {
-                        show: true,
-                        position: 'outside',
-                        formatter: "{b}\n{d}%",
-                        fontSize: 9,
-                        fontWeight: 'bold',
-                    },
-                    labelLine: {
-                        length: 2,
-                        length2: 2,
-                        show: true,
-                        color: '#00ffff',
-
-                    }
-                }
+                    width: 1,
+                    opacity: 0.7,
+                },
             },
             data: [{
-                'name': '躁狂',
-                'value': 101
-            }, {
-                'name': '强迫',
-                'value': 29
-            }, {
-                'name': '其他',
-                'value': 15
-            }, {
-                'name': '抑郁',
-                'value': 40
-            }, {
-                'name': '敌对',
-                'value': 11
-            }, {
-                'name': '焦虑',
-                'value': 105
-            }],
-        }]
-    };
-    // 把配置给实例对象
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
-
-}
-//心里测询4
-function heart_4() {
-    // 实例化对象
-    var myChart = echarts.init(document.querySelector("#heart_4"));
-    // 指定配置和数据
-    option = {
-        color: ['#9E87FF', '#FD866A'],
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b}: {c} ({d}%)"
-        },
-        grid: {},
-        series: [{
-                name: "干预情况",
-                type: 'pie',
-                selectedMode: 'single',
-                radius: [0, '80%'],
-                label: {
+                itemStyle: {
                     normal: {
-                        position: 'inner',
-                        formatter: "{b}: {c}人",
-                        textStyle: {
-                            fontSize: 10
+                        color: '#67abff',
+                        lineStyle: {
+                            color: '#67abff',
                         },
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        show: false
                     },
                 },
-                data: [{
-                    'name': '正在干预',
-                    'value': 81
-                }, {
-                    'name': '已干预',
-                    'value': 240
-                }],
-            },
-            {
-                name: '干预情况',
-                type: 'pie',
-                radius: ['100%', '100%']
-            }
-        ]
+                value: [3,3,3,3,3,3]
+            }]
+        }]
     };
-    // 把配置给实例对象
-    myChart.setOption(option);
-    window.addEventListener("resize", function () {
-        myChart.resize();
-    });
 
-}
-
-//政治教育1
-function edu_1() {
-    // 实例化对象
-    var myChart = echarts.init(document.querySelector("#edu_1"));
-    var data = {
-        edu: [
-            [100, 100, 100, 100, 100, 100, 100, 100, 100, 82, 96, 100, 100, 100, 85],
-            [97.7, 95.3, 98.2, 96.5, 99.2, 97.8, 98.3, 95.7, 99.1, 83.2, 92.2, 89.2, 96.6, 97.5, 89.2]
-        ]
-    };
-    // 指定配置和数据
-    option = {
-        color: ["#FD866A", "#00f2f1"],
-        tooltip: {
-            trigger: 'axis',
-        },
-        legend: {
-            top: "5%",
-            // 距离容器10%
-            right: "30%",
-            // 修饰图例文字的颜色
-            textStyle: {
-                color: "#FFFFFF"
-            }
-        },
-        grid: {
-            top: "20%",
-            left: "8%",
-            right: "12%",
-            bottom: "10%",
-            show: true,
-            borderColor: "rgba(255,255,255,0.2)",
-            containLabel: false
-        },
-        xAxis: {
-            type: "category",
-            boundaryGap: false,
-            axisPointer: {
-                type: 'shadow'
-            },
-            data: [
-                "武汉",
-                "宜昌",
-                "鄂州",
-                "襄阳",
-                "黄石",
-                "荆门",
-                "咸宁",
-                "十堰",
-                "随州",
-                "孝感",
-                "荆州",
-                "黄冈",
-                "恩施",
-                "汉江",
-                "训保"
-            ],
-            // 修饰刻度标签的颜色
-            axisLine: {
-                lineStyle: {
-                    color: "white"
-                }
-            },
-            axisLabel: {
-                interval: 0,
-                fontSize: 12
-            },
-        },
-        yAxis: [{
-                name: '平均分',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "rgba(255,255,255,0.2)",
-                    }
-                }
-            },
-            {
-                name: '总完成率',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "#white"
-                    }
-                },
-                axisLabel: {
-                    formatter: '{value} %'
-                }
-            },
-        ],
-
-        series: [{
-                name: "总完成率",
-                type: "line",
-                // 是否让线条圆滑显示
-                smooth: true,
-                data: data.edu[0]
-            },
-            {
-                name: "平均分",
-                type: "line",
-                smooth: true,
-                data: data.edu[1]
-            }
-        ]
-    };
     // 把配置给实例对象
     myChart.setOption(option);
     window.addEventListener("resize", function () {
@@ -708,7 +131,7 @@ function smart() {
         grid: {
             left: '6%',
             top: '20%',
-            right: '0%',
+            right: '3%',
             bottom: '8%',
             containLabel: true
         },
@@ -725,10 +148,10 @@ function smart() {
                     fontSize: '14',
                 }
             },
-            data: ['手机违规使用人数',
-                '违规驾驶人数',
-                '训练不合格人数',
-                '睡眠质量不良人数'
+            data: ['手机违规使用次数',
+                '违规驾驶次数',
+                '训练不合格次数',
+                '睡眠质量不良次数'
             ]
         }, {
             axisTick: 'none',
@@ -739,7 +162,7 @@ function smart() {
                     fontSize: '16',
                 }
             },
-            data: ['114', '145', '101', '70']
+            data: ['1', '2', '0', '5']
         }, {
             name: '',
             nameGap: '50',
@@ -758,7 +181,7 @@ function smart() {
                 name: '条',
                 type: 'bar',
                 yAxisIndex: 0,
-                data: ['114', '145', '101', '70'],
+                data: ['1', '2', '0', '5'],
                 barWidth: 8,
                 itemStyle: {
                     normal: {
@@ -774,7 +197,7 @@ function smart() {
                 type: 'bar',
                 yAxisIndex: 1,
                 barGap: '-100%',
-                data: [149, 149, 149, 149],
+                data: [10, 10, 10, 10],
                 barWidth: 12,
                 itemStyle: {
                     normal: {
@@ -788,7 +211,7 @@ function smart() {
                 type: 'bar',
                 yAxisIndex: 2,
                 barGap: '-100%',
-                data: [150, 150, 150, 150],
+                data: [10, 10, 10, 10],
                 barWidth: 18,
                 itemStyle: {
                     normal: {

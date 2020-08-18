@@ -671,6 +671,12 @@
     margin-right: 8px;
     text-decoration: none;
   }
+
+  .edu_line{
+    height: 33%;
+    width: 100%;
+    padding: 2px 10px;
+  }
   
   table {
     width: 100%;

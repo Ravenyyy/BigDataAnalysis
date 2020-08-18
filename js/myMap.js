@@ -60,10 +60,10 @@ $(function () {
         {name: '咸宁市',name2:'咸宁支队' , value: 20000},
         {name: '随州市',name2:'随州支队' , value: 38000},
         {name: '仙桃市',name2:'汉江支队' , value: 23000},
-        {name: '潜江市',name2:'汉江支队' , value: 23000},
-        {name: '天门市',name2:'汉江支队' , value: 23000},
+        {name: '潜江市',name2:'' , value: 23000},
+        {name: '天门市',name2:'' , value: 23000},
         {name: '恩施土家族苗族自治州',name2:'恩施支队' , value: 0},
-        {name: '神农架林区',name2:'汉江支队' , value: 23000},
+        {name: '神农架林区',name2:'' , value: 23000},
       ],//value的值是上面visualMap属性中设置的颜色色系区间的值，即0~45000
       label: {
         normal: {
