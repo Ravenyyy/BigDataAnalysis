@@ -679,8 +679,10 @@ function edu_1() {
             }
         ]
     };
+
     // 把配置给实例对象
     myChart.setOption(option);
+
     window.addEventListener("resize", function () {
         myChart.resize();
     });
@@ -914,8 +916,13 @@ function assess_1() {
     // 3. 把配置和数据给实例对象
     myChart.setOption(option);
 
-    // 重新把配置好的新数据给实例对象
-    myChart.setOption(option);
+    myChart.on('click', function(params){
+        if(params.dataIndex == 1){
+            window.location = 'station.html'
+        }
+    })
+
+
     window.addEventListener("resize", function () {
         myChart.resize();
     });
