@@ -368,7 +368,7 @@ function heart_2() {
             //最外层圈
             {
                 "type": "pie",
-                "radius": ["0%", "70%"],
+                "radius": ["0%", "77%"],
                 "center": ["50%", "50%"],
                 "avoidLabelOverlap": false,
                 hoverAnimation: false,

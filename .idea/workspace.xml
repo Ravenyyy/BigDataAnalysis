@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="">
+    <list default="true" id="9220fe0d-8181-444e-b0f9-8986875783d4" name="Default Changelist" comment="修改字体大小">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hyTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/hyTeam.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/hyTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/hyTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/station.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/station.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/whTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/whTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/person.html" beforeDir="false" afterPath="$PROJECT_DIR$/person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/station.html" beforeDir="false" afterPath="$PROJECT_DIR$/station.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whTeam.html" beforeDir="false" afterPath="$PROJECT_DIR$/whTeam.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +161,17 @@
       </list>
     </option>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/BigDataAnalysis" />
@@ -200,10 +219,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="ShowDiffWithBranchDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597504000848" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597747817633">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1597748674919">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597747817633" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597748674919" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1597504343101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -220,6 +239,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="298" key="git4idea.merge.GitMergeDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597718721256" />
+    <state x="654" y="293" key="git4idea.merge.GitPullDialog" timestamp="1597748791258">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="654" y="293" key="git4idea.merge.GitPullDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1597748791258" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597484453313">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

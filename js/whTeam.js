@@ -220,7 +220,7 @@ function heart_2() {
     var option = {
         color: ["#ff9d6f", "#00f2f1"],
         title: {
-            text: `21`,
+            text: `30`,
             left: 'center',
             top: 'center', //top待调整
             textStyle: {
