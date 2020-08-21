@@ -2127,6 +2127,33 @@ function tb_wn1() {
             '</tr>';
     }
     $('#wn_tb1').append(tr);
+
+    addTableClick("wn_tb1", dataArray);
+}
+
+function addTableClick(tableName, dataArray){
+    $("#" +tableName+ " > tbody tr").each(function(trindex, tritem){
+        $(tritem).click(function(){
+
+            if(tableName == "wn_tb1"){
+                $(".modal-body > p").text("最新风险预警信息")
+            }else{
+                $(".modal-body > p").text("正在处理风险预警信息")
+            }
+            document.getElementById("simpleModal").style.display = "block";
+            var tdContent = dataArray[trindex-1]
+            $('#modal-ul').find("li").each(function(index, item){
+                console.log(item);
+                if(index==0){
+                    $(item).text("来源：" + tdContent.type)
+                }else if(index==1){
+                    $(item).text("详情：" + tdContent.content)
+                }else if(index==2){
+                    $(item).text("状态：" + "正在处理")
+                }
+            })
+        })
+    })
 }
 
 function tb_wn2() {
@@ -2214,4 +2241,6 @@ function tb_wn2() {
             '</tr>';
     }
     $('#wn_tb2').append(tr);
+
+    addTableClick("wn_tb2", dataArray);
 }
