@@ -847,7 +847,7 @@ var getData = [
         tooltip: {
             trigger: 'item',
             formatter: function (params, ticket, callback) {
-                console.log(params);
+                // console.log(params);
                 var htmlStr = '';
                 var seriesName = params.seriesName; //图例名称    
                 htmlStr += seriesName + '<br/>'; //x轴的名称
