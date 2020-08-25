@@ -5,19 +5,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="css/person.css" />
+  <link rel="stylesheet" href="../css/index.css" />
 </head>
 
 <body>
   <header>
-    <h1>七里庙消防救援队伍教育管理大数据研判平台</h1>
+    <h1>湖北消防救援队伍教育管理大数据研判平台</h1>
     <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
     <div class="bnt">
       <ul>
         <li><a href="#">报告下载</a></li>
         <li><a href="#">月份选择</a></li>
         <li><a href="#">分析研判</a></li>
-        <li><a href="station.html">返回消防站</a></li>
+        <li><a href="index.html">返回首页</a></li>
       </ul>
     </div>
     <script>
@@ -55,40 +55,16 @@
 
       <div class="panel dangjian">
         <h2>智慧党建</h2>
-        <div class="half-div2" id="dj1"></div>
-        <div class="half-div2" id="dj2"></div>
+        <div class="quarter-div" id="dj1"></div>
+        <div class="quarter-div" id="dj2"></div>
+        <div class="quarter-div" id="dj3"></div>
+        <div class="quarter-div" id="dj4"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education" onclick="toEducation()">
+      <div class="panel education">
         <h2>政治教育</h2>
-        <div class="chart">
-          <div class="edu_line">
-            <div class="edu_col1">课程完成情况</div>
-            <div class="edu_col2">
-              <div class="block">5</div>
-              <div class="block">/</div>
-              <div class="block">8</div>
-            </div>
-          </div>
-          <div class="edu_line">
-            <div class="edu_col1">考试完成情况</div>
-            <div class="edu_col2">
-              <div class="block">1</div>
-              <div class="block">0</div>
-              <div class="block">0</div>
-              <div class="block">%</div>
-            </div>
-          </div>
-          <div class="edu_line">
-            <div class="edu_col1">考试分数</div>
-            <div class="edu_col2">
-              <div class="block">0</div>
-              <div class="block">9</div>
-              <div class="block">6</div>
-            </div>
-          </div>
-        </div>
+        <div class="chart" id="edu_1"></div>
         <div class="panel-footer"></div>
       </div>
 
@@ -96,45 +72,44 @@
         <h2>
           心理测询
         </h2>
-        <div class="chart" id="heart"></div>
+        <div class="quarter-div" id="heart_1"></div>
+        <div class="quarter-div" id="heart_2"></div>
+        <div class="quarter-div" id="heart_3"></div>
+        <div class="quarter-div" id="heart_4"></div>
         <div class="panel-footer"></div>
       </div>
     </div>
     <div class="column">
-
-      <div class="map">
-        <div class="left"></div>
-        <div class="right">
-          <ul style="padding:30px; color:aliceblue; font-size: 25px;">
-            <li>ID：9939</li>
-            <li>姓名：赵章全</li>
-            <li>性别：男</li>
-            <li>出生年月：1992-12-03</li>
-            <li>部门：七里庙站</li>
-            <li>职务：中队一般干部</li>
-            <li>电话：18672377341</li>
+      <div class="no">
+        <div class="no-hd">
+          <ul>
+            <li class="shadow-green">7523</li>
+            <li class="shadow-yellow">6776</li>
+            <li class="shadow-red">109</li>
           </ul>
         </div>
+        <div class="no-bd">
+          <ul>
+            <li style="color: white">全省指战员</li>
+            <li style="color: white">活跃人员</li>
+            <li style="color: white">重点关注人员</li>
+          </ul>
+        </div>
+      </div>
+      <div class="map">
+        <div class="chart" id="map"></div>
+        <div class="map1"></div>
+        <div class="map2"></div>
+        <div class="map3"></div>
       </div>
 
       <div class="panel assessment">
         <h2>全员考核</h2>
-        <div class="half-assess" id="assess"></div>
-        <div class="half-assess">
-          <div class="assess_row1">
-            <table id="assess_tb">
-              <tr>
-                <th class="tb_time">序号</th>
-                <th class="tb_type">工作名称</th>
-                <th class="tb_content">内容</th>
-              </tr>
-            </table>
-          </div>
-          <div class="assess_row2">
-            <div class="result">互评：称职（5/8）</div>
-            <div class="result">组织评定：优秀（3/5）</div>
-          </div>
-        </div>
+        <div class="quarter-assess" id="assess_2"></div>
+        <div class="quarter-assess" id="assess_3"></div>
+        <div class="quarter-assess" id="assess_4"></div>
+        <div class="quarter-assess" id="assess_5"></div>
+        <div class="half-assess" id="assess_1"></div>
         <div class="panel-footer"></div>
       </div>
 
@@ -158,6 +133,7 @@
         <div class="table">
           <table id="wn_tb1">
             <tr>
+              <th class="tb_zhidui">支队</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -170,6 +146,7 @@
         <div class="table1">
           <table id="wn_tb2">
             <tr>
+              <th class="tb_zhidui">支队</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -191,30 +168,35 @@
     </div>
   </section>
 </body>
-<script src="js/flexible.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/echarts.min.js"></script>
-<script src="js/person.js"></script>
-<!-- <script src="js/hubei.js"></script> -->
-<!-- <script src="js/myMap.js"></script> -->
+<script src="../js/flexible.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/hubei.js"></script>
+<script src="../js/myMap.js"></script>
 <script>
   // onload
   $(function () {
 
-    heart();
+    heart_1();
+    heart_2();
+    heart_3();
+    heart_4();
+
+    edu_1();
     smart();
 
     assess_1();
+    assess_2();
 
     dj_1();
     dj_2();
-    // dj_3();
-    // dj_4();
+    dj_3();
+    dj_4();
 
     tb_edu();
     tb_wn1();
     tb_wn2();
-    assess_tb();
 
   });
 
