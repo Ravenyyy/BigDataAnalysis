@@ -238,16 +238,16 @@ function assess_3() {
       top: "5%",
       // 距离容器10%
       right: "20%",
-      data: ['优秀', '称职', '基本称职', '不称职'],
+      // data: ['优秀', '称职', '基本称职', '不称职'],
       textStyle: {
         color: "white",
         fontSize: 15
       }
     },
     grid: {
-      top: '15%',
+      top: '20%',
       left: '3%',
-      right: '8%',
+      right: '9%',
       bottom: '3%',
       containLabel: true
     },
@@ -281,9 +281,11 @@ function assess_3() {
       {
         name: "比率",
         type: 'value',
+        axisLabel: {
+          formatter: '{value}%',
+        },
         axisLine: {
           lineStyle: {
-            formatter: '{value} %',
             color: "white"
           }
         },
@@ -327,7 +329,7 @@ function assess_3() {
 
       },
       {
-        name: "优秀占比",
+        name: "优秀占比(%)",
         type: "line",
         lineStyle: {
           width: 3,

@@ -191,12 +191,12 @@ header .bnt ul li a {
   text-decoration: underline;
 }
 
-.double-panel .table {
-  height: 3.0rem;
-  margin-bottom: 0.2rem;
+.panel .table {
+  height: 5.0rem;
+  margin-bottom: 0.1rem;
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
-  padding: 0.1rem 0.15rem;
+  padding: 0.1rem 0.1rem;
 }
 
 .education .table {
@@ -741,3 +741,72 @@ table::after {
 
 /* .tb_content {
 } */
+
+.strt-wrap {
+  width: 100000px;
+  margin: 10px;
+  cursor: move;
+}
+
+.strt-part {
+  text-align: center;
+  float: left;
+  position: relative;
+}
+
+.strt-part .line-v {
+  position: relative;
+  height: 40px;
+  width: 100%;
+}
+
+.strt-part .line-v span {
+  display: block;
+  background: #ccc;
+  position: absolute;
+  top: 0;
+  font-size: 0;
+  line-height: 1px;
+  width: 1px;
+  height: 40px;
+  left: 50%;
+}
+
+.strt-name {
+  display: inline-block;
+  padding: 0 5px;
+  height: 24px;
+  line-height: 24px;
+  border: 1px solid #ccc;
+  margin: 0 10px;
+  border-radius: 3px;
+  background: #f8f8f8;
+}
+
+.strt-part .line-h {
+  height: 1px;
+  display: block;
+  background: #ccc;
+  position: absolute;
+  top: 0;
+  font-size: 0;
+}
+
+.strt-part .line-h-l {
+  width: 50%;
+  left: 0;
+}
+
+.strt-part .line-h-c {
+  width: 100%;
+  left: 0;
+}
+
+.strt-part .line-h-r {
+  width: 50%;
+  right: 0;
+}
+
+.strt-block {
+  float: left;
+}

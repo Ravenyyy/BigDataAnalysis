@@ -1,78 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        body{
-            margin: 0;
-            padding: 0;
-            height: 9999px; /* 模仿内容很长的页面 */
-        }
-        .popup__wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .popup {
-            box-sizing: border-box;
-            width: 670px;
-            height: 300px;
+        div#contain {
+            width: 1000em;
             background: #fff;
-            text-align: center;
-            padding: 70px 10px 20px 10px;
-            border-radius: 4px;
+            font-family: verdan;
         }
-        .popup__title{
-            font-size: 30px;
-            font-weight: 600;
-            color: #004165;
-            margin-bottom: 20px;
-        }
-        .popup__btnWrapper {
-            width: 50%;
+
+        ul#xflow {
+            float: none;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
         }
-        .popup__text{
-            font-size: 20px;
-            margin-bottom: 50px;
+
+        ul {
+            clear: left;
+            margin: 2em 0 0 0;
+            padding: 0;
+            background: #fff;
         }
-        button{
-            width: 154px;
-            cursor: pointer;
-            border-radius: 4px;
-            line-height: 45px;
-            font-weight: 600;
+
+        ul ul {
+            border-top: 1px solid #000;
+            width: auto;
         }
-        .popup__yesBtn {
-            color: #fff;
-            background-color: #007dba;
-            border: 1px solid #006ba1;
+
+        ul.solo {
+            border-top: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        li li {
+            margin: -1px 0 0 0;
+        }
+
+        #xflow div {
+            background: url(../img/Flow/vLine.gif) 50% repeat-y;
+            padding: 2em 5px 0 5px;
+            margin: 0 .3em -2em 0em;
+        }
+
+        #xflow div.section {
+            padding: 2em 5px 2em 5px;
+        }
+
+        #xflow div.first {
+            background: url(../img/Flow/first.gif) 50% repeat-y;
+            margin-left: 0;
+        }
+
+        #xflow div.last {
+            background: url(../img/Flow/last.gif) 50% repeat-y;
+            margin-right: 0;
+        }
+
+        .none {
+            border: 0px;
+        }
+
+        #xflow div.root {
+            padding-top: 0;
+        }
+
+        #xflow a {
+            display: block;
+            background: #fff;
+            border: 1px solid #000;
+            padding: .25em .2em .2em .2em;
+            color: #222;
+            text-decoration: none;
+            margin: 0 auto;
+            width: 10em;
+            line-height: 2em;
+            text-align: center;
+        }
+
+        /*IE 6 (when comma-separated, IE6 didn't work, so these are duped for IE7)*/
+        *html {
+            text-align: center;
+        }
+
+        *html a {
+            margin: 0;
+            position: relative;
+        }
+
+        /*IE 7*/
+        *:first-child+html {
+            text-align: center;
+        }
+
+        *:first-child+html a {
+            margin: 0;
+            position: relative;
         }
     </style>
 </head>
+
 <body>
-  <h1>你好</h1>
-    <div class="popup__wrapper">
-        <div class="popup">
-            <div class="popup__title">Confirmation</div>
-            <div class="popup__text">Are you sure you want to do this action?</div>
-            <div class="popup__btnWrapper">
-                <button class="popup__yesBtn">Yes</button>
-                <button class="popup__noBtn">No</button>
-            </div>
-        </div>
+    <div id="contain">
+        <ul class="solo" id="xflow">
+            <li>
+                <div class='root section'>
+                    <a>总经理</a></div>
+                <ul class="">
+                    <li>
+                        <div class='first'>
+                            <a>财务总监</a></div>
+                    </li>
+                    <li>
+                        <div class=''>
+                            <a>人力资源总监</a></div>
+                    </li>
+                    <li>
+                        <div class=' section'>
+                            <a>营销总监</a></div>
+                        <ul class="none">
+                            <li>
+                                <div class=' section'>
+                                    <a>营销经理</a></div>
+                                <ul class="none">
+                                    <li>
+                                        <div class=''>
+                                            <a>营销助理</a></div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class=' section'>
+                            <a>产品总监</a></div>
+                        <ul class="">
+                            <li>
+                                <div class='first'>
+                                    <a>经理</a></div>
+                            </li>
+                            <li>
+                                <div class='last'>
+                                    <a>经理</a></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class='last'>
+                            <a>研发总监</a></div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </body>
+
 </html>
