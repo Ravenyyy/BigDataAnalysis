@@ -29,7 +29,7 @@ function edu_1() {
       top: "20%",
       left: "7%",
       right: "10%",
-      bottom: "15%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -149,8 +149,8 @@ function edu_2() {
     grid: {
       top: "20%",
       left: "10%",
-      right: "5%",
-      bottom: "15%",
+      right: "4%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -252,7 +252,7 @@ function edu_3() {
       top: "20%",
       left: "8%",
       right: "5%",
-      bottom: "15%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -343,7 +343,7 @@ function edu_4() {
       top: "20%",
       left: "10%",
       right: "5%",
-      bottom: "15%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -457,7 +457,7 @@ function edu_5() {
       top: "20%",
       left: "10%",
       right: "5%",
-      bottom: "15%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -476,7 +476,7 @@ function edu_5() {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 15
       },
     },
     yAxis: [{
@@ -560,7 +560,7 @@ function edu_6() {
       top: "20%",
       left: "10%",
       right: "5%",
-      bottom: "15%",
+      bottom: "11%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -579,7 +579,7 @@ function edu_6() {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 15
       },
     },
     yAxis: [{
