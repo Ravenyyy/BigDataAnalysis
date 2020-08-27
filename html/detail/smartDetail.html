@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/detail.css" />
+</head>
+
+<body>
+  <header>
+    <h1>湖北消防救援队伍教育管理智慧队站分析</h1>
+    <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
+    <div class="bnt">
+      <ul>
+        <li><a href="#">报告下载</a></li>
+        <li><a href="#">月份选择</a></li>
+        <li><a href="#">分析研判</a></li>
+        <li><a href="index.html">返回首页</a></li>
+      </ul>
+    </div>
+    <script>
+      var t = null;
+      t = setTimeout(time, 1000); //開始运行
+      function time() {
+        clearTimeout(t); //清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours(); //获取时
+        var m = dt.getMinutes(); //获取分
+        var s = dt.getSeconds(); //获取秒
+        document.querySelector(".showTime").innerHTML =
+          "当前时间：" +
+          y +
+          "年" +
+          mt +
+          "月" +
+          day +
+          "&nbsp&nbsp&nbsp" +
+          h +
+          "时" +
+          m +
+          "分" +
+          s +
+          "秒";
+        t = setTimeout(time, 1000); //设定定时器，循环运行
+      }
+    </script>
+  </header>
+  <section class="mainbox">
+    <div class="column">
+
+      <div class="panel">
+        <h2>当月违规使用手机人数、违规使用手机总次数统计</h2>
+        <div class="chart" id="smart_1"></div>
+        <div class="panel-footer"></div>
+      </div>
+
+      <div class="panel">
+        <h2>当月违规驾驶人数、危险驾驶总次数统计</h2>
+        <div class="chart" id="smart_2"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>当月指战员综合睡眠质量结果统计</h2>
+        <div class="chart" id="smart_3"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>当月训练不合格人数、指战员训练平均成绩统计</h2>
+        <div class="chart" id="smart_4"></div>
+        <div class="panel-footer"></div>
+      </div>
+
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>当月训练开展率、人员参与率统计</h2>
+        <div class="chart" id="smart_5"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>违规驾驶人数、危险驾驶总次数走势年度统计</h2>
+        <div class="chart" id="smart_6"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="../../js/flexible.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script src="../../js/detail/smartDetail.js"></script>
+<script>
+  // onload
+  $(function () {
+
+    smart_1();
+    smart_2();
+    smart_3();
+    smart_4();
+    smart_5();
+    smart_6();
+
+  });
+</script>
+
+</html>

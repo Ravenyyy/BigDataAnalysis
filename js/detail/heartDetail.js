@@ -624,7 +624,7 @@ function heart_6() {
         label: {
           normal: {
             show: true,
-            position: 'top',
+            position: 'bottom',
             textStyle: {
               color: 'white',
               fontSize: 13
@@ -640,11 +640,16 @@ function heart_6() {
         areaStyle: {
           normal: {}
         },
-        // lineStyle: {
-        //   normal: {
-        //     color: "#F1C62C"
-        //   }
-        // },
+        label: {
+          normal: {
+            show: true,
+            position: 'top',
+            textStyle: {
+              color: 'white',
+              fontSize: 13
+            }
+          }
+        },
         data: xlData
       },
       {
@@ -656,16 +661,16 @@ function heart_6() {
             color: "#F1C62C"
           }
         },
-        label: {
-          normal: {
-            show: true,
-            position: 'top',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
+        // label: {
+        //   normal: {
+        //     show: true,
+        //     position: 'top',
+        //     textStyle: {
+        //       color: 'white',
+        //       fontSize: 13
+        //     }
+        //   }
+        // },
         data: allData
       }
     ]
