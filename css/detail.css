@@ -116,12 +116,14 @@ header .bnt ul li a {
   /*border: #02a6b5 2px solid;*/
 }
 
+
 .panel .panel-footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
 }
+
 
 .panel h2 {
   height: 0.6rem;
@@ -205,6 +207,36 @@ header .bnt ul li a {
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
   padding: 0.1rem 0.1rem;
+}
+
+.panel .halfTableLeft {
+  width: 49%;
+  height: 4.8rem;
+  float: left;
+  padding: 0.25rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+  /* padding: 0.1rem 0.1rem; */
+}
+
+/* .panel .tb_colPhone {
+  float: right;
+  width: 70%;
+}
+
+.panel .tb_colName {
+  float: left;
+  width: 30%;
+} */
+
+.panel .halfTableRight {
+  width: 49%;
+  height: 4.8rem;
+  float: right;
+  padding: 0.25rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+  /* padding: 0.1rem 0.1rem; */
 }
 
 .panel .heartTable tr {

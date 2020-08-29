@@ -809,32 +809,164 @@ function smart() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('smart'));
 
-var getData = [
-    {day:"2020-08-01", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-02", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-03", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-04", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-05", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-06", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-07", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-08", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-09", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-10", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-11", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-12", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-13", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-14", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-15", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-16", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-17", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-18", sleep:9, train:11, drive:13, phone:25},
-    {day:"2020-08-19", sleep:4, train:6, drive:9, phone:12},
-    {day:"2020-08-20", sleep:7, train:3, drive:8, phone:10},
-    {day:"2020-08-21", sleep:9, train:11, drive:13, phone:25},
-    // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
-    // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
-    // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
-    {day:"2020-08-31", sleep:8, train:7, drive:9, phone:17}]
+    var getData = [{
+            day: "2020-08-01",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-02",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-03",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-04",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-05",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-06",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-07",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-08",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-09",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-10",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-11",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-12",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-13",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-14",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-15",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-16",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-17",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-18",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        {
+            day: "2020-08-19",
+            sleep: 4,
+            train: 6,
+            drive: 9,
+            phone: 12
+        },
+        {
+            day: "2020-08-20",
+            sleep: 7,
+            train: 3,
+            drive: 8,
+            phone: 10
+        },
+        {
+            day: "2020-08-21",
+            sleep: 9,
+            train: 11,
+            drive: 13,
+            phone: 25
+        },
+        // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
+        // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
+        // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
+        {
+            day: "2020-08-31",
+            sleep: 8,
+            train: 7,
+            drive: 9,
+            phone: 17
+        }
+    ]
     var data1 = [];
     for (var i = 0; i < getData.length; i++) {
         var sum = getData[i].sleep + getData[i].train + getData[i].drive + getData[i].phone
@@ -1021,7 +1153,7 @@ function assess_1() {
                     borderWidth: 2
                 }
             },
-            label:{
+            label: {
                 fontSize: 16
             }
 
@@ -1039,9 +1171,9 @@ function assess_1() {
 //全员考核的两个数字仪表盘
 function assess_2() {
 
-    var dataArray =[
-        {
-            name:"赵章全", score:99
+    var dataArray = [{
+            name: "赵章全",
+            score: 99
         },
         {
             name: "张世君",
@@ -1052,23 +1184,28 @@ function assess_2() {
             score: 98
         },
         {
-            name:"谢杨", score:97
+            name: "谢杨",
+            score: 97
         },
         {
-            name:"童更", score:95
+            name: "童更",
+            score: 95
         },
         {
             name: "刘健",
             score: 92
         },
         {
-            name:"金星原", score:94
+            name: "金星原",
+            score: 94
         },
         {
-            name:"李玉潇", score:97
+            name: "李玉潇",
+            score: 97
         },
         {
-            name:"尤黎明", score:95
+            name: "尤黎明",
+            score: 95
         },
         {
             name: "余峰",

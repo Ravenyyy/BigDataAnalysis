@@ -305,7 +305,7 @@ function smart_4() {
   };
   // 指定配置和数据
   option = {
-    color: ["#22EC20", "#F1C62C"],
+    color: ["#E5ED60", "#22EC20"],
     tooltip: {
       trigger: 'axis',
     },
@@ -388,7 +388,7 @@ function smart_4() {
 
     series: [{
         name: "不合格人数",
-        type: "line",
+        type: "bar",
         // 是否让线条圆滑显示
         smooth: false,
         data: data.edu[0]
