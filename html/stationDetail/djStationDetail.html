@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <h1>湖北消防救援队伍教育管理心理测询分析</h1>
+    <h1>湖北消防救援队伍教育管理智慧党建分析</h1>
     <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
     <div class="bnt">
       <ul>
@@ -52,77 +52,68 @@
   </header>
   <section class="mainbox">
     <div class="column">
+
       <div class="panel">
         <h2>信息汇总</h2>
         <div class="chart">
           <div class="detail_line">
-            <div class="edu_col1">当月参评人数</div>
+            <div class="edu_col1">本消防站党委数量</div>
             <div class="edu_col2">
-              <div class="block">6</div>
-              <div class="block">4</div>
+              <div class="block">5</div>
             </div>
           </div>
           <div class="detail_line">
-            <div class="edu_col1">心理异常人数</div>
+            <div class="edu_col1">本消防站党支部数量</div>
             <div class="edu_col2">
-              <div class="block">6</div>
+              <div class="block">1</div>
+              <div class="block">1</div>
             </div>
           </div>
           <div class="detail_line">
-            <div class="edu_col1">心理咨询师数量</div>
+            <div class="edu_col1">党员人数</div>
             <div class="edu_col2">
-              <div class="block">3</div>
-            </div>
-          </div>
-          <div class="detail_line">
-            <div class="edu_col1">已干预/未干预人数</div>
-            <div class="edu_col2">
-              <div class="block">4</div>
-              <div class="block">/</div>
+              <div class="block">5</div>
               <div class="block">2</div>
             </div>
           </div>
+          <div class="detail_line">
+            <div class="edu_col1">入党积极分子人数</div>
+            <div class="edu_col2">
+              <div class="block">6</div>
+              <!-- <div class="block">7</div> -->
+            </div>
+          </div>
         </div>
         <div class="panel-footer"></div>
       </div>
-
       <div class="panel">
-        <h2>本季度心理异常程度为重度的人员信息</h2>
-        <div class="heartTable" style="overflow-y: scroll;">
-          <table id="heart_2">
-            <tr>
-              <th class="tb_col1">序号</th>
-              <th class="tb_col1">姓名</th>
-              <th class="tb_col1">异常类型</th>
-              <th class="tb_col1">干预情况</th>
-            </tr>
-          </table>
-          <div class="panel-footer"></div>
-        </div>
+        <h2>组织结构图</h2>
+        <div class="chart" id="dj_2"></div>
+        <div class="panel-footer"></div>
       </div>
     </div>
     <div class="column">
       <div class="panel">
-        <h2>当月心理测询结果整体分析</h2>
-        <div class="chart" id="heart_3"></div>
+        <h2>本消防站组织生活完成整体情况</h2>
+        <div class="chart" id="dj_3"></div>
         <div class="panel-footer"></div>
       </div>
       <div class="panel">
-        <h2>心理测询参评人次、参评比率走势年度统计</h2>
-        <div class="chart" id="heart_4"></div>
+        <h2>本消防站十事联动完成整体情况</h2>
+        <div class="chart" id="dj_4"></div>
         <div class="panel-footer"></div>
       </div>
-
     </div>
+
     <div class="column">
       <div class="panel">
-        <h2>心理异常人数、异常比率走势年度分析</h2>
-        <div class="chart" id="heart_5"></div>
+        <h2>十事联动、组织生活整体完成情况年度统计</h2>
+        <div class="chart" id="dj_5"></div>
         <div class="panel-footer"></div>
       </div>
       <div class="panel">
-        <h2>心理重度异常人数变化趋势年度统计</h2>
-        <div class="chart" id="heart_6"></div>
+        <h2>党员数量及占比情况年度分析</h2>
+        <div class="chart" id="dj_6"></div>
         <div class="panel-footer"></div>
       </div>
     </div>
@@ -134,16 +125,17 @@
 <script src="../../js/jquery-1.8.3.min.js"></script>
 <script src="../../js/jquery.ui.draggable.min.js"></script>
 <script src="../../js/jquery.ui.draggable.min.js"></script>
-<script src="../../js/stationDetail/heartStationDetail.js"></script>
+<script src="../../js/stationDetail/djStationDetail.js"></script>
 <script>
   // onload
   $(function () {
 
-    heart_2();
-    heart_3();
-    heart_4();
-    heart_5();
-    heart_6();
+    // dj_1();
+    // dj_2();
+    dj_3();
+    dj_4();
+    dj_5();
+    dj_6();
 
   });
 </script>
