@@ -1,3 +1,50 @@
+//本季度心理异常程度为重度的人员信息
+function heart_2() {
+  var dataArray = [{
+      dataIndex: "1",
+      name: "周大龙",
+      type: "抑郁",
+      state: "已干预",
+    },
+    {
+      dataIndex: "2",
+      name: "李海",
+      type: "其他",
+      state: "正在干预",
+    }, {
+      dataIndex: "3",
+      name: "李朱赫",
+      type: "抑郁",
+      state: "正在干预",
+    }, {
+      dataIndex: "4",
+      name: "张新",
+      type: "躁狂",
+      state: "已干预",
+    }, {
+      dataIndex: "5",
+      name: "李梦",
+      type: "强迫",
+      state: "已干预",
+    }, {
+      dataIndex: "6",
+      name: "刘庆",
+      type: "强迫",
+      state: "已干预",
+    }
+  ];
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+      "<td>" + dataArray[i].dataIndex + "</td>" +
+      "<td>" + dataArray[i].name + "</td>" +
+      "<td>" + dataArray[i].type + "</td>" +
+      "<td>" + dataArray[i].state + "</td>" +
+      '</tr>';
+  }
+  $('#heart_2').append(tr);
+}
 // 当月心理测询结果整体分析
 function heart_3() {
   // 基于准备好的dom，初始化echarts实例

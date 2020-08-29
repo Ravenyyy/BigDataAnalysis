@@ -192,11 +192,23 @@ header .bnt ul li a {
 }
 
 .panel .table {
-  height: 5.0rem;
+  height: 4.8rem;
   margin-bottom: 0.1rem;
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
   padding: 0.1rem 0.1rem;
+}
+
+.panel .heartTable {
+  height: 4.8rem;
+  margin-bottom: 0.1rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+  padding: 0.1rem 0.1rem;
+}
+
+.panel .heartTable tr {
+  height: 0.3rem;
 }
 
 .education .table {
@@ -846,3 +858,41 @@ table::after {
 .strt-block {
   float: left;
 }
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(201, 201, 202);
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(162, 162, 163);
+}
+
+.el-menu::-webkit-scrollbar,
+.el-table__body-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.el-menu:hover::-webkit-scrollbar,
+.el-table__body-wrapper:hover::-webkit-scrollbar {
+  display: block;
+}
+
+/*chrome--------------------------------------------end*/
+
+/* .tb_content {
+  } */

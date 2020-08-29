@@ -60,24 +60,18 @@
             <div class="edu_col2">
               <div class="block">6</div>
               <div class="block">4</div>
-              <!-- <div class="block">8</div> -->
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">心理异常人数</div>
             <div class="edu_col2">
               <div class="block">6</div>
-              <!-- <div class="block">9</div>
-              <div class="block">6</div> -->
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">心理咨询师数量</div>
             <div class="edu_col2">
               <div class="block">3</div>
-              <!-- <div class="block">0</div>
-              <div class="block">0</div>
-              <div class="block">%</div> -->
             </div>
           </div>
           <div class="detail_line">
@@ -93,9 +87,18 @@
       </div>
 
       <div class="panel">
-        <h2>当月心理测询异常人数及比例统计</h2>
-        <div class="chart" id="heart_2"></div>
-        <div class="panel-footer"></div>
+        <h2>本季度心理异常程度为重度的人员信息</h2>
+        <div class="heartTable" style="overflow-y: scroll;">
+          <table id="heart_2">
+            <tr>
+              <th class="tb_col1">序号</th>
+              <th class="tb_col1">姓名</th>
+              <th class="tb_col1">异常类型</th>
+              <th class="tb_col1">干预情况</th>
+            </tr>
+          </table>
+          <div class="panel-footer"></div>
+        </div>
       </div>
     </div>
     <div class="column">
@@ -136,7 +139,7 @@
   // onload
   $(function () {
 
-    // heart_2();
+    heart_2();
     heart_3();
     heart_4();
     heart_5();
