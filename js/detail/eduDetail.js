@@ -529,7 +529,7 @@ function edu_5() {
   });
 }
 
-//近12个月在线考试平均成绩走势图
+//参与率、完成率整体走势年度统计
 function edu_6() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_6"));

@@ -792,18 +792,18 @@ table::after {
 .edu_col1 {
   float: left;
   height: 100%;
-  width: 55%;
+  width: 60%;
   padding: 1px 3px;
   color: #ffffff;
   text-align: center;
   line-height: .9375rem;
-  font-size: .35rem;
+  font-size: .31rem;
 }
 
 .edu_col2 {
   float: right;
   height: 100%;
-  width: 45%;
+  width: 40%;
   padding: 1px 3px;
 }
 
