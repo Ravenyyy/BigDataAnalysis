@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/detail.css" />
+</head>
+
+<body>
+  <header>
+    <h1>湖北消防救援队伍教育管理政治教育分析</h1>
+    <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
+    <div class="bnt">
+      <ul>
+        <li><a href="#">报告下载</a></li>
+        <li><a href="#">月份选择</a></li>
+        <li><a href="#">分析研判</a></li>
+        <li><a href="index.html">返回首页</a></li>
+      </ul>
+    </div>
+    <script>
+      var t = null;
+      t = setTimeout(time, 1000); //開始运行
+      function time() {
+        clearTimeout(t); //清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours(); //获取时
+        var m = dt.getMinutes(); //获取分
+        var s = dt.getSeconds(); //获取秒
+        document.querySelector(".showTime").innerHTML =
+          "当前时间：" +
+          y +
+          "年" +
+          mt +
+          "月" +
+          day +
+          "&nbsp&nbsp&nbsp" +
+          h +
+          "时" +
+          m +
+          "分" +
+          s +
+          "秒";
+        t = setTimeout(time, 1000); //设定定时器，循环运行
+      }
+    </script>
+  </header>
+  <section class="mainbox">
+    <div class="column">
+
+      <div class="panel">
+        <h2>当月在线考试平均分和参与率统计柱状图</h2>
+        <div class="chart" id="edu_1"></div>
+        <div class="panel-footer"></div>
+      </div>
+
+      <div class="panel">
+        <h2>当月在线考试及格比例和优秀比例统计折线图</h2>
+        <div class="chart" id="edu_2"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>在线考试平均成绩走势年度统计</h2>
+        <div class="chart" id="edu_5"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>参与率、完成率整体走势年度统计</h2>
+        <div class="chart" id="edu_6"></div>
+        <div class="panel-footer"></div>
+      </div>
+
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>当月必修课、选修课、在线考试完成率情况分布</h2>
+        <div class="chart" id="edu_4"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>当月荆楚政线APP使用活跃度统计柱状图</h2>
+        <div class="chart" id="edu_3"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="../../js/flexible.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script src="../../js/stationDetail/eduStationDetail.js"></script>
+<script>
+  // onload
+  $(function () {
+
+    // edu_1();
+    // edu_2();
+    // edu_3();
+    // edu_4();
+    // edu_5();
+    // edu_6();
+
+  });
+</script>
+
+</html>

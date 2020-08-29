@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/detail.css" />
+</head>
+
+<body>
+  <header>
+    <h1>湖北消防救援队伍教育管理全员考核分析</h1>
+    <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
+    <div class="bnt">
+      <ul>
+        <li><a href="#">报告下载</a></li>
+        <li><a href="#">月份选择</a></li>
+        <li><a href="#">分析研判</a></li>
+        <li><a href="index.html">返回首页</a></li>
+      </ul>
+    </div>
+    <script>
+      var t = null;
+      t = setTimeout(time, 1000); //開始运行
+      function time() {
+        clearTimeout(t); //清除定时器
+        dt = new Date();
+        var y = dt.getFullYear();
+        var mt = dt.getMonth() + 1;
+        var day = dt.getDate();
+        var h = dt.getHours(); //获取时
+        var m = dt.getMinutes(); //获取分
+        var s = dt.getSeconds(); //获取秒
+        document.querySelector(".showTime").innerHTML =
+          "当前时间：" +
+          y +
+          "年" +
+          mt +
+          "月" +
+          day +
+          "&nbsp&nbsp&nbsp" +
+          h +
+          "时" +
+          m +
+          "分" +
+          s +
+          "秒";
+        t = setTimeout(time, 1000); //设定定时器，循环运行
+      }
+    </script>
+  </header>
+  <section class="mainbox">
+    <div class="column">
+
+      <div class="panel">
+        <h2>当月全员考核支部开展率、完成率统计</h2>
+        <div class="half-div2" id="assess_11"></div>
+        <div class="half-div2" id="assess_12"></div>
+        <div class="panel-footer"></div>
+      </div>
+
+      <div class="panel">
+        <h2>不称职人员、未按规定考核人员信息</h2>
+        <div class="halfTableLeft" style="overflow-y: scroll;">
+          <table id="assess_21">
+            <tr>
+              <th class="tb_colName">序号</th>
+              <th class="tb_colPhone">姓名</th>
+            </tr>
+          </table>
+        </div>
+        <div class="halfTableRight" style="overflow-y: scroll;">
+          <table id="assess_22">
+            <tr>
+              <th class="tb_col1">序号</th>
+              <th class="tb_col1">姓名</th>
+            </tr>
+          </table>
+        </div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>当月全员考核情况汇总</h2>
+        <div class="chart" id="assess_3"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>全员考核情况年度分析</h2>
+        <div class="chart" id="assess_4"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="panel">
+        <h2>支部开展率、完成率走势年度分析</h2>
+        <div class="chart" id="assess_5"></div>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel">
+        <h2>人员参与率走势年度统计</h2>
+        <div class="chart" id="assess_6"></div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="../../js/flexible.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script src="../../js/stationDetail/assessStationDetail.js"></script>
+<script>
+  // onload
+  $(function () {
+
+    assess_11();
+    assess_12();
+    assess_21();
+    assess_22();
+
+    assess_3();
+    assess_4();
+    assess_5();
+    assess_6();
+
+  });
+</script>
+
+</html>

@@ -356,7 +356,7 @@ function assess_3() {
     myChart.resize();
   });
 }
-//当月心理测询正在干预及已干预
+//全员考核情况年度分析
 function assess_4() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_4"));
