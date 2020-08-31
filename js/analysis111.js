@@ -1,4 +1,4 @@
-﻿
+
 const conditionTemplate = `
 <Row>
     <Col span="1" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:5px">
@@ -34,16 +34,16 @@ const conditionTemplate = `
                 支队
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
-                <Select placeholder="请选择支队" v-model="queryItem.zhidui" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in zhiduiSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                <Select placeholder="请选择支队" v-model="queryItem.zhidui" @on-change="getDaduiSelect" multiple clearable :disabled="zongduiFlag" style="width: 200px">
+                    <Option v-for="item in zhiduiSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
             <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 大队
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
-                <Select placeholder="请选择大队" v-model="queryItem.dadui" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in daduiSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                <Select placeholder="请选择大队" v-model="queryItem.dadui" @on-change="getStationSelect" multiple clearable :disabled="zongduiFlag" style="width: 200px">
+                    <Option v-for="item in daduiSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
         </Row>
@@ -53,7 +53,7 @@ const conditionTemplate = `
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
                 <Select placeholder="请选择消防站" v-model="queryItem.station" @on-change="stationChange" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in stationSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                    <Option v-for="item in stationSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
             <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
@@ -121,13 +121,7 @@ const condition = new Vue({
             personSelect:[],
             zongduiFlag:false,
 
-            firstTargetSelect:[
-                {id:1, name:'智慧党建'},
-                {id:2, name:'政治教育'},
-                {id:3, name:'心理测询'},
-                {id:4, name:'全员考核'},
-                {id:5, name:'智慧营区'},
-            ],
+            firstTargetSelect:[],
             secondTargetSelect:[],
         }
     },
@@ -170,6 +164,47 @@ const condition = new Vue({
                 this.zongduiFlag = false
             }
         },
+        getDaduiSelect(){
+            let zhiduiData = this.queryItem.zhidui
+            if(zhiduiData.length == 0){
+                this.daduiSelect = []
+            }else{
+                // console.log(zhiduiData);
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/unit/getUnitByParentId',
+                    data:{
+                        parentId: zhiduiData[zhiduiData.length-1]
+                    },
+                    success: function(response){
+                        condition.daduiSelect = response.extra.unitList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+            }
+        },
+        getStationSelect(){
+            let daduiData = this.queryItem.dadui
+            if(daduiData.length == 0){
+                this.stationSelect = []
+            }else{
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/unit/getUnitByParentId',
+                    data:{
+                        parentId: daduiData[daduiData.length-1]
+                    },
+                    success: function(response){
+                        condition.stationSelect = response.extra.unitList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+            }
+        },
         stationChange(value){
             if((value.length!=0 && this.oldStation.length==0) || (value.length==0 && this.oldStation.length!=0)){
                 this.queryItem.firstTarget=''
@@ -188,7 +223,7 @@ const condition = new Vue({
                 if(this.queryItem.firstTarget == 1){
                     this.secondTargetSelect=[
                         {id:1, name:'十事联动参与次数'},
-                        {id:2, name:'三会一课参与次数'},
+                        {id:2, name:'三课一会参与次数'},
                     ]
                 }
                 if(this.queryItem.firstTarget == 2){
@@ -225,7 +260,7 @@ const condition = new Vue({
                 if(this.queryItem.firstTarget == 1){
                     this.secondTargetSelect=[
                         {id:1, name:'十事联动参与率'},
-                        {id:2, name:'三会一课参与率'},
+                        {id:2, name:'三课一会参与率'},
                     ]
                 }
                 if(this.queryItem.firstTarget == 2){
@@ -267,6 +302,7 @@ const condition = new Vue({
                         {id:2, name:'党员参与率'},
                         {id:3, name:'党委数'},
                         {id:4, name:'支部数'},
+                        {id:5, name:'人员总数'},
                     ]
                 }
                 if(this.queryItem.firstTarget == 2){
@@ -306,57 +342,6 @@ const condition = new Vue({
         },
     }
 })
-
-function getZhidui(){
-    // let item = {
-    //     id: 1,
-    //     name: '武汉'
-    // }
-    condition.zhiduiSelect=[
-        {id: 1, name: '武汉'},
-        {id: 2, name: '鄂州'},
-        {id: 3, name: '黄冈'},
-        {id: 4, name: '襄阳'},
-        {id: 5, name: '荆门'},
-        {id: 6, name: '宜昌'},
-        {id: 7, name: '孝感'},
-        {id: 8, name: '荆州'},
-    ]
-
-    condition.daduiSelect=[
-        {id: 1, name: '武昌'},
-        {id: 2, name: '汉阳'},
-        {id: 3, name: '洪山'},
-        {id: 4, name: '江夏'},
-        {id: 5, name: '江汉'},
-        {id: 6, name: '江岸'},
-        {id: 7, name: '硚口'},
-        {id: 8, name: '东西湖'},
-        {id: 9, name: '新洲'},
-        {id: 10, name: '黄陂'},
-        {id: 11, name: '东新'},  
-    ]
-
-    condition.stationSelect=[
-        {id: 1, name: '晴川'},
-        {id: 2, name: '七里庙'},
-        {id: 3, name: '墨水湖'},
-        {id: 4, name: '黄金口'},
-    ]
-
-    condition.personSelect=[
-        {id: 1, name: '张世君'},
-        {id: 2, name: '胡城瑞'},
-        {id: 3, name: '张柏文'},
-        {id: 4, name: '周宽'},
-        {id: 5, name: '易梦龙'},
-        {id: 6, name: '宋奎'},
-        {id: 7, name: '魏洪'},
-        {id: 8, name: '李志伟'},
-        {id: 9, name: '周凯'},
-        {id: 10, name: '刘欣'},
-    ]
-}
 
 //初始化折线图
 function initEcharts(queryItem) {
@@ -482,19 +467,11 @@ function getseriesData(queryItem, xAxisDate){
     console.log(unitFlag);
     console.log(unit);
 
-
-    let a = 51
-    let b = 49
-    if(queryItem.person.length != 0 && (queryItem.secondTarget == 1 || queryItem.secondTarget == 2)){
-        a = 2
-        b = 8
-    }
-
     for(let i=0; i<unit.length;i++){
         let item = {name:'', data:[]}
         item.name = unitList[unitFlag-1][unit[i]-1].name
         for(let j=0; j<xAxisDate.length; j++){
-            item.data.push(Math.round(Math.random()*a + b))
+            item.data.push(Math.round(Math.random()*51 + 49))
         }
         seriesData.push(item)
     }
@@ -524,7 +501,7 @@ function getyAxisName(queryItem, unit){
     if(unit==5){
         secondTarget = [
             {id:1, name:'十事联动参与次数'},
-            {id:2, name:'三会一课参与次数'},
+            {id:2, name:'三课一会参与次数'},
             {id:3, name:'课程完成情况'},
             {id:4, name:'考试完成情况'},
             {id:5, name:'考试分数'},
@@ -543,7 +520,7 @@ function getyAxisName(queryItem, unit){
     }else if(unit == 4){
         secondTarget = [
             {id:1, name:'十事联动参与率'},
-            {id:2, name:'三会一课参与率'},
+            {id:2, name:'三课一会参与率'},
             {id:3, name:'课程完成率'},
             {id:4, name:'考试完成率'},
             {id:5, name:'平均分'},
@@ -662,37 +639,47 @@ let unitList = [
     ],
     [
         {id: 1, name: '武昌'},
-        {id: 2, name: '汉阳'},
-        {id: 3, name: '洪山'},
-        {id: 4, name: '江夏'},
-        {id: 5, name: '江汉'},
-        {id: 6, name: '江岸'},
-        {id: 7, name: '硚口'},
-        {id: 8, name: '东西湖'},
-        {id: 9, name: '新洲'},
-        {id: 10, name: '黄陂'},
-        {id: 11, name: '东新'}, 
+        {id: 2, name: '汉阳'}
     ],
     [
-        {id: 1, name: '晴川'},
-        {id: 2, name: '七里庙'},
-        {id: 3, name: '墨水湖'},
-        {id: 4, name: '黄金口'},
+        {id: 1, name: '珞珈山'},
+        {id: 2, name: '七里庙'}
     ],
     [
-        {id: 1, name: '张世君'},
-        {id: 2, name: '胡城瑞'},
-        {id: 3, name: '张柏文'},
-        {id: 4, name: '周宽'},
-        {id: 5, name: '易梦龙'},
-        {id: 6, name: '宋奎'},
-        {id: 7, name: '魏洪'},
-        {id: 8, name: '李志伟'},
-        {id: 9, name: '周凯'},
-        {id: 10, name: '刘欣'},
+        {id: 1, name: '张三'},
+        {id: 2, name: '李四'}
     ]
 ]
 
+function getFirstTarget(){
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/statisticItem/getFirstItem',
+        success: function(response){
+            condition.firstTargetSelect = response.extra.firstItemList
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+}
+
+function getZhiduiSelect(){
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/unit/getZhidui',
+        success: function(response){
+            condition.zhiduiSelect = response.extra.zhiduiList
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+}
+
 window.onload=()=>{
-    getZhidui();
+    // getZhidui();
+    getFirstTarget();
+    getZhiduiSelect();
+    
 }
