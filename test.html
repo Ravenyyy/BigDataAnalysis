@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -163,3 +164,41 @@
 </body>
 
 </html>
+=======
+
+<Col span="2" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:5px">
+    单位：
+</Col>
+<Col span="8" >
+    <Row>
+        <Col span="3" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            支队
+        </Col>
+        <Col span="5" style="text-align: center;line-height:50px">
+            <Select  placeholder="请选择支队" v-model="queItem.challengeTypeId" clearable>
+                <Option v-for="item in ChallengeType" :value="item.challengeTypeId" :key="item.challengeTypeId">{{item.challengeType}}</Option>
+            </Select>
+        </Col>
+        <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            大队
+        </Col>
+        <Col span="5" style="text-align: center;line-height:50px">
+            <DatePicker size="large" type="month" clearable placeholder="选择开始时间" style="width: 180px"></DatePicker>
+        </Col>
+    </Row>
+    <Row>
+        <Col span="3" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            消防站
+        </Col>
+        <Col span="5" style="text-align: center;line-height:50px">
+            <DatePicker size="large" type="month" clearable placeholder="选择开始时间" style="width: 180px"></DatePicker>
+        </Col>
+        <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            个人
+        </Col>
+        <Col span="5" style="text-align: center;line-height:50px">
+            <DatePicker size="large" type="month" clearable placeholder="选择开始时间" style="width: 180px"></DatePicker>
+        </Col>
+    </Row>
+</Col>
+>>>>>>> 27e171e557e01122f47106a74e9e395aa880b854
