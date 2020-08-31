@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/analysis.css" />
-    <link rel="stylesheet" type="text/css" href="./library/iview/iview.css">
-    <script type="text/javascript" src="./library/vue/vue.min.js"></script>
-    <script type="text/javascript" src="./library/iview/iview.min.js.map"></script>
+    <link rel="stylesheet" href="../css/analysis.css" />
+    <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
+    <script type="text/javascript" src="../library/vue/vue.min.js"></script>
+    <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
 </head>
 
 <body>
@@ -17,15 +17,15 @@
         <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
         <div class="bnt">
             <ul>
-            <li><a href="#">报告下载</a></li>
-            <li><a href="#">月份选择</a></li>
-            <li><a href="#">分析研判</a></li>
-            <li><a href="index.html">返回首页</a></li>
+                <li><a href="#">报告下载</a></li>
+                <li><a href="#">月份选择</a></li>
+                <li><a href="#">分析研判</a></li>
+                <li><a href="index.html">返回首页</a></li>
             </ul>
         </div>
     </header>
     <section class="mainbox">
-        <div class="condition" >
+        <div class="condition">
             <div class="date" id="condition"></div>
         </div>
         <div class="result">
@@ -35,12 +35,12 @@
         </div>
     </section>
 </body>
-<script src="js/flexible.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/echarts.min.js"></script>
-<script src="js/analysis.js"></script>
+<script src="../js/flexible.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/echarts.min.js"></script>
+<script src="../js/analysis.js"></script>
 <script>
-    $(function(){
+    $(function () {
         var t = null;
         t = setTimeout(time, 1000); //開始运行
         function time() {
@@ -70,4 +70,5 @@
         }
     })
 </script>
+
 </html>
