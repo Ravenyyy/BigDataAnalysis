@@ -1,12 +1,12 @@
 
 const conditionTemplate = `
 <Row>
-    <Col span="2" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:5px">
+    <Col span="1" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:5px">
         时间：
     </Col>
-    <Col span="4" >
+    <Col span="5" >
         <Row>
-            <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            <Col span="6" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 开始时间
             </Col>
             <Col span="6" style="text-align: center;line-height:50px">
@@ -14,7 +14,7 @@ const conditionTemplate = `
             </Col>
         </Row>
         <Row>
-            <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            <Col span="6" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 结束时间
             </Col>
             <Col span="6" style="text-align: center;line-height:50px">
@@ -22,7 +22,7 @@ const conditionTemplate = `
             </Col>
         </Row>
     </Col>
-    <Col span="2" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:50px">
+    <Col span="1" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:50px">
         <Row style="line-height:60px;">单位：</Row>
         <Row style="line-height:40px; font-size:17">
             <Checkbox id="checkBox" v-model="queryItem.zongdui" @on-change="zongduiChange">总队</Checkbox>
@@ -34,16 +34,16 @@ const conditionTemplate = `
                 支队
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
-                <Select placeholder="请选择支队" v-model="queryItem.zhidui" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in zhiduiSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                <Select placeholder="请选择支队" v-model="queryItem.zhidui" @on-change="getDaduiSelect" multiple clearable :disabled="zongduiFlag" style="width: 200px">
+                    <Option v-for="item in zhiduiSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
             <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 大队
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
-                <Select placeholder="请选择大队" v-model="queryItem.dadui" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in daduiSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                <Select placeholder="请选择大队" v-model="queryItem.dadui" @on-change="getStationSelect" multiple clearable :disabled="zongduiFlag" style="width: 200px">
+                    <Option v-for="item in daduiSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
         </Row>
@@ -53,7 +53,7 @@ const conditionTemplate = `
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
                 <Select placeholder="请选择消防站" v-model="queryItem.station" @on-change="stationChange" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in stationSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                    <Option v-for="item in stationSelect" :value="item.id" :key="item.id">{{item.unitName}}</Option>
                 </Select>
             </Col>
             <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
@@ -69,9 +69,9 @@ const conditionTemplate = `
     <Col span="1" style="color:white; font-size:20px; text-align: right;line-height:100px;margin-right:5px">
         指标：
     </Col>
-    <Col span="4" >
+    <Col span="5" >
         <Row>
-            <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            <Col span="6" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 一级指标
             </Col>
             <Col span="5" style="text-align:center; line-height:50px">
@@ -81,7 +81,7 @@ const conditionTemplate = `
             </Col>
         </Row>
         <Row>
-            <Col span="5" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
+            <Col span="6" style="color:white; font-size:15px; text-align: right;line-height:50px;margin-right:15px">
                 二级指标
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
@@ -121,13 +121,7 @@ const condition = new Vue({
             personSelect:[],
             zongduiFlag:false,
 
-            firstTargetSelect:[
-                {id:1, name:'智慧党建'},
-                {id:2, name:'政治教育'},
-                {id:3, name:'心理测询'},
-                {id:4, name:'全员考核'},
-                {id:5, name:'智慧营区'},
-            ],
+            firstTargetSelect:[],
             secondTargetSelect:[],
         }
     },
@@ -168,6 +162,47 @@ const condition = new Vue({
                 this.queryItem.person = []
             }else{
                 this.zongduiFlag = false
+            }
+        },
+        getDaduiSelect(){
+            let zhiduiData = this.queryItem.zhidui
+            if(zhiduiData.length == 0){
+                this.daduiSelect = []
+            }else{
+                // console.log(zhiduiData);
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/unit/getUnitByParentId',
+                    data:{
+                        parentId: zhiduiData[zhiduiData.length-1]
+                    },
+                    success: function(response){
+                        condition.daduiSelect = response.extra.unitList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+            }
+        },
+        getStationSelect(){
+            let daduiData = this.queryItem.dadui
+            if(daduiData.length == 0){
+                this.stationSelect = []
+            }else{
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/unit/getUnitByParentId',
+                    data:{
+                        parentId: daduiData[daduiData.length-1]
+                    },
+                    success: function(response){
+                        condition.stationSelect = response.extra.unitList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
             }
         },
         stationChange(value){
@@ -307,38 +342,6 @@ const condition = new Vue({
         },
     }
 })
-
-function getZhidui(){
-    // let item = {
-    //     id: 1,
-    //     name: '武汉'
-    // }
-    condition.zhiduiSelect=[
-        {id: 1, name: '武汉'},
-        {id: 2, name: '鄂州'},
-        {id: 3, name: '黄冈'},
-        {id: 4, name: '襄阳'},
-        {id: 5, name: '荆门'},
-        {id: 6, name: '宜昌'},
-        {id: 7, name: '孝感'},
-        {id: 8, name: '荆州'},
-    ]
-
-    condition.daduiSelect=[
-        {id: 1, name: '武昌'},
-        {id: 2, name: '汉阳'}
-    ]
-
-    condition.stationSelect=[
-        {id: 1, name: '珞珈山'},
-        {id: 2, name: '七里庙'}
-    ]
-
-    condition.personSelect=[
-        {id: 1, name: '张三'},
-        {id: 2, name: '李四'}
-    ]
-}
 
 //初始化折线图
 function initEcharts(queryItem) {
@@ -648,6 +651,35 @@ let unitList = [
     ]
 ]
 
+function getFirstTarget(){
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/statisticItem/getFirstItem',
+        success: function(response){
+            condition.firstTargetSelect = response.extra.firstItemList
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+}
+
+function getZhiduiSelect(){
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/unit/getZhidui',
+        success: function(response){
+            condition.zhiduiSelect = response.extra.zhiduiList
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+}
+
 window.onload=()=>{
-    getZhidui();
+    // getZhidui();
+    getFirstTarget();
+    getZhiduiSelect();
+    
 }
