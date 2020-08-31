@@ -156,7 +156,7 @@ function dj_4() {
     grid: {
       top: "20%",
       left: "9%",
-      right: "1%",
+      right: "3%",
       bottom: "11%",
       show: true,
       borderColor: "white",
@@ -441,3 +441,64 @@ function dj_6() {
     myChart.resize();
   });
 }
+
+//组织结构图
+const structureTempla = `
+<Tree class = "tree" :data="data6" style = "overflow-y: scroll;height:4.8rem">
+</Tree>
+`
+
+const structure = new Vue({
+  el: '#dj_2',
+  template: structureTempla,
+  data() {
+    return {
+      data6: [{
+        title: '七里庙消防站消防支队党委',
+        expand: true,
+        contextmenu: true,
+        children: [{
+            title: '书记',
+            expand: true,
+            contextmenu: true,
+            children: [{
+              title: '李飞',
+              contextmenu: true
+            }]
+          },
+          {
+            title: '副书记',
+            expand: true,
+            contextmenu: true,
+            children: [{
+              title: '刘梦',
+              contextmenu: true
+            }]
+          },
+          {
+            title: '委员',
+            expand: true,
+            contextmenu: true,
+            children: [{
+                title: '李彤',
+                contextmenu: true
+              },
+              {
+                title: '杨天保',
+                contextmenu: true
+              },
+              {
+                title: '李为',
+                contextmenu: true
+              }
+            ]
+          }
+        ]
+      }],
+      contextData: null
+    }
+  },
+  methods: {
+
+  }
+})

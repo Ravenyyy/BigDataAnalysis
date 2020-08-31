@@ -143,6 +143,7 @@ header .bnt ul li a {
 
 .panel .chart {
   height: 5rem;
+  position: relative;
 }
 
 /* 2倍长方块*/
@@ -501,7 +502,7 @@ header .bnt ul li a {
 }
 
 .map .chart {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   z-index: 5;
@@ -924,7 +925,11 @@ table::after {
   display: block;
 }
 
-/*chrome--------------------------------------------end*/
+.tree .ivu-tree-title {
+  color: white;
+  font-size: 24px;
+}
 
-/* .tb_content {
-  } */
+.tree .ivu-icon-arrow-right-b:before {
+  color: white;
+}
