@@ -677,9 +677,27 @@ function getZhiduiSelect(){
     })
 }
 
+function test(){
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+        traditional: true,
+        data:{
+            unitId:266,
+            month:'2020-09'
+        },
+        success: function(response){
+            console.log(response);
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+}
+
 window.onload=()=>{
     // getZhidui();
     getFirstTarget();
     getZhiduiSelect();
-    
+    test();
 }
