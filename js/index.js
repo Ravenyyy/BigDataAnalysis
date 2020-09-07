@@ -1,5 +1,20 @@
+
+const monthPickerTemplate = `
+<DatePicker class="showTime" type="month" placeholder="选择月份"></DatePicker>
+`
+const monthPicker = new Vue({
+    el: '#showTime',
+    template: monthPickerTemplate,
+    data () {
+        return {
+        }
+    },
+    methods: {
+    },
+})
+
 // 心理测询1
-function heart_1() {
+function heart_1 () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_1"));
     var value = 82;
@@ -48,57 +63,57 @@ function heart_1() {
                 clockwise: false,
                 hoverAnimation: false,
                 data: [{
-                        value: value,
-                        itemStyle: {
-                            normal: {
-                                borderWidth: 3,
-                                borderColor: {
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                                    }]
-                                },
-                                color: { // 完成的圆环的颜色
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                                    }]
-                                }
+                    value: value,
+                    itemStyle: {
+                        normal: {
+                            borderWidth: 3,
+                            borderColor: {
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
+                                }]
                             },
-                        },
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        pointer: {
-                            show: false
-                        },
-                    },
-                    {
-                        name: 'gap',
-                        value: 110 - value,
-                        itemStyle: {
-                            normal: {
-                                label: {
-                                    show: false
-                                },
-                                labelLine: {
-                                    show: false
-                                },
-                                color: 'rgba(0, 0, 0, 0)',
-                                borderColor: 'rgba(0, 0, 0, 0)',
-                                borderWidth: 0,
+                            color: { // 完成的圆环的颜色
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
+                                }]
                             }
                         },
-                    }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    pointer: {
+                        show: false
+                    },
+                },
+                {
+                    name: 'gap',
+                    value: 110 - value,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: false
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                            color: 'rgba(0, 0, 0, 0)',
+                            borderColor: 'rgba(0, 0, 0, 0)',
+                            borderWidth: 0,
+                        }
+                    },
+                }
                 ]
             },
             //刻度尺
@@ -212,7 +227,7 @@ function heart_1() {
 
 }
 // 心理测询2
-function heart_2() {
+function heart_2 () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_2"));
     var value = 82;
@@ -261,57 +276,57 @@ function heart_2() {
                 clockwise: false,
                 hoverAnimation: false,
                 data: [{
-                        value: value,
-                        itemStyle: {
-                            normal: {
-                                borderWidth: 3,
-                                borderColor: {
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                                    }]
-                                },
-                                color: { // 完成的圆环的颜色
-                                    colorStops: [{
-                                        offset: 0,
-                                        color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                                    }, {
-                                        offset: 1,
-                                        color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                                    }]
-                                }
+                    value: value,
+                    itemStyle: {
+                        normal: {
+                            borderWidth: 3,
+                            borderColor: {
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                                }]
                             },
-                        },
-                        label: {
-                            show: false
-                        },
-                        labelLine: {
-                            show: false
-                        },
-                        pointer: {
-                            show: false
-                        },
-                    },
-                    {
-                        name: 'gap',
-                        value: 110 - value,
-                        itemStyle: {
-                            normal: {
-                                label: {
-                                    show: false
-                                },
-                                labelLine: {
-                                    show: false
-                                },
-                                color: 'rgba(0, 0, 0, 0)',
-                                borderColor: 'rgba(0, 0, 0, 0)',
-                                borderWidth: 0,
+                            color: { // 完成的圆环的颜色
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                                }]
                             }
                         },
-                    }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    pointer: {
+                        show: false
+                    },
+                },
+                {
+                    name: 'gap',
+                    value: 110 - value,
+                    itemStyle: {
+                        normal: {
+                            label: {
+                                show: false
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                            color: 'rgba(0, 0, 0, 0)',
+                            borderColor: 'rgba(0, 0, 0, 0)',
+                            borderWidth: 0,
+                        }
+                    },
+                }
                 ]
             },
             //刻度尺
@@ -425,7 +440,7 @@ function heart_2() {
 
 }
 //心里测询3
-function heart_3() {
+function heart_3 () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_3"));
     // 指定配置和数据
@@ -513,7 +528,7 @@ function heart_3() {
 
 }
 //心里测询4
-function heart_4() {
+function heart_4 () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#heart_4"));
     // 指定配置和数据
@@ -525,37 +540,37 @@ function heart_4() {
         },
         grid: {},
         series: [{
-                name: "干预情况",
-                type: 'pie',
-                selectedMode: 'single',
-                radius: [0, '80%'],
-                label: {
-                    normal: {
-                        position: 'inner',
-                        formatter: "{b}: {c}人",
-                        textStyle: {
-                            fontSize: 16
-                        },
-                    }
-                },
-                labelLine: {
-                    normal: {
-                        show: false
+            name: "干预情况",
+            type: 'pie',
+            selectedMode: 'single',
+            radius: [0, '80%'],
+            label: {
+                normal: {
+                    position: 'inner',
+                    formatter: "{b}: {c}人",
+                    textStyle: {
+                        fontSize: 16
                     },
-                },
-                data: [{
-                    'name': '正在干预',
-                    'value': 81
-                }, {
-                    'name': '已干预',
-                    'value': 240
-                }],
+                }
             },
-            {
-                name: '干预情况',
-                type: 'pie',
-                radius: ['100%', '100%']
-            }
+            labelLine: {
+                normal: {
+                    show: false
+                },
+            },
+            data: [{
+                'name': '正在干预',
+                'value': 81
+            }, {
+                'name': '已干预',
+                'value': 240
+            }],
+        },
+        {
+            name: '干预情况',
+            type: 'pie',
+            radius: ['100%', '100%']
+        }
         ]
     };
     // 把配置给实例对象
@@ -567,7 +582,7 @@ function heart_4() {
 }
 
 //政治教育1
-function edu_1() {
+function edu_1 () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#edu_1"));
     var data = {
@@ -635,59 +650,59 @@ function edu_1() {
             },
         },
         yAxis: [{
-                name: '平均分',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "rgba(255,255,255,0.2)",
-                    }
+            name: '平均分',
+            type: "value",
+            min: 70,
+            max: 100,
+            // 修饰刻度标签的颜色
+            axisLine: {
+                lineStyle: {
+                    color: "white"
                 }
             },
-            {
-                name: '总完成率',
-                type: "value",
-                min: 70,
-                max: 100,
-                // 修饰刻度标签的颜色
-                axisLine: {
-                    lineStyle: {
-                        color: "white"
-                    }
-                },
-                // 修改y轴分割线的颜色
-                splitLine: {
-                    lineStyle: {
-                        color: "#white"
-                    }
-                },
-                axisLabel: {
-                    formatter: '{value} %'
+            // 修改y轴分割线的颜色
+            splitLine: {
+                lineStyle: {
+                    color: "rgba(255,255,255,0.2)",
+                }
+            }
+        },
+        {
+            name: '总完成率',
+            type: "value",
+            min: 70,
+            max: 100,
+            // 修饰刻度标签的颜色
+            axisLine: {
+                lineStyle: {
+                    color: "white"
                 }
             },
+            // 修改y轴分割线的颜色
+            splitLine: {
+                lineStyle: {
+                    color: "#white"
+                }
+            },
+            axisLabel: {
+                formatter: '{value} %'
+            }
+        },
         ],
 
         series: [{
-                name: "总完成率",
-                type: "line",
-                // 是否让线条圆滑显示
-                smooth: true,
-                data: data.edu[0]
-            },
-            {
-                name: "平均分",
-                type: "line",
-                smooth: true,
-                data: data.edu[1]
-            }
+            name: "总完成率",
+            type: "line",
+            // 是否让线条圆滑显示
+            smooth: true,
+            data: data.edu[0]
+        },
+        {
+            name: "平均分",
+            type: "line",
+            smooth: true,
+            data: data.edu[1]
+        }
         ]
     };
     // 把配置给实例对象
@@ -699,7 +714,7 @@ function edu_1() {
 }
 
 //智慧营区
-function smart() {
+function smart () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('smart'));
 
@@ -755,70 +770,70 @@ function smart() {
             data: [],
         }],
         series: [{
-                name: '条',
-                type: 'bar',
-                yAxisIndex: 0,
-                data: ['114', '145', '101', '70'],
-                barWidth: 8,
-                itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            var num = myColor.length;
-                            return myColor[params.dataIndex % num]
-                        },
-                    }
-                },
-                z: 2
-            }, {
-                name: '白框',
-                type: 'bar',
-                yAxisIndex: 1,
-                barGap: '-100%',
-                data: [149, 149, 149, 149],
-                barWidth: 12,
-                itemStyle: {
-                    normal: {
-                        color: '#0e2147',
-                        barBorderRadius: 5,
-                    }
-                },
-                z: 1
-            }, {
-                name: '外框',
-                type: 'bar',
-                yAxisIndex: 2,
-                barGap: '-100%',
-                data: [150, 150, 150, 150],
-                barWidth: 18,
-                itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            var num = myColor.length;
-                            return myColor[params.dataIndex % num]
-                        },
-                        barBorderRadius: 5,
-                    }
-                },
-                z: 0
+            name: '条',
+            type: 'bar',
+            yAxisIndex: 0,
+            data: ['114', '145', '101', '70'],
+            barWidth: 8,
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var num = myColor.length;
+                        return myColor[params.dataIndex % num]
+                    },
+                }
             },
-            {
-                name: '外圆',
-                type: 'scatter',
-                hoverAnimation: false,
-                data: [0, 0, 0, 0],
-                yAxisIndex: 2,
-                symbolSize: 26,
-                itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            var num = myColor.length;
-                            return myColor[params.dataIndex % num]
-                        },
-                        opacity: 1,
-                    }
-                },
-                z: 2
-            }
+            z: 2
+        }, {
+            name: '白框',
+            type: 'bar',
+            yAxisIndex: 1,
+            barGap: '-100%',
+            data: [149, 149, 149, 149],
+            barWidth: 12,
+            itemStyle: {
+                normal: {
+                    color: '#0e2147',
+                    barBorderRadius: 5,
+                }
+            },
+            z: 1
+        }, {
+            name: '外框',
+            type: 'bar',
+            yAxisIndex: 2,
+            barGap: '-100%',
+            data: [150, 150, 150, 150],
+            barWidth: 18,
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var num = myColor.length;
+                        return myColor[params.dataIndex % num]
+                    },
+                    barBorderRadius: 5,
+                }
+            },
+            z: 0
+        },
+        {
+            name: '外圆',
+            type: 'scatter',
+            hoverAnimation: false,
+            data: [0, 0, 0, 0],
+            yAxisIndex: 2,
+            symbolSize: 26,
+            itemStyle: {
+                normal: {
+                    color: function (params) {
+                        var num = myColor.length;
+                        return myColor[params.dataIndex % num]
+                    },
+                    opacity: 1,
+                }
+            },
+            z: 2
+        }
         ]
     };
     // 使用刚指定的配置项和数据显示图表。
@@ -829,7 +844,7 @@ function smart() {
 }
 
 // 全员考核
-function assess_1() {
+function assess_1 () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.querySelector("#assess_1"));
 
@@ -882,37 +897,37 @@ function assess_1() {
             }
         },
         series: [{
-                name: '优秀',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [330, 302, 301, 334, 140, 210, 200, 220, 302, 301, 334, 99, 102, 100, 230],
+            name: '优秀',
+            type: 'bar',
+            barWidth: '40%',
+            stack: '总量',
+            data: [330, 302, 301, 334, 140, 210, 200, 220, 302, 301, 334, 99, 102, 100, 230],
 
-            },
-            {
-                name: '称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [520, 232, 201, 134, 200, 360, 330, 320, 132, 101, 194, 320, 310, 300, 300],
+        },
+        {
+            name: '称职',
+            type: 'bar',
+            barWidth: '40%',
+            stack: '总量',
+            data: [520, 232, 201, 134, 200, 360, 330, 320, 132, 101, 194, 320, 310, 300, 300],
 
-            },
-            {
-                name: '基本称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [320, 182, 191, 234, 230, 330, 310, 340, 182, 191, 234, 104, 98, 130, 199],
+        },
+        {
+            name: '基本称职',
+            type: 'bar',
+            barWidth: '40%',
+            stack: '总量',
+            data: [320, 182, 191, 234, 230, 330, 310, 340, 182, 191, 234, 104, 98, 130, 199],
 
-            },
-            {
-                name: '不称职',
-                type: 'bar',
-                barWidth: '40%',
-                stack: '总量',
-                data: [110, 212, 201, 154, 110, 160, 120, 150, 212, 201, 154, 80, 90, 100, 251],
+        },
+        {
+            name: '不称职',
+            type: 'bar',
+            barWidth: '40%',
+            stack: '总量',
+            data: [110, 212, 201, 154, 110, 160, 120, 150, 212, 201, 154, 80, 90, 100, 251],
 
-            }
+        }
         ]
     };
 
@@ -928,7 +943,7 @@ function assess_1() {
 }
 
 //全员考核的两个数字仪表盘
-function assess_2() {
+function assess_2 () {
 
     option = {
         title: {
@@ -1044,7 +1059,7 @@ function assess_2() {
 }
 
 // 智慧党建
-function dj_1() {
+function dj_1 () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj1'));
 
@@ -1275,7 +1290,7 @@ function dj_1() {
     });
 }
 
-function dj_2() {
+function dj_2 () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj2'));
 
@@ -1508,7 +1523,7 @@ function dj_2() {
     });
 }
 
-function dj_3() {
+function dj_3 () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj3'));
 
@@ -1571,157 +1586,157 @@ function dj_3() {
 
         //第一个图表
         series: [{
-                type: 'pie',
-                hoverAnimation: false, //鼠标经过的特效
-                radius: ['60%', '80%'],
-                center: ['22%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 100,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#8470FF'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#00FFFF'
-                                }]),
-                            }
-                        },
-                    }, {
-                        value: 35,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
+            type: 'pie',
+            hoverAnimation: false, //鼠标经过的特效
+            radius: ['60%', '80%'],
+            center: ['22%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
             },
-            //上层环形配置
-            {
-                type: 'pie',
-                hoverAnimation: false, //鼠标经过的特效
-                radius: ['60%', '80%'],
-                center: ['22%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
+            label: {
+                normal: {
+                    y: '40%'
+                }
+            },
+            data: [{
+                value: 100,
+                "itemStyle": {
+                    "normal": {
+                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            "offset": 0,
+                            "color": '#8470FF'
+                        }, {
+                            "offset": 1,
+                            "color": '#00FFFF'
+                        }]),
                     }
                 },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 212,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#8470FF'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#00FFFF'
-                                }]),
-                            }
-                        },
-                        label: dataStyle,
-                    }, {
-                        value: 220,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
+            }, {
+                value: 35,
+                itemStyle: placeHolderStyle,
             },
 
-
-            //第二个图表
-            {
-                type: 'pie',
-                hoverAnimation: false,
-                radius: ['60%', '80%'],
-                center: ['77%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
+            ]
+        },
+        //上层环形配置
+        {
+            type: 'pie',
+            hoverAnimation: false, //鼠标经过的特效
+            radius: ['60%', '80%'],
+            center: ['22%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            label: {
+                normal: {
+                    y: '40%'
+                }
+            },
+            data: [{
+                value: 212,
+                "itemStyle": {
+                    "normal": {
+                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            "offset": 0,
+                            "color": '#8470FF'
+                        }, {
+                            "offset": 1,
+                            "color": '#00FFFF'
+                        }]),
                     }
                 },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 100,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#00FF00'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#ffff00'
-                                }]),
-                            }
-                        },
-                    }, {
-                        value: 35,
-                        itemStyle: placeHolderStyle,
-                    },
-
-                ]
+                label: dataStyle,
+            }, {
+                value: 220,
+                itemStyle: placeHolderStyle,
             },
 
-            //上层环形配置
-            {
-                type: 'pie',
-                hoverAnimation: false,
-                radius: ['60%', '80%'],
-                center: ['77%', '42%'],
-                startAngle: 225,
-                labelLine: {
-                    normal: {
-                        show: false
-                    }
-                },
-                label: {
-                    normal: {
-                        y: '40%'
-                    }
-                },
-                data: [{
-                        value: 984,
-                        "itemStyle": {
-                            "normal": {
-                                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                    "offset": 0,
-                                    "color": '#00FF7F'
-                                }, {
-                                    "offset": 1,
-                                    "color": '#ffff00'
-                                }]),
-                            }
-                        },
-                        label: dataStyle,
-                    }, {
-                        value: 1000,
-                        itemStyle: placeHolderStyle,
-                    },
+            ]
+        },
 
-                ]
-            }
+
+        //第二个图表
+        {
+            type: 'pie',
+            hoverAnimation: false,
+            radius: ['60%', '80%'],
+            center: ['77%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            label: {
+                normal: {
+                    y: '40%'
+                }
+            },
+            data: [{
+                value: 100,
+                "itemStyle": {
+                    "normal": {
+                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            "offset": 0,
+                            "color": '#00FF00'
+                        }, {
+                            "offset": 1,
+                            "color": '#ffff00'
+                        }]),
+                    }
+                },
+            }, {
+                value: 35,
+                itemStyle: placeHolderStyle,
+            },
+
+            ]
+        },
+
+        //上层环形配置
+        {
+            type: 'pie',
+            hoverAnimation: false,
+            radius: ['60%', '80%'],
+            center: ['77%', '42%'],
+            startAngle: 225,
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            label: {
+                normal: {
+                    y: '40%'
+                }
+            },
+            data: [{
+                value: 984,
+                "itemStyle": {
+                    "normal": {
+                        "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            "offset": 0,
+                            "color": '#00FF7F'
+                        }, {
+                            "offset": 1,
+                            "color": '#ffff00'
+                        }]),
+                    }
+                },
+                label: dataStyle,
+            }, {
+                value: 1000,
+                itemStyle: placeHolderStyle,
+            },
+
+            ]
+        }
         ]
     };
 
@@ -1732,7 +1747,7 @@ function dj_3() {
     });
 }
 
-function dj_4() {
+function dj_4 () {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('dj4'));
 
@@ -1816,88 +1831,88 @@ function dj_4() {
             formatter: '{b}:{c}人'
         },
         series: [{
-                name: '',
-                type: 'pie',
-                clockWise: false,
-                startAngle: '45',
-                center: ['50%', '40%'],
-                radius: ['65%', '70%'],
-                hoverAnimation: false,
-                emphasis: {
-                    itemStyle: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                },
+            name: '',
+            type: 'pie',
+            clockWise: false,
+            startAngle: '45',
+            center: ['50%', '40%'],
+            radius: ['65%', '70%'],
+            hoverAnimation: false,
+            emphasis: {
                 itemStyle: {
-                    normal: {
-                        label: {
-                            show: true,
-                            position: 'outside',
-                            formatter: func,
-                            rich: rich,
-                            fontSize: 14,
-                            fontWeight: 'bold',
-                        },
-                        labelLine: {
-                            length: 10,
-                            length2: 15,
-                            show: true,
-                            color: '#00ffff',
-
-                        }
-                    }
-                },
-                data: list,
-                animationType: 'scale',
-                animationEasing: 'elasticOut',
-                animationDelay: function (idx) {
-                    return idx * 50;
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
                 }
             },
-            {
-                name: '',
-                type: 'pie',
-                center: ['50%', '40%'],
-                radius: ['49%', '49%'],
-                itemStyle: {
-                    color: 'transparant'
-                },
-                tooltip: {
-                    show: false
-                },
-                startAngle: '90',
-                data: [{
-                    value: total,
-                    name: '',
+            itemStyle: {
+                normal: {
                     label: {
-                        normal: {
-                            show: true,
-                            formatter: "党员人数\n{c|{c}} {b|}",
-                            rich: {
-                                c: {
-                                    color: '#00f2f1',
-                                    fontSize: 16,
-                                    fontWeight: 'bold',
-                                    lineHeight: 5
-                                },
-                                b: {
-                                    color: '#00f2f1',
-                                    fontSize: 16,
-                                    lineHeight: 5
-                                }
-                            },
-                            textStyle: {
-                                fontSize: 14,
-                                fontWeight: 'bold',
-                                color: '#00f2f1',
-                            },
-                            position: 'center'
-                        }
+                        show: true,
+                        position: 'outside',
+                        formatter: func,
+                        rich: rich,
+                        fontSize: 14,
+                        fontWeight: 'bold',
+                    },
+                    labelLine: {
+                        length: 10,
+                        length2: 15,
+                        show: true,
+                        color: '#00ffff',
+
                     }
-                }]
+                }
+            },
+            data: list,
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function (idx) {
+                return idx * 50;
             }
+        },
+        {
+            name: '',
+            type: 'pie',
+            center: ['50%', '40%'],
+            radius: ['49%', '49%'],
+            itemStyle: {
+                color: 'transparant'
+            },
+            tooltip: {
+                show: false
+            },
+            startAngle: '90',
+            data: [{
+                value: total,
+                name: '',
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: "党员人数\n{c|{c}} {b|}",
+                        rich: {
+                            c: {
+                                color: '#00f2f1',
+                                fontSize: 16,
+                                fontWeight: 'bold',
+                                lineHeight: 5
+                            },
+                            b: {
+                                color: '#00f2f1',
+                                fontSize: 16,
+                                lineHeight: 5
+                            }
+                        },
+                        textStyle: {
+                            fontSize: 14,
+                            fontWeight: 'bold',
+                            color: '#00f2f1',
+                        },
+                        position: 'center'
+                    }
+                }
+            }]
+        }
         ]
     };
 
@@ -1908,127 +1923,127 @@ function dj_4() {
     });
 }
 
-function tb_edu() {
+function tb_edu () {
     var dataArray = [{
-            name: "武汉支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 97.7
-        },
-        {
-            name: "宜昌支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 95.3
-        },
-        {
-            name: "鄂州支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 98.2
-        },
-        {
-            name: "襄阳支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 96.5
-        },
-        {
-            name: "黄石支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 99.2
-        },
-        {
-            name: "荆门支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 97.8
-        },
-        {
-            name: "咸宁支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 98.3
-        },
-        {
-            name: "十堰支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 95.7
-        },
-        {
-            name: "随州支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 99.1
-        },
-        {
-            name: "孝感支队",
-            compulsory: "90%",
-            elective: "90%",
-            exam: "70%",
-            finish: "82%",
-            average: 83.2
-        },
-        {
-            name: "荆州支队",
-            compulsory: "99%",
-            elective: "99%",
-            exam: "95%",
-            finish: "96%",
-            average: 92.2
-        },
-        {
-            name: "黄冈支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 89.2
-        },
-        {
-            name: "恩施支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 96.6
-        },
-        {
-            name: "汉江支队",
-            compulsory: "100%",
-            elective: "100%",
-            exam: "100%",
-            finish: "100%",
-            average: 97.5
-        },
-        {
-            name: "训保支队",
-            compulsory: "90%",
-            elective: "90%",
-            exam: "80%",
-            finish: "85%",
-            average: 89.2
-        },
+        name: "武汉支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 97.7
+    },
+    {
+        name: "宜昌支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 95.3
+    },
+    {
+        name: "鄂州支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 98.2
+    },
+    {
+        name: "襄阳支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 96.5
+    },
+    {
+        name: "黄石支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 99.2
+    },
+    {
+        name: "荆门支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 97.8
+    },
+    {
+        name: "咸宁支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 98.3
+    },
+    {
+        name: "十堰支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 95.7
+    },
+    {
+        name: "随州支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 99.1
+    },
+    {
+        name: "孝感支队",
+        compulsory: "90%",
+        elective: "90%",
+        exam: "70%",
+        finish: "82%",
+        average: 83.2
+    },
+    {
+        name: "荆州支队",
+        compulsory: "99%",
+        elective: "99%",
+        exam: "95%",
+        finish: "96%",
+        average: 92.2
+    },
+    {
+        name: "黄冈支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 89.2
+    },
+    {
+        name: "恩施支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 96.6
+    },
+    {
+        name: "汉江支队",
+        compulsory: "100%",
+        elective: "100%",
+        exam: "100%",
+        finish: "100%",
+        average: 97.5
+    },
+    {
+        name: "训保支队",
+        compulsory: "90%",
+        elective: "90%",
+        exam: "80%",
+        finish: "85%",
+        average: 89.2
+    },
     ];
 
     var tr = "";
@@ -2045,77 +2060,77 @@ function tb_edu() {
     $('#edu_tb').append(tr);
 }
 
-function tb_wn1() {
+function tb_wn1 () {
     var dataArray = [{
-            name: "武汉支队",
-            time: "2020-8-17 09:10",
-            type: "政治教育",
-            content: "武汉支队本月11人考试不及格",
-            flag: "最新预警"
-        },
-        {
-            name: "孝感支队",
-            time: "2020-8-16 14:00",
-            type: "政治教育",
-            content: "孝感支队本月还有31人未参加学习",
-            flag: "最新预警"
-        },
-        {
-            name: "荆州支队",
-            time: "2020-8-16 08:00",
-            type: "智慧党建",
-            content: "荆州支队有3个支部本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "荆州支队",
-            time: "2020-8-15 12:20",
-            type: "智慧党建",
-            content: "荆州支队有83人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-15 10:00",
-            type: "心理测询",
-            content: "鄂州支队有12人心理测询异常",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-12 09:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-10 11:00",
-            type: "全员考核",
-            content: "宜昌支队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 13:00",
-            type: "心理测询",
-            content: "宜昌支队有12人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 15:00",
-            type: "全员考核",
-            content: "宜昌支队有4人本月训练不合格",
-            flag: "最新预警"
-        }
+        name: "武汉支队",
+        time: "2020-8-17 09:10",
+        type: "政治教育",
+        content: "武汉支队本月11人考试不及格",
+        flag: "最新预警"
+    },
+    {
+        name: "孝感支队",
+        time: "2020-8-16 14:00",
+        type: "政治教育",
+        content: "孝感支队本月还有31人未参加学习",
+        flag: "最新预警"
+    },
+    {
+        name: "荆州支队",
+        time: "2020-8-16 08:00",
+        type: "智慧党建",
+        content: "荆州支队有3个支部本月尚未开展主题党日活动",
+        flag: "最新预警"
+    },
+    {
+        name: "荆州支队",
+        time: "2020-8-15 12:20",
+        type: "智慧党建",
+        content: "荆州支队有83人本月尚未参加主题党日活动",
+        flag: "最新预警"
+    },
+    {
+        name: "鄂州支队",
+        time: "2020-8-15 10:00",
+        type: "心理测询",
+        content: "鄂州支队有12人心理测询异常",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-13 08:00",
+        type: "全员考核",
+        content: "宜昌支队有2个支部本月尚未开展全员考核",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-12 09:00",
+        type: "全员考核",
+        content: "宜昌支队有4人本月被评定为不称职",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-10 11:00",
+        type: "全员考核",
+        content: "宜昌支队有2个支部本月尚未开展全员考核",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-09 13:00",
+        type: "心理测询",
+        content: "宜昌支队有12人睡眠质量一直不良",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-09 15:00",
+        type: "全员考核",
+        content: "宜昌支队有4人本月训练不合格",
+        flag: "最新预警"
+    }
     ];
     var tr = "";
     for (var i = 0; i < dataArray.length; i++) {
@@ -2131,24 +2146,24 @@ function tb_wn1() {
     addTableClick("wn_tb1", dataArray);
 }
 
-function addTableClick(tableName, dataArray){
-    $("#" +tableName+ " > tbody tr").each(function(trindex, tritem){
-        $(tritem).click(function(){
+function addTableClick (tableName, dataArray) {
+    $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+        $(tritem).click(function () {
 
-            if(tableName == "wn_tb1"){
+            if (tableName == "wn_tb1") {
                 $(".modal-body > p").text("最新风险预警信息")
-            }else{
+            } else {
                 $(".modal-body > p").text("正在处理风险预警信息")
             }
             document.getElementById("simpleModal").style.display = "block";
-            var tdContent = dataArray[trindex-1]
-            $('#modal-ul').find("li").each(function(index, item){
+            var tdContent = dataArray[trindex - 1]
+            $('#modal-ul').find("li").each(function (index, item) {
                 console.log(item);
-                if(index==0){
+                if (index == 0) {
                     $(item).text("来源：" + tdContent.type)
-                }else if(index==1){
+                } else if (index == 1) {
                     $(item).text("详情：" + tdContent.content)
-                }else if(index==2){
+                } else if (index == 2) {
                     $(item).text("状态：" + "正在处理")
                 }
             })
@@ -2156,78 +2171,78 @@ function addTableClick(tableName, dataArray){
     })
 }
 
-function tb_wn2() {
+function tb_wn2 () {
     var dataArray = [{
-            name: "黄石支队",
-            time: "2020-8-17 10:00",
-            type: "心理测询",
-            content: "黄石支队有9人心理测询异常",
-            flag: "最新预警"
-        },
-        {
-            name: "孝感支队",
-            time: "2020-8-17 09:10",
-            type: "政治教育",
-            content: "孝感支队本月14人考试不及格",
-            flag: "最新预警"
-        },
-        {
-            name: "孝感支队",
-            time: "2020-8-16 08:00",
-            type: "智慧党建",
-            content: "孝感支队有1个支部本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-15 13:00",
-            type: "心理测询",
-            content: "鄂州支队有4人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "孝感支队",
-            time: "2020-8-15 14:00",
-            type: "政治教育",
-            content: "孝感支队本月还有18人未参加学习",
-            flag: "最新预警"
-        },
-        {
-            name: "武汉支队",
-            time: "2020-8-15 12:20",
-            type: "智慧党建",
-            content: "武汉支队有44人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
+        name: "黄石支队",
+        time: "2020-8-17 10:00",
+        type: "心理测询",
+        content: "黄石支队有9人心理测询异常",
+        flag: "最新预警"
+    },
+    {
+        name: "孝感支队",
+        time: "2020-8-17 09:10",
+        type: "政治教育",
+        content: "孝感支队本月14人考试不及格",
+        flag: "最新预警"
+    },
+    {
+        name: "孝感支队",
+        time: "2020-8-16 08:00",
+        type: "智慧党建",
+        content: "孝感支队有1个支部本月尚未开展主题党日活动",
+        flag: "最新预警"
+    },
+    {
+        name: "鄂州支队",
+        time: "2020-8-15 13:00",
+        type: "心理测询",
+        content: "鄂州支队有4人睡眠质量一直不良",
+        flag: "最新预警"
+    },
+    {
+        name: "孝感支队",
+        time: "2020-8-15 14:00",
+        type: "政治教育",
+        content: "孝感支队本月还有18人未参加学习",
+        flag: "最新预警"
+    },
+    {
+        name: "武汉支队",
+        time: "2020-8-15 12:20",
+        type: "智慧党建",
+        content: "武汉支队有44人本月尚未参加主题党日活动",
+        flag: "最新预警"
+    },
 
-        {
-            name: "十堰支队",
-            time: "2020-8-13 08:00",
-            type: "全员考核",
-            content: "十堰支队有3个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "训保支队",
-            time: "2020-8-12 09:00",
-            type: "全员考核",
-            content: "训保支队有14人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "鄂州支队",
-            time: "2020-8-09 15:00",
-            type: "全员考核",
-            content: "鄂州支队有2人本月训练不合格",
-            flag: "最新预警"
-        },
-        {
-            name: "宜昌支队",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "宜昌支队有19个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
+    {
+        name: "十堰支队",
+        time: "2020-8-13 08:00",
+        type: "全员考核",
+        content: "十堰支队有3个支部本月尚未开展全员考核",
+        flag: "最新预警"
+    },
+    {
+        name: "训保支队",
+        time: "2020-8-12 09:00",
+        type: "全员考核",
+        content: "训保支队有14人本月被评定为不称职",
+        flag: "最新预警"
+    },
+    {
+        name: "鄂州支队",
+        time: "2020-8-09 15:00",
+        type: "全员考核",
+        content: "鄂州支队有2人本月训练不合格",
+        flag: "最新预警"
+    },
+    {
+        name: "宜昌支队",
+        time: "2020-8-09 11:00",
+        type: "全员考核",
+        content: "宜昌支队有19个支部本月尚未开展全员考核",
+        flag: "最新预警"
+    },
 
 
     ];
