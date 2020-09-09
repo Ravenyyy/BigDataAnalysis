@@ -1,6 +1,6 @@
 
 const monthPickerTemplate = `
-<DatePicker class="showTime" type="month" placeholder="选择月份"></DatePicker>
+<DatePicker class="showTime" size="small" type="month" placeholder="选择月份" @on-change="changeTime"></DatePicker>
 `
 const monthPicker = new Vue({
     el: '#showTime',
@@ -10,6 +10,9 @@ const monthPicker = new Vue({
         }
     },
     methods: {
+        changeTime (date) {
+            console.log(date)
+        }
     },
 })
 
