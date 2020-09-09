@@ -53,7 +53,7 @@
   <section class="mainbox">
     <div class="column">
 
-      <div class="panel dangjian">
+      <div class="panel dangjian" onclick="toDjDetail()">
         <h2>智慧党建</h2>
         <div class="quarter-div" id="dj1"></div>
         <div class="quarter-div" id="dj2"></div>
@@ -62,13 +62,13 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education">
+      <div class="panel education" onclick="toEduDetail()">
         <h2>政治教育</h2>
         <div class="chart" id="edu_1"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel bar">
+      <div class="panel bar" onclick="toHeartDetail()">
         <h2>
           心理测询
         </h2>
@@ -103,7 +103,7 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment">
+      <div class="panel assessment" onclick="toAssessDetail()">
         <h2>全员考核</h2>
         <div class="quarter-assess" id="assess_2"></div>
         <div class="quarter-assess" id="assess_3"></div>
@@ -157,7 +157,7 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1">
+      <div class="panel line1" onclick="toSmartDetail()">
         <h2>智慧队站</h2>
         <div class="chart" id="smart"></div>
         <!-- <div class="half-div" id="smart_1"></div>
@@ -206,6 +206,26 @@
 
   function toAssessment() {
     window.location = '/assess/assessment.html'
+  }
+
+  function toDjDetail() {
+    window.location = './detail/djDetail.html'
+  }
+
+  function toEduDetail() {
+    window.location = './detail/eduDetail.html'
+  }
+
+  function toHeartDetail() {
+    window.location = './detail/heartDetail.html'
+  }
+
+  function toSmartDetail() {
+    window.location = './detail/smartDetail.html'
+  }
+
+  function toAssessDetail() {
+    window.location = './detail/assessDetail.html'
   }
 </script>
 

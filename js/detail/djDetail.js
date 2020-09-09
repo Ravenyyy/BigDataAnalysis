@@ -1,3 +1,79 @@
+//组织结构图
+const structureTempla = `
+<Tree class = "tree" :data="data6"style = "overflow-y: scroll;height:4.8rem">
+</Tree>
+`
+
+const structure = new Vue({
+  el: '#dj_3',
+  template: structureTempla,
+  data() {
+    return {
+      data6: [{
+        title: '武汉市消防支队党委',
+        expand: true,
+        contextmenu: true,
+        children: [{
+            title: '书记',
+            expand: true,
+            contextmenu: true,
+            children: [{
+              title: '刘自龙',
+              contextmenu: true
+            }]
+          },
+          {
+            title: '副书记',
+            expand: true,
+            contextmenu: true,
+            children: [{
+              title: '陈万红',
+              contextmenu: true
+            }]
+          },
+          {
+            title: '委员',
+            expand: true,
+            contextmenu: true,
+            children: [{
+                title: '王洪波',
+                contextmenu: true
+              },
+              {
+                title: '王仕宝',
+                contextmenu: true
+              },
+              {
+                title: '罗洪波',
+                contextmenu: true
+              },
+              {
+                title: '胡玉冰',
+                contextmenu: true
+              },
+              {
+                title: '杨宏国',
+                contextmenu: true
+              },
+              {
+                title: '徐雪冰',
+                contextmenu: true
+              },
+              {
+                title: '张如波',
+                contextmenu: true
+              }
+            ]
+          }
+        ]
+      }],
+      contextData: null
+    }
+  },
+  methods: {
+
+  }
+})
 //主题党日“十事联动”支部开展情况统计
 function dj_1() {
   var dataArray = [{
@@ -743,23 +819,3 @@ function dj_6() {
     myChart.resize();
   });
 }
-
-// $(function () {
-//   var strtBlocks = $("div.strt-block");
-//   strtBlocks.each(function (n) {
-//     var childs = $(this).children();
-//     var w = (childs.last().width() - childs.first().width()) / 4;
-//     if (w > 0) {
-//       $(this).css("margin-left", w)
-//     } else {
-//       $(this).css("padding-right", -w * 2);
-//     }
-//   });
-
-//   var strtWrap = $("#strtWrap");
-//   strtWrap.width(strtWrap.children().width());
-//   strtWrap.draggable({
-//     cursor: "move",
-//     opacity: 0.5
-//   });
-// });
