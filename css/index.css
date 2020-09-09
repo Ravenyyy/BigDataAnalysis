@@ -42,12 +42,27 @@ header h1 {
 
 header .showTime {
   position: absolute;
-  top: 0;
+  top: 0.2rem;
   left: 0.375rem;
-  line-height: 0.9375rem;
-  font-size: 0.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  /* height: 0.3rem; */
+  width: 3rem;
+  /* line-height: 0.9375rem; */
+  /* font-size: 0.25rem; */
+  /* color: rgba(255, 255, 255, 0.7); */
 }
+
+header .showTime .ivu-input-icon-normal+.ivu-input {
+  height: 0.4rem;
+}
+
+header .showTime input[type=text] {
+  font-size: 0.2rem;
+}
+
+/* header .showTime .ivu-input-wrapper-small .ivu-input-icon {
+  height: 35px;
+  width: 35px;
+} */
 
 header .bnt {
   position: absolute;
