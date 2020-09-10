@@ -169,12 +169,21 @@ const condition = new Vue({
             if(zhiduiData.length == 0){
                 this.daduiSelect = []
             }else{
-                // console.log(zhiduiData);
+                console.log(zhiduiData);
+                var zhiduiIdStr=''
+                for(var i=0;i<zhiduiData.length;i++){
+                    if(i!=zhiduiData.length-1){
+                        zhiduiIdStr+=zhiduiData[i]+'-';
+                    }else{
+                        zhiduiIdStr+=zhiduiData[i];
+                    }
+                }
                 $.ajax({
                     type:'GET',
                     url: 'http://localhost:8880/unit/getUnitByParentId',
                     data:{
-                        parentId: zhiduiData[zhiduiData.length-1]
+                        // parentId: zhiduiData[zhiduiData.length-1]
+                        unitIdStr:zhiduiIdStr
                     },
                     success: function(response){
                         condition.daduiSelect = response.extra.unitList
@@ -190,11 +199,20 @@ const condition = new Vue({
             if(daduiData.length == 0){
                 this.stationSelect = []
             }else{
+                var daduiIdStr=''
+                for(var i=0;i<daduiData.length;i++){
+                    if(i!=daduiData.length-1){
+                        daduiIdStr+=daduiData[i]+'-';
+                    }else{
+                        daduiIdStr+=daduiData[i];
+                    }
+                }
                 $.ajax({
                     type:'GET',
                     url: 'http://localhost:8880/unit/getUnitByParentId',
                     data:{
-                        parentId: daduiData[daduiData.length-1]
+                        // parentId: daduiData[daduiData.length-1]
+                        unitIdStr:daduiIdStr
                     },
                     success: function(response){
                         condition.stationSelect = response.extra.unitList
@@ -210,6 +228,34 @@ const condition = new Vue({
                 this.queryItem.firstTarget=''
             }
             this.oldStation = [].concat(value)
+            let stationData=this.queryItem.station
+            if(stationData.length==0){
+                this.personSelect = []
+            }else{
+                var staionStr='';
+                for(var i=0;i<stationData.length;i++){
+                    if(i!=stationData.length-1){
+                        staionStr+=stationData[i]+'-';
+                    }else{
+                        staionStr+=stationData[i];
+                    }
+                }
+
+                // $.ajax({
+                //     type:'GET',
+                //     url: 'http://localhost:8880/unit/getUnitByParentId',
+                //     data:{
+                //         // parentId: daduiData[daduiData.length-1]
+                //         unitIdStr:daduiIdStr
+                //     },
+                //     success: function(response){
+                //         condition.stationSelect = response.extra.unitList
+                //     },
+                //     error: function(response){
+                //         console.log(response);
+                //     }
+                // })
+            }
         },
         personChange(value){
             if((value.length!=0 && this.oldPerson.length==0) || (value.length==0 && this.oldPerson.length!=0)){
@@ -469,7 +515,7 @@ function getseriesData(queryItem, xAxisDate){
 
     for(let i=0; i<unit.length;i++){
         let item = {name:'', data:[]}
-        item.name = unitList[unitFlag-1][unit[i]-1].name
+        // item.name = unitList[unitFlag-1][unit[i]-1].name   //显示每条线的名称
         for(let j=0; j<xAxisDate.length; j++){
             item.data.push(Math.round(Math.random()*51 + 49))
         }
