@@ -25,7 +25,7 @@ function heart_1 () {
   var option = {
     color: ["#ff9d6f", "#00f2f1"],
     title: {
-      text: `6776`,
+      text: takePeopleNumber,
       left: 'center',
       top: 'center', //top待调整
       textStyle: {
@@ -450,7 +450,7 @@ function heart_3 () {
   var colorList = ['#FF6EB4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
   option = {
     title: {
-      text: '异常人数\n301 ',
+      text: '异常人数\n' + problemNum,
       x: 'center',
       y: '39%',
       // subtext: '301',
@@ -504,22 +504,22 @@ function heart_3 () {
       },
       data: [{
         'name': '躁狂',
-        'value': 101
+        'value': irritable
       }, {
         'name': '强迫',
-        'value': 29
+        'value': force
       }, {
         'name': '其他',
-        'value': 15
+        'value': other
       }, {
         'name': '抑郁',
-        'value': 40
+        'value': depressive
       }, {
         'name': '敌对',
-        'value': 11
+        'value': hostile
       }, {
         'name': '焦虑',
-        'value': 105
+        'value': anxious
       }],
     }]
   };
@@ -563,10 +563,10 @@ function heart_4 () {
       },
       data: [{
         'name': '正在干预',
-        'value': 81
+        'value': onTreat
       }, {
         'name': '已干预',
-        'value': 240
+        'value': hasTreat
       }],
     },
     {
@@ -582,4 +582,47 @@ function heart_4 () {
     myChart.resize();
   });
 
+}
+
+let takePeopleNumber = 0;
+let checkPeopleNumber = 0;
+let problemNum = 0;
+let anxious = 0;
+let hostile = 0;
+let depressive = 0;
+let irritable = 0;
+let force = 0;
+let other = 0;
+let onTreat = 0;
+let hasTreat = 0;
+function getHeartData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    traditional: true,
+    data: {
+      unitId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      takePeopleNumber = response.extra.psyUnit.testNum;
+      checkPeopleNumber = response.extra.psyUnit.psychologist;
+      problemNum = response.extra.psyUnit.problemNum;
+      anxious = response.extra.psyUnit.anxious;
+      hostile = response.extra.psyUnit.hostile;
+      depressive = response.extra.psyUnit.depressive;
+      irritable = response.extra.psyUnit.irritable;
+      force = response.extra.psyUnit.force;
+      other = response.extra.psyUnit.other;
+      onTreat = response.extra.psyUnit.onTreat;
+      hasTreat = response.extra.psyUnit.hasTreat;
+      heart_1();
+      heart_2();
+      heart_3();
+      heart_4();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
 }

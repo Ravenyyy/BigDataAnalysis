@@ -2,12 +2,6 @@
 function edu_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_1"));
-  var data = {
-    edu: [
-      [100, 100, 100, 100, 100, 100, 100, 100, 100, 82, 96, 100, 100, 100, 85],
-      [97.7, 95.3, 98.2, 96.5, 99.2, 97.8, 98.3, 95.7, 99.1, 83.2, 92.2, 89.2, 96.6, 97.5, 89.2]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#FD866A", "#00f2f1"],
@@ -38,23 +32,7 @@ function edu_1 () {
       axisPointer: {
         type: 'shadow'
       },
-      data: [
-        "武汉",
-        "宜昌",
-        "鄂州",
-        "襄阳",
-        "黄石",
-        "荆门",
-        "咸宁",
-        "十堰",
-        "随州",
-        "孝感",
-        "荆州",
-        "黄冈",
-        "恩施",
-        "汉江",
-        "训保"
-      ],
+      data: unitNameList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -112,13 +90,13 @@ function edu_1 () {
       type: "line",
       // 是否让线条圆滑显示
       smooth: true,
-      data: data.edu[0]
+      data: yData1
     },
     {
       name: "平均分",
       type: "line",
       smooth: true,
-      data: data.edu[1]
+      data: yData2
     }
     ]
   };
@@ -128,4 +106,44 @@ function edu_1 () {
     myChart.resize();
   });
 
+}
+
+function getEduData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    traditional: true,
+    data: {
+      parentId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      dataProcess(response);
+      edu_1();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
+let unitNameList = [];
+let yData1 = [];
+let yData2 = [];
+function dataProcess (response) {
+  console.log(response)
+  // let list = response.extra.unitList;
+  // console.log(list)
+  // for (var i = 0; i < response.extra.unitList.length; i++) {
+  //   unitNameList.push(response.extra.unitList[i].unitName)
+  //   yData1.push(response.extra.unitList[i].eduFinishRate)
+  //   yData2.push(response.extra.unitList[i].eduAverage)
+  // }
+  for (var index in response.extra.unitList) {
+    unitNameList.push(response.extra.unitList[index].unitName)
+    yData1.push(response.extra.unitList[index].eduFinishRate)
+    yData2.push(response.extra.unitList[index].eduAverage)
+    // console.log(yData2)
+    // console.log(yData2)
+  }
 }

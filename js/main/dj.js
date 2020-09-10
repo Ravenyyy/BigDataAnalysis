@@ -869,43 +869,39 @@ let dwNum = 0;
 let dzbNum = 0;
 let dyNum = [];
 
-function getPartyBuildDate(){
+function getPartyBuildData () {
   $.ajax({
-    type:'GET',
+    type: 'GET',
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
     traditional: true,
-    data:{
-        unitId:1,
-        month:'2020-09'
+    data: {
+      unitId: 1,
+      month: '2020-09'
     },
-    success: function(response){
-      dataProcess(response);
+    success: function (response) {
+      let partyBuild = response.extra.partyBuildUnit
+      dwNum = partyBuild.dwMun
+      dzbNum = partyBuild.dzbMun
+      dyNum.push(partyBuild.secretary)
+      dyNum.push(partyBuild.depSecretary)
+      dyNum.push(partyBuild.committee)
+      dyNum.push(partyBuild.ordinary)
+      zbkzRate = (partyBuild.dydhJoinRate + partyBuild.zwhJoinRate + partyBuild.dzxhJoinRate + partyBuild.dkJoinRate + partyBuild.dwhJoinRate +
+        partyBuild.mzshhJoinRate + partyBuild.zzshhJoinRate + partyBuild.jndfJoinRate + partyBuild.cwscJoinRate + partyBuild.sddzJoinRate +
+        partyBuild.jzxxJoinRate + partyBuild.mzysJoinRate + partyBuild.tssjJoinRate + partyBuild.dyhbJoinRate + partyBuild.mzjdJoinRate +
+        partyBuild.jfkpJoinRate + partyBuild.zzshJoinRate) / 17
+      dycyRate = (partyBuild.dydhDevelopRate + partyBuild.zwhDevelopRate + partyBuild.dzxhDevelopRate + partyBuild.dkDevelopRate +
+        partyBuild.dwhDevelopRate + partyBuild.mzshhDevelopRate + partyBuild.zzshhDevelopRate + partyBuild.jndfDevelopRate +
+        partyBuild.cwscDevelopRate + partyBuild.sddzDevelopRate + partyBuild.jzxxDevelopRate + partyBuild.mzysDevelopRate +
+        partyBuild.tssjDevelopRate + partyBuild.dyhbDevelopRate + partyBuild.mzjdDevelopRate + partyBuild.jfkpDevelopRate +
+        partyBuild.zzshDevelopRate) / 17
       dj_1();
       dj_2();
       dj_3();
       dj_4();
     },
-    error: function(response){
-        console.log(response);
+    error: function (response) {
+      console.log(response);
     }
   })
-}
-
-function dataProcess(response){
-  let partyBuild = response.extra.partyBuildUnit
-  dwNum = partyBuild.dwMun
-  dzbNum = partyBuild.dzbMun
-  dyNum.push(partyBuild.secretary)
-  dyNum.push(partyBuild.depSecretary)
-  dyNum.push(partyBuild.committee)
-  dyNum.push(partyBuild.ordinary)
-  zbkzRate = (partyBuild.dydhJoinRate+partyBuild.zwhJoinRate+partyBuild.dzxhJoinRate+partyBuild.dkJoinRate+partyBuild.dwhJoinRate+
-      partyBuild.mzshhJoinRate+partyBuild.zzshhJoinRate+partyBuild.jndfJoinRate+partyBuild.cwscJoinRate+partyBuild.sddzJoinRate+
-      partyBuild.jzxxJoinRate+partyBuild.mzysJoinRate+partyBuild.tssjJoinRate+partyBuild.dyhbJoinRate+partyBuild.mzjdJoinRate+
-      partyBuild.jfkpJoinRate+partyBuild.zzshJoinRate)/17
-  dycyRate = (partyBuild.dydhDevelopRate+partyBuild.zwhDevelopRate+partyBuild.dzxhDevelopRate+partyBuild.dkDevelopRate+
-      partyBuild.dwhDevelopRate+partyBuild.mzshhDevelopRate+partyBuild.zzshhDevelopRate+partyBuild.jndfDevelopRate+
-      partyBuild.cwscDevelopRate+partyBuild.sddzDevelopRate+partyBuild.jzxxDevelopRate+partyBuild.mzysDevelopRate+
-      partyBuild.tssjDevelopRate+partyBuild.dyhbDevelopRate+partyBuild.mzjdDevelopRate+partyBuild.jfkpDevelopRate+
-      partyBuild.zzshDevelopRate)/17
 }
