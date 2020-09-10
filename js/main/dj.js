@@ -139,7 +139,7 @@ function dj_1 () {
       max: 1,
       center: ['50%', '70%'],
       data: [{
-        value: 0.89,
+        value: zbkzRate,
         name: '支部开展率'
       }],
       splitNumber: 4, //刻度数量
@@ -371,7 +371,7 @@ function dj_2 () {
       max: 1,
       center: ['50%', '70%'],
       data: [{
-        value: 0.71,
+        value: dycyRate,
         name: '党员参与率'
       }],
       splitNumber: 4, //刻度数量
@@ -579,7 +579,7 @@ function dj_3 () {
         }
       },
       data: [{
-        value: 212,
+        value: dwNum,
         "itemStyle": {
           "normal": {
             "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -657,7 +657,7 @@ function dj_3 () {
         }
       },
       data: [{
-        value: 984,
+        value: dzbNum,
         "itemStyle": {
           "normal": {
             "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -693,8 +693,8 @@ function dj_4 () {
 
 
   let color = ['#FF6EB4', '#ffff00', '#7fff00', '#00f2f1'];
-  let names = ["普通党员", "预备党员", "书记", "委员"];
-  let data = [1044, 40, 170, 380];
+  let names = ["书记", "副书记", "委员", "普通党员"];
+  let data = dyNum;
   let list = [];
   let total = 0;
   for (let i in data) {
@@ -861,4 +861,51 @@ function dj_4 () {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+}
+
+let zbkzRate = 0;
+let dycyRate = 0;
+let dwNum = 0;
+let dzbNum = 0;
+let dyNum = [];
+
+function getPartyBuildDate(){
+  $.ajax({
+    type:'GET',
+    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    traditional: true,
+    data:{
+        unitId:1,
+        month:'2020-09'
+    },
+    success: function(response){
+      dataProcess(response);
+      dj_1();
+      dj_2();
+      dj_3();
+      dj_4();
+    },
+    error: function(response){
+        console.log(response);
+    }
+  })
+}
+
+function dataProcess(response){
+  let partyBuild = response.extra.partyBuildUnit
+  dwNum = partyBuild.dwMun
+  dzbNum = partyBuild.dzbMun
+  dyNum.push(partyBuild.secretary)
+  dyNum.push(partyBuild.depSecretary)
+  dyNum.push(partyBuild.committee)
+  dyNum.push(partyBuild.ordinary)
+  zbkzRate = (partyBuild.dydhJoinRate+partyBuild.zwhJoinRate+partyBuild.dzxhJoinRate+partyBuild.dkJoinRate+partyBuild.dwhJoinRate+
+      partyBuild.mzshhJoinRate+partyBuild.zzshhJoinRate+partyBuild.jndfJoinRate+partyBuild.cwscJoinRate+partyBuild.sddzJoinRate+
+      partyBuild.jzxxJoinRate+partyBuild.mzysJoinRate+partyBuild.tssjJoinRate+partyBuild.dyhbJoinRate+partyBuild.mzjdJoinRate+
+      partyBuild.jfkpJoinRate+partyBuild.zzshJoinRate)/17
+  dycyRate = (partyBuild.dydhDevelopRate+partyBuild.zwhDevelopRate+partyBuild.dzxhDevelopRate+partyBuild.dkDevelopRate+
+      partyBuild.dwhDevelopRate+partyBuild.mzshhDevelopRate+partyBuild.zzshhDevelopRate+partyBuild.jndfDevelopRate+
+      partyBuild.cwscDevelopRate+partyBuild.sddzDevelopRate+partyBuild.jzxxDevelopRate+partyBuild.mzysDevelopRate+
+      partyBuild.tssjDevelopRate+partyBuild.dyhbDevelopRate+partyBuild.mzjdDevelopRate+partyBuild.jfkpDevelopRate+
+      partyBuild.zzshDevelopRate)/17
 }

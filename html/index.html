@@ -197,7 +197,9 @@
 <script>
   // onload
   $(function () {
+    
     // $api.setStorage("jcl", "jin")
+    getPartyBuildDate();
     heart_1();
     heart_2();
     heart_3();
@@ -206,13 +208,7 @@
     edu_1();
     smart();
 
-    assess_1();
-    assess_2();
-
-    dj_1();
-    dj_2();
-    dj_3();
-    dj_4();
+    getAssessData();
 
     tb_edu();
     tb_wn1();

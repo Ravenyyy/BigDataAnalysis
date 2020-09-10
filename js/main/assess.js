@@ -27,7 +27,8 @@ function assess_1 () {
     },
     xAxis: {
       type: 'category',
-      data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
+      // data: ['武汉', '宜昌', '鄂州', '襄阳', '黄石', '荆门', '咸宁', '十堰', '随州', '孝感', '荆州', '黄冈', '恩施', '汉江', '训保'],
+      data: nameArr,
       axisLine: {
         lineStyle: {
           color: "white"
@@ -56,7 +57,8 @@ function assess_1 () {
       type: 'bar',
       barWidth: '40%',
       stack: '总量',
-      data: [330, 302, 301, 334, 140, 210, 200, 220, 302, 301, 334, 99, 102, 100, 230],
+      // data: [330, 302, 301, 334, 140, 210, 200, 220, 302, 301, 334, 99, 102, 100, 230],
+      data: excellentArr,
 
     },
     {
@@ -64,7 +66,8 @@ function assess_1 () {
       type: 'bar',
       barWidth: '40%',
       stack: '总量',
-      data: [520, 232, 201, 134, 200, 360, 330, 320, 132, 101, 194, 320, 310, 300, 300],
+      // data: [520, 232, 201, 134, 200, 360, 330, 320, 132, 101, 194, 320, 310, 300, 300],
+      data: goodArr,
 
     },
     {
@@ -72,7 +75,8 @@ function assess_1 () {
       type: 'bar',
       barWidth: '40%',
       stack: '总量',
-      data: [320, 182, 191, 234, 230, 330, 310, 340, 182, 191, 234, 104, 98, 130, 199],
+      // data: [320, 182, 191, 234, 230, 330, 310, 340, 182, 191, 234, 104, 98, 130, 199],
+      data: passArr,
 
     },
     {
@@ -80,7 +84,8 @@ function assess_1 () {
       type: 'bar',
       barWidth: '40%',
       stack: '总量',
-      data: [110, 212, 201, 154, 110, 160, 120, 150, 212, 201, 154, 80, 90, 100, 251],
+      // data: [110, 212, 201, 154, 110, 160, 120, 150, 212, 201, 154, 80, 90, 100, 251],
+      data: noPassArr,
 
     }
     ]
@@ -170,7 +175,7 @@ function assess_2 () {
     }]
   };
 
-  let value = 50.3;
+  let value = developRate;
   let title = '支部开展率';
 
   option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
@@ -181,7 +186,7 @@ function assess_2 () {
     myChart1.resize();
   });
 
-  value = 78
+  value = joinRate
   title = '人员参与率'
   option.title.text = '{a|' + value + '%}\n{c|' + title + '}'
   var myChart2 = echarts.init(document.querySelector("#assess_3"));
@@ -191,7 +196,7 @@ function assess_2 () {
     myChart2.resize();
   });
 
-  value = 1758
+  value = excellent
   title = '优秀人数'
   option.title.text = '{a|' + value + '}\n{c|' + title + '}'
   var myChart3 = echarts.init(document.querySelector("#assess_4"));
@@ -201,7 +206,7 @@ function assess_2 () {
     myChart3.resize();
   });
 
-  value = 89
+  value = noPass
   title = '不称职人数'
   option.title.text = '{a|' + value + '}\n{c|' + title + '}'
   var myChart4 = echarts.init(document.querySelector("#assess_5"));
@@ -210,5 +215,73 @@ function assess_2 () {
   window.addEventListener("resize", function () {
     myChart4.resize();
   });
+}
 
+let developRate = 0;
+let joinRate = 0;
+let excellent = 0;
+let noPass = 0;
+let nameArr = [];
+let excellentArr = [];
+let goodArr = [];
+let passArr = [];
+let noPassArr = [];
+
+
+function getAssessData(){
+  $.ajax({
+    type:'GET',
+    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    traditional: true,
+    data:{
+        unitId:1,
+        month:'2020-09'
+    },
+    success: function(response){
+      dataProcess2(response)
+      assess_2()
+    },
+    error: function(response){
+        console.log(response);
+    }
+  })
+
+  $.ajax({
+    type:'GET',
+    url: 'http://localhost:8880/assessUnit/getUnitByParent',
+    traditional: true,
+    data:{
+        parentId:1,
+        month:'2020-09'
+    },
+    success: function(response){
+      dataProcess1(response)
+      assess_1()
+    },
+    error: function(response){
+        console.log(response);
+    }
+  })
+}
+
+function dataProcess1(response){
+  let unitList = response.extra.unitList
+  for(let i=0; i<unitList.length; i++){
+    nameArr.push(unitList[i].unitName)
+    excellentArr.push(unitList[i].excellent)
+    goodArr.push(unitList[i].good)
+    passArr.push(unitList[i].pass)
+    noPassArr.push(unitList[i].nopass)
+  }
+  
+}
+
+function dataProcess2(response){
+  let assessment = response.extra.assessmentUnit
+  developRate = 100*assessment.startNum/assessment.total 
+  developRate = developRate.toFixed(2)
+  joinRate = 100*assessment.finishNum/assessment.total
+  joinRate = joinRate.toFixed(2)
+  excellent = assessment.excellent
+  noPass = assessment.nopass
 }
