@@ -1,5 +1,5 @@
 // 智慧党建
-function dj_1 () {
+function dj_1() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('dj1'));
 
@@ -230,7 +230,7 @@ function dj_1 () {
   });
 }
 
-function dj_2 () {
+function dj_2() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('dj2'));
 
@@ -463,7 +463,7 @@ function dj_2 () {
   });
 }
 
-function dj_3 () {
+function dj_3() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('dj3'));
 
@@ -526,157 +526,157 @@ function dj_3 () {
 
     //第一个图表
     series: [{
-      type: 'pie',
-      hoverAnimation: false, //鼠标经过的特效
-      radius: ['60%', '80%'],
-      center: ['22%', '42%'],
-      startAngle: 225,
-      labelLine: {
-        normal: {
-          show: false
-        }
-      },
-      label: {
-        normal: {
-          y: '40%'
-        }
-      },
-      data: [{
-        value: 100,
-        "itemStyle": {
-          "normal": {
-            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              "offset": 0,
-              "color": '#8470FF'
-            }, {
-              "offset": 1,
-              "color": '#00FFFF'
-            }]),
+        type: 'pie',
+        hoverAnimation: false, //鼠标经过的特效
+        radius: ['60%', '80%'],
+        center: ['22%', '42%'],
+        startAngle: 225,
+        labelLine: {
+          normal: {
+            show: false
           }
         },
-      }, {
-        value: 35,
-        itemStyle: placeHolderStyle,
-      },
-
-      ]
-    },
-    //上层环形配置
-    {
-      type: 'pie',
-      hoverAnimation: false, //鼠标经过的特效
-      radius: ['60%', '80%'],
-      center: ['22%', '42%'],
-      startAngle: 225,
-      labelLine: {
-        normal: {
-          show: false
-        }
-      },
-      label: {
-        normal: {
-          y: '40%'
-        }
-      },
-      data: [{
-        value: dwNum,
-        "itemStyle": {
-          "normal": {
-            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              "offset": 0,
-              "color": '#8470FF'
-            }, {
-              "offset": 1,
-              "color": '#00FFFF'
-            }]),
+        label: {
+          normal: {
+            y: '40%'
           }
         },
-        label: dataStyle,
-      }, {
-        value: 220,
-        itemStyle: placeHolderStyle,
-      },
+        data: [{
+            value: 100,
+            "itemStyle": {
+              "normal": {
+                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  "offset": 0,
+                  "color": '#8470FF'
+                }, {
+                  "offset": 1,
+                  "color": '#00FFFF'
+                }]),
+              }
+            },
+          }, {
+            value: 35,
+            itemStyle: placeHolderStyle,
+          },
 
-      ]
-    },
-
-
-    //第二个图表
-    {
-      type: 'pie',
-      hoverAnimation: false,
-      radius: ['60%', '80%'],
-      center: ['77%', '42%'],
-      startAngle: 225,
-      labelLine: {
-        normal: {
-          show: false
-        }
+        ]
       },
-      label: {
-        normal: {
-          y: '40%'
-        }
-      },
-      data: [{
-        value: 100,
-        "itemStyle": {
-          "normal": {
-            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              "offset": 0,
-              "color": '#00FF00'
-            }, {
-              "offset": 1,
-              "color": '#ffff00'
-            }]),
+      //上层环形配置
+      {
+        type: 'pie',
+        hoverAnimation: false, //鼠标经过的特效
+        radius: ['60%', '80%'],
+        center: ['22%', '42%'],
+        startAngle: 225,
+        labelLine: {
+          normal: {
+            show: false
           }
         },
-      }, {
-        value: 35,
-        itemStyle: placeHolderStyle,
-      },
-
-      ]
-    },
-
-    //上层环形配置
-    {
-      type: 'pie',
-      hoverAnimation: false,
-      radius: ['60%', '80%'],
-      center: ['77%', '42%'],
-      startAngle: 225,
-      labelLine: {
-        normal: {
-          show: false
-        }
-      },
-      label: {
-        normal: {
-          y: '40%'
-        }
-      },
-      data: [{
-        value: dzbNum,
-        "itemStyle": {
-          "normal": {
-            "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              "offset": 0,
-              "color": '#00FF7F'
-            }, {
-              "offset": 1,
-              "color": '#ffff00'
-            }]),
+        label: {
+          normal: {
+            y: '40%'
           }
         },
-        label: dataStyle,
-      }, {
-        value: 1000,
-        itemStyle: placeHolderStyle,
+        data: [{
+            value: dwNum,
+            "itemStyle": {
+              "normal": {
+                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  "offset": 0,
+                  "color": '#8470FF'
+                }, {
+                  "offset": 1,
+                  "color": '#00FFFF'
+                }]),
+              }
+            },
+            label: dataStyle,
+          }, {
+            value: 220,
+            itemStyle: placeHolderStyle,
+          },
+
+        ]
       },
 
-      ]
-    }
+
+      //第二个图表
+      {
+        type: 'pie',
+        hoverAnimation: false,
+        radius: ['60%', '80%'],
+        center: ['77%', '42%'],
+        startAngle: 225,
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        label: {
+          normal: {
+            y: '40%'
+          }
+        },
+        data: [{
+            value: 100,
+            "itemStyle": {
+              "normal": {
+                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  "offset": 0,
+                  "color": '#00FF00'
+                }, {
+                  "offset": 1,
+                  "color": '#ffff00'
+                }]),
+              }
+            },
+          }, {
+            value: 35,
+            itemStyle: placeHolderStyle,
+          },
+
+        ]
+      },
+
+      //上层环形配置
+      {
+        type: 'pie',
+        hoverAnimation: false,
+        radius: ['60%', '80%'],
+        center: ['77%', '42%'],
+        startAngle: 225,
+        labelLine: {
+          normal: {
+            show: false
+          }
+        },
+        label: {
+          normal: {
+            y: '40%'
+          }
+        },
+        data: [{
+            value: dzbNum,
+            "itemStyle": {
+              "normal": {
+                "color": new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  "offset": 0,
+                  "color": '#00FF7F'
+                }, {
+                  "offset": 1,
+                  "color": '#ffff00'
+                }]),
+              }
+            },
+            label: dataStyle,
+          }, {
+            value: 1000,
+            itemStyle: placeHolderStyle,
+          },
+
+        ]
+      }
     ]
   };
 
@@ -687,7 +687,7 @@ function dj_3 () {
   });
 }
 
-function dj_4 () {
+function dj_4() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('dj4'));
 
@@ -771,88 +771,88 @@ function dj_4 () {
       formatter: '{b}:{c}人'
     },
     series: [{
-      name: '',
-      type: 'pie',
-      clockWise: false,
-      startAngle: '45',
-      center: ['50%', '40%'],
-      radius: ['65%', '70%'],
-      hoverAnimation: false,
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
-        }
-      },
-      itemStyle: {
-        normal: {
-          label: {
-            show: true,
-            position: 'outside',
-            formatter: func,
-            rich: rich,
-            fontSize: 14,
-            fontWeight: 'bold',
-          },
-          labelLine: {
-            length: 10,
-            length2: 15,
-            show: true,
-            color: '#00ffff',
-
-          }
-        }
-      },
-      data: list,
-      animationType: 'scale',
-      animationEasing: 'elasticOut',
-      animationDelay: function (idx) {
-        return idx * 50;
-      }
-    },
-    {
-      name: '',
-      type: 'pie',
-      center: ['50%', '40%'],
-      radius: ['49%', '49%'],
-      itemStyle: {
-        color: 'transparant'
-      },
-      tooltip: {
-        show: false
-      },
-      startAngle: '90',
-      data: [{
-        value: total,
         name: '',
-        label: {
+        type: 'pie',
+        clockWise: false,
+        startAngle: '45',
+        center: ['50%', '40%'],
+        radius: ['65%', '70%'],
+        hoverAnimation: false,
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        },
+        itemStyle: {
           normal: {
-            show: true,
-            formatter: "党员人数\n{c|{c}} {b|}",
-            rich: {
-              c: {
-                color: '#00f2f1',
-                fontSize: 16,
-                fontWeight: 'bold',
-                lineHeight: 5
-              },
-              b: {
-                color: '#00f2f1',
-                fontSize: 16,
-                lineHeight: 5
-              }
-            },
-            textStyle: {
+            label: {
+              show: true,
+              position: 'outside',
+              formatter: func,
+              rich: rich,
               fontSize: 14,
               fontWeight: 'bold',
-              color: '#00f2f1',
             },
-            position: 'center'
+            labelLine: {
+              length: 10,
+              length2: 15,
+              show: true,
+              color: '#00ffff',
+
+            }
           }
+        },
+        data: list,
+        animationType: 'scale',
+        animationEasing: 'elasticOut',
+        animationDelay: function (idx) {
+          return idx * 50;
         }
-      }]
-    }
+      },
+      {
+        name: '',
+        type: 'pie',
+        center: ['50%', '40%'],
+        radius: ['49%', '49%'],
+        itemStyle: {
+          color: 'transparant'
+        },
+        tooltip: {
+          show: false
+        },
+        startAngle: '90',
+        data: [{
+          value: total,
+          name: '',
+          label: {
+            normal: {
+              show: true,
+              formatter: "党员人数\n{c|{c}} {b|}",
+              rich: {
+                c: {
+                  color: '#00f2f1',
+                  fontSize: 16,
+                  fontWeight: 'bold',
+                  lineHeight: 5
+                },
+                b: {
+                  color: '#00f2f1',
+                  fontSize: 16,
+                  lineHeight: 5
+                }
+              },
+              textStyle: {
+                fontSize: 14,
+                fontWeight: 'bold',
+                color: '#00f2f1',
+              },
+              position: 'center'
+            }
+          }
+        }]
+      }
     ]
   };
 
@@ -869,29 +869,29 @@ let dwNum = 0;
 let dzbNum = 0;
 let dyNum = [];
 
-function getPartyBuildDate(){
+function getPartyBuildData() {
   $.ajax({
-    type:'GET',
+    type: 'GET',
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
     traditional: true,
-    data:{
-        unitId:1,
-        month:'2020-09'
+    data: {
+      unitId: 1,
+      month: '2020-09'
     },
-    success: function(response){
+    success: function (response) {
       dataProcess(response);
       dj_1();
       dj_2();
       dj_3();
       dj_4();
     },
-    error: function(response){
-        console.log(response);
+    error: function (response) {
+      console.log(response);
     }
   })
 }
 
-function dataProcess(response){
+function dataProcess(response) {
   let partyBuild = response.extra.partyBuildUnit
   dwNum = partyBuild.dwMun
   dzbNum = partyBuild.dzbMun
@@ -899,13 +899,13 @@ function dataProcess(response){
   dyNum.push(partyBuild.depSecretary)
   dyNum.push(partyBuild.committee)
   dyNum.push(partyBuild.ordinary)
-  zbkzRate = (partyBuild.dydhJoinRate+partyBuild.zwhJoinRate+partyBuild.dzxhJoinRate+partyBuild.dkJoinRate+partyBuild.dwhJoinRate+
-      partyBuild.mzshhJoinRate+partyBuild.zzshhJoinRate+partyBuild.jndfJoinRate+partyBuild.cwscJoinRate+partyBuild.sddzJoinRate+
-      partyBuild.jzxxJoinRate+partyBuild.mzysJoinRate+partyBuild.tssjJoinRate+partyBuild.dyhbJoinRate+partyBuild.mzjdJoinRate+
-      partyBuild.jfkpJoinRate+partyBuild.zzshJoinRate)/17
-  dycyRate = (partyBuild.dydhDevelopRate+partyBuild.zwhDevelopRate+partyBuild.dzxhDevelopRate+partyBuild.dkDevelopRate+
-      partyBuild.dwhDevelopRate+partyBuild.mzshhDevelopRate+partyBuild.zzshhDevelopRate+partyBuild.jndfDevelopRate+
-      partyBuild.cwscDevelopRate+partyBuild.sddzDevelopRate+partyBuild.jzxxDevelopRate+partyBuild.mzysDevelopRate+
-      partyBuild.tssjDevelopRate+partyBuild.dyhbDevelopRate+partyBuild.mzjdDevelopRate+partyBuild.jfkpDevelopRate+
-      partyBuild.zzshDevelopRate)/17
+  zbkzRate = (partyBuild.dydhJoinRate + partyBuild.zwhJoinRate + partyBuild.dzxhJoinRate + partyBuild.dkJoinRate + partyBuild.dwhJoinRate +
+    partyBuild.mzshhJoinRate + partyBuild.zzshhJoinRate + partyBuild.jndfJoinRate + partyBuild.cwscJoinRate + partyBuild.sddzJoinRate +
+    partyBuild.jzxxJoinRate + partyBuild.mzysJoinRate + partyBuild.tssjJoinRate + partyBuild.dyhbJoinRate + partyBuild.mzjdJoinRate +
+    partyBuild.jfkpJoinRate + partyBuild.zzshJoinRate) / 17
+  dycyRate = (partyBuild.dydhDevelopRate + partyBuild.zwhDevelopRate + partyBuild.dzxhDevelopRate + partyBuild.dkDevelopRate +
+    partyBuild.dwhDevelopRate + partyBuild.mzshhDevelopRate + partyBuild.zzshhDevelopRate + partyBuild.jndfDevelopRate +
+    partyBuild.cwscDevelopRate + partyBuild.sddzDevelopRate + partyBuild.jzxxDevelopRate + partyBuild.mzysDevelopRate +
+    partyBuild.tssjDevelopRate + partyBuild.dyhbDevelopRate + partyBuild.mzjdDevelopRate + partyBuild.jfkpDevelopRate +
+    partyBuild.zzshDevelopRate) / 17
 }
