@@ -22,47 +22,20 @@
     <!-- </div> -->
     <div class="bnt">
       <ul>
-        <li><a href="./file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
+        <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
         <li><a href="#">月份选择</a></li>
         <li><a href="analysis.html">分析研判</a></li>
         <li><a href="index.html">返回首页</a></li>
       </ul>
     </div>
     <script>
-      // var t = null;
-      // t = setTimeout(time, 1000); //開始运行
-      // function time() {
-      //   clearTimeout(t); //清除定时器
-      //   dt = new Date();
-      //   var y = dt.getFullYear();
-      //   var mt = dt.getMonth() + 1;
-      //   var day = dt.getDate();
-      //   var h = dt.getHours(); //获取时
-      //   var m = dt.getMinutes(); //获取分
-      //   var s = dt.getSeconds(); //获取秒
-      //   document.querySelector(".showTime").innerHTML =
-      //     "当前时间：" +
-      //     y +
-      //     "年" +
-      //     mt +
-      //     "月" +
-      //     day +
-      //     "&nbsp&nbsp&nbsp" +
-      //     h +
-      //     "时" +
-      //     m +
-      //     "分" +
-      //     s +
-      //     "秒";
-      //   t = setTimeout(time, 1000); //设定定时器，循环运行
-      // }
     </script>
   </header>
   <section class="mainbox">
     <div class="column">
 
-      <div class="panel dangjian" onclick="toDjDetail()">
-        <h2>智慧党建</h2>
+      <div class="panel dangjian">
+        <h2 onclick="toDjDetail()">智慧党建</h2>
         <div class="quarter-div" id="dj1"></div>
         <div class="quarter-div" id="dj2"></div>
         <div class="quarter-div" id="dj3"></div>
@@ -70,14 +43,14 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education" onclick="toEduDetail()">
-        <h2>政治教育</h2>
+      <div class="panel education">
+        <h2 onclick="toEduDetail()">政治教育</h2>
         <div class="chart" id="edu_1"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel bar" onclick="toHeartDetail()">
-        <h2>
+      <div class="panel bar">
+        <h2 onclick="toHeartDetail()">
           心理测询
         </h2>
         <div class="quarter-div" id="heart_1"></div>
@@ -111,8 +84,8 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment" onclick="toAssessDetail()">
-        <h2>全员考核</h2>
+      <div class="panel assessment">
+        <h2 onclick="toAssessDetail()">全员考核</h2>
         <div class="quarter-assess" id="assess_2"></div>
         <div class="quarter-assess" id="assess_3"></div>
         <div class="quarter-assess" id="assess_4"></div>
@@ -165,8 +138,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1" onclick="toSmartDetail()">
-        <h2>智慧队站</h2>
+      <div class="panel line1">
+        <h2 onclick="toSmartDetail()">智慧队站</h2>
         <div class="chart" id="smart"></div>
         <!-- <div class="half-div" id="smart_1"></div>
         <div class="quarter-div" id="smart_2"></div>
@@ -208,28 +181,30 @@
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
-<script src="../js/index.js"></script>
 <script src="../js/hubei.js"></script>
 <script src="../js/myMap.js"></script>
+<script src="../js/api.js"></script>
+
+<script src="../js/main/heart.js"></script>
+<script src="../js/main/dj.js"></script>
+<script src="../js/main/edu.js"></script>
+<script src="../js/main/assess.js"></script>
+<script src="../js/main/smart.js"></script>
+<script src="../js/main/warn.js"></script>
+
+
+
 <script>
   // onload
   $(function () {
 
-    heart_1();
-    heart_2();
-    heart_3();
-    heart_4();
-
-    edu_1();
+    // $api.setStorage("jcl", "jin")
+    getPartyBuildData();
+    getHeartData();
+    getEduData();
     smart();
 
-    assess_1();
-    assess_2();
-
-    dj_1();
-    dj_2();
-    dj_3();
-    dj_4();
+    getAssessData();
 
     tb_edu();
     tb_wn1();

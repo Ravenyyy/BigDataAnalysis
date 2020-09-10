@@ -1,5 +1,5 @@
 //当月心理测询参评人次及比例统计
-function heart_1() {
+function heart_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_1"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -52,63 +52,63 @@ function heart_1() {
       },
     },
     yAxis: [{
-        name: '参评人数',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.2)",
-          }
+      name: '参评人数',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: '参评率',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "#white"
-          }
-        },
-        axisLabel: {
-          formatter: '{value} %'
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.2)",
+        }
+      }
+    },
+    {
+      name: '参评率',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "#white"
+        }
+      },
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    },
     ],
 
     series: [{
-        name: "参评人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "参评人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "参评率",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "参评率",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        yAxisIndex: 1,
-        data: data.edu[1]
-      }
+      smooth: false,
+      yAxisIndex: 1,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -121,7 +121,7 @@ function heart_1() {
 }
 
 //当月心理测询异常人数及比例统计
-function heart_2() {
+function heart_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_2"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -174,63 +174,63 @@ function heart_2() {
       },
     },
     yAxis: [{
-        name: '异常人数',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.2)",
-          }
+      name: '异常人数',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: '异常率',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "#white"
-          }
-        },
-        axisLabel: {
-          formatter: '{value} %'
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.2)",
+        }
+      }
+    },
+    {
+      name: '异常率',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "#white"
+        }
+      },
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    },
     ],
 
     series: [{
-        name: "异常人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "异常人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "异常率",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "异常率",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        yAxisIndex: 1,
-        data: data.edu[1]
-      }
+      smooth: false,
+      yAxisIndex: 1,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -242,7 +242,7 @@ function heart_2() {
   });
 }
 // 当月心理测询结果整体分析
-function heart_3() {
+function heart_3 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#heart_3"));
   var legendData = ['躁狂', '强迫', '抑郁', '敌对', '焦虑', '其他'];
@@ -347,7 +347,7 @@ function heart_3() {
   });
 }
 //心理重度异常人数变化趋势年度统计
-function heart_4() {
+function heart_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_4"));
   var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
@@ -416,7 +416,7 @@ function heart_4() {
       axisLabel: {
         formatter: '{value}'
       }
-    }, ],
+    },],
 
     series: [{
       name: "心理重度异常人数",
@@ -439,7 +439,7 @@ function heart_4() {
 }
 
 //心理咨询师人数统计
-function heart_5() {
+function heart_5 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_5"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -508,7 +508,7 @@ function heart_5() {
       axisLabel: {
         formatter: '{value}'
       }
-    }, ],
+    },],
 
     series: [{
       name: "心理咨询师人数",
@@ -528,7 +528,7 @@ function heart_5() {
 }
 
 //当月心理测询正在干预及已干预
-function heart_6() {
+function heart_6 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_6"));
   var legendData = ['已干预', '正在干预'];
@@ -608,71 +608,71 @@ function heart_6() {
       }
     }],
     series: [{
-        name: legendData[0],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        // color: ["#22EC20", "#F1C62C"],
+      name: legendData[0],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
+      },
+      // color: ["#22EC20", "#F1C62C"],
 
-        lineStyle: {
-          normal: {
-            color: "#22EC20"
-          }
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'bottom',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
-        data: ktData
+      lineStyle: {
+        normal: {
+          color: "#22EC20"
+        }
       },
-      {
-        name: legendData[1],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'top',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
+      label: {
+        normal: {
+          show: true,
+          position: 'bottom',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
           }
-        },
-        data: xlData
+        }
       },
-      {
-        name: '总量',
-        type: 'line',
-        stack: 'sum',
-        lineStyle: {
-          normal: {
-            color: "#F1C62C"
+      data: ktData
+    },
+    {
+      name: legendData[1],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'top',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
           }
-        },
-        // label: {
-        //   normal: {
-        //     show: true,
-        //     position: 'top',
-        //     textStyle: {
-        //       color: 'white',
-        //       fontSize: 13
-        //     }
-        //   }
-        // },
-        data: allData
-      }
+        }
+      },
+      data: xlData
+    },
+    {
+      name: '总量',
+      type: 'line',
+      stack: 'sum',
+      lineStyle: {
+        normal: {
+          color: "#F1C62C"
+        }
+      },
+      // label: {
+      //   normal: {
+      //     show: true,
+      //     position: 'top',
+      //     textStyle: {
+      //       color: 'white',
+      //       fontSize: 13
+      //     }
+      //   }
+      // },
+      data: allData
+    }
     ]
   };
 
@@ -683,4 +683,38 @@ function heart_6() {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+}
+
+function getHeartDetailData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyUnit/getUnitByParent',
+    traditional: true,
+    data: {
+      parentId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      takePeopleNumber = response.extra.psyUnit.testNum;
+      checkPeopleNumber = response.extra.psyUnit.psychologist;
+      problemNum = response.extra.psyUnit.problemNum;
+      anxious = response.extra.psyUnit.anxious;
+      hostile = response.extra.psyUnit.hostile;
+      depressive = response.extra.psyUnit.depressive;
+      irritable = response.extra.psyUnit.irritable;
+      force = response.extra.psyUnit.force;
+      other = response.extra.psyUnit.other;
+      onTreat = response.extra.psyUnit.onTreat;
+      hasTreat = response.extra.psyUnit.hasTreat;
+      // heart_1();
+      // heart_2();
+      // heart_3();
+      // heart_4();
+      // heart_5();
+      // heart_6();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
 }
