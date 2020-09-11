@@ -2,13 +2,6 @@
 function heart_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_1"));
-  var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
-  var data = {
-    edu: [
-      [1546, 454, 456, 452, 346, 352, 269, 452, 341, 334, 253, 345, 265, 254, 542],
-      [88, 91, 78, 89, 67, 89, 56, 92, 90, 91, 94, 82, 93, 95, 81]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#22EC20", "#F1C62C"],
@@ -39,7 +32,7 @@ function heart_1 () {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: unitNameList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -97,17 +90,17 @@ function heart_1 () {
       type: "bar",
       // 是否让线条圆滑显示
       smooth: false,
-      data: data.edu[0]
+      data: testNumList
     },
     {
-      name: "参评率",
+      name: "参评率(%)",
       type: "line",
       lineStyle: {
         width: 3,
       },
       smooth: false,
       yAxisIndex: 1,
-      data: data.edu[1]
+      data: testRateList
     }
     ]
   };
@@ -124,13 +117,6 @@ function heart_1 () {
 function heart_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_2"));
-  var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
-  var data = {
-    edu: [
-      [342, 68, 58, 65, 44, 65, 25, 26, 66, 16, 36, 29, 16, 16, 66],
-      [22, 15, 13, 14, 27, 18, 9, 9, 6, 19, 5, 14, 9, 6, 12]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#FF9A00", "#00f2f1"],
@@ -161,7 +147,7 @@ function heart_2 () {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: unitNameList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -219,17 +205,17 @@ function heart_2 () {
       type: "bar",
       // 是否让线条圆滑显示
       smooth: false,
-      data: data.edu[0]
+      data: problemNumList
     },
     {
-      name: "异常率",
+      name: "异常率(%)",
       type: "line",
       lineStyle: {
         width: 3,
       },
       smooth: false,
       yAxisIndex: 1,
-      data: data.edu[1]
+      data: problemRateList
     }
     ]
   };
@@ -250,22 +236,22 @@ function heart_3 () {
   let color = ["#22EC20", "#F1C62C", '#FF8352', '#E271DE', '#00f2f1', "#E5ED60"];
   let echartData = [{
     'name': '躁狂',
-    'value': 101
+    'value': irritable
   }, {
     'name': '强迫',
-    'value': 29
+    'value': force
   }, {
     'name': '其他',
-    'value': 15
+    'value': other
   }, {
     'name': '抑郁',
-    'value': 40
+    'value': depressive
   }, {
     'name': '敌对',
-    'value': 11
+    'value': hostile
   }, {
     'name': '焦虑',
-    'value': 105
+    'value': anxious
   }];
 
   let formatNumber = function (num) {
@@ -346,16 +332,10 @@ function heart_3 () {
     myChart.resize();
   });
 }
-//心理重度异常人数变化趋势年度统计
+//心理异常人数变化趋势年度统计
 function heart_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_4"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var data = {
-    edu: [
-      [98, 56, 100, 156, 93, 79, 99, 108, 93, 88, 74, 67]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#22EC20", "#F1C62C"],
@@ -386,7 +366,7 @@ function heart_4 () {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: monthList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -419,14 +399,14 @@ function heart_4 () {
     },],
 
     series: [{
-      name: "心理重度异常人数",
+      name: "心理异常人数",
       type: "line",
       // 是否让线条圆滑显示
       smooth: false,
       lineStyle: {
         width: 3,
       },
-      data: data.edu[0]
+      data: problemMonthList
     }]
   };
 
@@ -442,12 +422,6 @@ function heart_4 () {
 function heart_5 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_5"));
-  var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
-  var data = {
-    edu: [
-      [45, 11, 21, 23, 17, 11, 17, 23, 24, 11, 14, 22, 34, 15, 18]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#00f2f1"],
@@ -478,7 +452,7 @@ function heart_5 () {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: unitNameList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -515,7 +489,7 @@ function heart_5 () {
       type: "bar",
       // 是否让线条圆滑显示
       // smooth: false,
-      data: data.edu[0]
+      data: psychologistlist
     }]
   };
 
@@ -532,14 +506,11 @@ function heart_6 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_6"));
   var legendData = ['已干预', '正在干预'];
-  var xAxisData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
-  var ktData = [12, 12, 8, 21, 8, 14, 14, 6, 27, 5, 8, 9, 19, 18, 8];
-  var xlData = [15, 9, 16, 2, 17, 5, 9, 15, 0, 17, 15, 13, 7, 8, 7];
   //总计
   var allData = function () {
     var datas = [];
-    for (var i = 0; i < ktData.length; i++) {
-      datas.push(ktData[i] + xlData[i]);
+    for (var index in onTreatList) {
+      datas.push(onTreatList[index] + hasTreatList[index]);
     }
     return datas;
   }();
@@ -572,7 +543,7 @@ function heart_6 () {
       type: 'category',
 
       boundaryGap: false,
-      data: xAxisData,
+      data: unitNameList,
       axisPointer: {
         type: 'shadow'
       },
@@ -615,7 +586,6 @@ function heart_6 () {
         normal: {}
       },
       // color: ["#22EC20", "#F1C62C"],
-
       lineStyle: {
         normal: {
           color: "#22EC20"
@@ -631,7 +601,7 @@ function heart_6 () {
           }
         }
       },
-      data: ktData
+      data: onTreatList
     },
     {
       name: legendData[1],
@@ -650,7 +620,7 @@ function heart_6 () {
           }
         }
       },
-      data: xlData
+      data: hasTreatList
     },
     {
       name: '总量',
@@ -661,16 +631,6 @@ function heart_6 () {
           color: "#F1C62C"
         }
       },
-      // label: {
-      //   normal: {
-      //     show: true,
-      //     position: 'top',
-      //     textStyle: {
-      //       color: 'white',
-      //       fontSize: 13
-      //     }
-      //   }
-      // },
       data: allData
     }
     ]
@@ -685,6 +645,16 @@ function heart_6 () {
   });
 }
 
+let unitNameList = [];
+let testNumList = [];
+let testRateList = [];
+let problemNumList = [];
+let problemRateList = [];
+let monthList = [];
+let problemMonthList = [];
+let psychologistlist = [];
+let onTreatList = [];
+let hasTreatList = [];
 function getHeartDetailData () {
   $.ajax({
     type: 'GET',
@@ -695,26 +665,72 @@ function getHeartDetailData () {
       month: '2020-09'
     },
     success: function (response) {
-      takePeopleNumber = response.extra.psyUnit.testNum;
-      checkPeopleNumber = response.extra.psyUnit.psychologist;
-      problemNum = response.extra.psyUnit.problemNum;
-      anxious = response.extra.psyUnit.anxious;
-      hostile = response.extra.psyUnit.hostile;
-      depressive = response.extra.psyUnit.depressive;
-      irritable = response.extra.psyUnit.irritable;
-      force = response.extra.psyUnit.force;
-      other = response.extra.psyUnit.other;
-      onTreat = response.extra.psyUnit.onTreat;
-      hasTreat = response.extra.psyUnit.hasTreat;
-      // heart_1();
-      // heart_2();
-      // heart_3();
-      // heart_4();
-      // heart_5();
-      // heart_6();
+      console.log(response);
+      var unitList = response.extra.unitList;
+      console.log(unitList)
+      for (var index in unitList) {
+        unitNameList.push(unitList[index].unitName)
+        testNumList.push(unitList[index].testNum)
+        testRateList.push(unitList[index].testNum / unitList[index].total * 100)
+        problemNumList.push(unitList[index].problemNum)
+        problemRateList.push(unitList[index].problemNum / unitList[index].total * 100)
+        psychologistlist.push(unitList[index].psychologist)
+        onTreatList.push(unitList[index].onTreat)
+        hasTreatList.push(unitList[index].hasTreat)
+      }
+      heart_1();
+      heart_2();
+      heart_5();
+      heart_6();
     },
     error: function (response) {
       console.log(response);
     }
   })
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    traditional: true,
+    data: {
+      unitId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      var psyUnit = response.extra.psyUnit;
+      console.log(response)
+      anxious = psyUnit.anxious;
+      hostile = psyUnit.hostile;
+      depressive = psyUnit.depressive;
+      irritable = psyUnit.irritable;
+      force = psyUnit.force;
+      other = psyUnit.other;
+      heart_3();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyUnit/getOneYearList',
+    traditional: true,
+    data: {
+      unitId: 1
+    },
+    success: function (response) {
+      console.log(response)
+      var unitList = response.extra.unitList;
+      for (var index in unitList) {
+        monthList.push(unitList[index].month.substring(5, 7) + '月')
+        problemMonthList.push(unitList[index].problemNum)
+      }
+      heart_4();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
 }
