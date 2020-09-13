@@ -2061,165 +2061,217 @@ function tb_edu() {
 }
 
 function tb_wn1() {
-    var dataArray = [{
-            name: "青山大队",
-            time: "2020-8-17 8:09",
-            type: "政治教育",
-            content: "青山大队本月3人考试不及格",
-            flag: "最新预警"
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByZhidui',
+        data:{
+            id: 2,
+            resolutionType:2
         },
-        {
-            name: "硚口大队",
-            time: "2020-8-15 13:00",
-            type: "政治教育",
-            content: "硚口大队本月还有3人未参加学习",
-            flag: "最新预警"
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + dataArray[i].createTime + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb1').append(tr);
         },
-        {
-            name: "汉阳大队",
-            time: "2020-8-15 8:00",
-            type: "智慧党建",
-            content: "汉阳大队有3个站本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "黄陂大队",
-            time: "2020-8-15 12:20",
-            type: "智慧党建",
-            content: "黄陂大队有11人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "蔡甸大队",
-            time: "2020-8-15 21:00",
-            type: "心理测询",
-            content: "蔡甸大队有4人心理测询异常",
-            flag: "最新预警"
-        },
-        {
-            name: "经开大队",
-            time: "2020-8-12 9:40",
-            type: "全员考核",
-            content: "经开大队有1人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "江夏大队",
-            time: "2020-8-10 11:00",
-            type: "全员考核",
-            content: "江夏大队有3个站本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "东新大队",
-            time: "2020-8-09 12:00",
-            type: "心理测询",
-            content: "东新大队有4人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "江岸大队",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "江岸大队有1人本月训练不合格",
-            flag: "最新预警"
+        error: function(response){
+            console.log(response);
         }
-    ];
-    var tr = "";
-    for (var i = 0; i < dataArray.length; i++) {
-        tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-            '</tr>';
-    }
-    $('#wn_tb1').append(tr);
+    })
+    // var dataArray = [{
+    //         name: "青山大队",
+    //         time: "2020-8-17 8:09",
+    //         type: "政治教育",
+    //         content: "青山大队本月3人考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "硚口大队",
+    //         time: "2020-8-15 13:00",
+    //         type: "政治教育",
+    //         content: "硚口大队本月还有3人未参加学习",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "汉阳大队",
+    //         time: "2020-8-15 8:00",
+    //         type: "智慧党建",
+    //         content: "汉阳大队有3个站本月尚未开展主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "黄陂大队",
+    //         time: "2020-8-15 12:20",
+    //         type: "智慧党建",
+    //         content: "黄陂大队有11人本月尚未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "蔡甸大队",
+    //         time: "2020-8-15 21:00",
+    //         type: "心理测询",
+    //         content: "蔡甸大队有4人心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "经开大队",
+    //         time: "2020-8-12 9:40",
+    //         type: "全员考核",
+    //         content: "经开大队有1人本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "江夏大队",
+    //         time: "2020-8-10 11:00",
+    //         type: "全员考核",
+    //         content: "江夏大队有3个站本月尚未开展全员考核",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "东新大队",
+    //         time: "2020-8-09 12:00",
+    //         type: "心理测询",
+    //         content: "东新大队有4人睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "江岸大队",
+    //         time: "2020-8-09 11:00",
+    //         type: "全员考核",
+    //         content: "江岸大队有1人本月训练不合格",
+    //         flag: "最新预警"
+    //     }
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb1').append(tr);
 }
 
 function tb_wn2() {
-    var dataArray = [{
-            name: "江岸大队",
-            time: "2020-8-17 9:00",
-            type: "心理测询",
-            content: "黄石支队有2人心理测询异常",
-            flag: "最新预警"
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByZhidui',
+        data:{
+            id: 2,
+            resolutionType:2
         },
-        {
-            name: "汉阳大队",
-            time: "2020-8-16 17:10",
-            type: "政治教育",
-            content: "汉阳大队本月4人考试不及格",
-            flag: "最新预警"
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + dataArray[i].createTime + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb2').append(tr);
         },
-        {
-            name: "经开大队",
-            time: "2020-8-16 8:00",
-            type: "智慧党建",
-            content: "经开大队有1个站本月尚未开展主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "武昌大队",
-            time: "2020-8-15 13:00",
-            type: "心理测询",
-            content: "鄂州支队有2人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "江夏大队",
-            time: "2020-8-15 12:30",
-            type: "政治教育",
-            content: "江夏大队本月还有3人未参加学习",
-            flag: "最新预警"
-        },
-        {
-            name: "汉阳大队",
-            time: "2020-8-14 12:20",
-            type: "智慧党建",
-            content: "汉阳大队有4人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+    // var dataArray = [{
+    //         name: "江岸大队",
+    //         time: "2020-8-17 9:00",
+    //         type: "心理测询",
+    //         content: "黄石支队有2人心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "汉阳大队",
+    //         time: "2020-8-16 17:10",
+    //         type: "政治教育",
+    //         content: "汉阳大队本月4人考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "经开大队",
+    //         time: "2020-8-16 8:00",
+    //         type: "智慧党建",
+    //         content: "经开大队有1个站本月尚未开展主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "武昌大队",
+    //         time: "2020-8-15 13:00",
+    //         type: "心理测询",
+    //         content: "鄂州支队有2人睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "江夏大队",
+    //         time: "2020-8-15 12:30",
+    //         type: "政治教育",
+    //         content: "江夏大队本月还有3人未参加学习",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "汉阳大队",
+    //         time: "2020-8-14 12:20",
+    //         type: "智慧党建",
+    //         content: "汉阳大队有4人本月尚未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
 
-        {
-            name: "东新大队",
-            time: "2020-8-13 14:00",
-            type: "全员考核",
-            content: "东新大队有3个站本月尚未开展全员考核",
-            flag: "最新预警"
-        },
-        {
-            name: "青山大队",
-            time: "2020-8-11 12:00",
-            type: "全员考核",
-            content: "青山大队有4人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "洪山大队",
-            time: "2020-8-08 15:00",
-            type: "全员考核",
-            content: "洪山大队有1人本月训练不合格",
-            flag: "最新预警"
-        },
-        {
-            name: "武昌大队",
-            time: "2020-8-07 17:00",
-            type: "全员考核",
-            content: "武昌大队有2个支部本月尚未开展全员考核",
-            flag: "最新预警"
-        },
+    //     {
+    //         name: "东新大队",
+    //         time: "2020-8-13 14:00",
+    //         type: "全员考核",
+    //         content: "东新大队有3个站本月尚未开展全员考核",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "青山大队",
+    //         time: "2020-8-11 12:00",
+    //         type: "全员考核",
+    //         content: "青山大队有4人本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "洪山大队",
+    //         time: "2020-8-08 15:00",
+    //         type: "全员考核",
+    //         content: "洪山大队有1人本月训练不合格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "武昌大队",
+    //         time: "2020-8-07 17:00",
+    //         type: "全员考核",
+    //         content: "武昌大队有2个支部本月尚未开展全员考核",
+    //         flag: "最新预警"
+    //     },
 
 
-    ];
-    var tr = "";
-    for (var i = 0; i < dataArray.length; i++) {
-        tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-            '</tr>';
-    }
-    $('#wn_tb2').append(tr);
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb2').append(tr);
 }
