@@ -98,7 +98,7 @@ const conditionTemplate = `
 `
 var new_element=document.createElement("script");
 new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","b.js");
+new_element.setAttribute("src","../js/moment.js");
 document.body.appendChild(new_element);
 
 const condition = new Vue({
@@ -150,12 +150,18 @@ const condition = new Vue({
             console.log(this.queryItem)
             let flag = this.check()
             if(flag){
+                
                 initEcharts(this.queryItem)
+                var queryData=$.extend({}, this.queryItem);
+                var startTime=moment(queryData.startTime).format("YYYY-MM-DD")
+                queryData.startTime=startTime
+                var endTime=moment(queryData.endTime).format("YYYY-MM-DD")
+                queryData.endTime=endTime
                 $.ajax({
                     type: "post",
                     url: 'http://localhost:8880/search/searchByItem',
                     contentType: "application/json;charset=utf-8",
-                    data:JSON.stringify(this.queryItem),
+                    data:JSON.stringify(queryData),
                     dataType: "json",
                     success: function (response) {
                         console.log(response);
