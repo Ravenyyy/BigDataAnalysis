@@ -139,7 +139,7 @@ function assess_11() {
       max: 1,
       center: ['50%', '70%'],
       data: [{
-        value: 0.89,
+        value: developRate,
         name: '支部开展率'
       }],
       splitNumber: 4, //刻度数量
@@ -370,7 +370,7 @@ function assess_12() {
       max: 1,
       center: ['50%', '70%'],
       data: [{
-        value: 0.95,
+        value: finishRate,
         name: '支部完成率'
       }],
       splitNumber: 4, //刻度数量
@@ -462,93 +462,26 @@ function assess_12() {
 }
 //不称职人员
 function assess_21() {
-  var dataArray = [{
-      dataIndex: "1",
-      name: "周大龙",
-    }, {
-      dataIndex: "2",
-      name: "李海",
-    }, {
-      dataIndex: "3",
-      name: "刘大伟",
-    },
-    {
-      dataIndex: "4",
-      name: "李冰",
-    }, {
-      dataIndex: "5",
-      name: "李赫",
-    }, {
-      dataIndex: "6",
-      name: "李建",
-    }, {
-      dataIndex: "7",
-      name: "刘大伟",
-    },
-    {
-      dataIndex: "8",
-      name: "李冰",
-    }, {
-      dataIndex: "9",
-      name: "李赫",
-    }, {
-      dataIndex: "10",
-      name: "李建",
-    }
-  ];
+  var dataArray = notPassPerson;
 
   var tr = "";
   for (var i = 0; i < dataArray.length; i++) {
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].dataIndex + "</td>" +
-      "<td>" + dataArray[i].name + "</td>" +
+      "<td>" + (i + 1) + "</td>" +
+      "<td>" + dataArray[i].uname + "</td>" +
       '</tr>';
   }
   $('#assess_21').append(tr);
 }
 //未按规定考核人员信息
 function assess_22() {
-  var dataArray = [{
-      dataIndex: "1",
-      name: "李赫",
-    }, {
-      dataIndex: "2",
-      name: "李建",
-    }, {
-      dataIndex: "3",
-      name: "刘大伟",
-    },
-    {
-      dataIndex: "4",
-      name: "李冰",
-    }, {
-      dataIndex: "5",
-      name: "李赫",
-    }, {
-      dataIndex: "6",
-      name: "李建",
-    },
-    {
-      dataIndex: "7",
-      name: "周大龙",
-    }, {
-      dataIndex: "8",
-      name: "李海",
-    }, {
-      dataIndex: "9",
-      name: "刘大伟",
-    },
-    {
-      dataIndex: "10",
-      name: "李冰",
-    },
-  ];
+  var dataArray = notAssessPerson;
 
   var tr = "";
   for (var i = 0; i < dataArray.length; i++) {
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].dataIndex + "</td>" +
-      "<td>" + dataArray[i].name + "</td>" +
+      "<td>" + (i + 1) + "</td>" +
+      "<td>" + dataArray[i].uname + "</td>" +
       '</tr>';
   }
   $('#assess_22').append(tr);
@@ -562,19 +495,19 @@ function assess_3() {
   let color = ["#22EC20", "#F1C62C", '#FF8352', '#E271DE'];
   let echartData = [{
       name: '优秀',
-      value: 11
+      value: excellent
     },
     {
       name: '称职',
-      value: 9
+      value: good
     },
     {
       name: '基本称职',
-      value: 17
+      value: pass
     },
     {
       name: '不称职',
-      value: 8
+      value: noPass
     }
   ];
 
@@ -662,11 +595,11 @@ function assess_4() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_4"));
   var legendData = ['优秀(%)', '称职(%)', '基本称职(%)', '不称职(%)'];
-  var xAxisData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var ktData = [12, 12, 18, 21, 18, 14, 14, 26, 27, 25, 28, 39, 19, 18, 28];
-  var xlData = [25, 19, 16, 12, 17, 25, 19, 14, 30, 15, 12, 11, 27, 38, 27];
-  var saData = [15, 19, 26, 12, 25, 25, 19, 25, 13, 27, 35, 23, 24, 14, 15];
-  var siData = [48, 50, 40, 55, 40, 36, 48, 35, 30, 33, 25, 27, 30, 30, 20];
+  var xAxisData = monthArr;
+  var ktData = yearExcellent;
+  var xlData = yearGood;
+  var saData = yearPass;
+  var siData = yearNotPass;
 
   //总计
   var allData = function () {
@@ -857,11 +790,11 @@ function assess_4() {
 function assess_5() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_5"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
+  var xData = monthArr;
   var data = {
     edu: [
-      [90, 91, 100, 100, 100, 95, 94, 88, 83, 91, 94, 100],
-      [66, 73, 75, 76, 76, 77, 75, 76, 64, 61, 67, 65]
+      yearDevelop,
+      yearFinish
     ]
   };
   // 指定配置和数据
@@ -927,7 +860,7 @@ function assess_5() {
     }, ],
 
     series: [{
-        name: "开展率",
+        name: "开展率（%）",
         type: "line",
         lineStyle: {
           width: 3,
@@ -937,7 +870,7 @@ function assess_5() {
         data: data.edu[0]
       },
       {
-        name: "完成率",
+        name: "完成率（%）",
         lineStyle: {
           width: 3,
         },
@@ -959,12 +892,12 @@ function assess_5() {
 function assess_6() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_6"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
+  var xData = monthArr;
   var data = {
     edu: [
-      [98, 91, 100, 95, 95, 95, 94, 90, 93, 91, 94, 94, 93, 95, 90],
-      [54, 53, 55, 55, 56, 57, 57, 56, 61, 61, 57, 55, 54, 57, 54],
-      [64, 43, 75, 74, 66, 57, 65, 46, 84, 81, 67, 45, 44, 87, 84]
+      yearSubmit,
+      yearAssess,
+      yearOrg
     ]
   };
   // 指定配置和数据
@@ -1030,7 +963,7 @@ function assess_6() {
     }, ],
 
     series: [{
-        name: "工作提交参与率",
+        name: "工作提交参与率（%）",
         type: "line",
         lineStyle: {
           width: 3,
@@ -1040,7 +973,7 @@ function assess_6() {
         data: data.edu[0]
       },
       {
-        name: "互评参与率",
+        name: "互评参与率（%）",
         lineStyle: {
           width: 3,
         },
@@ -1049,7 +982,7 @@ function assess_6() {
         data: data.edu[1]
       },
       {
-        name: "组织评定参与率",
+        name: "组织评定参与率（%）",
         lineStyle: {
           width: 3,
         },
@@ -1066,4 +999,117 @@ function assess_6() {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+}
+
+
+let developRate = [] //开展率
+let finishRate = [] //完成率
+let excellent = 0 //优秀
+let good = 0 //称职
+let pass = 0 //基本称职
+let noPass = 0 //不称职
+
+let notPassPerson = []
+let notAssessPerson = []
+
+let monthArr = []
+let yearDevelop = []
+let yearFinish = []
+let yearSubmit = []
+let yearAssess = []
+let yearOrg = []
+let yearExcellent = []
+let yearGood = []
+let yearPass = []
+let yearNotPass = []
+
+function getAssessDetailData() {
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    traditional: true,
+    data: {
+      unitId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      let assess = response.extra.assessmentUnit
+      developRate = (assess.startNum / assess.total).toFixed(2)
+      finishRate = (assess.finishNum / assess.total).toFixed(2)
+      excellent = assess.excellent
+      good = assess.good
+      pass = assess.pass
+      noPass = assess.nopass
+
+      assess_11();
+      assess_12();
+      assess_3();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+    traditional: true,
+    data: {
+      unitId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      let personList = response.extra.personList
+      for (let i = 0; i < personList.length; i++) {
+        let person = personList[i]
+        if (person.isStart == 2) {
+          notAssessPerson.push(person)
+        } else if (person.assessLevel == 4) {
+          notPassPerson.push(person)
+        }
+      }
+
+      assess_21();
+      assess_22();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/assessUnit/getOneYearList',
+    traditional: true,
+    data: {
+      unitId: 1
+    },
+    success: function (response) {
+      let unitList = response.extra.unitList
+      for (let i = 0; i < unitList.length; i++) {
+        monthArr.push(unitList[i].month.substring(5, 7) + '月')
+        yearDevelop.push(((unitList[i].startNum / unitList[i].total) * 100).toFixed(2))
+        yearFinish.push(((unitList[i].finishNum / unitList[i].total) * 100).toFixed(2))
+        yearSubmit.push(((unitList[i].taskSubmitNum / unitList[i].total) * 100).toFixed(2))
+        yearAssess.push(((unitList[i].assessOtherNum / unitList[i].total) * 100).toFixed(2))
+        yearOrg.push(((unitList[i].orgAssessNum / unitList[i].total) * 100).toFixed(2))
+        yearExcellent.push(unitList[i].excellent)
+        yearGood.push(unitList[i].good)
+        yearPass.push(unitList[i].pass)
+        yearNotPass.push(unitList[i].nopass)
+      }
+      assess_4();
+      assess_5();
+      assess_6();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+
 }

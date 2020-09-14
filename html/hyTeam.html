@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../css/index.css" />
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
+  </script>
 </head>
 
 <body>
@@ -97,8 +100,8 @@
         </div>
       </div>
       <div class="map">
-        <!-- <div class="chart" id="map"></div> -->
-        <img src="../images/hy.jpg" class="images" />
+        <div class="chart" id="map"></div>
+        <!-- <img src="../images/hy.jpg" class="images" /> -->
         <!-- <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div> -->
@@ -174,11 +177,13 @@
 <script src="../js/echarts.min.js"></script>
 <script src="../js/hyTeam.js"></script>
 <script src="../js/hubei.js"></script>
+<script src="../js/baiduMap.js"></script>
 <!-- <script src="js/myMap.js"></script> -->
 <script>
   // onload
   $(function () {
 
+    initBaiduMap();
     heart_1();
     heart_2();
     heart_3();
