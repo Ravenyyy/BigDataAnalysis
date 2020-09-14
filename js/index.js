@@ -2070,7 +2070,7 @@ function tb_wn1 () {
         url: 'http://localhost:8880/warning/getWarningByZongdui',
         data:{
             id: 1,
-            resolutionType:2
+            resolutionType:0
         },
         success: function(response){
             dataArray = response.extra.warningList
@@ -2192,18 +2192,18 @@ function addTableClick (tableName, dataArray) {
             if (tableName == "wn_tb1") {
                 $(".modal-body > p").text("最新风险预警信息")
             } else {
-                $(".modal-body > p").text("正在处理风险预警信息")
+                $(".modal-body > p").text("正在督办风险预警信息")
             }
             document.getElementById("simpleModal").style.display = "block";
             var tdContent = dataArray[trindex - 1]
             $('#modal-ul').find("li").each(function (index, item) {
                 console.log(item);
                 if (index == 0) {
-                    $(item).text("来源：" + tdContent.type)
+                    $(item).text("来源：" + tdContent.warning)
                 } else if (index == 1) {
                     $(item).text("详情：" + tdContent.content)
                 } else if (index == 2) {
-                    $(item).text("状态：" + "正在处理")
+                    $(item).text("状态：" + tdContent.typeName)
                 }
             })
         })
@@ -2217,7 +2217,7 @@ function tb_wn2 () {
         url: 'http://localhost:8880/warning/getWarningByZongdui',
         data:{
             id: 1,
-            resolutionType:2
+            resolutionType:1
         },
         success: function(response){
             dataArray = response.extra.warningList
