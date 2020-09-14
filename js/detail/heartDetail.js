@@ -332,7 +332,7 @@ function heart_3 () {
     myChart.resize();
   });
 }
-//心理异常人数变化趋势年度统计
+//心理重度异常人数变化趋势年度统计
 function heart_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_4"));
@@ -399,14 +399,14 @@ function heart_4 () {
     },],
 
     series: [{
-      name: "心理异常人数",
+      name: "心理重度异常人数",
       type: "line",
       // 是否让线条圆滑显示
       smooth: false,
       lineStyle: {
         width: 3,
       },
-      data: problemMonthList
+      data: seriousMonthList
     }]
   };
 
@@ -651,7 +651,7 @@ let testRateList = [];
 let problemNumList = [];
 let problemRateList = [];
 let monthList = [];
-let problemMonthList = [];
+let seriousMonthList = [];
 let psychologistlist = [];
 let onTreatList = [];
 let hasTreatList = [];
@@ -724,7 +724,7 @@ function getHeartDetailData () {
       var unitList = response.extra.unitList;
       for (var index in unitList) {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
-        problemMonthList.push(unitList[index].problemNum)
+        seriousMonthList.push(unitList[index].seriousNum)
       }
       heart_4();
     },
