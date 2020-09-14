@@ -2046,120 +2046,172 @@ function tb_edu() {
 }
 
 function tb_wn1() {
-    var dataArray = [{
-            name: "晴川站",
-            time: "2020-8-17 8:20",
-            type: "政治教育",
-            content: "晴川站本月1人考试不及格",
-            flag: "最新预警"
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByDadui',
+        data:{
+            id: 221,
+            resolutionType:2
         },
-        {
-            name: "墨水湖站",
-            time: "2020-8-16 12:00",
-            type: "智慧党建",
-            content: "墨水湖站有2人本月尚未参加主题党日活动",
-            flag: "最新预警"
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + dataArray[i].createTime + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb1').append(tr);
         },
-        {
-            name: "墨水湖站",
-            time: "2020-8-15 11:00",
-            type: "心理测询",
-            content: "墨水湖站有2人心理测询异常",
-            flag: "最新预警"
-        },
-        {
-            name: "七里庙站",
-            time: "2020-8-12 9:00",
-            type: "全员考核",
-            content: "七里庙站有1人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "黄金口站",
-            time: "2020-8-09 12:00",
-            type: "心理测询",
-            content: "黄金口站有1人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "七里庙站",
-            time: "2020-8-09 11:00",
-            type: "全员考核",
-            content: "七里庙站有1人本月训练不合格",
-            flag: "最新预警"
+        error: function(response){
+            console.log(response);
         }
-    ];
-    var tr = "";
-    for (var i = 0; i < dataArray.length; i++) {
-        tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-            '</tr>';
-    }
-    $('#wn_tb1').append(tr);
+    })
+    // var dataArray = [{
+    //         name: "晴川站",
+    //         time: "2020-8-17 8:20",
+    //         type: "政治教育",
+    //         content: "晴川站本月1人考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "墨水湖站",
+    //         time: "2020-8-16 12:00",
+    //         type: "智慧党建",
+    //         content: "墨水湖站有2人本月尚未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "墨水湖站",
+    //         time: "2020-8-15 11:00",
+    //         type: "心理测询",
+    //         content: "墨水湖站有2人心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "七里庙站",
+    //         time: "2020-8-12 9:00",
+    //         type: "全员考核",
+    //         content: "七里庙站有1人本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "黄金口站",
+    //         time: "2020-8-09 12:00",
+    //         type: "心理测询",
+    //         content: "黄金口站有1人睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "七里庙站",
+    //         time: "2020-8-09 11:00",
+    //         type: "全员考核",
+    //         content: "七里庙站有1人本月训练不合格",
+    //         flag: "最新预警"
+    //     }
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb1').append(tr);
 }
 
 function tb_wn2() {
-    var dataArray = [{
-            name: "墨水湖站",
-            time: "2020-8-17 9:00",
-            type: "心理测询",
-            content: "墨水湖站有1人心理测询异常",
-            flag: "最新预警"
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByDadui',
+        data:{
+            id: 221,
+            resolutionType:2
         },
-        {
-            name: "黄金口站",
-            time: "2020-8-16 11:10",
-            type: "政治教育",
-            content: "黄金口站本月2人考试不及格",
-            flag: "最新预警"
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + dataArray[i].createTime + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb2').append(tr);
         },
-        {
-            name: "晴川站",
-            time: "2020-8-15 11:00",
-            type: "心理测询",
-            content: "晴川站有1人睡眠质量一直不良",
-            flag: "最新预警"
-        },
-        {
-            name: "七里庙站",
-            time: "2020-8-15 12:30",
-            type: "政治教育",
-            content: "七里庙站本月还有2人未参加学习",
-            flag: "最新预警"
-        },
-        {
-            name: "七里庙站",
-            time: "2020-8-14 12:20",
-            type: "智慧党建",
-            content: "七里庙站有1人本月尚未参加主题党日活动",
-            flag: "最新预警"
-        },
-        {
-            name: "晴川站",
-            time: "2020-8-11 12:00",
-            type: "全员考核",
-            content: "晴川站有2人本月被评定为不称职",
-            flag: "最新预警"
-        },
-        {
-            name: "墨水湖站",
-            time: "2020-8-08 15:00",
-            type: "全员考核",
-            content: "墨水湖站有1人本月训练不合格",
-            flag: "最新预警"
+        error: function(response){
+            console.log(response);
         }
-    ];
-    var tr = "";
-    for (var i = 0; i < dataArray.length; i++) {
-        tr = tr + '<tr>' +
-            "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-            "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-            "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-            "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-            '</tr>';
-    }
-    $('#wn_tb2').append(tr);
+    })
+    // var dataArray = [{
+    //         name: "墨水湖站",
+    //         time: "2020-8-17 9:00",
+    //         type: "心理测询",
+    //         content: "墨水湖站有1人心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "黄金口站",
+    //         time: "2020-8-16 11:10",
+    //         type: "政治教育",
+    //         content: "黄金口站本月2人考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "晴川站",
+    //         time: "2020-8-15 11:00",
+    //         type: "心理测询",
+    //         content: "晴川站有1人睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "七里庙站",
+    //         time: "2020-8-15 12:30",
+    //         type: "政治教育",
+    //         content: "七里庙站本月还有2人未参加学习",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "七里庙站",
+    //         time: "2020-8-14 12:20",
+    //         type: "智慧党建",
+    //         content: "七里庙站有1人本月尚未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "晴川站",
+    //         time: "2020-8-11 12:00",
+    //         type: "全员考核",
+    //         content: "晴川站有2人本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "墨水湖站",
+    //         time: "2020-8-08 15:00",
+    //         type: "全员考核",
+    //         content: "墨水湖站有1人本月训练不合格",
+    //         flag: "最新预警"
+    //     }
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb2').append(tr);
 }
