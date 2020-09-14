@@ -127,6 +127,8 @@ const condition = new Vue({
 
             firstTargetSelect:[],
             secondTargetSelect:[],
+            numType:0,//0:非百分比的数字，1：XX率
+            resultList:[],
         }
     },
     methods: {
@@ -143,6 +145,10 @@ const condition = new Vue({
                 this.$Message.error("二级指标未选择！！")
                 return false;
             }
+            if(this.queryItem.zongdui==false&&this.queryItem.zhidui.length==0){
+                this.$Message.error("未选择查询条件！！")
+                return false;
+            }
 
             return true;
         },
@@ -151,12 +157,14 @@ const condition = new Vue({
             let flag = this.check()
             if(flag){
                 
-                initEcharts(this.queryItem)
+                // initEcharts(this.queryItem)
                 var queryData=$.extend({}, this.queryItem);
                 var startTime=moment(queryData.startTime).format("YYYY-MM-DD")
                 queryData.startTime=startTime
                 var endTime=moment(queryData.endTime).format("YYYY-MM-DD")
                 queryData.endTime=endTime
+                console.log(queryData)
+                var _this=this
                 $.ajax({
                     type: "post",
                     url: 'http://localhost:8880/search/searchByItem',
@@ -164,7 +172,10 @@ const condition = new Vue({
                     data:JSON.stringify(queryData),
                     dataType: "json",
                     success: function (response) {
-                        console.log(response);
+                        console.log(response.extra.resultList);
+                        _this.resultList=response.extra.resultList;
+                        _this.numType=response.extra.numType
+                        initEcharts(_this.queryItem)
                     },
                     error: function(response){
                         console.log(response);
@@ -577,16 +588,24 @@ function initEcharts(queryItem) {
 function getseriesData(queryItem, xAxisDate){
     let info = getUnit(queryItem)
     let unitFlag = info.flag
-    let unit = info.unit
+    // let unit = info.unit
     let seriesData = []
-    console.log(unitFlag);
-    console.log(unit);
-
-    for(let i=0; i<unit.length;i++){
+    for(let i=0; i<condition.resultList.length;i++){
         let item = {name:'', data:[]}
-        // item.name = unitList[unitFlag-1][unit[i]-1].name   //显示每条线的名称
+        let resultList=[]
+        for(var key in condition.resultList[i] ){
+            item.name=key;//显示每条线的名称
+            resultList=condition.resultList[i][key]
+        }
+        // item.name = condition.resultList[i].name   //显示每条线的名称
+        console.log(resultList[i])
         for(let j=0; j<xAxisDate.length; j++){
-            item.data.push(Math.round(Math.random()*51 + 49))
+            if(condition.numType==1){
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j].toFixed(2))
+            }else{
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }
+            
         }
         seriesData.push(item)
     }
@@ -736,6 +755,12 @@ function dateToString(date){
     }
     var dateTime = year + "-" + month
     return dateTime; 
+}
+
+function toPercent(point){
+    var str=Number(point*100).toFixed(2);
+    str+="%";
+    return str;
 }
 
 let unitList = [
