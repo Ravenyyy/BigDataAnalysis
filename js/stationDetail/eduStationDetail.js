@@ -521,3 +521,69 @@ function getEduStationDetailData () {
     }
   })
 }
+
+function strToArray (string) {
+  var array = [];
+  var length = string.length
+  for (var i = 0; i < length; i++) {
+    string1 = string.substr(0, 1)
+    array.push(string1)
+    string = string.replace(string1, '')
+  }
+  // console.log(array)
+  return array;
+}
+function getBoxData () {
+  let examAverage = 0;
+  let examJoinNum = 0;
+  let examNotPassNum = 0;
+  let appActiveRate = 0;
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationUnit/getEduUnit',
+    traditional: true,
+    data: {
+      unitId: 49,
+      month: '2020-09'
+    },
+    success: function (response) {
+      console.log(response)
+      var unit = response.extra.educationUnit;
+      examAverage = unit.examAverage + '';
+      examJoinNum = unit.examJoinNum + '';
+      examNotPassNum = unit.examJoinNum - unit.examPassNum + '';
+      appActiveRate = (unit.appActive / unit.total).toFixed(2) * 100 + "%"
+
+      var examAverageArray = strToArray(examAverage)
+      var examAverageStr = ""
+      for (var i = 0; i < examAverage.length; i++) {
+        examAverageStr += '<div class= "block">' + examAverageArray[i] + '</div>';
+      }
+      document.getElementById("examAverage").innerHTML = examAverageStr;
+
+      var examJoinNumArray = strToArray(examJoinNum)
+      var examJoinNumStr = ""
+      for (var i = 0; i < examJoinNum.length; i++) {
+        examJoinNumStr += '<div class= "block">' + examJoinNumArray[i] + '</div>';
+      }
+      document.getElementById("examJoinNum").innerHTML = examJoinNumStr;
+
+      var examNotPassNumArray = strToArray(examNotPassNum)
+      var examNotPassNumStr = ""
+      for (var i = 0; i < examNotPassNum.length; i++) {
+        examNotPassNumStr += '<div class= "block">' + examNotPassNumArray[i] + '</div>';
+      }
+      document.getElementById("examNotPassNum").innerHTML = examNotPassNumStr;
+
+      var appActiveRateArray = strToArray(appActiveRate)
+      var appActiveRateStr = ""
+      for (var i = 0; i < appActiveRate.length; i++) {
+        appActiveRateStr += '<div class= "block">' + appActiveRateArray[i] + '</div>';
+      }
+      document.getElementById("appActiveRate").innerHTML = appActiveRateStr;
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}

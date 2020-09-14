@@ -464,6 +464,18 @@ function heart_6 () {
   });
 }
 
+
+function strToArray (string) {
+  var array = [];
+  var length = string.length
+  for (var i = 0; i < length; i++) {
+    string1 = string.substr(0, 1)
+    array.push(string1)
+    string = string.replace(string1, '')
+  }
+  // console.log(array)
+  return array;
+}
 let monthList = [];
 let testNumList = [];
 let testRateList = [];
@@ -494,11 +506,39 @@ function getHeartDetailData () {
       force = psyUnit.force;
       other = psyUnit.other;
 
-      testNum = psyUnit.testNum;
-      problemNum = psyUnit.problemNum;
-      psychologist = psyUnit.psychologist;
-      onTreat = psyUnit.onTreat;
-      hasTreat = psyUnit.hasTreat;
+      testNum = psyUnit.testNum + '';
+      problemNum = psyUnit.problemNum + '';
+      psychologist = psyUnit.psychologist + '';
+      treat = psyUnit.onTreat + "/" + psyUnit.hasTreat;
+
+      var testNumArray = strToArray(testNum)
+      var testNumStr = ""
+      for (var i = 0; i < testNum.length; i++) {
+        testNumStr += '<div class= "block">' + testNumArray[i] + '</div>';
+      }
+      document.getElementById("testNum").innerHTML = testNumStr;
+
+      var problemNumArray = strToArray(problemNum)
+      var problemNumStr = ""
+      for (var i = 0; i < problemNum.length; i++) {
+        problemNumStr += '<div class= "block">' + problemNumArray[i] + '</div>';
+      }
+      document.getElementById("problemNum").innerHTML = problemNumStr;
+
+      var psychologistArray = strToArray(psychologist)
+      var psychologistStr = ""
+      for (var i = 0; i < psychologist.length; i++) {
+        psychologistStr += '<div class= "block">' + psychologistArray[i] + '</div>';
+      }
+      document.getElementById("psychologist").innerHTML = psychologistStr;
+
+      var treatArray = strToArray(treat)
+      var treatStr = ""
+      for (var i = 0; i < treat.length; i++) {
+        treatStr += '<div class= "block">' + treatArray[i] + '</div>';
+      }
+      document.getElementById("treat").innerHTML = treatStr;
+
       heart_3();
     },
     error: function (response) {

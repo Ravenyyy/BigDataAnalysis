@@ -58,31 +58,22 @@
         <div class="chart">
           <div class="detail_line">
             <div class="edu_col1">在线考试平均分</div>
-            <div class="edu_col2">
-              <div class="block">8</div>
-              <div class="block">4</div>
+            <div class="edu_col2" id="examAverage">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">参加在线考试人数</div>
-            <div class="edu_col2">
-              <div class="block">5</div>
-              <div class="block">6</div>
-
+            <div class="edu_col2" id="examJoinNum">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">在线考试不及格人数</div>
-            <div class="edu_col2">
-              <div class="block">3</div>
+            <div class="edu_col2" id="examNotPassNum">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">荆楚政线APP使用活跃度</div>
-            <div class="edu_col2">
-              <div class="block">8</div>
-              <div class="block">7</div>
-              <div class="block">%</div>
+            <div class="edu_col2" id="appActiveRate">
             </div>
           </div>
         </div>
@@ -138,7 +129,7 @@
   // onload
   $(function () {
     getEduStationDetailData();
-
+    getBoxData();
   });
 </script>
 
