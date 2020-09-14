@@ -17,53 +17,19 @@ const structure = new Vue({
             title: '书记',
             expand: true,
             contextmenu: true,
-            children: [{
-              title: '刘自龙',
-              contextmenu: true
-            }]
+            children: []
           },
           {
             title: '副书记',
             expand: true,
             contextmenu: true,
-            children: [{
-              title: '陈万红',
-              contextmenu: true
-            }]
+            children: []
           },
           {
             title: '委员',
             expand: true,
             contextmenu: true,
-            children: [{
-                title: '王洪波',
-                contextmenu: true
-              },
-              {
-                title: '王仕宝',
-                contextmenu: true
-              },
-              {
-                title: '罗洪波',
-                contextmenu: true
-              },
-              {
-                title: '胡玉冰',
-                contextmenu: true
-              },
-              {
-                title: '杨宏国',
-                contextmenu: true
-              },
-              {
-                title: '徐雪冰',
-                contextmenu: true
-              },
-              {
-                title: '张如波',
-                contextmenu: true
-              }
-            ]
+            children: []
           }
         ]
       }],
@@ -76,386 +42,38 @@ const structure = new Vue({
 })
 //主题党日“十事联动”支部开展情况统计
 function dj_1() {
-  var dataArray = [{
-      name: "武汉",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "宜昌",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "鄂州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "襄阳",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "黄石",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "荆门",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "咸宁",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "十堰",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "随州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "孝感",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "荆州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "黄冈",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "恩施",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "汉江",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-    {
-      name: "训保",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-      col8: "100%",
-      col9: "100%",
-      col10: "100%",
-    },
-  ];
 
   var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
+  for (var i = 0; i < ssldDevelopArr.length; i++) {
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].name + "</td>" +
-      "<td>" + dataArray[i].col1 + "</td>" +
-      "<td>" + dataArray[i].col2 + "</td>" +
-      "<td>" + dataArray[i].col3 + "</td>" +
-      "<td>" + dataArray[i].col4 + "</td>" +
-      "<td>" + dataArray[i].col5 + "</td>" +
-      "<td>" + dataArray[i].col6 + "</td>" +
-      "<td>" + dataArray[i].col7 + "</td>" +
-      "<td>" + dataArray[i].col8 + "</td>" +
-      "<td>" + dataArray[i].col9 + "</td>" +
-      "<td>" + dataArray[i].col10 + "</td>" +
+      "<td>" + ssldDevelopArr[i].name + "</td>" +
+      "<td>" + ssldDevelopArr[i].col1 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col2 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col3 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col4 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col5 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col6 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col7 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col8 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col9 + "</td>" +
+      "<td>" + ssldDevelopArr[i].col10 + "</td>" +
       '</tr>';
   }
   $('#dj_1').append(tr);
 }
 //组织生活开展情况统计
 function dj_2() {
-  var dataArray = [{
-      name: "武汉",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "宜昌",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "鄂州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "襄阳",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "黄石",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "荆门",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "咸宁",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "十堰",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "随州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "孝感",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "荆州",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "黄冈",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "恩施",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "汉江",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-    {
-      name: "训保",
-      col1: "100%",
-      col2: "100%",
-      col3: "100%",
-      col4: "100%",
-      col5: "100%",
-      col6: "100%",
-      col7: "100%",
-    },
-  ];
-
   var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
+  for (var i = 0; i < zzshDevelopArr.length; i++) {
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].name + "</td>" +
-      "<td>" + dataArray[i].col1 + "</td>" +
-      "<td>" + dataArray[i].col2 + "</td>" +
-      "<td>" + dataArray[i].col3 + "</td>" +
-      "<td>" + dataArray[i].col4 + "</td>" +
-      "<td>" + dataArray[i].col5 + "</td>" +
-      "<td>" + dataArray[i].col6 + "</td>" +
-      "<td>" + dataArray[i].col7 + "</td>" +
+      "<td>" + zzshDevelopArr[i].name + "</td>" +
+      "<td>" + zzshDevelopArr[i].col1 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col2 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col3 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col4 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col5 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col6 + "</td>" +
+      "<td>" + zzshDevelopArr[i].col7 + "</td>" +
       '</tr>';
   }
   $('#dj_2').append(tr);
@@ -464,11 +82,11 @@ function dj_2() {
 function dj_4() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_4"));
-  var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
+  var xData = unitNameArr;
   var yData = [
-    [661, 234, 243, 223, 221, 222, 233, 202, 232, 232, 192, 222, 232, 221, 214],
-    [487, 143, 145, 154, 134, 153, 146, 137, 145, 114, 145, 125, 134, 204, 256],
-    [56, 67, 54, 53, 53, 52, 65, 67, 67, 68, 63, 59, 58, 54, 55],
+    dyNumArr,
+    notDyNumArr,
+    dyRateArr,
   ];
   option = {
     color: ["#ed3f35", "#BBFFFF", "#FAD860", "#FF9A00"],
@@ -587,10 +205,10 @@ function dj_4() {
 function dj_5() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_5"));
-  var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
+  var xData = unitNameArr;
   var yData = [
-    [25, 11, 8, 6, 10, 9, 10, 12, 13, 9, 10, 12, 13, 12, 9],
-    [164, 32, 34, 23, 41, 32, 42, 31, 29, 28, 34, 41, 32, 31, 29]
+    dwNumArr,
+    dzbNumArr
   ];
   option = {
     color: ["#22EC20", "#F1C62C"],
@@ -700,11 +318,11 @@ function dj_5() {
 function dj_6() {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_6"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
+  var xData = monthArr;
   var yData = [
-    [661, 234, 243, 223, 221, 222, 233, 202, 232, 232, 192, 222],
-    [187, 43, 45, 14, 34, 53, 46, 17, 45, 14, 15, 25],
-    [56, 67, 54, 53, 53, 52, 65, 67, 67, 68, 63, 56],
+    yearDyArr,
+    yearNotDyArr,
+    yearDyRate,
   ];
   option = {
     color: ["#FF9A00", "#ed3f35", "#BBFFFF", ],
@@ -804,7 +422,6 @@ function dj_6() {
     ]
   };
 
-
   // 3. 把配置和数据给实例对象
   myChart.setOption(option);
 
@@ -814,8 +431,130 @@ function dj_6() {
     }
   })
 
-
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+}
+
+let ssldDevelopArr = [] //十事联动开展率数组
+let zzshDevelopArr = [] //组织生活开展率数组
+let unitNameArr = [] //下级单位名数组
+let dwNumArr = [] //党委数量数组
+let dzbNumArr = [] //党支部数量数组
+let dyNumArr = [] //党员数量数组
+let notDyNumArr = [] //非党员数组
+let dyRateArr = [] //党员占比数组
+let monthArr = [] //一年的月份
+let yearDyArr = [] // 年度统计党员数量
+let yearNotDyArr = [] //年度统计非党员数量
+let yearDyRate = [] //年度统计党员占比
+
+function getDjDetailData() {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/partyBuildUnit/getUnitByParent',
+    traditional: true,
+    data: {
+      parentId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      let unitList = response.extra.unitList
+      for (let i = 0; i < unitList.length; i++) {
+        let item_1 = {
+          name: unitList[i].unitName,
+          col1: unitList[i].jndfDevelopRate * 100 + '%',
+          col2: unitList[i].cwscDevelopRate * 100 + '%',
+          col3: unitList[i].sddzDevelopRate * 100 + '%',
+          col4: unitList[i].jzxxDevelopRate * 100 + '%',
+          col5: unitList[i].mzysDevelopRate * 100 + '%',
+          col6: unitList[i].tssjDevelopRate * 100 + '%',
+          col7: unitList[i].dyhbDevelopRate * 100 + '%',
+          col8: unitList[i].mzjdDevelopRate * 100 + '%',
+          col9: unitList[i].jfkpDevelopRate * 100 + '%',
+          col10: unitList[i].zzshDevelopRate * 100 + '%',
+        }
+        let item_2 = {
+          name: unitList[i].unitName,
+          col1: unitList[i].dydhDevelopRate * 100 + '%',
+          col2: unitList[i].zwhDevelopRate * 100 + '%',
+          col3: unitList[i].dzxhDevelopRate * 100 + '%',
+          col4: unitList[i].dkDevelopRate * 100 + '%',
+          col5: unitList[i].dwhDevelopRate * 100 + '%',
+          col6: unitList[i].mzshhDevelopRate * 100 + '%',
+          col7: unitList[i].zzshhDevelopRate * 100 + '%',
+        }
+        ssldDevelopArr.push(item_1)
+        zzshDevelopArr.push(item_2)
+
+        unitNameArr.push(unitList[i].unitName)
+        dwNumArr.push(unitList[i].dwMun)
+        dzbNumArr.push(unitList[i].dzbMun)
+        dyNumArr.push(unitList[i].partyMember)
+        notDyNumArr.push(unitList[i].total - unitList[i].partyMember)
+        dyRateArr.push(((unitList[i].partyMember / unitList[i].total) * 100).toFixed(2))
+      }
+      dj_1();
+      dj_2();
+      dj_4();
+      dj_5();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/partyBuildUnit/getOneYearList',
+    traditional: true,
+    data: {
+      unitId: 1
+    },
+    success: function (response) {
+      let unitList = response.extra.unitList
+      for (let i = 0; i < unitList.length; i++) {
+        monthArr.push(unitList[i].month.substring(5, 7) + '月')
+        yearDyArr.push(unitList[i].partyMember)
+        yearNotDyArr.push(unitList[i].total - unitList[i].partyMember)
+        yearDyRate.push(((unitList[i].partyMember / unitList[i].total) * 100).toFixed(2))
+      }
+      dj_6();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/user/getDwByUnitId',
+    traditional: true,
+    data: {
+      unitId: 2
+    },
+    success: function (response) {
+      let userList = response.extra.userList
+      structure.data6[0].title = response.extra.title
+      for (let i = 0; i < userList.length; i++) {
+        let item = {
+          title: userList[i].uname,
+          contextmenu: true
+        }
+        if (userList[i].position == 1) {
+          structure.data6[0].children[0].children.push(item)
+        } else if (userList[i].position == 2) {
+          structure.data6[0].children[1].children.push(item)
+        } else if (userList[i].position == 3) {
+          structure.data6[0].children[2].children.push(item)
+        }
+      }
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+
+
+
 }
