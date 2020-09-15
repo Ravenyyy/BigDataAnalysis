@@ -1,49 +1,49 @@
 //在线考试成绩TOP10
-function edu_2() {
+function edu_2 () {
   var dataArray = [{
-      dataIndex: "1",
-      name: "李赫",
-      grade: "98"
-    }, {
-      dataIndex: "2",
-      name: "李建",
-      grade: "96"
-    }, {
-      dataIndex: "3",
-      name: "刘大伟",
-      grade: "95"
-    },
-    {
-      dataIndex: "4",
-      name: "李冰",
-      grade: "95"
-    }, {
-      dataIndex: "5",
-      name: "李赫",
-      grade: "92"
-    }, {
-      dataIndex: "6",
-      name: "李建",
-      grade: "90"
-    },
-    {
-      dataIndex: "7",
-      name: "周大龙",
-      grade: "88"
-    }, {
-      dataIndex: "8",
-      name: "李海",
-      grade: "88"
-    }, {
-      dataIndex: "9",
-      name: "刘大伟",
-      grade: "87"
-    },
-    {
-      dataIndex: "10",
-      name: "李冰",
-      grade: "85"
-    },
+    dataIndex: "1",
+    name: "李赫",
+    grade: "98"
+  }, {
+    dataIndex: "2",
+    name: "李建",
+    grade: "96"
+  }, {
+    dataIndex: "3",
+    name: "刘大伟",
+    grade: "95"
+  },
+  {
+    dataIndex: "4",
+    name: "李冰",
+    grade: "95"
+  }, {
+    dataIndex: "5",
+    name: "李赫",
+    grade: "92"
+  }, {
+    dataIndex: "6",
+    name: "李建",
+    grade: "90"
+  },
+  {
+    dataIndex: "7",
+    name: "周大龙",
+    grade: "88"
+  }, {
+    dataIndex: "8",
+    name: "李海",
+    grade: "88"
+  }, {
+    dataIndex: "9",
+    name: "刘大伟",
+    grade: "87"
+  },
+  {
+    dataIndex: "10",
+    name: "李冰",
+    grade: "85"
+  },
   ];
 
   var tr = "";
@@ -57,18 +57,9 @@ function edu_2() {
   $('#edu_2').append(tr);
 }
 //必修课、选修课、在线考试完成率、APP活跃度走势年度统计
-function edu_3() {
+function edu_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_3"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var data = {
-    edu: [
-      [98, 91, 100, 100, 100, 99, 99, 92, 93, 91, 94, 94],
-      [94, 88, 78, 82, 95, 91, 90, 89, 83, 85, 86, 88],
-      [89, 87, 96, 92, 85, 86, 93, 87, 98, 91, 87, 87],
-      [84, 80, 86, 89, 85, 82, 83, 77, 80, 81, 83, 83]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#FD866A", "#00f2f1", "#F1C62C", "#E271DE"],
@@ -99,7 +90,7 @@ function edu_3() {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: monthList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -131,45 +122,45 @@ function edu_3() {
       axisLabel: {
         formatter: '{value} %'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "必修课完成率",
-        type: "line",
-        // 是否让线条圆滑显示
-        smooth: false,
-        lineStyle: {
-          width: 3,
-        },
-        data: data.edu[0]
+      name: "必修课完成率(%)",
+      type: "line",
+      // 是否让线条圆滑显示
+      smooth: false,
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "选修课完成率",
-        type: "line",
-        smooth: false,
-        lineStyle: {
-          width: 3,
-        },
-        data: data.edu[1]
+      data: bixiuFinishRateList
+    },
+    {
+      name: "选修课完成率(%)",
+      type: "line",
+      smooth: false,
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "在线考试完成率",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[2]
+      data: electFinishRateList
+    },
+    {
+      name: "在线考试完成率(%)",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "APP使用活跃度",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[3]
-      }
+      smooth: false,
+      data: examFinishRateList
+    },
+    {
+      name: "APP使用活跃度(%)",
+      type: "line",
+      lineStyle: {
+        width: 3,
+      },
+      smooth: false,
+      data: appActiveLits
+    }
     ]
   };
 
@@ -181,16 +172,9 @@ function edu_3() {
   });
 }
 //在线考试平均分、参与率走势年度统计
-function edu_4() {
+function edu_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_4"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var data = {
-    edu: [
-      [90, 99, 92, 80, 88, 81, 89, 91, 89, 91, 92, 88],
-      [88, 91, 89, 90, 91, 89, 99, 92, 93, 91, 94, 90]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#F1C62C", "#00f2f1"],
@@ -221,7 +205,7 @@ function edu_4() {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: monthList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -234,62 +218,62 @@ function edu_4() {
       },
     },
     yAxis: [{
-        name: '平均分',
-        type: "value",
-        min: 50,
-        max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.2)",
-          }
+      name: '平均分',
+      type: "value",
+      min: 50,
+      max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: '参与率',
-        type: "value",
-        min: 70,
-        max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "#white"
-          }
-        },
-        axisLabel: {
-          formatter: '{value} %'
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.2)",
+        }
+      }
+    },
+    {
+      name: '参与率',
+      type: "value",
+      min: 70,
+      max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "#white"
+        }
+      },
+      axisLabel: {
+        formatter: '{value} %'
+      }
+    },
     ],
 
     series: [{
-        name: "参与率(%)",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "参与率(%)",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: examJoinRateList
+    },
+    {
+      name: "平均分",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "平均分",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: examAverageList
+    }
     ]
   };
 
@@ -300,18 +284,10 @@ function edu_4() {
     myChart.resize();
   });
 }
-
 //在线考试及格率、优秀率走势年度统计
-function edu_5() {
+function edu_5 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_5"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var data = {
-    edu: [
-      [98, 91, 100, 100, 100, 99, 99, 92, 93, 91, 94, 98],
-      [34, 23, 45, 34, 56, 67, 65, 56, 34, 24, 67, 45]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#FD866A", "#00f2f1"],
@@ -342,7 +318,7 @@ function edu_5() {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: monthList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -372,27 +348,27 @@ function edu_5() {
       axisLabel: {
         formatter: '{value} %'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "及格率",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "及格率(%)",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "优秀率",
-        lineStyle: {
-          width: 3,
-        },
-        type: "line",
-        smooth: false,
-        data: data.edu[1]
-      }
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: examPassRateList
+    },
+    {
+      name: "优秀率(%)",
+      lineStyle: {
+        width: 3,
+      },
+      type: "line",
+      smooth: false,
+      data: examGoodRateList
+    }
     ]
   };
 
@@ -404,16 +380,9 @@ function edu_5() {
   });
 }
 //参与率、完成率整体走势年度统计
-function edu_6() {
+function edu_6 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_6"));
-  var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
-  var data = {
-    edu: [
-      [98, 91, 100, 90, 100, 95, 99, 92, 93, 91, 94, 95],
-      [94, 88, 88, 82, 95, 88, 80, 89, 73, 85, 86, 78]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#D420EC", "#F1C62C"],
@@ -444,7 +413,7 @@ function edu_6() {
       axisPointer: {
         type: 'shadow'
       },
-      data: xData,
+      data: monthList,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -475,27 +444,27 @@ function edu_6() {
       axisLabel: {
         formatter: '{value}'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "参与率",
-        type: "line",
-        // 是否让线条圆滑显示
-        smooth: false,
-        lineStyle: {
-          width: 3,
-        },
-        data: data.edu[0]
+      name: "参与率(%)",
+      type: "line",
+      // 是否让线条圆滑显示
+      smooth: false,
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "完成率",
-        type: "line",
-        smooth: false,
-        lineStyle: {
-          width: 3,
-        },
-        data: data.edu[1]
-      }
+      data: eduJoinRateList
+    },
+    {
+      name: "完成率(%)",
+      type: "line",
+      smooth: false,
+      lineStyle: {
+        width: 3,
+      },
+      data: eduFinishRateList
+    }
     ]
   };
 
@@ -505,4 +474,116 @@ function edu_6() {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
+}
+
+let monthList = [];
+let electFinishRateList = [];
+let bixiuFinishRateList = [];
+let examFinishRateList = [];
+let examJoinRateList = [];
+let examAverageList = [];
+let examPassRateList = [];
+let examGoodRateList = [];
+let eduJoinRateList = [];
+let eduFinishRateList = [];
+let appActiveLits = [];
+function getEduStationDetailData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    traditional: true,
+    data: {
+      unitId: 49
+    },
+    success: function (response) {
+      console.log(response)
+      var unitList = response.extra.unitList;
+      for (var index in unitList) {
+        monthList.push(unitList[index].month.substring(5, 7) + '月')
+        electFinishRateList.push(unitList[index].electFinishRate)
+        bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
+        examFinishRateList.push(unitList[index].examFinishRate)
+        examJoinRateList.push(unitList[index].examJoinRate)
+        examAverageList.push(unitList[index].examAverage)
+        examPassRateList.push(unitList[index].examPassRate)
+        examGoodRateList.push(unitList[index].examGoodRate)
+        eduJoinRateList.push(unitList[index].eduJoinRate)
+        eduFinishRateList.push(unitList[index].eduFinishRate)
+        appActiveLits.push(unitList[index].appActive / unitList[index].total * 100)
+        edu_3();
+        edu_4();
+        edu_5();
+        edu_6();
+      }
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
+function strToArray (string) {
+  var array = [];
+  var length = string.length
+  for (var i = 0; i < length; i++) {
+    string1 = string.substr(0, 1)
+    array.push(string1)
+    string = string.replace(string1, '')
+  }
+  // console.log(array)
+  return array;
+}
+function getBoxData () {
+  let examAverage = 0;
+  let examJoinNum = 0;
+  let examNotPassNum = 0;
+  let appActiveRate = 0;
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationUnit/getEduUnit',
+    traditional: true,
+    data: {
+      unitId: 49,
+      month: '2020-09'
+    },
+    success: function (response) {
+      console.log(response)
+      var unit = response.extra.educationUnit;
+      examAverage = unit.examAverage + '';
+      examJoinNum = unit.examJoinNum + '';
+      examNotPassNum = unit.examJoinNum - unit.examPassNum + '';
+      appActiveRate = (unit.appActive / unit.total).toFixed(2) * 100 + "%"
+
+      var examAverageArray = strToArray(examAverage)
+      var examAverageStr = ""
+      for (var i = 0; i < examAverage.length; i++) {
+        examAverageStr += '<div class= "block">' + examAverageArray[i] + '</div>';
+      }
+      document.getElementById("examAverage").innerHTML = examAverageStr;
+
+      var examJoinNumArray = strToArray(examJoinNum)
+      var examJoinNumStr = ""
+      for (var i = 0; i < examJoinNum.length; i++) {
+        examJoinNumStr += '<div class= "block">' + examJoinNumArray[i] + '</div>';
+      }
+      document.getElementById("examJoinNum").innerHTML = examJoinNumStr;
+
+      var examNotPassNumArray = strToArray(examNotPassNum)
+      var examNotPassNumStr = ""
+      for (var i = 0; i < examNotPassNum.length; i++) {
+        examNotPassNumStr += '<div class= "block">' + examNotPassNumArray[i] + '</div>';
+      }
+      document.getElementById("examNotPassNum").innerHTML = examNotPassNumStr;
+
+      var appActiveRateArray = strToArray(appActiveRate)
+      var appActiveRateStr = ""
+      for (var i = 0; i < appActiveRate.length; i++) {
+        appActiveRateStr += '<div class= "block">' + appActiveRateArray[i] + '</div>';
+      }
+      document.getElementById("appActiveRate").innerHTML = appActiveRateStr;
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
 }

@@ -57,29 +57,22 @@
         <div class="chart">
           <div class="detail_line">
             <div class="edu_col1">当月参评人数</div>
-            <div class="edu_col2">
-              <div class="block">6</div>
-              <div class="block">4</div>
+            <div class="edu_col2" id="testNum">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">心理异常人数</div>
-            <div class="edu_col2">
-              <div class="block">6</div>
+            <div class="edu_col2" id="problemNum">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">心理咨询师数量</div>
-            <div class="edu_col2">
-              <div class="block">3</div>
+            <div class="edu_col2" id="psychologist">
             </div>
           </div>
           <div class="detail_line">
             <div class="edu_col1">已干预/未干预人数</div>
-            <div class="edu_col2">
-              <div class="block">4</div>
-              <div class="block">/</div>
-              <div class="block">2</div>
+            <div class="edu_col2" id="treat">
             </div>
           </div>
         </div>
@@ -108,7 +101,7 @@
         <div class="panel-footer"></div>
       </div>
       <div class="panel">
-        <h2>心理测询参评人次、参评比率走势年度统计</h2>
+        <h2>心理测询参评人数、参评比率走势年度统计</h2>
         <div class="chart" id="heart_4"></div>
         <div class="panel-footer"></div>
       </div>
@@ -121,7 +114,7 @@
         <div class="panel-footer"></div>
       </div>
       <div class="panel">
-        <h2>心理重度异常人数变化趋势年度统计</h2>
+        <h2>心理异常人数变化趋势年度统计</h2>
         <div class="chart" id="heart_6"></div>
         <div class="panel-footer"></div>
       </div>
@@ -138,13 +131,7 @@
 <script>
   // onload
   $(function () {
-
-    heart_2();
-    heart_3();
-    heart_4();
-    heart_5();
-    heart_6();
-
+    getHeartDetailData();
   });
 </script>
 
