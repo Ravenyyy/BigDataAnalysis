@@ -5,10 +5,10 @@ function heart () {
   // 指定配置和数据
   var option = {
     title: {
-      text: "无需干预",
+      text: "是否异常:" + isProblem,
       right: "10%",
       textStyle: {
-        color: "#7CFC00"
+        color: heartColor
       }
     },
     grid: {
@@ -108,7 +108,7 @@ function heart () {
             },
           },
         },
-        value: [3, 3, 3, 3, 3, 3]
+        value: heartList
       }]
     }]
   };
@@ -701,7 +701,9 @@ let workArray = []
 let kecheng = ''
 let kaoshi = ''
 let examAverage = ''
-
+let heartList = []
+let isProblem = ""
+let heartColor = ''
 function getDjData () {
   $.ajax({
     type: 'GET',
@@ -833,4 +835,37 @@ function getEduData () {
     }
   })
 
+}
+
+function getHeartData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyPerson/getPsyPerson',
+    traditional: true,
+    data: {
+      uid: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      console.log(response)
+      let person = response.extra.psyPerson;
+      heartList.push(person.irritable * 7 + 3)
+      heartList.push(person.depressive * 7 + 3)
+      heartList.push(person.anxious * 7 + 3)
+      heartList.push(person.hostile * 7 + 3)
+      heartList.push(person.force * 7 + 3)
+      heartList.push(person.other * 7 + 3)
+      if (person.isProblem != undefined && person.isProblem != null && person.isProblem == 1) {
+        isProblem = "是"
+        heartColor = "#DB7093"
+      } else {
+        isProblem = "否"
+        heartColor = "#7CFC00"
+      }
+      heart();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
 }
