@@ -1,46 +1,19 @@
 //本季度心理异常程度为重度的人员信息
 function heart_2 () {
-  var dataArray = [{
-    dataIndex: "1",
-    name: "周大龙",
-    type: "抑郁",
-    state: "已干预",
-  },
-  {
-    dataIndex: "2",
-    name: "李海",
-    type: "其他",
-    state: "正在干预",
-  }, {
-    dataIndex: "3",
-    name: "李朱赫",
-    type: "抑郁",
-    state: "正在干预",
-  }, {
-    dataIndex: "4",
-    name: "张新",
-    type: "躁狂",
-    state: "已干预",
-  }, {
-    dataIndex: "5",
-    name: "李梦",
-    type: "强迫",
-    state: "已干预",
-  }, {
-    dataIndex: "6",
-    name: "刘庆",
-    type: "强迫",
-    state: "已干预",
-  }
-  ];
-
+  var hasTreat = "";
   var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
+  for (var i = 0; i < seriousPersonList.length; i++) {
+    if (seriousPersonList[i].hasTreat != undefined && seriousPersonList[i].hasTreat != null
+      && seriousPersonList[i].hasTreat == 1) {
+      hasTreat = "是"
+    } else {
+      hasTreat = "否"
+    }
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].dataIndex + "</td>" +
-      "<td>" + dataArray[i].name + "</td>" +
-      "<td>" + dataArray[i].type + "</td>" +
-      "<td>" + dataArray[i].state + "</td>" +
+      "<td>" + (i + 1) + "</td>" +
+      "<td>" + seriousPersonList[i].uname + "</td>" +
+      "<td>" + seriousPersonList[i].month + "</td>" +
+      "<td>" + hasTreat + "</td>" +
       '</tr>';
   }
   $('#heart_2').append(tr);
@@ -487,7 +460,24 @@ let problemNum = 0;
 let psychologist = 0;
 let onTreat = 0;
 let hasTreat = 0;
+let seriousPersonList = [];
 function getHeartDetailData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyPerson/getSeriousPeople',
+    traditional: true,
+    data: {
+      unitId: 266
+    },
+    success: function (response) {
+      console.log(response)
+      seriousPersonList = response.extra.personList;
+      heart_2();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
