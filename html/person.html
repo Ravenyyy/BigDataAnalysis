@@ -65,27 +65,17 @@
         <div class="chart">
           <div class="edu_line">
             <div class="edu_col1">课程完成情况</div>
-            <div class="edu_col2">
-              <div class="block">5</div>
-              <div class="block">/</div>
-              <div class="block">8</div>
+            <div class="edu_col2" id="kecheng">
             </div>
           </div>
           <div class="edu_line">
             <div class="edu_col1">考试完成情况</div>
-            <div class="edu_col2">
-              <div class="block">1</div>
-              <div class="block">0</div>
-              <div class="block">0</div>
-              <div class="block">%</div>
+            <div class="edu_col2" id="kaoshi">
             </div>
           </div>
           <div class="edu_line">
             <div class="edu_col1">考试分数</div>
-            <div class="edu_col2">
-              <div class="block">0</div>
-              <div class="block">9</div>
-              <div class="block">6</div>
+            <div class="edu_col2" id="examAverage">
             </div>
           </div>
         </div>
@@ -205,6 +195,7 @@
 
     getDjData();
     getAssessData()
+    getEduData();
 
     tb_wn1();
     tb_wn2();
