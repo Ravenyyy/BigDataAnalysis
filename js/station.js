@@ -1,5 +1,5 @@
 // 心理测询1
-function heart_1() {
+function heart_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_1"));
   var value = 82;
@@ -7,7 +7,7 @@ function heart_1() {
   var option = {
     color: ["#ff9d6f", "#00f2f1"],
     title: {
-      text: `60`,
+      text: takePeopleNumber,
       left: 'center',
       top: 'center', //top待调整
       textStyle: {
@@ -48,57 +48,57 @@ function heart_1() {
         clockwise: false,
         hoverAnimation: false,
         data: [{
-            value: value,
-            itemStyle: {
-              normal: {
-                borderWidth: 3,
-                borderColor: {
-                  colorStops: [{
-                    offset: 0,
-                    color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                  }, {
-                    offset: 1,
-                    color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                  }]
-                },
-                color: { // 完成的圆环的颜色
-                  colorStops: [{
-                    offset: 0,
-                    color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
-                  }, {
-                    offset: 1,
-                    color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
-                  }]
-                }
+          value: value,
+          itemStyle: {
+            normal: {
+              borderWidth: 3,
+              borderColor: {
+                colorStops: [{
+                  offset: 0,
+                  color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
+                }, {
+                  offset: 1,
+                  color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
+                }]
               },
-            },
-            label: {
-              show: false
-            },
-            labelLine: {
-              show: false
-            },
-            pointer: {
-              show: false
-            },
-          },
-          {
-            name: 'gap',
-            value: 110 - value,
-            itemStyle: {
-              normal: {
-                label: {
-                  show: false
-                },
-                labelLine: {
-                  show: false
-                },
-                color: 'rgba(0, 0, 0, 0)',
-                borderColor: 'rgba(0, 0, 0, 0)',
-                borderWidth: 0,
+              color: { // 完成的圆环的颜色
+                colorStops: [{
+                  offset: 0,
+                  color: '#ff9d6f' || '#ff9d6f' // 0% 处的颜色
+                }, {
+                  offset: 1,
+                  color: '#ff9d6f' || '#ff9d6f' // 100% 处的颜色
+                }]
               }
             },
-          }
+          },
+          label: {
+            show: false
+          },
+          labelLine: {
+            show: false
+          },
+          pointer: {
+            show: false
+          },
+        },
+        {
+          name: 'gap',
+          value: 110 - value,
+          itemStyle: {
+            normal: {
+              label: {
+                show: false
+              },
+              labelLine: {
+                show: false
+              },
+              color: 'rgba(0, 0, 0, 0)',
+              borderColor: 'rgba(0, 0, 0, 0)',
+              borderWidth: 0,
+            }
+          },
+        }
         ]
       },
       //刻度尺
@@ -212,7 +212,7 @@ function heart_1() {
 
 }
 // 心理测询2
-function heart_2() {
+function heart_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_2"));
   var value = 82;
@@ -220,7 +220,7 @@ function heart_2() {
   var option = {
     color: ["#ff9d6f", "#00f2f1"],
     title: {
-      text: `2`,
+      text: checkPeopleNumber,
       left: 'center',
       top: 'center', //top待调整
       textStyle: {
@@ -261,57 +261,57 @@ function heart_2() {
         clockwise: false,
         hoverAnimation: false,
         data: [{
-            value: value,
-            itemStyle: {
-              normal: {
-                borderWidth: 3,
-                borderColor: {
-                  colorStops: [{
-                    offset: 0,
-                    color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                  }, {
-                    offset: 1,
-                    color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                  }]
-                },
-                color: { // 完成的圆环的颜色
-                  colorStops: [{
-                    offset: 0,
-                    color: '#ffc303' || '#ffc303' // 0% 处的颜色
-                  }, {
-                    offset: 1,
-                    color: '#ffc303' || '#ffc303' // 100% 处的颜色
-                  }]
-                }
+          value: value,
+          itemStyle: {
+            normal: {
+              borderWidth: 3,
+              borderColor: {
+                colorStops: [{
+                  offset: 0,
+                  color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                }, {
+                  offset: 1,
+                  color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                }]
               },
-            },
-            label: {
-              show: false
-            },
-            labelLine: {
-              show: false
-            },
-            pointer: {
-              show: false
-            },
-          },
-          {
-            name: 'gap',
-            value: 110 - value,
-            itemStyle: {
-              normal: {
-                label: {
-                  show: false
-                },
-                labelLine: {
-                  show: false
-                },
-                color: 'rgba(0, 0, 0, 0)',
-                borderColor: 'rgba(0, 0, 0, 0)',
-                borderWidth: 0,
+              color: { // 完成的圆环的颜色
+                colorStops: [{
+                  offset: 0,
+                  color: '#ffc303' || '#ffc303' // 0% 处的颜色
+                }, {
+                  offset: 1,
+                  color: '#ffc303' || '#ffc303' // 100% 处的颜色
+                }]
               }
             },
-          }
+          },
+          label: {
+            show: false
+          },
+          labelLine: {
+            show: false
+          },
+          pointer: {
+            show: false
+          },
+        },
+        {
+          name: 'gap',
+          value: 110 - value,
+          itemStyle: {
+            normal: {
+              label: {
+                show: false
+              },
+              labelLine: {
+                show: false
+              },
+              color: 'rgba(0, 0, 0, 0)',
+              borderColor: 'rgba(0, 0, 0, 0)',
+              borderWidth: 0,
+            }
+          },
+        }
         ]
       },
       //刻度尺
@@ -425,14 +425,14 @@ function heart_2() {
 
 }
 //心里测询3
-function heart_3() {
+function heart_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_3"));
   // 指定配置和数据
   var colorList = ['#FF6EB4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'];
   option = {
     title: {
-      text: '异常人数\n3',
+      text: '异常人数\n' + problemNum,
       x: 'center',
       y: '39%',
       // subtext: '301',
@@ -486,22 +486,22 @@ function heart_3() {
       },
       data: [{
         'name': '躁狂',
-        'value': 101
+        'value': irritable
       }, {
         'name': '强迫',
-        'value': 29
+        'value': force
       }, {
         'name': '其他',
-        'value': 15
+        'value': other
       }, {
         'name': '抑郁',
-        'value': 40
+        'value': depressive
       }, {
         'name': '敌对',
-        'value': 11
+        'value': hostile
       }, {
         'name': '焦虑',
-        'value': 105
+        'value': anxious
       }],
     }]
   };
@@ -513,7 +513,7 @@ function heart_3() {
 
 }
 //心里测询4
-function heart_4() {
+function heart_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#heart_4"));
   // 指定配置和数据
@@ -525,37 +525,37 @@ function heart_4() {
     },
     grid: {},
     series: [{
-        name: "干预情况",
-        type: 'pie',
-        selectedMode: 'single',
-        radius: [0, '80%'],
-        label: {
-          normal: {
-            position: 'inner',
-            formatter: "{b}: {c}人",
-            textStyle: {
-              fontSize: 16
-            },
-          }
-        },
-        labelLine: {
-          normal: {
-            show: false
+      name: "干预情况",
+      type: 'pie',
+      selectedMode: 'single',
+      radius: [0, '80%'],
+      label: {
+        normal: {
+          position: 'inner',
+          formatter: "{b}: {c}人",
+          textStyle: {
+            fontSize: 16
           },
-        },
-        data: [{
-          'name': '正在干预',
-          'value': 2
-        }, {
-          'name': '已干预',
-          'value': 1
-        }],
+        }
       },
-      {
-        name: '干预情况',
-        type: 'pie',
-        radius: ['100%', '100%']
-      }
+      labelLine: {
+        normal: {
+          show: false
+        },
+      },
+      data: [{
+        'name': '正在干预',
+        'value': onTreat
+      }, {
+        'name': '已干预',
+        'value': hasTreat
+      }],
+    },
+    {
+      name: '干预情况',
+      type: 'pie',
+      radius: ['100%', '100%']
+    }
     ]
   };
   // 把配置给实例对象
@@ -567,7 +567,7 @@ function heart_4() {
 }
 
 //政治教育1
-function edu_1() {
+function edu_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_1"));
   // 指定配置和数据
@@ -577,16 +577,10 @@ function edu_1() {
       text: '课程完成情况占比',
       x: 'center',
       y: '85%',
-      // subtext: '301',
       textStyle: {
         color: 'white',
         fontSize: 11,
-        // align: 'center'
       },
-      // subtextStyle: {
-      //     fontSize: 14,
-      //     color: ['#FD866A'],
-      // },
     },
     tooltip: {
       trigger: 'item',
@@ -594,40 +588,40 @@ function edu_1() {
     },
     grid: {},
     series: [{
-        name: "课程完成情况",
-        type: 'pie',
-        selectedMode: 'single',
-        radius: [0, '78%'],
-        label: {
-          normal: {
-            position: 'inner',
-            formatter: "{b}: {d}%",
-            textStyle: {
-              fontSize: 11
-            },
-          }
-        },
-        labelLine: {
-          normal: {
-            show: false
+      name: "课程完成情况",
+      type: 'pie',
+      selectedMode: 'single',
+      radius: [0, '78%'],
+      label: {
+        normal: {
+          position: 'inner',
+          formatter: "{b}: {d}%",
+          textStyle: {
+            fontSize: 11
           },
-        },
-        data: [{
-          'name': '已完成',
-          'value': 10
-        }, {
-          'name': '正在学习',
-          'value': 22
-        }, {
-          'name': '未学习',
-          'value': 28
-        }],
+        }
       },
-      {
-        name: '干预情况',
-        type: 'pie',
-        radius: ['100%', '100%']
-      }
+      labelLine: {
+        normal: {
+          show: false
+        },
+      },
+      data: [{
+        'name': '已完成',
+        'value': 10
+      }, {
+        'name': '正在学习',
+        'value': 22
+      }, {
+        'name': '未学习',
+        'value': 28
+      }],
+    },
+    {
+      name: '干预情况',
+      type: 'pie',
+      radius: ['100%', '100%']
+    }
     ]
   };
   // 把配置给实例对象
@@ -638,7 +632,7 @@ function edu_1() {
 
 }
 //政治教育2
-function edu_2() {
+function edu_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_2"));
   // 指定配置和数据
@@ -716,7 +710,7 @@ function edu_2() {
 }
 
 //政治教育3
-function edu_3() {
+function edu_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_3"));
   var data = {
@@ -805,167 +799,167 @@ function edu_3() {
 }
 
 //智慧营区
-function smart() {
+function smart () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('smart'));
 
   var getData = [{
-      day: "2020-08-01",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-02",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-03",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-04",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-05",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-06",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-07",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-08",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-09",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-10",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-11",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-12",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-13",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-14",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-15",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-16",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-17",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-18",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    {
-      day: "2020-08-19",
-      sleep: 4,
-      train: 6,
-      drive: 9,
-      phone: 12
-    },
-    {
-      day: "2020-08-20",
-      sleep: 7,
-      train: 3,
-      drive: 8,
-      phone: 10
-    },
-    {
-      day: "2020-08-21",
-      sleep: 9,
-      train: 11,
-      drive: 13,
-      phone: 25
-    },
-    // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
-    // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
-    // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
-    {
-      day: "2020-08-31",
-      sleep: 8,
-      train: 7,
-      drive: 9,
-      phone: 17
-    }
+    day: "2020-08-01",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-02",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-03",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-04",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-05",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-06",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-07",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-08",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-09",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-10",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-11",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-12",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-13",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-14",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-15",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-16",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-17",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-18",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  {
+    day: "2020-08-19",
+    sleep: 4,
+    train: 6,
+    drive: 9,
+    phone: 12
+  },
+  {
+    day: "2020-08-20",
+    sleep: 7,
+    train: 3,
+    drive: 8,
+    phone: 10
+  },
+  {
+    day: "2020-08-21",
+    sleep: 9,
+    train: 11,
+    drive: 13,
+    phone: 25
+  },
+  // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
+  // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
+  // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
+  {
+    day: "2020-08-31",
+    sleep: 8,
+    train: 7,
+    drive: 9,
+    phone: 17
+  }
   ]
   var data1 = [];
   for (var i = 0; i < getData.length; i++) {
@@ -1063,7 +1057,7 @@ function smart() {
       },
       label: {
         show: true,
-        formatter(params) {
+        formatter (params) {
           return params.value[0].split("-")[2]
         },
         offset: [11, -11],
@@ -1080,32 +1074,32 @@ function smart() {
 }
 
 // 全员考核
-function assess_1() {
+function assess_1 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#assess_1"));
 
   let title = '总人数';
   let color = ['#7FFF00', '#FF8352', '#E271DE', '#FFFF00', '#00FFFF'];
   let echartData = [{
-      name: "优秀",
-      value: excellent
-    },
-    {
-      name: "称职",
-      value: good
-    },
-    {
-      name: "基本称职",
-      value: pass
-    },
-    {
-      name: "不称职",
-      value: notPass
-    },
-    {
-      name: "未参评",
-      value: notJoin
-    }
+    name: "优秀",
+    value: excellent
+  },
+  {
+    name: "称职",
+    value: good
+  },
+  {
+    name: "基本称职",
+    value: pass
+  },
+  {
+    name: "不称职",
+    value: notPass
+  },
+  {
+    name: "未参评",
+    value: notJoin
+  }
   ];
 
   let formatNumber = function (num) {
@@ -1169,7 +1163,7 @@ function assess_1() {
 }
 
 //全员考核的表格
-function assess_2() {
+function assess_2 () {
 
   personArr.sort(function (a, b) {
     return b.score - a.score
@@ -1187,7 +1181,7 @@ function assess_2() {
 }
 
 // 智慧党建1
-function dj_1() {
+function dj_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#dj1"));
   var data = {
@@ -1281,13 +1275,13 @@ function dj_1() {
 
 }
 //智慧党建2
-function dj_2() {
+function dj_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#dj2"));
   var xData = ['党员大会', '支委会', '党小组会', '党课'];
   var yData = zzsh;
 
-  function getValArr(arr, key) {
+  function getValArr (arr, key) {
     var val = [],
       len = arr.length;
     for (var i = 0; i < len; i++) {
@@ -1405,56 +1399,56 @@ function dj_2() {
 }
 
 
-function tb_wn1() {
+function tb_wn1 () {
   var dataArray = [{
-      name: "翁超",
-      time: "2020-8-17 09:10",
-      type: "政治教育",
-      content: "考试不及格",
-      flag: "最新预警"
-    },
-    {
-      name: "刘彦淇",
-      time: "2020-8-16 14:00",
-      type: "政治教育",
-      content: "未参加学习",
-      flag: "最新预警"
-    },
-    {
-      name: "王功行",
-      time: "2020-8-15 12:20",
-      type: "智慧党建",
-      content: "未参加主题党日活动",
-      flag: "最新预警"
-    },
-    {
-      name: "文军",
-      time: "2020-8-15 10:00",
-      type: "心理测询",
-      content: "心理测询异常",
-      flag: "最新预警"
-    },
-    {
-      name: "赵章全",
-      time: "2020-8-12 09:00",
-      type: "全员考核",
-      content: "本月被评定为不称职",
-      flag: "最新预警"
-    },
-    {
-      name: "王锦巍",
-      time: "2020-8-09 13:00",
-      type: "心理测询",
-      content: "睡眠质量一直不良",
-      flag: "最新预警"
-    },
-    {
-      name: "李玉潇",
-      time: "2020-8-09 15:00",
-      type: "全员考核",
-      content: "本月训练不合格",
-      flag: "最新预警"
-    }
+    name: "翁超",
+    time: "2020-8-17 09:10",
+    type: "政治教育",
+    content: "考试不及格",
+    flag: "最新预警"
+  },
+  {
+    name: "刘彦淇",
+    time: "2020-8-16 14:00",
+    type: "政治教育",
+    content: "未参加学习",
+    flag: "最新预警"
+  },
+  {
+    name: "王功行",
+    time: "2020-8-15 12:20",
+    type: "智慧党建",
+    content: "未参加主题党日活动",
+    flag: "最新预警"
+  },
+  {
+    name: "文军",
+    time: "2020-8-15 10:00",
+    type: "心理测询",
+    content: "心理测询异常",
+    flag: "最新预警"
+  },
+  {
+    name: "赵章全",
+    time: "2020-8-12 09:00",
+    type: "全员考核",
+    content: "本月被评定为不称职",
+    flag: "最新预警"
+  },
+  {
+    name: "王锦巍",
+    time: "2020-8-09 13:00",
+    type: "心理测询",
+    content: "睡眠质量一直不良",
+    flag: "最新预警"
+  },
+  {
+    name: "李玉潇",
+    time: "2020-8-09 15:00",
+    type: "全员考核",
+    content: "本月训练不合格",
+    flag: "最新预警"
+  }
   ];
   var tr = "";
   for (var i = 0; i < dataArray.length; i++) {
@@ -1468,63 +1462,63 @@ function tb_wn1() {
   $('#wn_tb1').append(tr);
 }
 
-function tb_wn2() {
+function tb_wn2 () {
   var dataArray = [{
-      name: "史意芳",
-      time: "2020-8-17 10:00",
-      type: "心理测询",
-      content: "心理测询异常",
-      flag: "最新预警"
-    },
-    {
-      name: "潘栋",
-      time: "2020-8-17 09:10",
-      type: "政治教育",
-      content: "考试不及格",
-      flag: "最新预警"
-    },
-    {
-      name: "余峰",
-      time: "2020-8-16 08:00",
-      type: "智慧党建",
-      content: "未参加主题党日活动",
-      flag: "最新预警"
-    },
-    {
-      name: "曹雷",
-      time: "2020-8-15 13:00",
-      type: "心理测询",
-      content: "睡眠质量一直不良",
-      flag: "最新预警"
-    },
-    {
-      name: "何予栋",
-      time: "2020-8-15 14:00",
-      type: "政治教育",
-      content: "本月还未参加学习",
-      flag: "最新预警"
-    },
-    {
-      name: "孙小康",
-      time: "2020-8-13 08:00",
-      type: "全员考核",
-      content: "未参加全员考核",
-      flag: "最新预警"
-    },
-    {
-      name: "谌基海",
-      time: "2020-8-12 09:00",
-      type: "全员考核",
-      content: "本月被评定为不称职",
-      flag: "最新预警"
-    },
-    {
-      name: "张云",
-      time: "2020-8-09 15:00",
-      type: "全员考核",
-      content: "本月训练不合格",
-      flag: "最新预警"
-    },
+    name: "史意芳",
+    time: "2020-8-17 10:00",
+    type: "心理测询",
+    content: "心理测询异常",
+    flag: "最新预警"
+  },
+  {
+    name: "潘栋",
+    time: "2020-8-17 09:10",
+    type: "政治教育",
+    content: "考试不及格",
+    flag: "最新预警"
+  },
+  {
+    name: "余峰",
+    time: "2020-8-16 08:00",
+    type: "智慧党建",
+    content: "未参加主题党日活动",
+    flag: "最新预警"
+  },
+  {
+    name: "曹雷",
+    time: "2020-8-15 13:00",
+    type: "心理测询",
+    content: "睡眠质量一直不良",
+    flag: "最新预警"
+  },
+  {
+    name: "何予栋",
+    time: "2020-8-15 14:00",
+    type: "政治教育",
+    content: "本月还未参加学习",
+    flag: "最新预警"
+  },
+  {
+    name: "孙小康",
+    time: "2020-8-13 08:00",
+    type: "全员考核",
+    content: "未参加全员考核",
+    flag: "最新预警"
+  },
+  {
+    name: "谌基海",
+    time: "2020-8-12 09:00",
+    type: "全员考核",
+    content: "本月被评定为不称职",
+    flag: "最新预警"
+  },
+  {
+    name: "张云",
+    time: "2020-8-09 15:00",
+    type: "全员考核",
+    content: "本月训练不合格",
+    flag: "最新预警"
+  },
 
   ];
   var tr = "";
@@ -1551,7 +1545,7 @@ let notJoin = 0
 
 let personArr = []
 
-function getDjData() {
+function getDjData () {
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
@@ -1588,7 +1582,7 @@ function getDjData() {
   })
 }
 
-function getAssessData() {
+function getAssessData () {
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/assessUnit/getAssessUnit',
@@ -1637,4 +1631,48 @@ function getAssessData() {
     }
   })
 
+}
+
+
+let takePeopleNumber = 0;
+let checkPeopleNumber = 0;
+let problemNum = 0;
+let anxious = 0;
+let hostile = 0;
+let depressive = 0;
+let irritable = 0;
+let force = 0;
+let other = 0;
+let onTreat = 0;
+let hasTreat = 0;
+function getHeartData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    traditional: true,
+    data: {
+      unitId: 1,
+      month: '2020-09'
+    },
+    success: function (response) {
+      takePeopleNumber = response.extra.psyUnit.testNum;
+      checkPeopleNumber = response.extra.psyUnit.psychologist;
+      problemNum = response.extra.psyUnit.problemNum;
+      anxious = response.extra.psyUnit.anxious;
+      hostile = response.extra.psyUnit.hostile;
+      depressive = response.extra.psyUnit.depressive;
+      irritable = response.extra.psyUnit.irritable;
+      force = response.extra.psyUnit.force;
+      other = response.extra.psyUnit.other;
+      onTreat = response.extra.psyUnit.onTreat;
+      hasTreat = response.extra.psyUnit.hasTreat;
+      heart_1();
+      heart_2();
+      heart_3();
+      heart_4();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
 }
