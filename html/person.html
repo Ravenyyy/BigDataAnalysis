@@ -125,14 +125,13 @@
             <table id="assess_tb">
               <tr>
                 <th class="tb_time">序号</th>
-                <th class="tb_type">工作名称</th>
                 <th class="tb_content">内容</th>
               </tr>
             </table>
           </div>
           <div class="assess_row2">
-            <div class="result">互评：称职（5/8）</div>
-            <div class="result">组织评定：优秀（3/5）</div>
+            <div class="result" id="otherAssess">互评：称职</div>
+            <div class="result" id="orgAssess">组织评定：优秀</div>
           </div>
         </div>
         <div class="panel-footer"></div>
@@ -204,17 +203,12 @@
     heart();
     smart();
 
-    assess_1();
+    getDjData();
+    getAssessData()
 
-    dj_1();
-    dj_2();
-    // dj_3();
-    // dj_4();
-
-    tb_edu();
     tb_wn1();
     tb_wn2();
-    assess_tb();
+
 
   });
 
