@@ -549,9 +549,9 @@ function getHeartDetailData () {
       for (var index in unitList) {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
         testNumList.push(unitList[index].testNum)
-        testRateList.push(unitList[index].testNum / unitList[index].total * 100)
+        testRateList.push((unitList[index].testNum / unitList[index].total).toFixed(2) * 100)
         problemNumList.push(unitList[index].problemNum)
-        problemRateList.push(unitList[index].problemNum / unitList[index].total * 100)
+        problemRateList.push((unitList[index].problemNum / unitList[index].total).toFixed(2) * 100)
         seriousMonthList.push(unitList[index].seriousNum)
       }
       heart_4();

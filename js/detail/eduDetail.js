@@ -624,7 +624,7 @@ function getEduDetailData () {
         examAverageList.push(unitList[index].examAverage)
         examPassRateList.push(unitList[index].examPassRate)
         examGoodRateList.push(unitList[index].examGoodRate)
-        appActiveList.push(unitList[index].appActive / unitList[index].total * 100)
+        appActiveList.push((unitList[index].appActive / unitList[index].total).toFixed(2) * 100)
         bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
         electFinishRateList.push(unitList[index].electFinishRate)
         examFinishRateList.push(unitList[index].examFinishRate)

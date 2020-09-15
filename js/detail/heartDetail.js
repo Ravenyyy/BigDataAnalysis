@@ -671,9 +671,9 @@ function getHeartDetailData () {
       for (var index in unitList) {
         unitNameList.push(unitList[index].unitName)
         testNumList.push(unitList[index].testNum)
-        testRateList.push(unitList[index].testNum / unitList[index].total * 100)
+        testRateList.push((unitList[index].testNum / unitList[index].total).toFixed(2) * 100)
         problemNumList.push(unitList[index].problemNum)
-        problemRateList.push(unitList[index].problemNum / unitList[index].total * 100)
+        problemRateList.push((unitList[index].problemNum / unitList[index].total).toFixed(2) * 100)
         psychologistlist.push(unitList[index].psychologist)
         onTreatList.push(unitList[index].onTreat)
         hasTreatList.push(unitList[index].hasTreat)
