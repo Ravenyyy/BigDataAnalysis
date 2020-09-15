@@ -1,57 +1,11 @@
 //在线考试成绩TOP10
 function edu_2 () {
-  var dataArray = [{
-    dataIndex: "1",
-    name: "李赫",
-    grade: "98"
-  }, {
-    dataIndex: "2",
-    name: "李建",
-    grade: "96"
-  }, {
-    dataIndex: "3",
-    name: "刘大伟",
-    grade: "95"
-  },
-  {
-    dataIndex: "4",
-    name: "李冰",
-    grade: "95"
-  }, {
-    dataIndex: "5",
-    name: "李赫",
-    grade: "92"
-  }, {
-    dataIndex: "6",
-    name: "李建",
-    grade: "90"
-  },
-  {
-    dataIndex: "7",
-    name: "周大龙",
-    grade: "88"
-  }, {
-    dataIndex: "8",
-    name: "李海",
-    grade: "88"
-  }, {
-    dataIndex: "9",
-    name: "刘大伟",
-    grade: "87"
-  },
-  {
-    dataIndex: "10",
-    name: "李冰",
-    grade: "85"
-  },
-  ];
-
   var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
+  for (var i = 0; i < examTop10List.length; i++) {
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].dataIndex + "</td>" +
-      "<td>" + dataArray[i].name + "</td>" +
-      "<td>" + dataArray[i].grade + "</td>" +
+      "<td>" + (i + 1) + "</td>" +
+      "<td>" + examTop10List[i].uname + "</td>" +
+      "<td>" + examTop10List[i].examAverage + "</td>" +
       '</tr>';
   }
   $('#edu_2').append(tr);
@@ -159,7 +113,7 @@ function edu_3 () {
         width: 3,
       },
       smooth: false,
-      data: appActiveLits
+      data: appActiveList
     }
     ]
   };
@@ -486,8 +440,26 @@ let examPassRateList = [];
 let examGoodRateList = [];
 let eduJoinRateList = [];
 let eduFinishRateList = [];
-let appActiveLits = [];
+let appActiveList = [];
+let examTop10List = [];
 function getEduStationDetailData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationPerson/getTop10Person',
+    traditional: true,
+    data: {
+      unitId: 266,
+      month: '2020-07'
+    },
+    success: function (response) {
+      console.log(response)
+      examTop10List = response.extra.personList;
+      edu_2();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/educationUnit/getOneYearList',
@@ -509,7 +481,7 @@ function getEduStationDetailData () {
         examGoodRateList.push(unitList[index].examGoodRate)
         eduJoinRateList.push(unitList[index].eduJoinRate)
         eduFinishRateList.push(unitList[index].eduFinishRate)
-        appActiveLits.push(unitList[index].appActive / unitList[index].total * 100)
+        appActiveList.push(unitList[index].appActive / unitList[index].total * 100)
         edu_3();
         edu_4();
         edu_5();
