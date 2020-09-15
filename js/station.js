@@ -1993,51 +1993,7 @@ function submitData(resolution,resolutionType){
             resolution:resolution,
         },
         success: function(response){
-            // dataLine = response.extra.warning
-            // console.log(dataLine)
-            // var tr = "";
-            // var date = new Date(dataLine.createTime)
-            //     var Y = date.getFullYear() + '-'
-            //     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
-            //     var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
-            //     var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
-            //     var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
-            //     var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
-            //     console.log(Y + M + D + h + m + s)
-            //     tr = tr + '<tr>' +
-            //         "<td class=\"tb_zhidui\">" + dataLine.name + "</td>" +
-            //         "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
-            //         "<td class=\"tb_type\">" + dataLine.warning + "</td>" +
-            //         "<td class=\"tb_content\">" + dataLine.content + "</td>" +
-            //         '</tr>';
-            // if(resolutionType==0){
-            //     $('#wn_tb2').append(tr);
-            //     addTableClick("wn_tb2", dataArray);
-            // }else if(resolutionType==1){
-
-            // }else if(resolutionType==2){
-
-            // }
-            // dataLine = response.extra.warning
-            // console.log(dataLine)
-            // var tr = "";
-            // var date = new Date(dataLine.createTime)
-            //     var Y = date.getFullYear() + '-'
-            //     var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
-            //     var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
-            //     var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
-            //     var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
-            //     var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
-            //     console.log(Y + M + D + h + m + s)
-            //     tr = tr + '<tr>' +
-            //         "<td class=\"tb_zhidui\">" + dataLine.name + "</td>" +
-            //         "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
-            //         "<td class=\"tb_type\">" + dataLine.warning + "</td>" +
-            //         "<td class=\"tb_content\">" + dataLine.content + "</td>" +
-            //         '</tr>';
-            // $('#wn_tb2').append(tr);
-            // addTableClick("wn_tb2", dataArray);
-            
+            location.reload();
         },
         error: function(response){
             console.log(response);
