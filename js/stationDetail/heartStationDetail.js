@@ -445,14 +445,14 @@ function heart_6 () {
     },],
 
     series: [{
-      name: "心理异常人数",
+      name: "心理重度异常人数",
       type: "line",
       // 是否让线条圆滑显示
       smooth: false,
       lineStyle: {
         width: 3,
       },
-      data: problemMonthList
+      data: seriousMonthList
     }]
   };
 
@@ -481,7 +481,7 @@ let testNumList = [];
 let testRateList = [];
 let problemNumList = [];
 let problemRateList = [];
-let problemMonthList = [];
+let seriousMonthList = [];
 let testNum = 0;
 let problemNum = 0;
 let psychologist = 0;
@@ -562,7 +562,7 @@ function getHeartDetailData () {
         testRateList.push(unitList[index].testNum / unitList[index].total * 100)
         problemNumList.push(unitList[index].problemNum)
         problemRateList.push(unitList[index].problemNum / unitList[index].total * 100)
-        problemMonthList.push(unitList[index].problemNum)
+        seriousMonthList.push(unitList[index].seriousNum)
       }
       heart_4();
       heart_5();
