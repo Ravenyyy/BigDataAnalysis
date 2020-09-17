@@ -543,7 +543,8 @@ function initEcharts(queryItem) {
                     }
                 },
                 axisLabel: {
-                    fontSize: 15
+                    fontSize: 15,
+                    // formatter: '{value} %'
                 },
             },
 
@@ -562,6 +563,46 @@ function initEcharts(queryItem) {
     option.title.text = title + '---' + yAxisName
     option.xAxis.data = xAxisDate
     option.yAxis.name = yAxisName
+    if(condition.numType==1){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: '{value} %'
+        }
+        
+        
+    }else if(condition.numType==2){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: function(value,index){
+                var result="";
+                switch(value){
+                    case 2:result="否";break;
+                    case 1:result="是";break;
+                    default:"-";
+                }
+                option.yAxis.max=2
+                option.yAxis.splitNumber =2
+                return result;
+            }
+        }
+    }else if(condition.numType==3){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: function(value,index){
+                var result="";
+                switch(value){
+                    case 1:result="优秀";break;
+                    case 2:result="称职";break;
+                    case 3:result="基本称职";break;
+                    case 4:result="不称职";break;
+                    default:"-";
+                }
+                option.yAxis.max=4
+                option.yAxis.splitNumber =4
+                return result;
+            }
+        }
+    }
     option.series = []
     for(let i=0; i<seriesData.length; i++){
         option.series.push(
@@ -601,8 +642,10 @@ function getseriesData(queryItem, xAxisDate){
         console.log(resultList[i])
         for(let j=0; j<xAxisDate.length; j++){
             if(condition.numType==1){
-                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j].toFixed(2))
-            }else{
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:(resultList[j]*100).toFixed(2))
+            }else if(condition.numType==0){
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }else if(condition.numType==2){
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
             }
             
