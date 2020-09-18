@@ -644,7 +644,7 @@ function getEduDetailData () {
     url: 'http://localhost:8880/educationUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 1
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)

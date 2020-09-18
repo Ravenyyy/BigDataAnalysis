@@ -710,8 +710,8 @@ function getDjData () {
     url: 'http://localhost:8880/partyBuildPerson/getPartyBuildPerson',
     traditional: true,
     data: {
-      uid: 1,
-      month: '2020-09'
+      uid: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let partyBuild = response.extra.partyBuildPerson
@@ -746,8 +746,8 @@ function getAssessData () {
     url: 'http://localhost:8880/assessPerson/getAssessPerson',
     traditional: true,
     data: {
-      uid: 14,
-      month: '2020-09'
+      uid: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let person = response.extra.assessPerson
@@ -776,8 +776,8 @@ function getAssessData () {
     url: 'http://localhost:8880/assessPerson/getPersonWorks',
     traditional: true,
     data: {
-      uid: 14,
-      month: '2020-09'
+      uid: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let workList = response.extra.workList
@@ -843,8 +843,8 @@ function getHeartData () {
     url: 'http://localhost:8880/psyPerson/getPsyPerson',
     traditional: true,
     data: {
-      uid: 1,
-      month: '2020-09'
+      uid: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)

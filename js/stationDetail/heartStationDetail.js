@@ -475,7 +475,7 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyPerson/getSeriousPeople',
     traditional: true,
     data: {
-      unitId: 266
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)
@@ -549,7 +549,7 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 109
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)

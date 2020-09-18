@@ -1527,8 +1527,8 @@ function getDjData () {
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let partyBuild = response.extra.partyBuildUnit
@@ -1564,8 +1564,8 @@ function getAssessData () {
     url: 'http://localhost:8880/assessUnit/getAssessUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let unit = response.extra.assessmentUnit
@@ -1587,8 +1587,8 @@ function getAssessData () {
     url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let personList = response.extra.personList
@@ -1627,8 +1627,8 @@ function getHeartData () {
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       takePeopleNumber = response.extra.psyUnit.testNum;
@@ -1665,8 +1665,8 @@ function getEduData () {
     url: 'http://localhost:8880/educationPerson/getAverageByLevel',
     traditional: true,
     data: {
-      unitId: 266,
-      month: '2020-07'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)
@@ -1682,8 +1682,8 @@ function getEduData () {
     url: 'http://localhost:8880/educationPerson/getTakeExamNum',
     traditional: true,
     data: {
-      unitId: 266,
-      month: '2020-07'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)
@@ -1701,8 +1701,8 @@ function getEduData () {
     url: 'http://localhost:8880/educationPerson/getClassNum',
     traditional: true,
     data: {
-      unitId: 266,
-      month: '2020-07'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)

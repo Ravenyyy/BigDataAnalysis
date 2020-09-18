@@ -828,7 +828,7 @@ function getAssessDetailData () {
     url: 'http://localhost:8880/assessUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 1
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       let unitList = response.extra.unitList

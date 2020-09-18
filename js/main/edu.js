@@ -114,7 +114,7 @@ function getEduData () {
     url: 'http://localhost:8880/educationUnit/getUnitByParent',
     traditional: true,
     data: {
-      parentId: 1,
+      parentId: localStorage.getItem("unitId"),
       month: localStorage.getItem("month")
     },
     success: function (response) {

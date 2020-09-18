@@ -717,7 +717,7 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 1
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)

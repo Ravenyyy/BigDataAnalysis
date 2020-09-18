@@ -622,7 +622,7 @@ function getDjDetailData () {
     url: 'http://localhost:8880/partyBuildUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 1
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       let unitList = response.extra.unitList
@@ -653,7 +653,7 @@ function getDjDetailData () {
     url: 'http://localhost:8880/user/getDwByUnitId',
     traditional: true,
     data: {
-      unitId: 2
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       let userList = response.extra.userList
