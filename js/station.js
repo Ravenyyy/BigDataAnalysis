@@ -608,13 +608,13 @@ function edu_1 () {
       },
       data: [{
         'name': '已完成',
-        'value': 10
+        'value': allClass
       }, {
         'name': '正在学习',
-        'value': 22
+        'value': isNowClass
       }, {
         'name': '未学习',
-        'value': 28
+        'value': notTakeClass
       }],
     },
     {
@@ -648,10 +648,6 @@ function edu_2 () {
         fontSize: 11,
         // align: 'center'
       },
-      // subtextStyle: {
-      //     fontSize: 14,
-      //     color: ['#FD866A'],
-      // },
     },
     tooltip: {
       trigger: 'item'
@@ -668,8 +664,6 @@ function edu_2 () {
       type: 'pie',
       center: ['50%', '50%'],
       radius: ['68%', '88%'],
-      // clockwise: true,
-      // avoidLabelOverlap: true,
       hoverOffset: 15,
       itemStyle: {
         normal: {
@@ -694,10 +688,10 @@ function edu_2 () {
       },
       data: [{
         'name': '未考试',
-        'value': 19
+        'value': notTakeExamNum
       }, {
         'name': '已考试',
-        'value': 41
+        'value': takeExamNum
       }],
     }]
   };
@@ -713,41 +707,23 @@ function edu_2 () {
 function edu_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#edu_3"));
-  var data = {
-    edu: [
-      [2, 6, 14, 28, 10]
-    ]
-  };
   // 指定配置和数据
   option = {
     color: ["#FD866A", "#00f2f1"],
     tooltip: {
       trigger: 'axis',
     },
-    // legend: {
-    //     top: "5%",
-    //     // 距离容器10%
-    //     right: "5%",
-    //     // 修饰图例文字的颜色
-    //     textStyle: {
-    //         color: "#FFFFFF"
-    //     }
-    // },
     grid: {
-      top: "1%",
+      top: "8%",
       left: "10%",
       right: "6%",
-      bottom: "30%",
+      bottom: "2%",
       // show: true,
       borderColor: "white",
-      containLabel: false
+      containLabel: true
     },
     xAxis: {
       type: "category",
-      // boundaryGap: false,
-      // axisPointer: {
-      //     type: 'shadow'
-      // },
       data: [
         "[50,60)",
         "[60,70)",
@@ -787,7 +763,7 @@ function edu_3 () {
       type: "bar",
       width: "5%",
       barWidth: '55%',
-      data: data.edu[0]
+      data: averageList
     }]
   };
   // 把配置给实例对象
@@ -1670,6 +1646,70 @@ function getHeartData () {
       heart_2();
       heart_3();
       heart_4();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
+let averageList = [];
+let takeExamNum = 0;
+let notTakeExamNum = 0;
+let notTakeClass = 0;
+let allClass = 0;
+let isNowClass = 0;
+function getEduData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationPerson/getAverageByLevel',
+    traditional: true,
+    data: {
+      unitId: 266,
+      month: '2020-07'
+    },
+    success: function (response) {
+      console.log(response)
+      averageList = response.extra.list;
+      edu_3();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationPerson/getTakeExamNum',
+    traditional: true,
+    data: {
+      unitId: 266,
+      month: '2020-07'
+    },
+    success: function (response) {
+      console.log(response)
+      takeExamNum = response.extra.takeNum;
+      notTakeExamNum = response.extra.allNUm - response.extra.takeNum;
+      edu_2();
+      edu_3();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/educationPerson/getClassNum',
+    traditional: true,
+    data: {
+      unitId: 266,
+      month: '2020-07'
+    },
+    success: function (response) {
+      console.log(response)
+      notTakeClass = response.extra.notTakeClass;
+      allClass = response.extra.allClass;
+      isNowClass = response.extra.isNowClass;
+      edu_1();
     },
     error: function (response) {
       console.log(response);

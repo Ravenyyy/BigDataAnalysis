@@ -12,7 +12,7 @@ function heart_2 () {
     tr = tr + '<tr>' +
       "<td>" + (i + 1) + "</td>" +
       "<td>" + seriousPersonList[i].uname + "</td>" +
-      "<td>" + seriousPersonList[i].month + "</td>" +
+      "<td>" + formateDate(seriousPersonList[i].month) + "</td>" +
       "<td>" + hasTreat + "</td>" +
       '</tr>';
   }
@@ -436,8 +436,16 @@ function heart_6 () {
     myChart.resize();
   });
 }
-
-
+//日期格式转换
+function formateDate (datetime) {
+  function addDateZero (num) {
+    return (num < 10 ? "0" + num : num);
+  }
+  let d = new Date(datetime);
+  let formatdatetime = d.getFullYear() + '-' + addDateZero(d.getMonth() + 1) + '-' + addDateZero(d.getDate());
+  return formatdatetime;
+}
+//字符串转数组
 function strToArray (string) {
   var array = [];
   var length = string.length
@@ -564,3 +572,4 @@ function getHeartDetailData () {
   })
 
 }
+
