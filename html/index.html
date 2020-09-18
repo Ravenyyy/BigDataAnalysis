@@ -15,17 +15,13 @@
 <body>
   <header>
     <h1>湖北消防救援队伍教育管理大数据研判平台</h1>
-    <!-- <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div> -->
     <div class="showTime" id="showTime"></div>
-    <!-- <div class="showTime"> -->
-    <!-- <DatePicker class="showTime" type="month" placeholder="选择月份"></DatePicker> -->
-    <!-- </div> -->
     <div class="bnt">
       <ul>
         <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
         <li><a href="#">月份选择</a></li>
         <li><a href="analysis.html">分析研判</a></li>
-        <li><a href="index.html">返回首页</a></li>
+        <li onclick="back()"><a>返回首页</a></li>
       </ul>
     </div>
     <script>
@@ -181,8 +177,8 @@
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
-<script src="../js/hubei.js"></script>
-<script src="../js/myMap.js"></script>
+<script src="../js/test.js"></script>
+<script src="../js/map.js"></script>
 <script src="../js/api.js"></script>
 
 <script src="../js/main/heart.js"></script>
@@ -191,14 +187,24 @@
 <script src="../js/main/assess.js"></script>
 <script src="../js/main/smart.js"></script>
 <script src="../js/main/warn.js"></script>
-
+<script src="../js/main/date.js"></script>
 
 
 <script>
   // onload
   $(function () {
-
-    // $api.setStorage("jcl", "jin")
+    if (localStorage.getItem("month") == "undefined" || localStorage.getItem("month") == null) {
+      function addDateZero(num) {
+        return (num < 10 ? "0" + num : num);
+      }
+      var myDate = new Date();
+      var month = myDate.getFullYear() + "-" + addDateZero(myDate.getMonth() + 1);
+      localStorage.setItem("month", month)
+      console.log(localStorage.getItem("month"))
+    }
+    if (localStorage.getItem("unitId") == "undefined" || localStorage.getItem("unitId") == null) {
+      localStorage.setItem("unitId", 1)
+    }
     getPartyBuildData();
     getHeartData();
     getEduData();
@@ -268,6 +274,25 @@
 
   function toAssessDetail() {
     window.location = './detail/assessDetail.html'
+  }
+
+  function back() {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getFatherID',
+      traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        localStorage.setItem("unitId", response.extra.fatherId)
+        console.log(localStorage.getItem("unitId"))
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
+    location.reload();
   }
 </script>
 

@@ -448,8 +448,8 @@ function getEduStationDetailData () {
     url: 'http://localhost:8880/educationPerson/getTop10Person',
     traditional: true,
     data: {
-      unitId: 266,
-      month: '2020-07'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response)
@@ -515,8 +515,8 @@ function getBoxData () {
     url: 'http://localhost:8880/educationUnit/getEduUnit',
     traditional: true,
     data: {
-      unitId: 49,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response)

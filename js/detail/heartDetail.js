@@ -661,8 +661,8 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getUnitByParent',
     traditional: true,
     data: {
-      parentId: 1,
-      month: '2020-09'
+      parentId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response);
@@ -693,8 +693,8 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       var psyUnit = response.extra.psyUnit;

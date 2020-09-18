@@ -491,8 +491,8 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
     traditional: true,
     data: {
-      unitId: 109,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       var psyUnit = response.extra.psyUnit;

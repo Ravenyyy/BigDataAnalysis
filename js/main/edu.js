@@ -115,7 +115,7 @@ function getEduData () {
     traditional: true,
     data: {
       parentId: 1,
-      month: '2020-09'
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       dataProcess(response);

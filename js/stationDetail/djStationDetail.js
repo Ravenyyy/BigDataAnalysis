@@ -539,8 +539,8 @@ function getDjDetailData () {
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       let partyBuild = response.extra.partyBuildUnit

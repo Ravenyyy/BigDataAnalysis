@@ -7,30 +7,30 @@ const structureTempla = `
 const structure = new Vue({
   el: '#dj_3',
   template: structureTempla,
-  data() {
+  data () {
     return {
       data6: [{
         title: '武汉市消防支队党委',
         expand: true,
         contextmenu: true,
         children: [{
-            title: '书记',
-            expand: true,
-            contextmenu: true,
-            children: []
-          },
-          {
-            title: '副书记',
-            expand: true,
-            contextmenu: true,
-            children: []
-          },
-          {
-            title: '委员',
-            expand: true,
-            contextmenu: true,
-            children: []
-          }
+          title: '书记',
+          expand: true,
+          contextmenu: true,
+          children: []
+        },
+        {
+          title: '副书记',
+          expand: true,
+          contextmenu: true,
+          children: []
+        },
+        {
+          title: '委员',
+          expand: true,
+          contextmenu: true,
+          children: []
+        }
         ]
       }],
       contextData: null
@@ -41,7 +41,7 @@ const structure = new Vue({
   }
 })
 //主题党日“十事联动”支部开展情况统计
-function dj_1() {
+function dj_1 () {
 
   var tr = "";
   for (var i = 0; i < ssldDevelopArr.length; i++) {
@@ -62,7 +62,7 @@ function dj_1() {
   $('#dj_1').append(tr);
 }
 //组织生活开展情况统计
-function dj_2() {
+function dj_2 () {
   var tr = "";
   for (var i = 0; i < zzshDevelopArr.length; i++) {
     tr = tr + '<tr>' +
@@ -79,7 +79,7 @@ function dj_2() {
   $('#dj_2').append(tr);
 }
 //党员数量及占比统计
-function dj_4() {
+function dj_4 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_4"));
   var xData = unitNameArr;
@@ -127,62 +127,62 @@ function dj_4() {
       },
     },
     yAxis: [{
-        name: "人数",
-        type: 'value',
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.1)",
-          }
+      name: "人数",
+      type: 'value',
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: "比率",
-        type: 'value',
-        axisLabel: {
-          formatter: '{value}%',
-        },
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.1)",
-          }
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.1)",
         }
       }
+    },
+    {
+      name: "比率",
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}%',
+      },
+      axisLine: {
+        lineStyle: {
+          color: "white"
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.1)",
+        }
+      }
+    }
     ],
     series: [{
-        name: '党员数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[0]
+      name: '党员数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[0]
 
+    },
+    {
+      name: '非党员数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[1]
+    },
+    {
+      name: "党员占比(%)",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: '非党员数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[1]
-      },
-      {
-        name: "党员占比(%)",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        yAxisIndex: 1,
-        data: yData[2]
-      }
+      smooth: false,
+      yAxisIndex: 1,
+      data: yData[2]
+    }
     ]
   };
 
@@ -202,7 +202,7 @@ function dj_4() {
   });
 }
 //党委数量、党支部数量统计
-function dj_5() {
+function dj_5 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_5"));
   var xData = unitNameArr;
@@ -263,39 +263,39 @@ function dj_5() {
       }
     }],
     series: [{
-        name: '党委数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[0],
-        // label: {
-        //   normal: {
-        //     show: true,
-        //     position: 'middle',
-        //     textStyle: {
-        //       color: 'white',
-        //       fontSize: 13
-        //     }
-        //   }
-        // },
-      },
-      {
-        name: '党支部数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[1],
-        label: {
-          normal: {
-            show: true,
-            position: 'top',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
+      name: '党委数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[0],
+      // label: {
+      //   normal: {
+      //     show: true,
+      //     position: 'middle',
+      //     textStyle: {
+      //       color: 'white',
+      //       fontSize: 13
+      //     }
+      //   }
+      // },
+    },
+    {
+      name: '党支部数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[1],
+      label: {
+        normal: {
+          show: true,
+          position: 'top',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
           }
-        },
-      }
+        }
+      },
+    }
     ]
   };
 
@@ -315,7 +315,7 @@ function dj_5() {
   });
 }
 //党员数量及占比情况年度分析
-function dj_6() {
+function dj_6 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#dj_6"));
   var xData = monthArr;
@@ -325,7 +325,7 @@ function dj_6() {
     yearDyRate,
   ];
   option = {
-    color: ["#FF9A00", "#ed3f35", "#BBFFFF", ],
+    color: ["#FF9A00", "#ed3f35", "#BBFFFF",],
     tooltip: {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -363,62 +363,62 @@ function dj_6() {
       },
     },
     yAxis: [{
-        name: "人数",
-        type: 'value',
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.1)",
-          }
+      name: "人数",
+      type: 'value',
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: "比率",
-        type: 'value',
-        axisLabel: {
-          formatter: '{value}%',
-        },
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.1)",
-          }
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.1)",
         }
       }
+    },
+    {
+      name: "比率",
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}%',
+      },
+      axisLine: {
+        lineStyle: {
+          color: "white"
+        }
+      },
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.1)",
+        }
+      }
+    }
     ],
     series: [{
-        name: '党员数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[0]
+      name: '党员数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[0]
 
+    },
+    {
+      name: '非党员数量',
+      type: 'bar',
+      barWidth: '40%',
+      stack: '总量',
+      data: yData[1]
+    },
+    {
+      name: "党员占比(%)",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: '非党员数量',
-        type: 'bar',
-        barWidth: '40%',
-        stack: '总量',
-        data: yData[1]
-      },
-      {
-        name: "党员占比(%)",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        yAxisIndex: 1,
-        data: yData[2]
-      }
+      smooth: false,
+      yAxisIndex: 1,
+      data: yData[2]
+    }
     ]
   };
 
@@ -449,14 +449,14 @@ let yearDyArr = [] // 年度统计党员数量
 let yearNotDyArr = [] //年度统计非党员数量
 let yearDyRate = [] //年度统计党员占比
 
-function getDjDetailData() {
+function getDjDetailData () {
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/partyBuildUnit/getUnitByParent',
     traditional: true,
     data: {
-      parentId: 1,
-      month: '2020-09'
+      parentId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       let unitList = response.extra.unitList

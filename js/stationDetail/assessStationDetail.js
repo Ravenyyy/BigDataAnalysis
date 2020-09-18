@@ -1,5 +1,5 @@
 // 支部展开率
-function assess_11() {
+function assess_11 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('assess_11'));
 
@@ -230,7 +230,7 @@ function assess_11() {
   });
 }
 // 支部完成率
-function assess_12() {
+function assess_12 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('assess_12'));
 
@@ -461,7 +461,7 @@ function assess_12() {
   });
 }
 //不称职人员
-function assess_21() {
+function assess_21 () {
   var dataArray = notPassPerson;
 
   var tr = "";
@@ -474,7 +474,7 @@ function assess_21() {
   $('#assess_21').append(tr);
 }
 //未按规定考核人员信息
-function assess_22() {
+function assess_22 () {
   var dataArray = notAssessPerson;
 
   var tr = "";
@@ -487,28 +487,28 @@ function assess_22() {
   $('#assess_22').append(tr);
 }
 // 当月全员考核情况汇总
-function assess_3() {
+function assess_3 () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.querySelector("#assess_3"));
   var legendData = ['优秀', '称职', '基本称职', '不称职'];
   let title = '总人数';
   let color = ["#22EC20", "#F1C62C", '#FF8352', '#E271DE'];
   let echartData = [{
-      name: '优秀',
-      value: excellent
-    },
-    {
-      name: '称职',
-      value: good
-    },
-    {
-      name: '基本称职',
-      value: pass
-    },
-    {
-      name: '不称职',
-      value: noPass
-    }
+    name: '优秀',
+    value: excellent
+  },
+  {
+    name: '称职',
+    value: good
+  },
+  {
+    name: '基本称职',
+    value: pass
+  },
+  {
+    name: '不称职',
+    value: noPass
+  }
   ];
 
   let formatNumber = function (num) {
@@ -591,7 +591,7 @@ function assess_3() {
 }
 
 //全员考核情况年度分析
-function assess_4() {
+function assess_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_4"));
   var legendData = ['优秀(%)', '称职(%)', '基本称职(%)', '不称职(%)'];
@@ -674,107 +674,107 @@ function assess_4() {
       }
     }],
     series: [{
-        name: legendData[0],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        lineStyle: {
-          normal: {
-            color: "#22EC20"
-          }
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'bottom',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
-        data: ktData
+      name: legendData[0],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
       },
-      {
-        name: legendData[1],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'bottom',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
-        data: xlData
+      lineStyle: {
+        normal: {
+          color: "#22EC20"
+        }
       },
-      {
-        name: legendData[2],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        lineStyle: {
-          normal: {
-            color: "#22EC20"
+      label: {
+        normal: {
+          show: true,
+          position: 'bottom',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
           }
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'bottom',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
-        data: saData
+        }
       },
-      {
-        name: legendData[3],
-        type: 'line',
-        stack: '总量',
-        areaStyle: {
-          normal: {}
-        },
-        lineStyle: {
-          normal: {
-            color: "#22EC20"
-          }
-        },
-        label: {
-          normal: {
-            show: true,
-            position: 'top',
-            textStyle: {
-              color: 'white',
-              fontSize: 13
-            }
-          }
-        },
-        data: siData
+      data: ktData
+    },
+    {
+      name: legendData[1],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
       },
-      {
-        name: '总量',
-        type: 'line',
-        stack: 'sum',
-        lineStyle: {
-          normal: {
-            color: "#00f2f1"
+      label: {
+        normal: {
+          show: true,
+          position: 'bottom',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
           }
-        },
-        data: allData
-      }
+        }
+      },
+      data: xlData
+    },
+    {
+      name: legendData[2],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
+      },
+      lineStyle: {
+        normal: {
+          color: "#22EC20"
+        }
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'bottom',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
+          }
+        }
+      },
+      data: saData
+    },
+    {
+      name: legendData[3],
+      type: 'line',
+      stack: '总量',
+      areaStyle: {
+        normal: {}
+      },
+      lineStyle: {
+        normal: {
+          color: "#22EC20"
+        }
+      },
+      label: {
+        normal: {
+          show: true,
+          position: 'top',
+          textStyle: {
+            color: 'white',
+            fontSize: 13
+          }
+        }
+      },
+      data: siData
+    },
+    {
+      name: '总量',
+      type: 'line',
+      stack: 'sum',
+      lineStyle: {
+        normal: {
+          color: "#00f2f1"
+        }
+      },
+      data: allData
+    }
     ]
   };
 
@@ -787,7 +787,7 @@ function assess_4() {
   });
 }
 //支部开展率、完成率走势年度分析
-function assess_5() {
+function assess_5 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_5"));
   var xData = monthArr;
@@ -857,27 +857,27 @@ function assess_5() {
       axisLabel: {
         formatter: '{value} %'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "开展率（%）",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "开展率（%）",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "完成率（%）",
-        lineStyle: {
-          width: 3,
-        },
-        type: "line",
-        smooth: false,
-        data: data.edu[1]
-      }
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "完成率（%）",
+      lineStyle: {
+        width: 3,
+      },
+      type: "line",
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -889,7 +889,7 @@ function assess_5() {
   });
 }
 //人员参与率走势年度统计
-function assess_6() {
+function assess_6 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#assess_6"));
   var xData = monthArr;
@@ -960,36 +960,36 @@ function assess_6() {
       axisLabel: {
         formatter: '{value} %'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "工作提交参与率（%）",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "工作提交参与率（%）",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "互评参与率（%）",
-        lineStyle: {
-          width: 3,
-        },
-        type: "line",
-        smooth: false,
-        data: data.edu[1]
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "互评参与率（%）",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "组织评定参与率（%）",
-        lineStyle: {
-          width: 3,
-        },
-        type: "line",
-        smooth: false,
-        data: data.edu[2]
-      }
+      type: "line",
+      smooth: false,
+      data: data.edu[1]
+    },
+    {
+      name: "组织评定参与率（%）",
+      lineStyle: {
+        width: 3,
+      },
+      type: "line",
+      smooth: false,
+      data: data.edu[2]
+    }
     ]
   };
 
@@ -1023,15 +1023,15 @@ let yearGood = []
 let yearPass = []
 let yearNotPass = []
 
-function getAssessDetailData() {
+function getAssessDetailData () {
 
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/assessUnit/getAssessUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       let assess = response.extra.assessmentUnit
@@ -1057,8 +1057,8 @@ function getAssessDetailData() {
     url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       let personList = response.extra.personList
