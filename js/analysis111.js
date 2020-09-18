@@ -641,12 +641,14 @@ function getseriesData(queryItem, xAxisDate){
         // item.name = condition.resultList[i].name   //显示每条线的名称
         console.log(resultList[i])
         for(let j=0; j<xAxisDate.length; j++){
-            if(condition.numType==1){
+            if(condition.numType==0){//整数
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }else if(condition.numType==1){//百分比，XX率
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:(resultList[j]*100).toFixed(2))
-            }else if(condition.numType==0){
+            }else if(condition.numType==2||condition.numType==3){//是否性质的数值或者评价等级
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
-            }else if(condition.numType==2){
-                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }else if(condition.numType==4){//小数但不是百分比
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j].toFixed(2))
             }
             
         }
