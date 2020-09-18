@@ -19,7 +19,6 @@
     <div class="bnt">
       <ul>
         <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
-        <li><a href="#">月份选择</a></li>
         <li><a href="analysis.html">分析研判</a></li>
         <li onclick="back()"><a>返回首页</a></li>
       </ul>
@@ -60,14 +59,14 @@
       <div class="no">
         <div class="no-hd">
           <ul>
-            <li class="shadow-green">7523</li>
-            <li class="shadow-yellow">6776</li>
-            <li class="shadow-red">109</li>
+            <li class="shadow-green" id="totalNum"></li>
+            <li class="shadow-yellow" id="activeNum"></li>
+            <li class="shadow-red" id="keyNum"></li>
           </ul>
         </div>
         <div class="no-bd">
           <ul>
-            <li style="color: white">全省指战员</li>
+            <li style="color: white">全体指战员</li>
             <li style="color: white">活跃人员</li>
             <li style="color: white">重点关注人员</li>
           </ul>
@@ -216,6 +215,22 @@
     tb_wn1();
     tb_wn2();
 
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getUnitById',
+      traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        document.getElementById("totalNum").innerHTML = response.extra.unit.totalNum;
+        document.getElementById("activeNum").innerHTML = response.extra.unit.activeNum;
+        document.getElementById("keyNum").innerHTML = response.extra.unit.keyNum;
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
   });
 
   // 获取弹窗元素
