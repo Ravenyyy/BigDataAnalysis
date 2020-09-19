@@ -1154,6 +1154,17 @@ function assess_2 () {
       '</tr>';
   }
   $('#asswss_tb').append(tr);
+  addTableClick("asswss_tb")
+}
+
+function addTableClick (tableName) {
+  $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+      $(tritem).click(function () {
+        localStorage.setItem("personId", personArr[trindex].uid)
+        console.log(localStorage.getItem("personId"));
+        // window.location.href="person.html"
+      })
+  })
 }
 
 // 智慧党建1
@@ -1558,6 +1569,260 @@ function getDjData () {
   })
 }
 
+function tb_wn1() {
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByStation',
+        data:{
+            id: localStorage.getItem("unitId"),
+            resolutionType:0
+        },
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                var date = new Date(dataArray[i].createTime)
+                var Y = date.getFullYear() + '-'
+                var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+                var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+                var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+                var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+                var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+                console.log(Y + M + D + h + m + s)
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb1').append(tr);
+            addTableClick("wn_tb1", dataArray);
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+    // var dataArray = [{
+    //         name: "翁超",
+    //         time: "2020-8-17 09:10",
+    //         type: "政治教育",
+    //         content: "考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "刘彦淇",
+    //         time: "2020-8-16 14:00",
+    //         type: "政治教育",
+    //         content: "未参加学习",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "王功行",
+    //         time: "2020-8-15 12:20",
+    //         type: "智慧党建",
+    //         content: "未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "文军",
+    //         time: "2020-8-15 10:00",
+    //         type: "心理测询",
+    //         content: "心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "赵章全",
+    //         time: "2020-8-12 09:00",
+    //         type: "全员考核",
+    //         content: "本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "王锦巍",
+    //         time: "2020-8-09 13:00",
+    //         type: "心理测询",
+    //         content: "睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "李玉潇",
+    //         time: "2020-8-09 15:00",
+    //         type: "全员考核",
+    //         content: "本月训练不合格",
+    //         flag: "最新预警"
+    //     }
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb1').append(tr);
+}
+
+function tb_wn2() {
+    var dataArray = [{}]
+    $.ajax({
+        type:'GET',
+        url: 'http://localhost:8880/warning/getWarningByStation',
+        data:{
+            id: localStorage.getItem("unitId"),
+            resolutionType:1
+        },
+        success: function(response){
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                var date = new Date(dataArray[i].createTime)
+                var Y = date.getFullYear() + '-'
+                var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+                var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+                var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+                var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+                var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+                console.log(Y + M + D + h + m + s)
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb2').append(tr);
+            addTableClick("wn_tb2", dataArray);
+            
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+    // var dataArray = [{
+    //         name: "史意芳",
+    //         time: "2020-8-17 10:00",
+    //         type: "心理测询",
+    //         content: "心理测询异常",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "潘栋",
+    //         time: "2020-8-17 09:10",
+    //         type: "政治教育",
+    //         content: "考试不及格",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "余峰",
+    //         time: "2020-8-16 08:00",
+    //         type: "智慧党建",
+    //         content: "未参加主题党日活动",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "曹雷",
+    //         time: "2020-8-15 13:00",
+    //         type: "心理测询",
+    //         content: "睡眠质量一直不良",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "何予栋",
+    //         time: "2020-8-15 14:00",
+    //         type: "政治教育",
+    //         content: "本月还未参加学习",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "孙小康",
+    //         time: "2020-8-13 08:00",
+    //         type: "全员考核",
+    //         content: "未参加全员考核",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "谌基海",
+    //         time: "2020-8-12 09:00",
+    //         type: "全员考核",
+    //         content: "本月被评定为不称职",
+    //         flag: "最新预警"
+    //     },
+    //     {
+    //         name: "张云",
+    //         time: "2020-8-09 15:00",
+    //         type: "全员考核",
+    //         content: "本月训练不合格",
+    //         flag: "最新预警"
+    //     },
+
+    // ];
+    // var tr = "";
+    // for (var i = 0; i < dataArray.length; i++) {
+    //     tr = tr + '<tr>' +
+    //         "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+    //         "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+    //         "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+    //         "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+    //         '</tr>';
+    // }
+    // $('#wn_tb2').append(tr);
+}
+
+function addTableClick (tableName, dataArray) {
+    $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+        
+        $(tritem).click(function () {
+
+            if (tableName == "wn_tb1") {
+                $(".modal-body > p").text("最新待处理风险预警信息")
+            } else {
+                $(".modal-body > p").text("正在处理风险预警信息")
+            }
+            document.getElementById("simpleModal").style.display = "block";
+            var tdContent = dataArray[trindex - 1]
+            localStorage.setItem('warningUser',tdContent.id)
+            console.log(tdContent)
+            $('#modal-ul').find("li").each(function (index, item) {
+                console.log(item);
+                if (index == 0) {
+                    $(item).text("来源：" + tdContent.warning)
+                } else if (index == 1) {
+                    $(item).text("详情：" + tdContent.content)
+                } else if (index == 2) {
+                    $(item).text("状态：" + tdContent.typeName)
+                }
+            })
+        })
+    })
+}
+
+function submitData(resolution,resolutionType){
+    var userId = localStorage.getItem('warningUser');
+    console.log(userId)
+    console.log(resolutionType)
+    console.log(resolution)
+    $.ajax({
+        type:'PUT',
+        url: 'http://localhost:8880/warning/updateWarningType',
+        data:{
+            id:userId,
+            resolutionType:resolutionType,
+            resolution:resolution,
+        },
+        success: function(response){
+            location.reload();
+        },
+        error: function(response){
+            console.log(response);
+        }
+    })
+  }
 function getAssessData () {
   $.ajax({
     type: 'GET',

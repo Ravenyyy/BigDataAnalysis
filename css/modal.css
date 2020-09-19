@@ -23,11 +23,13 @@
     margin: 0;
 }
 .modal-header{
-    border: 1px solid rgb(78, 110, 242);
+    border: 1px solid rgb(31, 54, 128);
     border-radius: 0.1875rem 0.1875rem 0 0;
-    background-color: rgb(78, 110, 242);
+    background-color: rgb(31, 54, 128);
     padding: 15px;
     color: #fff;
+    text-align: center;
+    font-size: 0.25rem;
 }
 .closeBtn{
     color: #fff;
