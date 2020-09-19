@@ -28,15 +28,15 @@
   <section class="mainbox">
     <div class="column">
 
-      <div class="panel dangjian" onclick="toDjDetail()">
-        <h2>智慧党建</h2>
+      <div class="panel dangjian">
+        <h2 onclick="toDjDetail()">智慧党建</h2>
         <div class="half-div2" id="dj1"></div>
         <div class="half-div2" id="dj2"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education" onclick="toEduDetail()">
-        <h2>政治教育</h2>
+      <div class="panel education">
+        <h2 onclick="toEduDetail()">政治教育</h2>
         <div class="quarter-div" id="edu_1"></div>
         <div class="quarter-div" id="edu_2"></div>
         <div class="half-div" id="edu_3"></div>
@@ -44,8 +44,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel bar" onclick="toHeartDetail()">
-        <h2>
+      <div class="panel bar">
+        <h2 onclick="toHeartDetail()">
           心理测询
         </h2>
         <div class="quarter-div" id="heart_1"></div>
@@ -79,8 +79,8 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment" onclick="toAssessDetail()">
-        <h2>全员考核</h2>
+      <div class="panel assessment">
+        <h2 onclick="toAssessDetail()">全员考核</h2>
         <div class="half-assess" id="assess_1"></div>
         <div class="half-assess" id="assess_2" style="overflow-y: scroll;height: 3rem;">
           <h3>优秀人员列表</h3>
@@ -132,8 +132,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1" onclick="toSmartDetail()">
-        <h2>智慧队站</h2>
+      <div class="panel line1">
+        <h2 onclick="toSmartDetail()">智慧队站</h2>
         <div class="chart" id="smart"></div>
         <div class="panel-footer"></div>
       </div>
@@ -218,7 +218,9 @@
       },
       success: function (response) {
         localStorage.setItem("unitId", response.extra.fatherId)
-        localStorage.setItem("level", (level == 1 ? level : parseInt(level)-1))
+        localStorage.setItem("unitName", response.extra.unitName)
+        localStorage.setItem("level", response.extra.unitLevel)
+        console.log(localStorage.getItem("unitName"))
       },
       error: function (response) {
         console.log(response);

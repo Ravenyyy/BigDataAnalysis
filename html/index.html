@@ -196,6 +196,7 @@
 <script>
   // onload
   $(function () {
+    console.log(localStorage.getItem("unitName"))
     if (localStorage.getItem("month") == "undefined" || localStorage.getItem("month") == null) {
       function addDateZero(num) {
         return (num < 10 ? "0" + num : num);
@@ -306,7 +307,7 @@
       success: function (response) {
         localStorage.setItem("unitId", response.extra.fatherId)
         localStorage.setItem("unitName", response.extra.unitName)
-        localStorage.setItem("level", response.extra.unitLevel)
+        // localStorage.setItem("level", response.extra.unitLevel)
         console.log(localStorage.getItem("unitName"))
         location.reload();
       },
