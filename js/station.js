@@ -1154,6 +1154,17 @@ function assess_2 () {
       '</tr>';
   }
   $('#asswss_tb').append(tr);
+  addTableClick("asswss_tb")
+}
+
+function addTableClick (tableName) {
+  $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+      $(tritem).click(function () {
+        localStorage.setItem("personId", personArr[trindex].uid)
+        console.log(localStorage.getItem("personId"));
+        // window.location.href="person.html"
+      })
+  })
 }
 
 // 智慧党建1
