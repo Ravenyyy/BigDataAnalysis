@@ -553,6 +553,11 @@ function initEcharts(queryItem) {
                     fontSize: 15,
                     // formatter: '{value} %'
                 },
+                areaStyle: {
+                    normal: {
+                    color: '#275F82' //改变区域颜色
+                    }
+                    },
             },
 
         series: []
@@ -639,6 +644,11 @@ function initEcharts(queryItem) {
                 //     }    
                 // },
                 // 是否让线条圆滑显示
+                // areaStyle: {
+                //     normal: {
+                //     color: '#275F82' //改变区域颜色
+                //     }
+                //     },
                 smooth: true,
                 data: seriesData[i].data
             }
