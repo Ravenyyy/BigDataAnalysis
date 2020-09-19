@@ -133,6 +133,13 @@ const condition = new Vue({
     },
     methods: {
         check(){
+            
+            var endTime1=moment(this.queryItem.endTime).format("YYYY-MM-DD")
+            var endTime2= new Date(Date.parse(endTime1.replace(/-/g,  "/"))); 
+            var now=new Date()
+            if(now.getFullYear()==endTime2.getFullYear()&&now.getMonth()<=endTime2.getMonth()){
+                this.$Message.error("不能选择大于本月的时间！！")//这里没有返回false，考虑到选择了大于本月的时间，前台的数据会将null转换为0
+            }
             if(this.queryItem.startTime=='' || this.queryItem.endTime==''){
                 this.$Message.error("月份不能为空！！")
                 return false;
@@ -601,10 +608,17 @@ function initEcharts(queryItem) {
                 }
                 
                 return result;
-            }
+            },
+            rotate:40 
         }
         option.yAxis.max=4
         option.yAxis.splitNumber =4
+    }else {
+        option.yAxis.axisLabel={
+            fontSize:15
+        }
+        
+        
     }
     option.series = []
     for(let i=0; i<seriesData.length; i++){
@@ -615,6 +629,15 @@ function initEcharts(queryItem) {
                 lineStyle:{
                     width: 4
                 },
+                symbolSize: 8,  
+                //设置折线图颜色  
+                // itemStyle : {    
+                //     normal : {    
+                //         lineStyle:{    
+                //             color:'#ff0000'    
+                //         }   
+                //     }    
+                // },
                 // 是否让线条圆滑显示
                 smooth: true,
                 data: seriesData[i].data
