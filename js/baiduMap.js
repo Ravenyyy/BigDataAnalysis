@@ -1,44 +1,37 @@
-let data = [{
-    id: 1,
-    name: "汉阳区政府",
-    x: 114.225012,
-    y: 30.560547
-  },
+let data = [
   {
-    id: 2,
+    id: 274,
     name: "黄金口",
     x: 114.152276,
     y: 30.570054
   },
   {
-    id: 3,
+    id: 266,
     name: "七里庙",
     x: 114.261882,
     y: 30.565026
   },
   {
-    id: 4,
+    id: 267,
     name: "墨水湖",
     x: 114.208918,
     y: 30.546989,
   },
   {
-    id: 5,
+    id: 265,
     name: "晴川",
     x: 114.261762,
     y: 30.523
   },
 ]
 
-
-
 function initBaiduMap() {
   var map = new BMapGL.Map("map");
-  // 创建地图实例 
+  // 创建地图实例
   var point = new BMapGL.Point(114.225012, 30.560547);
-  // 创建点坐标 
+  // 创建点坐标
   map.centerAndZoom(point, 13);
-  // 初始化地图，设置中心点坐标和地图级别 
+  // 初始化地图，设置中心点坐标和地图级别
 
   map.enableScrollWheelZoom(true);
 
@@ -73,7 +66,9 @@ function initBaiduMap() {
     }; //自定义参数id
     marker.addEventListener("click", function (e) {
 
-
+      localStorage.setItem("level", 4);
+      localStorage.setItem("unitId", e.target.customData.id);
+      localStorage.setItem("name", e.target.customData.name);
       window.location.href = "station.html"
     });
   }

@@ -218,6 +218,7 @@
       },
       success: function (response) {
         localStorage.setItem("unitId", response.extra.fatherId)
+        localStorage.setItem("level", (level == 1 ? level : parseInt(level)-1))
       },
       error: function (response) {
         console.log(response);
