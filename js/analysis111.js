@@ -580,11 +580,13 @@ function initEcharts(queryItem) {
                     case 1:result="是";break;
                     default:"-";
                 }
-                option.yAxis.max=2
-                option.yAxis.splitNumber =2
+                
                 return result;
             }
         }
+        option.yAxis.max=2
+        option.yAxis.splitNumber =2
+        option.yAxis.min=1
     }else if(condition.numType==3){
         option.yAxis.axisLabel={
             fontSize:15,
@@ -597,11 +599,12 @@ function initEcharts(queryItem) {
                     case 4:result="不称职";break;
                     default:"-";
                 }
-                option.yAxis.max=4
-                option.yAxis.splitNumber =4
+                
                 return result;
             }
         }
+        option.yAxis.max=4
+        option.yAxis.splitNumber =4
     }
     option.series = []
     for(let i=0; i<seriesData.length; i++){
@@ -635,7 +638,14 @@ function getseriesData(queryItem, xAxisDate){
         let item = {name:'', data:[]}
         let resultList=[]
         for(var key in condition.resultList[i] ){
-            item.name=key;//显示每条线的名称
+            
+            if(condition.numType==1){
+                item.name=key+'(%)';//显示每条线的名称
+            }else if(condition.numType==2){
+                item.name=key+'(1:是;2:否)';//显示每条线的名称
+            }else{
+                item.name=key;//显示每条线的名称
+            }
             resultList=condition.resultList[i][key]
         }
         // item.name = condition.resultList[i].name   //显示每条线的名称
