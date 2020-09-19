@@ -6,6 +6,7 @@ $(function () {
         name = '湖北';
         level = 1;
     }
+    $("#title").html(name);
     if (level == 3){
         initBaiduMap();
     }else{
