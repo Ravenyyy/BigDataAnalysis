@@ -141,7 +141,7 @@ function tb_wn1 () {
         type:'GET',
         url: 'http://localhost:8880/warning/getWarningByZongdui',
         data:{
-            id: 1,
+            id: localStorage.getItem("unitId"),
             resolutionType:0
         },
         success: function(response){
@@ -205,7 +205,7 @@ function tb_wn2 () {
         type:'GET',
         url: 'http://localhost:8880/warning/getWarningByZongdui',
         data:{
-            id: 1,
+            id: localStorage.getItem("unitId"),
             resolutionType:1
         },
         success: function(response){
