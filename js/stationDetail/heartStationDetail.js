@@ -1,46 +1,19 @@
 //本季度心理异常程度为重度的人员信息
 function heart_2 () {
-  var dataArray = [{
-    dataIndex: "1",
-    name: "周大龙",
-    type: "抑郁",
-    state: "已干预",
-  },
-  {
-    dataIndex: "2",
-    name: "李海",
-    type: "其他",
-    state: "正在干预",
-  }, {
-    dataIndex: "3",
-    name: "李朱赫",
-    type: "抑郁",
-    state: "正在干预",
-  }, {
-    dataIndex: "4",
-    name: "张新",
-    type: "躁狂",
-    state: "已干预",
-  }, {
-    dataIndex: "5",
-    name: "李梦",
-    type: "强迫",
-    state: "已干预",
-  }, {
-    dataIndex: "6",
-    name: "刘庆",
-    type: "强迫",
-    state: "已干预",
-  }
-  ];
-
+  var hasTreat = "";
   var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
+  for (var i = 0; i < seriousPersonList.length; i++) {
+    if (seriousPersonList[i].hasTreat != undefined && seriousPersonList[i].hasTreat != null
+      && seriousPersonList[i].hasTreat == 1) {
+      hasTreat = "是"
+    } else {
+      hasTreat = "否"
+    }
     tr = tr + '<tr>' +
-      "<td>" + dataArray[i].dataIndex + "</td>" +
-      "<td>" + dataArray[i].name + "</td>" +
-      "<td>" + dataArray[i].type + "</td>" +
-      "<td>" + dataArray[i].state + "</td>" +
+      "<td>" + (i + 1) + "</td>" +
+      "<td>" + seriousPersonList[i].uname + "</td>" +
+      "<td>" + formateDate(seriousPersonList[i].month) + "</td>" +
+      "<td>" + hasTreat + "</td>" +
       '</tr>';
   }
   $('#heart_2').append(tr);
@@ -445,14 +418,14 @@ function heart_6 () {
     },],
 
     series: [{
-      name: "心理异常人数",
+      name: "心理重度异常人数",
       type: "line",
       // 是否让线条圆滑显示
       smooth: false,
       lineStyle: {
         width: 3,
       },
-      data: problemMonthList
+      data: seriousMonthList
     }]
   };
 
@@ -463,8 +436,16 @@ function heart_6 () {
     myChart.resize();
   });
 }
-
-
+//日期格式转换
+function formateDate (datetime) {
+  function addDateZero (num) {
+    return (num < 10 ? "0" + num : num);
+  }
+  let d = new Date(datetime);
+  let formatdatetime = d.getFullYear() + '-' + addDateZero(d.getMonth() + 1) + '-' + addDateZero(d.getDate());
+  return formatdatetime;
+}
+//字符串转数组
 function strToArray (string) {
   var array = [];
   var length = string.length
@@ -481,20 +462,37 @@ let testNumList = [];
 let testRateList = [];
 let problemNumList = [];
 let problemRateList = [];
-let problemMonthList = [];
+let seriousMonthList = [];
 let testNum = 0;
 let problemNum = 0;
 let psychologist = 0;
 let onTreat = 0;
 let hasTreat = 0;
+let seriousPersonList = [];
 function getHeartDetailData () {
+  $.ajax({
+    type: 'GET',
+    url: 'http://localhost:8880/psyPerson/getSeriousPeople',
+    traditional: true,
+    data: {
+      unitId: localStorage.getItem("unitId"),
+    },
+    success: function (response) {
+      console.log(response)
+      seriousPersonList = response.extra.personList;
+      heart_2();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
   $.ajax({
     type: 'GET',
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
     traditional: true,
     data: {
-      unitId: 109,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       var psyUnit = response.extra.psyUnit;
@@ -551,7 +549,7 @@ function getHeartDetailData () {
     url: 'http://localhost:8880/psyUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 109
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)
@@ -559,10 +557,10 @@ function getHeartDetailData () {
       for (var index in unitList) {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
         testNumList.push(unitList[index].testNum)
-        testRateList.push(unitList[index].testNum / unitList[index].total * 100)
+        testRateList.push((unitList[index].testNum / unitList[index].total).toFixed(2) * 100)
         problemNumList.push(unitList[index].problemNum)
-        problemRateList.push(unitList[index].problemNum / unitList[index].total * 100)
-        problemMonthList.push(unitList[index].problemNum)
+        problemRateList.push((unitList[index].problemNum / unitList[index].total).toFixed(2) * 100)
+        seriousMonthList.push(unitList[index].seriousNum)
       }
       heart_4();
       heart_5();
@@ -574,3 +572,4 @@ function getHeartDetailData () {
   })
 
 }
+

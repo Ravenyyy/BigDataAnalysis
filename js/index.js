@@ -12,6 +12,7 @@ const monthPicker = new Vue({
     methods: {
         changeTime (date) {
             console.log(date)
+            localStorage.setItem("month", date)
         }
     },
 })

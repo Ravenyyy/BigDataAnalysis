@@ -611,8 +611,8 @@ function getEduDetailData () {
     url: 'http://localhost:8880/educationUnit/getUnitByParent',
     traditional: true,
     data: {
-      parentId: 1,
-      month: '2020-09'
+      parentId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response);
@@ -624,7 +624,7 @@ function getEduDetailData () {
         examAverageList.push(unitList[index].examAverage)
         examPassRateList.push(unitList[index].examPassRate)
         examGoodRateList.push(unitList[index].examGoodRate)
-        appActiveList.push(unitList[index].appActive / unitList[index].total * 100)
+        appActiveList.push((unitList[index].appActive / unitList[index].total).toFixed(2) * 100)
         bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
         electFinishRateList.push(unitList[index].electFinishRate)
         examFinishRateList.push(unitList[index].examFinishRate)
@@ -644,7 +644,7 @@ function getEduDetailData () {
     url: 'http://localhost:8880/educationUnit/getOneYearList',
     traditional: true,
     data: {
-      unitId: 1
+      unitId: localStorage.getItem("unitId"),
     },
     success: function (response) {
       console.log(response)

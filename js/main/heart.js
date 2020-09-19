@@ -1,21 +1,3 @@
-
-const monthPickerTemplate = `
-<DatePicker class="showTime" size="small" type="month" placeholder="选择月份" @on-change="changeTime"></DatePicker>
-`
-const monthPicker = new Vue({
-  el: '#showTime',
-  template: monthPickerTemplate,
-  data () {
-    return {
-    }
-  },
-  methods: {
-    changeTime (date) {
-      console.log(date)
-    }
-  },
-})
-
 // 心理测询1
 function heart_1 () {
   // 实例化对象
@@ -601,8 +583,8 @@ function getHeartData () {
     url: 'http://localhost:8880/psyUnit/getPsyUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       takePeopleNumber = response.extra.psyUnit.testNum;

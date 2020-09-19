@@ -42,12 +42,23 @@ header h1 {
 
 header .showTime {
   position: absolute;
-  top: 0;
+  top: 0.2rem;
   left: 0.375rem;
-  line-height: 0.9375rem;
-  font-size: 0.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  /* height: 0.3rem; */
+  width: 3rem;
+  /* line-height: 0.9375rem; */
+  /* font-size: 0.25rem; */
+  /* color: rgba(255, 255, 255, 0.7); */
 }
+
+header .showTime .ivu-input-icon-normal+.ivu-input {
+  height: 0.4rem;
+}
+
+header .showTime input[type=text] {
+  font-size: 0.2rem;
+}
+
 
 header .bnt {
   position: absolute;
@@ -465,13 +476,14 @@ header .bnt ul li a {
   width: 80%;
 }
 
-.half-assess tr{
+.half-assess tr {
   height: 0.21rem;
 }
 
-.half-assess table tr th:first-child, 
+.half-assess table tr th:first-child,
 .half-assess table tr td:first-child {
-  width: 0.6rem;;
+  width: 0.6rem;
+  ;
 }
 
 .map {

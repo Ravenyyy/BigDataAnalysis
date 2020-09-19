@@ -228,59 +228,59 @@ let passArr = [];
 let noPassArr = [];
 
 
-function getAssessData(){
+function getAssessData () {
   $.ajax({
-    type:'GET',
+    type: 'GET',
     url: 'http://localhost:8880/assessUnit/getAssessUnit',
     traditional: true,
-    data:{
-        unitId:1,
-        month:'2020-09'
+    data: {
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
-    success: function(response){
+    success: function (response) {
       dataProcess2(response)
       assess_2()
     },
-    error: function(response){
-        console.log(response);
+    error: function (response) {
+      console.log(response);
     }
   })
 
   $.ajax({
-    type:'GET',
+    type: 'GET',
     url: 'http://localhost:8880/assessUnit/getUnitByParent',
     traditional: true,
-    data:{
-        parentId:1,
-        month:'2020-09'
+    data: {
+      parentId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
-    success: function(response){
+    success: function (response) {
       dataProcess1(response)
       assess_1()
     },
-    error: function(response){
-        console.log(response);
+    error: function (response) {
+      console.log(response);
     }
   })
 }
 
-function dataProcess1(response){
+function dataProcess1 (response) {
   let unitList = response.extra.unitList
-  for(let i=0; i<unitList.length; i++){
+  for (let i = 0; i < unitList.length; i++) {
     nameArr.push(unitList[i].unitName)
     excellentArr.push(unitList[i].excellent)
     goodArr.push(unitList[i].good)
     passArr.push(unitList[i].pass)
     noPassArr.push(unitList[i].nopass)
   }
-  
+
 }
 
-function dataProcess2(response){
+function dataProcess2 (response) {
   let assessment = response.extra.assessmentUnit
-  developRate = 100*assessment.startNum/assessment.total 
+  developRate = 100 * assessment.startNum / assessment.total
   developRate = developRate.toFixed(2)
-  joinRate = 100*assessment.finishNum/assessment.total
+  joinRate = 100 * assessment.finishNum / assessment.total
   joinRate = joinRate.toFixed(2)
   excellent = assessment.excellent
   noPass = assessment.nopass

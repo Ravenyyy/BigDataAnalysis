@@ -875,10 +875,12 @@ function getPartyBuildData () {
     url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
-      unitId: 1,
-      month: '2020-09'
+      unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
+      // console.log(localStorage.getItem("month"))
+      // console.log(localStorage.getItem("unitId"))
       let partyBuild = response.extra.partyBuildUnit
       dwNum = partyBuild.dwMun
       dzbNum = partyBuild.dzbMun

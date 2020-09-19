@@ -101,8 +101,8 @@
         </div>
       </div>
       <div class="map">
-        <!-- <div class="chart" id="map"></div> -->
-        <img src="../images/hy.jpg" class="images" />
+        <div class="chart" id="map"></div>
+        <!-- <img src="../images/hy.jpg" class="images" /> -->
         <!-- <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div> -->
@@ -207,11 +207,13 @@
 <script src="../js/echarts.min.js"></script>
 <script src="../js/hyTeam.js"></script>
 <script src="../js/hubei.js"></script>
+<script src="../js/baiduMap.js"></script>
 <!-- <script src="js/myMap.js"></script> -->
 <script>
   // onload
   $(function () {
 
+    initBaiduMap();
     heart_1();
     heart_2();
     heart_3();

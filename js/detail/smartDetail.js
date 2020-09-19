@@ -1,5 +1,5 @@
 //当月违规使用手机人数、违规使用手机总次数统计
-function smart_1() {
+function smart_1 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_1"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -71,21 +71,21 @@ function smart_1() {
     }],
 
     series: [{
-        name: "违规使用手机人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "违规使用手机人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "违规使用手机总次数",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "违规使用手机总次数",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -97,7 +97,7 @@ function smart_1() {
   });
 }
 //当月违规驾驶人数、危险驾驶总次数统计
-function smart_2() {
+function smart_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_2"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -169,21 +169,21 @@ function smart_2() {
     }],
 
     series: [{
-        name: "违规驾驶人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "违规驾驶人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "危险驾驶总次数",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "危险驾驶总次数",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -195,7 +195,7 @@ function smart_2() {
   });
 }
 //当月指战员综合睡眠质量结果统计
-function smart_3() {
+function smart_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_3"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -267,21 +267,21 @@ function smart_3() {
     }],
 
     series: [{
-        name: "睡眠不良人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "睡眠不良人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "睡眠不良次数",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "睡眠不良次数",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -293,7 +293,7 @@ function smart_3() {
   });
 }
 //当月训练不合格人数、指战员训练平均成绩统计
-function smart_4() {
+function smart_4 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_4"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -346,63 +346,63 @@ function smart_4() {
       },
     },
     yAxis: [{
-        name: '不合格人数',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "rgba(255,255,255,0.2)",
-          }
+      name: '不合格人数',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
-      {
-        name: '平均成绩',
-        type: "value",
-        // min: 50,
-        // max: 100,
-        // 修饰刻度标签的颜色
-        axisLine: {
-          lineStyle: {
-            color: "white"
-          }
-        },
-        // 修改y轴分割线的颜色
-        splitLine: {
-          lineStyle: {
-            color: "#white"
-          }
-        },
-        axisLabel: {
-          formatter: '{value}'
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "rgba(255,255,255,0.2)",
+        }
+      }
+    },
+    {
+      name: '平均成绩',
+      type: "value",
+      // min: 50,
+      // max: 100,
+      // 修饰刻度标签的颜色
+      axisLine: {
+        lineStyle: {
+          color: "white"
         }
       },
+      // 修改y轴分割线的颜色
+      splitLine: {
+        lineStyle: {
+          color: "#white"
+        }
+      },
+      axisLabel: {
+        formatter: '{value}'
+      }
+    },
     ],
 
     series: [{
-        name: "不合格人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "不合格人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "平均成绩",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "平均成绩",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        yAxisIndex: 1,
-        data: data.edu[1]
-      }
+      smooth: false,
+      yAxisIndex: 1,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -414,7 +414,7 @@ function smart_4() {
   });
 }
 //当月训练开展率、人员参与率统计
-function smart_5() {
+function smart_5 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_5"));
   var xData = ["武汉", "宜昌", "鄂州", "襄阳", "黄石", "荆门", "咸宁", "十堰", "随州", "孝感", "荆州", "黄冈", "恩施", "汉江", "训保"];
@@ -484,24 +484,24 @@ function smart_5() {
       axisLabel: {
         formatter: '{value}%'
       }
-    }, ],
+    },],
 
     series: [{
-        name: "训练开展率",
-        type: "line",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "训练开展率",
+      type: "line",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "人员参与率",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "人员参与率",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 
@@ -513,7 +513,7 @@ function smart_5() {
   });
 }
 //违规驾驶人数、危险驾驶总次数走势年度统计
-function smart_6() {
+function smart_6 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#smart_6"));
   var xData = ["8月", "9月", "10月", "11月", "12月", "1月", "2月", "3月", "4月", "5月", "6月", "7月"];
@@ -585,21 +585,21 @@ function smart_6() {
     }],
 
     series: [{
-        name: "违规驾驶人数",
-        type: "bar",
-        // 是否让线条圆滑显示
-        smooth: false,
-        data: data.edu[0]
+      name: "违规驾驶人数",
+      type: "bar",
+      // 是否让线条圆滑显示
+      smooth: false,
+      data: data.edu[0]
+    },
+    {
+      name: "危险驾驶总次数",
+      type: "line",
+      lineStyle: {
+        width: 3,
       },
-      {
-        name: "危险驾驶总次数",
-        type: "line",
-        lineStyle: {
-          width: 3,
-        },
-        smooth: false,
-        data: data.edu[1]
-      }
+      smooth: false,
+      data: data.edu[1]
+    }
     ]
   };
 

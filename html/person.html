@@ -6,48 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../css/person.css" />
+  <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
+  <script type="text/javascript" src="../library/vue/vue.min.js"></script>
+  <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
 </head>
 
 <body>
   <header>
     <h1>七里庙消防救援队伍教育管理大数据研判平台</h1>
-    <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
+    <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
         <li><a href="#">报告下载</a></li>
-        <li><a href="#">月份选择</a></li>
         <li><a href="#">分析研判</a></li>
         <li><a href="station.html">返回消防站</a></li>
       </ul>
     </div>
     <script>
-      var t = null;
-      t = setTimeout(time, 1000); //開始运行
-      function time() {
-        clearTimeout(t); //清除定时器
-        dt = new Date();
-        var y = dt.getFullYear();
-        var mt = dt.getMonth() + 1;
-        var day = dt.getDate();
-        var h = dt.getHours(); //获取时
-        var m = dt.getMinutes(); //获取分
-        var s = dt.getSeconds(); //获取秒
-        document.querySelector(".showTime").innerHTML =
-          "当前时间：" +
-          y +
-          "年" +
-          mt +
-          "月" +
-          day +
-          "&nbsp&nbsp&nbsp" +
-          h +
-          "时" +
-          m +
-          "分" +
-          s +
-          "秒";
-        t = setTimeout(time, 1000); //设定定时器，循环运行
-      }
     </script>
   </header>
   <section class="mainbox">
@@ -65,27 +40,17 @@
         <div class="chart">
           <div class="edu_line">
             <div class="edu_col1">课程完成情况</div>
-            <div class="edu_col2">
-              <div class="block">5</div>
-              <div class="block">/</div>
-              <div class="block">8</div>
+            <div class="edu_col2" id="kecheng">
             </div>
           </div>
           <div class="edu_line">
             <div class="edu_col1">考试完成情况</div>
-            <div class="edu_col2">
-              <div class="block">1</div>
-              <div class="block">0</div>
-              <div class="block">0</div>
-              <div class="block">%</div>
+            <div class="edu_col2" id="kaoshi">
             </div>
           </div>
           <div class="edu_line">
             <div class="edu_col1">考试分数</div>
-            <div class="edu_col2">
-              <div class="block">0</div>
-              <div class="block">9</div>
-              <div class="block">6</div>
+            <div class="edu_col2" id="examAverage">
             </div>
           </div>
         </div>
@@ -106,13 +71,11 @@
         <div class="left"></div>
         <div class="right">
           <ul style="padding:30px; color:aliceblue; font-size: 25px;">
-            <li>ID：9939</li>
-            <li>姓名：赵章全</li>
-            <li>性别：男</li>
-            <li>出生年月：1992-12-03</li>
-            <li>部门：七里庙站</li>
-            <li>职务：中队一般干部</li>
-            <li>电话：18672377341</li>
+            <li id="name"></li>
+            <li id="sex"></li>
+            <li id="birthday"></li>
+            <li id="unit"></li>
+            <li id="phone"></li>
           </ul>
         </div>
       </div>
@@ -125,14 +88,13 @@
             <table id="assess_tb">
               <tr>
                 <th class="tb_time">序号</th>
-                <th class="tb_type">工作名称</th>
                 <th class="tb_content">内容</th>
               </tr>
             </table>
           </div>
           <div class="assess_row2">
-            <div class="result">互评：称职（5/8）</div>
-            <div class="result">组织评定：优秀（3/5）</div>
+            <div class="result" id="otherAssess">互评：称职</div>
+            <div class="result" id="orgAssess">组织评定：优秀</div>
           </div>
         </div>
         <div class="panel-footer"></div>
@@ -145,15 +107,6 @@
 
       <div class="double-panel">
         <h2>风险预警</h2>
-        <!--<div class="message_scroll">
-          <div class="scroll_top">
-            <span class="scroll_title">武汉支队</span>
-            <span class="scroll_timer">2020-08-11 1:00</span>
-          </div>
-          <div class="msg_cage">
-            <span class="localize_msg">xxx考试成绩不合格</span>
-          </div>
-        </div>-->
         <h3>最新风险预警信息</h3>
         <div class="table">
           <table id="wn_tb1">
@@ -183,9 +136,6 @@
       <div class="panel line1">
         <h2>智慧队站</h2>
         <div class="chart" id="smart"></div>
-        <!-- <div class="half-div" id="smart_1"></div>
-        <div class="quarter-div" id="smart_2"></div>
-        <div class="quarter-div" id="smart_3"></div> -->
         <div class="panel-footer"></div>
       </div>
     </div>
@@ -195,26 +145,49 @@
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/person.js"></script>
-<!-- <script src="js/hubei.js"></script> -->
-<!-- <script src="js/myMap.js"></script> -->
+<script src="../js/main/date.js"></script>
 <script>
   // onload
   $(function () {
 
-    heart();
     smart();
 
-    assess_1();
-
-    dj_1();
-    dj_2();
-    // dj_3();
-    // dj_4();
-
-    tb_edu();
+    getDjData();
+    getAssessData()
+    getEduData();
+    getHeartData();
     tb_wn1();
     tb_wn2();
-    assess_tb();
+
+    //日期格式转换
+    function formateDate(datetime) {
+      function addDateZero(num) {
+        return (num < 10 ? "0" + num : num);
+      }
+      let d = new Date(datetime);
+      let formatdatetime = d.getFullYear() + '-' + addDateZero(d.getMonth() + 1) + '-' + addDateZero(d.getDate());
+      return formatdatetime;
+    }
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/user/getUserByID',
+      traditional: true,
+      data: {
+        id: 1
+      },
+      success: function (response) {
+        document.getElementById("name").innerHTML = "姓名：" + response.extra.userInfo.uname;
+        document.getElementById("sex").innerHTML = "性别：" + response.extra.userInfo.sex;
+        document.getElementById("birthday").innerHTML = "出生年月：" + formateDate(response.extra.userInfo
+          .birthday);
+        document.getElementById("unit").innerHTML = "部门：" + response.extra.userInfo.unitName;
+        document.getElementById("phone").innerHTML = "电话：" + response.extra.userInfo.phone;
+
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
 
   });
 
