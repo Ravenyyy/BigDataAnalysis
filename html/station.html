@@ -80,8 +80,8 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment" >
-        <h2>全员考核</h2>
+      <div class="panel assessment">
+        <h2 onclick="toAssessment()">全员考核</h2>
         <div class="half-assess" id="assess_1"></div>
         <div class="half-assess" id="assess_2" style="overflow-y: scroll;height: 3rem;">
           <h3>优秀人员列表</h3>
@@ -153,7 +153,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="closeBtn">&times;</span>
-        <h2>预  警  信  息  处  理</h2>
+        <h2>预 警 信 息 处 理</h2>
       </div>
       <div class="modal-body">
         <p style="font-size: 0.3rem; text-align: center;">最新风险预警信息</p>
@@ -192,13 +192,13 @@
   $(function () {
     document.getElementById("title").innerHTML = localStorage.getItem("unitName")
 
-    smart();
-    getDjData();
+    // smart();
+    // getDjData();
     getAssessData();
-    getHeartData();
-    getEduData();
-    tb_wn1();
-    tb_wn2();
+    // getHeartData();
+    // getEduData();
+    // tb_wn1();
+    // tb_wn2();
 
     $.ajax({
       type: 'GET',
@@ -237,8 +237,8 @@
     modal.style.display = "none";
   }
 
-   // outsideClick
-   function outsideClick(e) {
+  // outsideClick
+  function outsideClick(e) {
     if (e.target == modal) {
       modal.style.display = "none";
     }
@@ -249,16 +249,16 @@
     console.log(data);
     var opinion = "";
     var type = 0;
-    $.each(data, function(i, field){
-      if(field.name == "opinion"){
+    $.each(data, function (i, field) {
+      if (field.name == "opinion") {
         opinion = field.value;
       }
-      if(field.name == "state"){
+      if (field.name == "state") {
         type = field.value;
       }
       console.log(field.name + ":" + field.value);
     });
-    submitData(opinion,type);
+    submitData(opinion, type);
     modal.style.display = "none";
   }
 
