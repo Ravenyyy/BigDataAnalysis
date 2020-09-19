@@ -25,7 +25,7 @@ let data = [
   },
 ]
 
-function initBaiduMap() {
+function initBaiduMap () {
   var map = new BMapGL.Map("map");
   // 创建地图实例
   var point = new BMapGL.Point(114.225012, 30.560547);
@@ -68,7 +68,8 @@ function initBaiduMap() {
 
       localStorage.setItem("level", 4);
       localStorage.setItem("unitId", e.target.customData.id);
-      localStorage.setItem("name", e.target.customData.name);
+      console.log(localStorage.getItem("unitId"))
+      localStorage.setItem("unitName", e.target.customData.name);
       window.location.href = "station.html"
     });
   }
