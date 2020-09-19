@@ -21,7 +21,7 @@
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
-        <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
+        <li><a onclick="downloadReport()">报告下载</a></li>
         <li><a href="analysis.html">分析研判</a></li>
         <li><a onclick="back()">返回首页</a></li>
       </ul>
@@ -294,6 +294,29 @@
 
   function toAssessDetail() {
     window.location = './detail/assessDetail.html'
+  }
+
+  function downloadReport() {
+    var link = document.createElement("a");
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/poi/getReport',
+      data: {
+        unitId: localStorage.getItem("unitId"),
+        month: localStorage.getItem("month"),
+      },
+      success: function (response) {
+        let url = '/static/jx/result.docx'
+        link.setAttribute('href', url)
+        if (link.download !== undefined) {
+          link.download = "月报";
+        }
+        link.click()
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
   }
 
   function back() {
