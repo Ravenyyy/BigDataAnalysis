@@ -10,17 +10,20 @@
   <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
   <script type="text/javascript" src="../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
+  </script>
 </head>
 
 <body>
   <header>
-    <h1>湖北消防救援队伍教育管理大数据研判平台</h1>
+    <h1><span id="title">湖北</span>消防救援队伍教育管理大数据研判平台</h1>
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
         <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
         <li><a href="analysis.html">分析研判</a></li>
-        <li onclick="back()"><a>返回首页</a></li>
+        <li><a onclick="back()">返回首页</a></li>
       </ul>
     </div>
     <script>
@@ -74,9 +77,9 @@
       </div>
       <div class="map">
         <div class="chart" id="map"></div>
-        <div class="map1"></div>
+        <!--        <div class="map1"></div>
         <div class="map2"></div>
-        <div class="map3"></div>
+        <div class="map3"></div>-->
       </div>
 
       <div class="panel assessment">
@@ -174,9 +177,10 @@
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
-<script src="../js/test.js"></script>
-<script src="../js/map.js"></script>
+<script src="../js/echartsMap.js"></script>
+<script src="../js/mapData.js"></script>
 <script src="../js/api.js"></script>
+<script src="../js/baiduMap.js"></script>
 
 <script src="../js/main/heart.js"></script>
 <script src="../js/main/dj.js"></script>
@@ -190,6 +194,7 @@
 <script>
   // onload
   $(function () {
+    console.log(localStorage.getItem("unitName"))
     if (localStorage.getItem("month") == "undefined" || localStorage.getItem("month") == null) {
       function addDateZero(num) {
         return (num < 10 ? "0" + num : num);
@@ -294,19 +299,22 @@
     $.ajax({
       type: 'GET',
       url: 'http://localhost:8880/unit/getFatherID',
-      traditional: true,
+      // traditional: true,
       data: {
         id: localStorage.getItem("unitId")
       },
       success: function (response) {
         localStorage.setItem("unitId", response.extra.fatherId)
-        console.log(localStorage.getItem("unitId"))
+        localStorage.setItem("unitName", response.extra.unitName)
+        // localStorage.setItem("level", response.extra.unitLevel)
+        console.log(localStorage.getItem("unitName"))
+        location.reload();
       },
       error: function (response) {
         console.log(response);
       }
     })
-    location.reload();
+
   }
 </script>
 

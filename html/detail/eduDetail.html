@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <h1>湖北消防救援队伍教育管理政治教育分析</h1>
+    <h1><span id="title"></span>消防救援队伍教育管理政治教育分析</h1>
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
@@ -76,6 +76,7 @@
 <script>
   // onload
   $(function () {
+    document.getElementById("title").innerHTML = localStorage.getItem("unitName")
     getEduDetailData();
   });
 </script>

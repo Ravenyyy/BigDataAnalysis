@@ -61,7 +61,7 @@ const conditionTemplate = `
             </Col>
             <Col span="5" style="text-align: center;line-height:50px">
                 <Select placeholder="请选择个人" v-model="queryItem.person" @on-change="personChange" multiple clearable :disabled="zongduiFlag" style="width: 200px">
-                    <Option v-for="item in personSelect" :value="item.id" :key="item.id">{{item.name}}</Option>
+                    <Option v-for="item in personSelect" :value="item.id" :key="item.id">{{item.uname}}</Option>
                 </Select>
             </Col>
         </Row>
@@ -96,6 +96,10 @@ const conditionTemplate = `
     </Col>
 </Row>
 `
+var new_element=document.createElement("script");
+new_element.setAttribute("type","text/javascript");
+new_element.setAttribute("src","../js/moment.js");
+document.body.appendChild(new_element);
 
 const condition = new Vue({
     el: '#condition',
@@ -123,10 +127,19 @@ const condition = new Vue({
 
             firstTargetSelect:[],
             secondTargetSelect:[],
+            numType:0,//0:非百分比的数字，1：XX率
+            resultList:[],
         }
     },
     methods: {
         check(){
+            
+            var endTime1=moment(this.queryItem.endTime).format("YYYY-MM-DD")
+            var endTime2= new Date(Date.parse(endTime1.replace(/-/g,  "/"))); 
+            var now=new Date()
+            if(now.getFullYear()==endTime2.getFullYear()&&now.getMonth()<=endTime2.getMonth()){
+                this.$Message.error("不能选择大于本月的时间！！")//这里没有返回false，考虑到选择了大于本月的时间，前台的数据会将null转换为0
+            }
             if(this.queryItem.startTime=='' || this.queryItem.endTime==''){
                 this.$Message.error("月份不能为空！！")
                 return false;
@@ -139,13 +152,42 @@ const condition = new Vue({
                 this.$Message.error("二级指标未选择！！")
                 return false;
             }
+            if(this.queryItem.zongdui==false&&this.queryItem.zhidui.length==0){
+                this.$Message.error("未选择查询条件！！")
+                return false;
+            }
 
             return true;
         },
         search(){
+            console.log(this.queryItem)
             let flag = this.check()
             if(flag){
-                initEcharts(this.queryItem)
+                
+                // initEcharts(this.queryItem)
+                var queryData=$.extend({}, this.queryItem);
+                var startTime=moment(queryData.startTime).format("YYYY-MM-DD")
+                queryData.startTime=startTime
+                var endTime=moment(queryData.endTime).format("YYYY-MM-DD")
+                queryData.endTime=endTime
+                console.log(queryData)
+                var _this=this
+                $.ajax({
+                    type: "post",
+                    url: 'http://localhost:8880/search/searchByItem',
+                    contentType: "application/json;charset=utf-8",
+                    data:JSON.stringify(queryData),
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response.extra.resultList);
+                        _this.resultList=response.extra.resultList;
+                        _this.numType=response.extra.numType
+                        initEcharts(_this.queryItem)
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
             }
         },
         zongduiChange(){
@@ -169,12 +211,21 @@ const condition = new Vue({
             if(zhiduiData.length == 0){
                 this.daduiSelect = []
             }else{
-                // console.log(zhiduiData);
+                console.log(zhiduiData);
+                var zhiduiIdStr=''
+                for(var i=0;i<zhiduiData.length;i++){
+                    if(i!=zhiduiData.length-1){
+                        zhiduiIdStr+=zhiduiData[i]+'-';
+                    }else{
+                        zhiduiIdStr+=zhiduiData[i];
+                    }
+                }
                 $.ajax({
                     type:'GET',
                     url: 'http://localhost:8880/unit/getUnitByParentId',
                     data:{
-                        parentId: zhiduiData[zhiduiData.length-1]
+                        // parentId: zhiduiData[zhiduiData.length-1]
+                        unitIdStr:zhiduiIdStr
                     },
                     success: function(response){
                         condition.daduiSelect = response.extra.unitList
@@ -190,11 +241,20 @@ const condition = new Vue({
             if(daduiData.length == 0){
                 this.stationSelect = []
             }else{
+                var daduiIdStr=''
+                for(var i=0;i<daduiData.length;i++){
+                    if(i!=daduiData.length-1){
+                        daduiIdStr+=daduiData[i]+'-';
+                    }else{
+                        daduiIdStr+=daduiData[i];
+                    }
+                }
                 $.ajax({
                     type:'GET',
                     url: 'http://localhost:8880/unit/getUnitByParentId',
                     data:{
-                        parentId: daduiData[daduiData.length-1]
+                        // parentId: daduiData[daduiData.length-1]
+                        unitIdStr:daduiIdStr
                     },
                     success: function(response){
                         condition.stationSelect = response.extra.unitList
@@ -210,6 +270,35 @@ const condition = new Vue({
                 this.queryItem.firstTarget=''
             }
             this.oldStation = [].concat(value)
+            let stationData=this.queryItem.station
+            if(stationData.length==0){
+                this.personSelect = []
+            }else{
+                var staionStr='';
+                for(var i=0;i<stationData.length;i++){
+                    if(i!=stationData.length-1){
+                        staionStr+=stationData[i]+'-';
+                    }else{
+                        staionStr+=stationData[i];
+                    }
+                }
+
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/user/getUserByParentId',
+                    data:{
+                        // parentId: daduiData[daduiData.length-1]
+                        unitIdStr:staionStr
+                    },
+                    success: function(response){
+                        console.log(response);
+                        condition.personSelect = response.extra.userList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+            }
         },
         personChange(value){
             if((value.length!=0 && this.oldPerson.length==0) || (value.length==0 && this.oldPerson.length!=0)){
@@ -220,124 +309,168 @@ const condition = new Vue({
         getSecondTarget(){
             this.secondTargetSelect=[]
             if(this.queryItem.person!=''){
-                if(this.queryItem.firstTarget == 1){
-                    this.secondTargetSelect=[
-                        {id:1, name:'十事联动参与次数'},
-                        {id:2, name:'三课一会参与次数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 2){
-                    this.secondTargetSelect=[
-                        {id:3, name:'课程完成情况'},
-                        {id:4, name:'考试完成情况'},
-                        {id:5, name:'考试分数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 3){
-                    this.secondTargetSelect=[
-                        {id:6, name:'躁狂'},
-                        {id:7, name:'抑郁'},
-                        {id:8, name:'焦虑'},
-                        {id:9, name:'敌对'},
-                        {id:10, name:'强迫'},
-                        {id:11, name:'其他'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 4){
-                    this.secondTargetSelect=[
-                        {id:12, name:'评价合格率'}
-                    ]
-                }
-                if(this.queryItem.firstTarget == 5){
-                    this.secondTargetSelect=[
-                        {id:13, name:'睡眠质量不良次数'},
-                        {id:14, name:'训练不合格次数'},
-                        {id:15, name:'违规驾驶次数'},
-                        {id:16, name:'手机违规使用次数'},
-                    ]
-                }
+
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/statisticItem/getSecondItem',
+                    data:{
+                        unitLevel: 3,
+                        parentId:this.queryItem.firstTarget
+                    },
+                    success: function(response){
+                        condition.secondTargetSelect = response.extra.secondItemList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+                // if(this.queryItem.firstTarget == 1){
+                //     this.secondTargetSelect=[
+                //         {id:1, name:'十事联动参与次数'},
+                //         {id:2, name:'三课一会参与次数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 2){
+                //     this.secondTargetSelect=[
+                //         {id:3, name:'课程完成情况'},
+                //         {id:4, name:'考试完成情况'},
+                //         {id:5, name:'考试分数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 3){
+                //     this.secondTargetSelect=[
+                //         {id:6, name:'躁狂'},
+                //         {id:7, name:'抑郁'},
+                //         {id:8, name:'焦虑'},
+                //         {id:9, name:'敌对'},
+                //         {id:10, name:'强迫'},
+                //         {id:11, name:'其他'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 4){
+                //     this.secondTargetSelect=[
+                //         {id:12, name:'评价合格率'}
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 5){
+                //     this.secondTargetSelect=[
+                //         {id:13, name:'睡眠质量不良次数'},
+                //         {id:14, name:'训练不合格次数'},
+                //         {id:15, name:'违规驾驶次数'},
+                //         {id:16, name:'手机违规使用次数'},
+                //     ]
+                // }
             }else if(this.queryItem.station!='' && this.queryItem.person==''){
-                if(this.queryItem.firstTarget == 1){
-                    this.secondTargetSelect=[
-                        {id:1, name:'十事联动参与率'},
-                        {id:2, name:'三课一会参与率'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 2){
-                    this.secondTargetSelect=[
-                        {id:3, name:'课程完成率'},
-                        {id:4, name:'考试完成率'},
-                        {id:5, name:'平均分'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 3){
-                    this.secondTargetSelect=[
-                        {id:6, name:'参评人数'},
-                        {id:7, name:'心理咨询师数量'},
-                        {id:8, name:'异常人数'},
-                        {id:9, name:'已干预人数'},
-                        {id:10, name:'正在干预人数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 4){
-                    this.secondTargetSelect=[
-                        {id:11, name:'优秀人数'},
-                        {id:12, name:'称职人数'},
-                        {id:13, name:'基本称职人数'},
-                        {id:14, name:'不称职人数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 5){
-                    this.secondTargetSelect=[
-                        {id:15, name:'睡眠质量不良人数'},
-                        {id:16, name:'训练不合格人数'},
-                        {id:17, name:'违规驾驶人数'},
-                        {id:18, name:'手机违规使用人数'},
-                    ]
-                }
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/statisticItem/getSecondItem',
+                    data:{
+                        unitLevel: 2,
+                        parentId:this.queryItem.firstTarget
+                    },
+                    success: function(response){
+                        condition.secondTargetSelect = response.extra.secondItemList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+                // if(this.queryItem.firstTarget == 1){
+                //     this.secondTargetSelect=[
+                //         {id:1, name:'十事联动参与率'},
+                //         {id:2, name:'三课一会参与率'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 2){
+                //     this.secondTargetSelect=[
+                //         {id:3, name:'课程完成率'},
+                //         {id:4, name:'考试完成率'},
+                //         {id:5, name:'平均分'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 3){
+                //     this.secondTargetSelect=[
+                //         {id:6, name:'参评人数'},
+                //         {id:7, name:'心理咨询师数量'},
+                //         {id:8, name:'异常人数'},
+                //         {id:9, name:'已干预人数'},
+                //         {id:10, name:'正在干预人数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 4){
+                //     this.secondTargetSelect=[
+                //         {id:11, name:'优秀人数'},
+                //         {id:12, name:'称职人数'},
+                //         {id:13, name:'基本称职人数'},
+                //         {id:14, name:'不称职人数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 5){
+                //     this.secondTargetSelect=[
+                //         {id:15, name:'睡眠质量不良人数'},
+                //         {id:16, name:'训练不合格人数'},
+                //         {id:17, name:'违规驾驶人数'},
+                //         {id:18, name:'手机违规使用人数'},
+                //     ]
+                // }
             }else{
-                if(this.queryItem.firstTarget == 1){
-                    this.secondTargetSelect=[
-                        {id:1, name:'支部开展率'},
-                        {id:2, name:'党员参与率'},
-                        {id:3, name:'党委数'},
-                        {id:4, name:'支部数'},
-                        {id:5, name:'人员总数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 2){
-                    this.secondTargetSelect=[
-                        {id:6, name:'总完成率'},
-                        {id:7, name:'平均分'}
-                    ]
-                }
-                if(this.queryItem.firstTarget == 3){
-                    this.secondTargetSelect=[
-                        {id:8, name:'参评人数'},
-                        {id:9, name:'心理咨询师数量'},
-                        {id:10, name:'异常人数'},
-                        {id:11, name:'已干预人数'},
-                        {id:12, name:'正在干预人数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 4){
-                    this.secondTargetSelect=[
-                        {id:13, name:'支部开展率'},
-                        {id:14, name:'人员参与率'},
-                        {id:15, name:'优秀人数'},
-                        {id:16, name:'称职人数'},
-                        {id:17, name:'基本称职人数'},
-                        {id:18, name:'不称职人数'},
-                    ]
-                }
-                if(this.queryItem.firstTarget == 5){
-                    this.secondTargetSelect=[
-                        {id:19, name:'睡眠质量不良人数'},
-                        {id:20, name:'训练不合格人数'},
-                        {id:21, name:'违规驾驶人数'},
-                        {id:22, name:'手机违规使用人数'},
-                    ]
-                }
+
+                $.ajax({
+                    type:'GET',
+                    url: 'http://localhost:8880/statisticItem/getSecondItem',
+                    data:{
+                        unitLevel: 1,
+                        parentId:this.queryItem.firstTarget
+                    },
+                    success: function(response){
+                        condition.secondTargetSelect = response.extra.secondItemList
+                    },
+                    error: function(response){
+                        console.log(response);
+                    }
+                })
+                // if(this.queryItem.firstTarget == 1){
+                //     this.secondTargetSelect=[
+                //         {id:1, name:'支部开展率'},
+                //         {id:2, name:'党员参与率'},
+                //         {id:3, name:'党委数'},
+                //         {id:4, name:'支部数'},
+                //         {id:5, name:'人员总数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 2){
+                //     this.secondTargetSelect=[
+                //         {id:6, name:'总完成率'},
+                //         {id:7, name:'平均分'}
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 3){
+                //     this.secondTargetSelect=[
+                //         {id:8, name:'参评人数'},
+                //         {id:9, name:'心理咨询师数量'},
+                //         {id:10, name:'异常人数'},
+                //         {id:11, name:'已干预人数'},
+                //         {id:12, name:'正在干预人数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 4){
+                //     this.secondTargetSelect=[
+                //         {id:13, name:'支部开展率'},
+                //         {id:14, name:'人员参与率'},
+                //         {id:15, name:'优秀人数'},
+                //         {id:16, name:'称职人数'},
+                //         {id:17, name:'基本称职人数'},
+                //         {id:18, name:'不称职人数'},
+                //     ]
+                // }
+                // if(this.queryItem.firstTarget == 5){
+                //     this.secondTargetSelect=[
+                //         {id:19, name:'睡眠质量不良人数'},
+                //         {id:20, name:'训练不合格人数'},
+                //         {id:21, name:'违规驾驶人数'},
+                //         {id:22, name:'手机违规使用人数'},
+                //     ]
+                // }
             }
         },
     }
@@ -417,7 +550,8 @@ function initEcharts(queryItem) {
                     }
                 },
                 axisLabel: {
-                    fontSize: 15
+                    fontSize: 15,
+                    // formatter: '{value} %'
                 },
             },
 
@@ -436,6 +570,56 @@ function initEcharts(queryItem) {
     option.title.text = title + '---' + yAxisName
     option.xAxis.data = xAxisDate
     option.yAxis.name = yAxisName
+    if(condition.numType==1){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: '{value} %'
+        }
+        
+        
+    }else if(condition.numType==2){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: function(value,index){
+                var result="";
+                switch(value){
+                    case 2:result="否";break;
+                    case 1:result="是";break;
+                    default:"-";
+                }
+                
+                return result;
+            }
+        }
+        option.yAxis.max=2
+        option.yAxis.splitNumber =2
+        option.yAxis.min=1
+    }else if(condition.numType==3){
+        option.yAxis.axisLabel={
+            fontSize:15,
+            formatter: function(value,index){
+                var result="";
+                switch(value){
+                    case 1:result="优秀";break;
+                    case 2:result="称职";break;
+                    case 3:result="基本称职";break;
+                    case 4:result="不称职";break;
+                    default:"-";
+                }
+                
+                return result;
+            },
+            rotate:40 
+        }
+        option.yAxis.max=4
+        option.yAxis.splitNumber =4
+    }else {
+        option.yAxis.axisLabel={
+            fontSize:15
+        }
+        
+        
+    }
     option.series = []
     for(let i=0; i<seriesData.length; i++){
         option.series.push(
@@ -445,6 +629,15 @@ function initEcharts(queryItem) {
                 lineStyle:{
                     width: 4
                 },
+                symbolSize: 8,  
+                //设置折线图颜色  
+                // itemStyle : {    
+                //     normal : {    
+                //         lineStyle:{    
+                //             color:'#ff0000'    
+                //         }   
+                //     }    
+                // },
                 // 是否让线条圆滑显示
                 smooth: true,
                 data: seriesData[i].data
@@ -462,16 +655,35 @@ function initEcharts(queryItem) {
 function getseriesData(queryItem, xAxisDate){
     let info = getUnit(queryItem)
     let unitFlag = info.flag
-    let unit = info.unit
+    // let unit = info.unit
     let seriesData = []
-    console.log(unitFlag);
-    console.log(unit);
-
-    for(let i=0; i<unit.length;i++){
+    for(let i=0; i<condition.resultList.length;i++){
         let item = {name:'', data:[]}
-        item.name = unitList[unitFlag-1][unit[i]-1].name
+        let resultList=[]
+        for(var key in condition.resultList[i] ){
+            
+            if(condition.numType==1){
+                item.name=key+'(%)';//显示每条线的名称
+            }else if(condition.numType==2){
+                item.name=key+'(1:是;2:否)';//显示每条线的名称
+            }else{
+                item.name=key;//显示每条线的名称
+            }
+            resultList=condition.resultList[i][key]
+        }
+        // item.name = condition.resultList[i].name   //显示每条线的名称
+        console.log(resultList[i])
         for(let j=0; j<xAxisDate.length; j++){
-            item.data.push(Math.round(Math.random()*51 + 49))
+            if(condition.numType==0){//整数
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }else if(condition.numType==1){//百分比，XX率
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:(resultList[j]*100).toFixed(2))
+            }else if(condition.numType==2||condition.numType==3){//是否性质的数值或者评价等级
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
+            }else if(condition.numType==4){//小数但不是百分比
+                item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j].toFixed(2))
+            }
+            
         }
         seriesData.push(item)
     }
@@ -497,77 +709,77 @@ function getUnit(queryItem){
 
 function getyAxisName(queryItem, unit){
     console.log(unit);
-    let secondTarget = [];
-    if(unit==5){
-        secondTarget = [
-            {id:1, name:'十事联动参与次数'},
-            {id:2, name:'三课一会参与次数'},
-            {id:3, name:'课程完成情况'},
-            {id:4, name:'考试完成情况'},
-            {id:5, name:'考试分数'},
-            {id:6, name:'躁狂'},
-            {id:7, name:'抑郁'},
-            {id:8, name:'焦虑'},
-            {id:9, name:'敌对'},
-            {id:10, name:'强迫'},
-            {id:11, name:'其他'},
-            {id:12, name:'评价合格率'},
-            {id:13, name:'睡眠质量不良次数'},
-            {id:14, name:'训练不合格次数'},
-            {id:15, name:'违规驾驶次数'},
-            {id:16, name:'手机违规使用次数'},
-        ]
-    }else if(unit == 4){
-        secondTarget = [
-            {id:1, name:'十事联动参与率'},
-            {id:2, name:'三课一会参与率'},
-            {id:3, name:'课程完成率'},
-            {id:4, name:'考试完成率'},
-            {id:5, name:'平均分'},
-            {id:6, name:'参评人数'},
-            {id:7, name:'心理咨询师数量'},
-            {id:8, name:'异常人数'},
-            {id:9, name:'已干预人数'},
-            {id:10, name:'正在干预人数'},
-            {id:11, name:'优秀人数'},
-            {id:12, name:'称职人数'},
-            {id:13, name:'基本称职人数'},
-            {id:14, name:'不称职人数'},
-            {id:15, name:'睡眠质量不良人数'},
-            {id:16, name:'训练不合格人数'},
-            {id:17, name:'违规驾驶人数'},
-            {id:18, name:'手机违规使用人数'},
-        ]
-    }else{
-        secondTarget = [
-            {id:1, name:'支部开展率'},
-            {id:2, name:'党员参与率'},
-            {id:3, name:'党委数'},
-            {id:4, name:'支部数'},
-            {id:5, name:'人员总数'},
-            {id:6, name:'总完成率'},
-            {id:7, name:'平均分'},
-            {id:8, name:'参评人数'},
-            {id:9, name:'心理咨询师数量'},
-            {id:10, name:'异常人数'},
-            {id:11, name:'已干预人数'},
-            {id:12, name:'正在干预人数'},
-            {id:13, name:'支部开展率'},
-            {id:14, name:'人员参与率'},
-            {id:15, name:'优秀人数'},
-            {id:16, name:'称职人数'},
-            {id:17, name:'基本称职人数'},
-            {id:18, name:'不称职人数'},
-            {id:19, name:'睡眠质量不良人数'},
-            {id:20, name:'训练不合格人数'},
-            {id:21, name:'违规驾驶人数'},
-            {id:22, name:'手机违规使用人数'},
-        ]
-    }
+    // let secondTarget = [];
+    // if(unit==5){
+    //     secondTarget = [
+    //         {id:1, name:'十事联动参与次数'},
+    //         {id:2, name:'三课一会参与次数'},
+    //         {id:3, name:'课程完成情况'},
+    //         {id:4, name:'考试完成情况'},
+    //         {id:5, name:'考试分数'},
+    //         {id:6, name:'躁狂'},
+    //         {id:7, name:'抑郁'},
+    //         {id:8, name:'焦虑'},
+    //         {id:9, name:'敌对'},
+    //         {id:10, name:'强迫'},
+    //         {id:11, name:'其他'},
+    //         {id:12, name:'评价合格率'},
+    //         {id:13, name:'睡眠质量不良次数'},
+    //         {id:14, name:'训练不合格次数'},
+    //         {id:15, name:'违规驾驶次数'},
+    //         {id:16, name:'手机违规使用次数'},
+    //     ]
+    // }else if(unit == 4){
+    //     secondTarget = [
+    //         {id:1, name:'十事联动参与率'},
+    //         {id:2, name:'三课一会参与率'},
+    //         {id:3, name:'课程完成率'},
+    //         {id:4, name:'考试完成率'},
+    //         {id:5, name:'平均分'},
+    //         {id:6, name:'参评人数'},
+    //         {id:7, name:'心理咨询师数量'},
+    //         {id:8, name:'异常人数'},
+    //         {id:9, name:'已干预人数'},
+    //         {id:10, name:'正在干预人数'},
+    //         {id:11, name:'优秀人数'},
+    //         {id:12, name:'称职人数'},
+    //         {id:13, name:'基本称职人数'},
+    //         {id:14, name:'不称职人数'},
+    //         {id:15, name:'睡眠质量不良人数'},
+    //         {id:16, name:'训练不合格人数'},
+    //         {id:17, name:'违规驾驶人数'},
+    //         {id:18, name:'手机违规使用人数'},
+    //     ]
+    // }else{
+    //     secondTarget = [
+    //         {id:1, name:'支部开展率'},
+    //         {id:2, name:'党员参与率'},
+    //         {id:3, name:'党委数'},
+    //         {id:4, name:'支部数'},
+    //         {id:5, name:'人员总数'},
+    //         {id:6, name:'总完成率'},
+    //         {id:7, name:'平均分'},
+    //         {id:8, name:'参评人数'},
+    //         {id:9, name:'心理咨询师数量'},
+    //         {id:10, name:'异常人数'},
+    //         {id:11, name:'已干预人数'},
+    //         {id:12, name:'正在干预人数'},
+    //         {id:13, name:'支部开展率'},
+    //         {id:14, name:'人员参与率'},
+    //         {id:15, name:'优秀人数'},
+    //         {id:16, name:'称职人数'},
+    //         {id:17, name:'基本称职人数'},
+    //         {id:18, name:'不称职人数'},
+    //         {id:19, name:'睡眠质量不良人数'},
+    //         {id:20, name:'训练不合格人数'},
+    //         {id:21, name:'违规驾驶人数'},
+    //         {id:22, name:'手机违规使用人数'},
+    //     ]
+    // }
 
-    for(let i=0; i<secondTarget.length; i++){
-        if(queryItem.secondTarget == secondTarget[i].id){
-            return secondTarget[i].name
+    for(let i=0; i<condition.secondTargetSelect.length; i++){
+        if(queryItem.secondTarget == condition.secondTargetSelect[i].id){
+            return condition.secondTargetSelect[i].name
         }
     }
 }
@@ -621,6 +833,12 @@ function dateToString(date){
     }
     var dateTime = year + "-" + month
     return dateTime; 
+}
+
+function toPercent(point){
+    var str=Number(point*100).toFixed(2);
+    str+="%";
+    return str;
 }
 
 let unitList = [
