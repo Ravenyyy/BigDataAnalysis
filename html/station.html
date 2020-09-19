@@ -81,7 +81,7 @@
       </div>
 
       <div class="panel assessment">
-        <h2 onclick="toAssessment()">全员考核</h2>
+        <h2 onclick="toAssessDetail()">全员考核</h2>
         <div class="half-assess" id="assess_1"></div>
         <div class="half-assess" id="assess_2" style="overflow-y: scroll;height: 3rem;">
           <h3>优秀人员列表</h3>
@@ -262,14 +262,6 @@
     modal.style.display = "none";
   }
 
-
-  function toEducation() {
-    window.location = '/edu/education.html'
-  }
-
-  function toAssessment() {
-    window.location = '/assess/assessment.html'
-  }
 
   function toDjDetail() {
     window.location = './stationDetail/djStationDetail.html'
