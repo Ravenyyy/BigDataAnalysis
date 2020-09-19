@@ -1,5 +1,5 @@
 $(function () {
-    var name = localStorage.getItem("name");
+    var name = localStorage.getItem("unitName");
     var level = localStorage.getItem("level");
     // var id = localStorage.getItem("unitId");
     if (name == null || name == "undefined") {
@@ -7,9 +7,9 @@ $(function () {
         level = 1;
     }
     $("#title").html(name);
-    if (level == 3){
+    if (level == 3) {
         initBaiduMap();
-    }else{
+    } else {
         var myChart = echarts.init(document.getElementById('map'));
         var mapData = {
             '湖北': [
@@ -238,13 +238,12 @@ $(function () {
         };
         myChart.setOption(option, true);
         myChart.on('click', function (params) {
-            /*        console.log(params.data.name2);//此处写点击事件内容*/
-            // localStorage.setItem("oldId", id)
-            localStorage.setItem("level", parseInt(level)+1);
+            localStorage.setItem("level", parseInt(level) + 1);
             localStorage.setItem("unitId", params.data.id);
+            localStorage.setItem("unitName", params.data.name2);
             // console.log(localStorage.getItem("unitId"));
-            // localStorage.setItem("oldName", name);
-            localStorage.setItem("name", params.data.name2);
+            // console.log(localStorage.getItem("level"));
+            console.log(localStorage.getItem("unitName"));
             location.reload();
         });//点击事件，此事件还可以用到柱状图等其他地图
         window.addEventListener("resize", function () {

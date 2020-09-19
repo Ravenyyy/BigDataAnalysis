@@ -11,7 +11,7 @@
   <script type="text/javascript" src="../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
   <script type="text/javascript"
-          src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
   </script>
 </head>
 
@@ -23,7 +23,7 @@
       <ul>
         <li><a href="../file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
         <li><a href="analysis.html">分析研判</a></li>
-        <li onclick="back()"><a>返回首页</a></li>
+        <li><a onclick="back()">返回首页</a></li>
       </ul>
     </div>
     <script>
@@ -77,7 +77,7 @@
       </div>
       <div class="map">
         <div class="chart" id="map"></div>
-<!--        <div class="map1"></div>
+        <!--        <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div>-->
       </div>
@@ -299,19 +299,22 @@
     $.ajax({
       type: 'GET',
       url: 'http://localhost:8880/unit/getFatherID',
-      traditional: true,
+      // traditional: true,
       data: {
         id: localStorage.getItem("unitId")
       },
       success: function (response) {
         localStorage.setItem("unitId", response.extra.fatherId)
-        localStorage.setItem("level", (level == 1 ? level : parseInt(level)-1))
+        localStorage.setItem("unitName", response.extra.unitName)
+        localStorage.setItem("level", response.extra.unitLevel)
+        console.log(localStorage.getItem("unitName"))
+        location.reload();
       },
       error: function (response) {
         console.log(response);
       }
     })
-    location.reload();
+
   }
 </script>
 
