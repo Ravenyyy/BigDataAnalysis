@@ -141,7 +141,7 @@ function dataProcess (response) {
   // }
   for (var index in response.extra.unitList) {
     unitNameList.push(response.extra.unitList[index].unitName)
-    yData1.push(response.extra.unitList[index].eduFinishRate)
+    yData1.push(response.extra.unitList[index].eduFinishRate * 100)
     yData2.push(response.extra.unitList[index].eduAverage)
     // console.log(yData2)
     // console.log(yData2)

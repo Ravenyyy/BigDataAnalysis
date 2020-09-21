@@ -472,15 +472,15 @@ function getEduStationDetailData () {
       var unitList = response.extra.unitList;
       for (var index in unitList) {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
-        electFinishRateList.push(unitList[index].electFinishRate)
-        bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
-        examFinishRateList.push(unitList[index].examFinishRate)
-        examJoinRateList.push(unitList[index].examJoinRate)
+        electFinishRateList.push(unitList[index].electFinishRate * 100)
+        bixiuFinishRateList.push(unitList[index].bixiuFinishRate * 100)
+        examFinishRateList.push(unitList[index].examFinishRate * 100)
+        examJoinRateList.push(unitList[index].examJoinRate * 100)
         examAverageList.push(unitList[index].examAverage)
-        examPassRateList.push(unitList[index].examPassRate)
-        examGoodRateList.push(unitList[index].examGoodRate)
-        eduJoinRateList.push(unitList[index].eduJoinRate)
-        eduFinishRateList.push(unitList[index].eduFinishRate)
+        examPassRateList.push(unitList[index].examPassRate * 100)
+        examGoodRateList.push(unitList[index].examGoodRate * 100)
+        eduJoinRateList.push(unitList[index].eduJoinRate * 100)
+        eduFinishRateList.push(unitList[index].eduFinishRate * 100)
         appActiveList.push(unitList[index].appActive / unitList[index].total * 100)
         edu_3();
         edu_4();

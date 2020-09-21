@@ -620,14 +620,14 @@ function getEduDetailData () {
       console.log(unitList)
       for (var index in unitList) {
         unitNameList.push(unitList[index].unitName)
-        examJoinRateList.push(unitList[index].examJoinRate)
+        examJoinRateList.push(unitList[index].examJoinRate * 100)
         examAverageList.push(unitList[index].examAverage)
-        examPassRateList.push(unitList[index].examPassRate)
-        examGoodRateList.push(unitList[index].examGoodRate)
+        examPassRateList.push(unitList[index].examPassRate * 100)
+        examGoodRateList.push(unitList[index].examGoodRate * 100)
         appActiveList.push((unitList[index].appActive / unitList[index].total).toFixed(2) * 100)
-        bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
-        electFinishRateList.push(unitList[index].electFinishRate)
-        examFinishRateList.push(unitList[index].examFinishRate)
+        bixiuFinishRateList.push(unitList[index].bixiuFinishRate * 100)
+        electFinishRateList.push(unitList[index].electFinishRate * 100)
+        examFinishRateList.push(unitList[index].examFinishRate * 100)
         edu_1();
         edu_2();
         edu_3();
@@ -653,8 +653,8 @@ function getEduDetailData () {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
         eduAverageList.push(unitList[index].eduAverage)
         examAverageMonthList.push(unitList[index].examAverage)
-        eduJoinRateList.push(unitList[index].eduJoinRate)
-        eduFinishRateList.push(unitList[index].eduFinishRate)
+        eduJoinRateList.push(unitList[index].eduJoinRate * 100)
+        eduFinishRateList.push(unitList[index].eduFinishRate * 100)
       }
       edu_5();
       edu_6();
