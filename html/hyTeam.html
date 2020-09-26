@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/modal.css" />
+  <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
+  <script type="text/javascript" src="../library/vue/vue.min.js"></script>
+  <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
 </head>
 
 <body>
@@ -97,8 +101,8 @@
         </div>
       </div>
       <div class="map">
-        <!-- <div class="chart" id="map"></div> -->
-        <img src="images/hy.jpg" class="images" />
+        <div class="chart" id="map"></div>
+        <!-- <img src="../images/hy.jpg" class="images" /> -->
         <!-- <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div> -->
@@ -131,7 +135,7 @@
           </div>
         </div>-->
         <h3>最新风险预警信息</h3>
-        <div class="table">
+        <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb1">
             <tr>
               <th class="tb_zhidui">站</th>
@@ -144,7 +148,7 @@
         </div>
 
         <h3>正在处理风险预警信息</h3>
-        <div class="table1">
+        <div class="table1" style="overflow-y: scroll;">
           <table id="wn_tb2">
             <tr>
               <th class="tb_zhidui">站</th>
@@ -168,17 +172,48 @@
       </div>
     </div>
   </section>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>预  警  信  息  查  看</h2>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.3rem; text-align: center;">最新待处理风险预警信息</p>
+        <ul id="modal-ul">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <!-- <form>
+          <label>处理意见:</label><textarea name="opinion"></textarea><br>
+          处理状态:&nbsp;<input type="radio" name="state" value="1">正在处理&nbsp;
+          <input type="radio" name="state" value="2">处理完成&nbsp;
+          <input type="radio" name="state" value="3">督办<br>
+        </form> -->
+        <!-- <div class="handle">
+          <button onclick="submit()">保存</button>
+          <button onclick="closeModal()">关闭</button>
+        </div> -->
+      </div>
+      <!-- <div class="modal-footer">
+            <h3>弹框底部</h3>
+        </div> -->
+    </div>
+  </div>
 </body>
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/hyTeam.js"></script>
 <script src="../js/hubei.js"></script>
+<script src="../js/baiduMap.js"></script>
 <!-- <script src="js/myMap.js"></script> -->
 <script>
   // onload
   $(function () {
 
+    initBaiduMap();
     heart_1();
     heart_2();
     heart_3();
@@ -200,6 +235,39 @@
     tb_wn2();
 
   });
+
+   // 获取弹窗元素
+   var modal = document.getElementById("simpleModal");
+
+  // 获取关闭弹窗按钮元素
+  var closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+  // 监听关闭弹窗事件
+  closeBtn.addEventListener("click", closeModal);
+
+  // 监听window关闭弹窗事件
+  window.addEventListener("click", outsideClick);
+
+  // 关闭弹框事件
+  function closeModal() {
+    // $('form')[0].reset();
+    modal.style.display = "none";
+  }
+
+  // outsideClick
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function submit() {
+    var data = $('form').serializeArray();
+    console.log(data);
+    modal.style.display = "none";
+  }
+
+
 
   function toEducation() {
     window.location = '/edu/education.html'

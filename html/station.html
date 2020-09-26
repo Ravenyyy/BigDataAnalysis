@@ -6,62 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../css/station.css" />
+  <link rel="stylesheet" href="../css/modal.css" />
+  <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
+  <script type="text/javascript" src="../library/vue/vue.min.js"></script>
+  <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
 </head>
 
 <body>
   <header>
-    <h1>七里庙消防救援队伍教育管理大数据研判平台</h1>
-    <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div>
+    <h1><span id="title"></span>消防救援队伍教育管理大数据研判平台</h1>
+    <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
         <li><a href="#">报告下载</a></li>
-        <li><a href="#">月份选择</a></li>
         <li><a href="#">分析研判</a></li>
-        <li><a href="hyTeam.html">返回大队</a></li>
+        <li><a onclick="back()" href="index.html">返回大队</a></li>
       </ul>
     </div>
     <script>
-      var t = null;
-      t = setTimeout(time, 1000); //開始运行
-      function time() {
-        clearTimeout(t); //清除定时器
-        dt = new Date();
-        var y = dt.getFullYear();
-        var mt = dt.getMonth() + 1;
-        var day = dt.getDate();
-        var h = dt.getHours(); //获取时
-        var m = dt.getMinutes(); //获取分
-        var s = dt.getSeconds(); //获取秒
-        document.querySelector(".showTime").innerHTML =
-          "当前时间：" +
-          y +
-          "年" +
-          mt +
-          "月" +
-          day +
-          "&nbsp&nbsp&nbsp" +
-          h +
-          "时" +
-          m +
-          "分" +
-          s +
-          "秒";
-        t = setTimeout(time, 1000); //设定定时器，循环运行
-      }
     </script>
   </header>
   <section class="mainbox">
     <div class="column">
 
-      <div class="panel dangjian" onclick="toDjDetail()">
-        <h2>智慧党建</h2>
+      <div class="panel dangjian">
+        <h2 onclick="toDjDetail()">智慧党建</h2>
         <div class="half-div2" id="dj1"></div>
         <div class="half-div2" id="dj2"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education" onclick="toEduDetail()">
-        <h2>政治教育</h2>
+      <div class="panel education">
+        <h2 onclick="toEduDetail()">政治教育</h2>
         <div class="quarter-div" id="edu_1"></div>
         <div class="quarter-div" id="edu_2"></div>
         <div class="half-div" id="edu_3"></div>
@@ -69,8 +45,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel bar" onclick="toHeartDetail()">
-        <h2>
+      <div class="panel bar">
+        <h2 onclick="toHeartDetail()">
           心理测询
         </h2>
         <div class="quarter-div" id="heart_1"></div>
@@ -84,14 +60,14 @@
       <div class="no">
         <div class="no-hd">
           <ul>
-            <li class="shadow-green">67</li>
-            <li class="shadow-yellow">60</li>
-            <li class="shadow-red">10</li>
+            <li class="shadow-green" id="totalNum"></li>
+            <li class="shadow-yellow" id="activeNum"></li>
+            <li class="shadow-red" id="keyNum"></li>
           </ul>
         </div>
         <div class="no-bd">
           <ul>
-            <li style="color: white">本站成员</li>
+            <li style="color: white">全体指战员</li>
             <li style="color: white">活跃人员</li>
             <li style="color: white">重点关注人员</li>
           </ul>
@@ -104,13 +80,13 @@
         <div class="map3"></div>
       </div>
 
-      <div class="panel assessment" onclick="toAssessDetail()">
-        <h2>全员考核</h2>
+      <div class="panel assessment">
+        <h2 onclick="toAssessDetail()">全员考核</h2>
         <div class="half-assess" id="assess_1"></div>
         <div class="half-assess" id="assess_2" style="overflow-y: scroll;height: 3rem;">
           <h3>优秀人员列表</h3>
           <!-- <div class="flow" style="overflow-y: scroll;height: 3rem;"> -->
-          <table id="asswss_tb" onclick="toPerson()">
+          <table id="asswss_tb">
             <tr>
               <th>排名</th>
               <th>姓名</th>
@@ -138,11 +114,11 @@
             <span class="localize_msg">xxx考试成绩不合格</span>
           </div>
         </div>-->
-        <h3>最新风险预警信息</h3>
-        <div class="table">
+        <h3>最新待处理风险预警信息</h3>
+        <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb1">
             <tr>
-              <th class="tb_zhidui">支队</th>
+              <th class="tb_zhidui">姓名</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -152,10 +128,10 @@
         </div>
 
         <h3>正在处理风险预警信息</h3>
-        <div class="table1">
+        <div class="table1" style="overflow-y: scroll;">
           <table id="wn_tb2">
             <tr>
-              <th class="tb_zhidui">支队</th>
+              <th class="tb_zhidui">姓名</th>
               <th class="tb_time">时间</th>
               <th class="tb_type">类型</th>
               <th class="tb_content">内容</th>
@@ -166,61 +142,126 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1" onclick="toSmartDetail()">
-        <h2>智慧队站</h2>
+      <div class="panel line1">
+        <h2 onclick="toSmartDetail()">智慧队站</h2>
         <div class="chart" id="smart"></div>
-        <!-- <div class="half-div" id="smart_1"></div>
-        <div class="quarter-div" id="smart_2"></div>
-        <div class="quarter-div" id="smart_3"></div> -->
         <div class="panel-footer"></div>
       </div>
     </div>
   </section>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>预 警 信 息 处 理</h2>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.3rem; text-align: center;">最新风险预警信息</p>
+        <ul id="modal-ul">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <form>
+          <label>处理意见:</label>&nbsp;&nbsp;
+          <textarea name="opinion"></textarea>
+          <br><br>
+          处理状态:&nbsp;&nbsp;
+          <input type="radio" name="state" value="0">待处理&nbsp;
+          <input type="radio" name="state" value="1">正在处理&nbsp;
+          <input type="radio" name="state" value="2">处理完成&nbsp;
+        </form>
+        <div class="handle">
+          <button onclick="submit()">保存</button>
+          <button onclick="closeModal()">关闭</button>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+            <h3>弹框底部</h3>
+        </div> -->
+    </div>
+  </div>
 </body>
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/station.js"></script>
-<!-- <script src="js/hubei.js"></script> -->
-<!-- <script src="js/myMap.js"></script> -->
+<script src="../js/main/date.js"></script>
 <script>
   // onload
   $(function () {
+    document.getElementById("title").innerHTML = localStorage.getItem("unitName")
 
-    heart_1();
-    heart_2();
-    heart_3();
-    heart_4();
+    // smart();
+    // getDjData();
+    getAssessData();
+    // getHeartData();
+    // getEduData();
+    // tb_wn1();
+    // tb_wn2();
 
-    edu_1();
-    edu_2();
-    edu_3();
-
-    smart();
-
-    assess_1();
-    assess_2();
-
-    dj_1();
-    dj_2();
-
-    tb_edu();
-    tb_wn1();
-    tb_wn2();
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getUnitById',
+      traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        document.getElementById("totalNum").innerHTML = response.extra.unit.totalNum;
+        document.getElementById("activeNum").innerHTML = response.extra.unit.activeNum;
+        document.getElementById("keyNum").innerHTML = response.extra.unit.keyNum;
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
 
   });
 
-  function toEducation() {
-    window.location = '/edu/education.html'
+  // 获取弹窗元素
+  var modal = document.getElementById("simpleModal");
+
+  // 获取关闭弹窗按钮元素
+  var closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+  // 监听关闭弹窗事件
+  closeBtn.addEventListener("click", closeModal);
+
+  // 监听window关闭弹窗事件
+  window.addEventListener("click", outsideClick);
+
+  // 关闭弹框事件
+  function closeModal() {
+    $('form')[0].reset();
+    modal.style.display = "none";
   }
 
-  function toAssessment() {
-    window.location = '/assess/assessment.html'
+  // outsideClick
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
   }
 
-  function toPerson() {
-    window.location = './person.html'
+  function submit() {
+    var data = $('form').serializeArray();
+    console.log(data);
+    var opinion = "";
+    var type = 0;
+    $.each(data, function (i, field) {
+      if (field.name == "opinion") {
+        opinion = field.value;
+      }
+      if (field.name == "state") {
+        type = field.value;
+      }
+      console.log(field.name + ":" + field.value);
+    });
+    submitData(opinion, type);
+    modal.style.display = "none";
   }
+
 
   function toDjDetail() {
     window.location = './stationDetail/djStationDetail.html'
@@ -240,6 +281,26 @@
 
   function toAssessDetail() {
     window.location = './stationDetail/assessStationDetail.html'
+  }
+
+  function back() {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getFatherID',
+      traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        localStorage.setItem("unitId", response.extra.fatherId)
+        localStorage.setItem("unitName", response.extra.unitName)
+        localStorage.setItem("level", response.extra.unitLevel)
+        console.log(localStorage.getItem("unitName"))
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
   }
 </script>
 

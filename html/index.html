@@ -10,59 +10,30 @@
   <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
   <script type="text/javascript" src="../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
+  <script type="text/javascript"
+    src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
+  </script>
 </head>
 
 <body>
   <header>
-    <h1>湖北消防救援队伍教育管理大数据研判平台</h1>
-    <!-- <div class="showTime"> 当前时间：2020年3月17 0时54分14秒</div> -->
+    <h1><span id="title">湖北</span>消防救援队伍教育管理大数据研判平台</h1>
     <div class="showTime" id="showTime"></div>
-    <!-- <div class="showTime"> -->
-    <!-- <DatePicker class="showTime" type="month" placeholder="选择月份"></DatePicker> -->
-    <!-- </div> -->
     <div class="bnt">
       <ul>
-        <li><a href="./file/湖北消防救援队伍教育管理大数据研判平台单位月报.docx">报告下载</a></li>
-        <li><a href="#">月份选择</a></li>
+        <li><a onclick="downloadReport()">报告下载</a></li>
         <li><a href="analysis.html">分析研判</a></li>
-        <li><a href="index.html">返回首页</a></li>
+        <li><a onclick="back()">返回首页</a></li>
       </ul>
     </div>
     <script>
-      // var t = null;
-      // t = setTimeout(time, 1000); //開始运行
-      // function time() {
-      //   clearTimeout(t); //清除定时器
-      //   dt = new Date();
-      //   var y = dt.getFullYear();
-      //   var mt = dt.getMonth() + 1;
-      //   var day = dt.getDate();
-      //   var h = dt.getHours(); //获取时
-      //   var m = dt.getMinutes(); //获取分
-      //   var s = dt.getSeconds(); //获取秒
-      //   document.querySelector(".showTime").innerHTML =
-      //     "当前时间：" +
-      //     y +
-      //     "年" +
-      //     mt +
-      //     "月" +
-      //     day +
-      //     "&nbsp&nbsp&nbsp" +
-      //     h +
-      //     "时" +
-      //     m +
-      //     "分" +
-      //     s +
-      //     "秒";
-      //   t = setTimeout(time, 1000); //设定定时器，循环运行
-      // }
     </script>
   </header>
   <section class="mainbox">
     <div class="column">
 
-      <div class="panel dangjian" onclick="toDjDetail()">
-        <h2>智慧党建</h2>
+      <div class="panel dangjian">
+        <h2 onclick="toDjDetail()">智慧党建</h2>
         <div class="quarter-div" id="dj1"></div>
         <div class="quarter-div" id="dj2"></div>
         <div class="quarter-div" id="dj3"></div>
@@ -70,14 +41,14 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel education" onclick="toEduDetail()">
-        <h2>政治教育</h2>
+      <div class="panel education">
+        <h2 onclick="toEduDetail()">政治教育</h2>
         <div class="chart" id="edu_1"></div>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel bar" onclick="toHeartDetail()">
-        <h2>
+      <div class="panel bar">
+        <h2 onclick="toHeartDetail()">
           心理测询
         </h2>
         <div class="quarter-div" id="heart_1"></div>
@@ -91,14 +62,14 @@
       <div class="no">
         <div class="no-hd">
           <ul>
-            <li class="shadow-green">7523</li>
-            <li class="shadow-yellow">6776</li>
-            <li class="shadow-red">109</li>
+            <li class="shadow-green" id="totalNum"></li>
+            <li class="shadow-yellow" id="activeNum"></li>
+            <li class="shadow-red" id="keyNum"></li>
           </ul>
         </div>
         <div class="no-bd">
           <ul>
-            <li style="color: white">全省指战员</li>
+            <li style="color: white">全体指战员</li>
             <li style="color: white">活跃人员</li>
             <li style="color: white">重点关注人员</li>
           </ul>
@@ -106,13 +77,13 @@
       </div>
       <div class="map">
         <div class="chart" id="map"></div>
-        <div class="map1"></div>
+        <!--        <div class="map1"></div>
         <div class="map2"></div>
-        <div class="map3"></div>
+        <div class="map3"></div>-->
       </div>
 
-      <div class="panel assessment" onclick="toAssessDetail()">
-        <h2>全员考核</h2>
+      <div class="panel assessment">
+        <h2 onclick="toAssessDetail()">全员考核</h2>
         <div class="quarter-assess" id="assess_2"></div>
         <div class="quarter-assess" id="assess_3"></div>
         <div class="quarter-assess" id="assess_4"></div>
@@ -137,8 +108,8 @@
             <span class="localize_msg">xxx考试成绩不合格</span>
           </div>
         </div>-->
-        <h3>最新风险预警信息</h3>
-        <div class="table">
+        <h3>最新待处理风险预警信息</h3>
+        <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb1">
             <tr>
               <th class="tb_zhidui">支队</th>
@@ -151,7 +122,7 @@
         </div>
 
         <h3>正在处理风险预警信息</h3>
-        <div class="table1">
+        <div class="table1" style="overflow-y: scroll;">
           <table id="wn_tb2">
             <tr>
               <th class="tb_zhidui">支队</th>
@@ -165,8 +136,8 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1" onclick="toSmartDetail()">
-        <h2>智慧队站</h2>
+      <div class="panel line1">
+        <h2 onclick="toSmartDetail()">智慧队站</h2>
         <div class="chart" id="smart"></div>
         <!-- <div class="half-div" id="smart_1"></div>
         <div class="quarter-div" id="smart_2"></div>
@@ -179,7 +150,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="closeBtn">&times;</span>
-        <h2>预警信息</h2>
+        <h2>预 警 信 息 查 看</h2>
       </div>
       <div class="modal-body">
         <p style="font-size: 0.3rem; text-align: center;">最新风险预警信息</p>
@@ -188,16 +159,14 @@
           <li></li>
           <li></li>
         </ul>
-        <form>
-          <label>处理意见:</label><textarea name="opinion"></textarea><br>
-          处理状态:&nbsp;<input type="radio" name="state" value="1">正在处理&nbsp;
-          <input type="radio" name="state" value="2">处理完成&nbsp;
-          <input type="radio" name="state" value="3">督办<br>
-        </form>
-        <div class="handle">
+        <!-- <form>
+          处理状态:&nbsp;<input type="radio" name="state" value="0">待处理&nbsp;
+          <input type="radio" name="state" value="3">交由下级督办<br>
+        </form> -->
+        <!-- <div class="handle">
           <button onclick="submit()">保存</button>
           <button onclick="closeModal()">关闭</button>
-        </div>
+        </div> -->
       </div>
       <!-- <div class="modal-footer">
             <h3>弹框底部</h3>
@@ -208,33 +177,63 @@
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
-<script src="../js/index.js"></script>
-<script src="../js/hubei.js"></script>
-<script src="../js/myMap.js"></script>
+<script src="../js/echartsMap.js"></script>
+<script src="../js/mapData.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/baiduMap.js"></script>
+
+<script src="../js/main/heart.js"></script>
+<script src="../js/main/dj.js"></script>
+<script src="../js/main/edu.js"></script>
+<script src="../js/main/assess.js"></script>
+<script src="../js/main/smart.js"></script>
+<script src="../js/main/warn.js"></script>
+<script src="../js/main/date.js"></script>
+
+
 <script>
   // onload
   $(function () {
-
-    heart_1();
-    heart_2();
-    heart_3();
-    heart_4();
-
-    edu_1();
+    console.log(localStorage.getItem("unitName"))
+    if (localStorage.getItem("month") == "undefined" || localStorage.getItem("month") == null) {
+      function addDateZero(num) {
+        return (num < 10 ? "0" + num : num);
+      }
+      var myDate = new Date();
+      var month = myDate.getFullYear() + "-" + addDateZero(myDate.getMonth() + 1);
+      localStorage.setItem("month", month)
+      console.log(localStorage.getItem("month"))
+    }
+    if (localStorage.getItem("unitId") == "undefined" || localStorage.getItem("unitId") == null) {
+      localStorage.setItem("unitId", 1)
+    }
+    getPartyBuildData();
+    getHeartData();
+    getEduData();
     smart();
 
-    assess_1();
-    assess_2();
-
-    dj_1();
-    dj_2();
-    dj_3();
-    dj_4();
+    getAssessData();
 
     tb_edu();
     tb_wn1();
     tb_wn2();
 
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getUnitById',
+      traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        document.getElementById("totalNum").innerHTML = response.extra.unit.totalNum;
+        document.getElementById("activeNum").innerHTML = response.extra.unit.activeNum;
+        document.getElementById("keyNum").innerHTML = response.extra.unit.keyNum;
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
   });
 
   // 获取弹窗元素
@@ -251,6 +250,7 @@
 
   // 关闭弹框事件
   function closeModal() {
+    // $('form')[0].reset();
     modal.style.display = "none";
   }
 
@@ -260,6 +260,8 @@
       modal.style.display = "none";
     }
   }
+
+
 
   function submit() {
     var data = $('form').serializeArray();
@@ -293,6 +295,51 @@
 
   function toAssessDetail() {
     window.location = './detail/assessDetail.html'
+  }
+
+  function downloadReport() {
+    var link = document.createElement("a");
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/poi/getReport',
+      data: {
+        unitId: localStorage.getItem("unitId"),
+        month: localStorage.getItem("month"),
+      },
+      success: function (response) {
+        let url = '/static/jx/result.docx'
+        link.setAttribute('href', url)
+        if (link.download !== undefined) {
+          link.download = "月报.docx";
+        }
+        link.click()
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
+  }
+
+  function back() {
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8880/unit/getFatherID',
+      // traditional: true,
+      data: {
+        id: localStorage.getItem("unitId")
+      },
+      success: function (response) {
+        localStorage.setItem("unitId", response.extra.fatherId)
+        localStorage.setItem("unitName", response.extra.unitName)
+        localStorage.setItem("level", response.extra.unitLevel)
+        console.log(localStorage.getItem("unitName"))
+        location.reload();
+      },
+      error: function (response) {
+        console.log(response);
+      }
+    })
+
   }
 </script>
 
