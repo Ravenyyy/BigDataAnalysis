@@ -1266,7 +1266,7 @@ function dj_1() {
 function dj_2() {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#dj2"));
-  var xData = ['党员大会', '支委会', '党小组会', '党课'];
+  var xData = ['党员大会', '支部会', '党小组会', '党课'];
   var yData = zzsh;
 
   function getValArr(arr, key) {
