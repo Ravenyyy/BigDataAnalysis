@@ -519,8 +519,8 @@ function getBoxData () {
       examAverage = unit.examAverage + '';
       examJoinNum = unit.examJoinNum + '';
       examNotPassNum = unit.examJoinNum - unit.examPassNum + '';
-      appActiveRate = (unit.appActive / unit.total).toFixed(2) * 100 + "%"
-
+      appActiveRate = (unit.appActive / unit.total * 100).toFixed(1) + "%"
+      console.log(appActiveRate)
       var examAverageArray = strToArray(examAverage)
       var examAverageStr = ""
       for (var i = 0; i < examAverage.length; i++) {

@@ -402,8 +402,6 @@ function assess_4 () {
     },
     xAxis: [{
       type: 'category',
-
-      boundaryGap: false,
       data: xAxisData,
       axisPointer: {
         type: 'shadow'
