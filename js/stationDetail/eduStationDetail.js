@@ -58,8 +58,6 @@ function edu_3 () {
     },
     yAxis: [{
       name: '参与率',
-      min: 50,
-      max: 100,
       type: "value",
       // 修饰刻度标签的颜色
       axisLine: {
@@ -174,8 +172,6 @@ function edu_4 () {
     yAxis: [{
       name: '平均分',
       type: "value",
-      min: 50,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -192,8 +188,6 @@ function edu_4 () {
     {
       name: '参与率',
       type: "value",
-      min: 70,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -382,7 +376,6 @@ function edu_6 () {
     yAxis: [{
       // name: '分数',
       type: "value",
-      min: 50,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
