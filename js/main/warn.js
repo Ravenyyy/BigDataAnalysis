@@ -137,9 +137,17 @@ function tb_edu () {
 
 function tb_wn1 () {
   var dataArray = [{}]
+  var chooseUrl = "";
+  if(localStorage.getItem("level")==1){
+    chooseUrl = "http://localhost:8880/warning/getWarningByZongdui";
+  }else if(localStorage.getItem("level")==2){
+    chooseUrl = "http://localhost:8880/warning/getWarningByZhidui";
+  }else if(localStorage.getItem("level")==3){
+    chooseUrl = "http://localhost:8880/warning/getWarningByDadui";
+  }
     $.ajax({
         type:'GET',
-        url: 'http://localhost:8880/warning/getWarningByZongdui',
+        url: chooseUrl,
         data:{
             id: localStorage.getItem("unitId"),
             resolutionType:0
@@ -201,9 +209,17 @@ function addTableClick (tableName, dataArray) {
 
 function tb_wn2 () {
   var dataArray = [{}];
+  var chooseUrl = "";
+  if(localStorage.getItem("level")==1){
+    chooseUrl = "http://localhost:8880/warning/getWarningByZongdui";
+  }else if(localStorage.getItem("level")==2){
+    chooseUrl = "http://localhost:8880/warning/getWarningByZhidui";
+  }else if(localStorage.getItem("level")==3){
+    chooseUrl = "http://localhost:8880/warning/getWarningByDadui";
+  }
     $.ajax({
         type:'GET',
-        url: 'http://localhost:8880/warning/getWarningByZongdui',
+        url: chooseUrl,
         data:{
             id: localStorage.getItem("unitId"),
             resolutionType:1
