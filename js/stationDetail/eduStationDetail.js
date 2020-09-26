@@ -466,6 +466,8 @@ function getEduStationDetailData () {
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
+
     },
     success: function (response) {
       console.log(response)

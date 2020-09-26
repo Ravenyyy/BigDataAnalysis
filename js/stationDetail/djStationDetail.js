@@ -623,6 +623,8 @@ function getDjDetailData () {
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
+
     },
     success: function (response) {
       let unitList = response.extra.unitList
