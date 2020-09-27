@@ -5,6 +5,7 @@ $(function () {
     if (name == null || name == "undefined") {
         name = '湖北';
         level = 1;
+        localStorage.setItem("level",1);
     }
     $("#title").html(name);
     if (level == 3) {

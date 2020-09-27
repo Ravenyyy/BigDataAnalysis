@@ -1387,139 +1387,139 @@ function dj_2() {
 }
 
 
-function tb_wn1() {
-  var dataArray = [{
-      name: "翁超",
-      time: "2020-8-17 09:10",
-      type: "政治教育",
-      content: "考试不及格",
-      flag: "最新预警"
-    },
-    {
-      name: "刘彦淇",
-      time: "2020-8-16 14:00",
-      type: "政治教育",
-      content: "未参加学习",
-      flag: "最新预警"
-    },
-    {
-      name: "王功行",
-      time: "2020-8-15 12:20",
-      type: "智慧党建",
-      content: "未参加主题党日活动",
-      flag: "最新预警"
-    },
-    {
-      name: "文军",
-      time: "2020-8-15 10:00",
-      type: "心理测询",
-      content: "心理测询异常",
-      flag: "最新预警"
-    },
-    {
-      name: "赵章全",
-      time: "2020-8-12 09:00",
-      type: "全员考核",
-      content: "本月被评定为不称职",
-      flag: "最新预警"
-    },
-    {
-      name: "王锦巍",
-      time: "2020-8-09 13:00",
-      type: "心理测询",
-      content: "睡眠质量一直不良",
-      flag: "最新预警"
-    },
-    {
-      name: "李玉潇",
-      time: "2020-8-09 15:00",
-      type: "全员考核",
-      content: "本月训练不合格",
-      flag: "最新预警"
-    }
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb1').append(tr);
-}
+// function tb_wn1() {
+//   var dataArray = [{
+//       name: "翁超",
+//       time: "2020-8-17 09:10",
+//       type: "政治教育",
+//       content: "考试不及格",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "刘彦淇",
+//       time: "2020-8-16 14:00",
+//       type: "政治教育",
+//       content: "未参加学习",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "王功行",
+//       time: "2020-8-15 12:20",
+//       type: "智慧党建",
+//       content: "未参加主题党日活动",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "文军",
+//       time: "2020-8-15 10:00",
+//       type: "心理测询",
+//       content: "心理测询异常",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "赵章全",
+//       time: "2020-8-12 09:00",
+//       type: "全员考核",
+//       content: "本月被评定为不称职",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "王锦巍",
+//       time: "2020-8-09 13:00",
+//       type: "心理测询",
+//       content: "睡眠质量一直不良",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "李玉潇",
+//       time: "2020-8-09 15:00",
+//       type: "全员考核",
+//       content: "本月训练不合格",
+//       flag: "最新预警"
+//     }
+//   ];
+//   var tr = "";
+//   for (var i = 0; i < dataArray.length; i++) {
+//     tr = tr + '<tr>' +
+//       "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+//       "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+//       "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+//       "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+//       '</tr>';
+//   }
+//   $('#wn_tb1').append(tr);
+// }
 
-function tb_wn2() {
-  var dataArray = [{
-      name: "史意芳",
-      time: "2020-8-17 10:00",
-      type: "心理测询",
-      content: "心理测询异常",
-      flag: "最新预警"
-    },
-    {
-      name: "潘栋",
-      time: "2020-8-17 09:10",
-      type: "政治教育",
-      content: "考试不及格",
-      flag: "最新预警"
-    },
-    {
-      name: "余峰",
-      time: "2020-8-16 08:00",
-      type: "智慧党建",
-      content: "未参加主题党日活动",
-      flag: "最新预警"
-    },
-    {
-      name: "曹雷",
-      time: "2020-8-15 13:00",
-      type: "心理测询",
-      content: "睡眠质量一直不良",
-      flag: "最新预警"
-    },
-    {
-      name: "何予栋",
-      time: "2020-8-15 14:00",
-      type: "政治教育",
-      content: "本月还未参加学习",
-      flag: "最新预警"
-    },
-    {
-      name: "孙小康",
-      time: "2020-8-13 08:00",
-      type: "全员考核",
-      content: "未参加全员考核",
-      flag: "最新预警"
-    },
-    {
-      name: "谌基海",
-      time: "2020-8-12 09:00",
-      type: "全员考核",
-      content: "本月被评定为不称职",
-      flag: "最新预警"
-    },
-    {
-      name: "张云",
-      time: "2020-8-09 15:00",
-      type: "全员考核",
-      content: "本月训练不合格",
-      flag: "最新预警"
-    },
+// function tb_wn2() {
+//   var dataArray = [{
+//       name: "史意芳",
+//       time: "2020-8-17 10:00",
+//       type: "心理测询",
+//       content: "心理测询异常",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "潘栋",
+//       time: "2020-8-17 09:10",
+//       type: "政治教育",
+//       content: "考试不及格",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "余峰",
+//       time: "2020-8-16 08:00",
+//       type: "智慧党建",
+//       content: "未参加主题党日活动",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "曹雷",
+//       time: "2020-8-15 13:00",
+//       type: "心理测询",
+//       content: "睡眠质量一直不良",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "何予栋",
+//       time: "2020-8-15 14:00",
+//       type: "政治教育",
+//       content: "本月还未参加学习",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "孙小康",
+//       time: "2020-8-13 08:00",
+//       type: "全员考核",
+//       content: "未参加全员考核",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "谌基海",
+//       time: "2020-8-12 09:00",
+//       type: "全员考核",
+//       content: "本月被评定为不称职",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "张云",
+//       time: "2020-8-09 15:00",
+//       type: "全员考核",
+//       content: "本月训练不合格",
+//       flag: "最新预警"
+//     },
 
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb2').append(tr);
-}
+//   ];
+//   var tr = "";
+//   for (var i = 0; i < dataArray.length; i++) {
+//     tr = tr + '<tr>' +
+//       "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+//       "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+//       "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+//       "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+//       '</tr>';
+//   }
+//   $('#wn_tb2').append(tr);
+// }
 
 
 

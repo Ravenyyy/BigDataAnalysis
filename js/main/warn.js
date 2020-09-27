@@ -138,6 +138,7 @@ function tb_edu () {
 function tb_wn1 () {
   var dataArray = [{}]
   var chooseUrl = "";
+  console.log(localStorage.getItem("level"))
   if(localStorage.getItem("level")==1){
     chooseUrl = "http://localhost:8880/warning/getWarningByZongdui";
   }else if(localStorage.getItem("level")==2){
