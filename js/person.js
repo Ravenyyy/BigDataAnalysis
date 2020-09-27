@@ -692,7 +692,7 @@ function strToArray(string) {
   // console.log(array)
   return array;
 }
-let dictionary = ['', '优秀', '称职', '基本称职', '不称职']
+let dictionary = ['未参评', '优秀', '称职', '基本称职', '不称职']
 let ssld = []
 let zzsh = []
 let level = ''
