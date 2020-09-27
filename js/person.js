@@ -851,12 +851,36 @@ function getHeartData () {
     success: function (response) {
       console.log(response)
       let person = response.extra.psyPerson;
-      heartList.push(person.irritable * 7 + 3)
-      heartList.push(person.depressive * 7 + 3)
-      heartList.push(person.anxious * 7 + 3)
-      heartList.push(person.hostile * 7 + 3)
-      heartList.push(person.force * 7 + 3)
-      heartList.push(person.other * 7 + 3)
+      if (person.irritable == 1) {
+        heartList.push(person.irritable * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.depressive == 1) {
+        heartList.push(person.depressive * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.anxious == 1) {
+        heartList.push(person.anxious * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.hostile == 1) {
+        heartList.push(person.hostile * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.force == 1) {
+        heartList.push(person.force * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.other == 1) {
+        heartList.push(person.other * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
       if (person.isProblem != undefined && person.isProblem != null && person.isProblem == 1) {
         isProblem = "是"
         heartColor = "#DB7093"
