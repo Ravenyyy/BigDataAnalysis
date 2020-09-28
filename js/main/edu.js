@@ -111,7 +111,7 @@ function edu_1 () {
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'educationUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),

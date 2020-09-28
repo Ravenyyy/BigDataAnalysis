@@ -601,7 +601,7 @@ let eduFinishRateList = [];
 function getEduDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'educationUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
@@ -634,7 +634,7 @@ function getEduDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'educationUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

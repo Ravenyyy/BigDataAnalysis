@@ -203,7 +203,7 @@
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/unit/getUnitById',
+      url: localStorage.getItem("url") + 'unit/getUnitById',
       traditional: true,
       data: {
         id: localStorage.getItem("unitId")

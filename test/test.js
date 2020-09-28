@@ -4,25 +4,25 @@ const conditionTemplate = `
 const condition = new Vue({
     el: '#condition',
     template: conditionTemplate,
-    data(){
+    data () {
         return {
 
         }
     },
     methods: {
-        search(){
+        search () {
             $.ajax({
-                type:'GET',
-                url: 'http://localhost:8880/educationPerson/test',
-                data:JSON.stringify({
-                    uid:1,
-                    month:'2020-08'
+                type: 'GET',
+                url: localStorage.getItem("url") + 'educationPerson/test',
+                data: JSON.stringify({
+                    uid: 1,
+                    month: '2020-08'
                 }),
-                success: function(response){
+                success: function (response) {
                     // condition.zhiduiSelect = response.extra.zhiduiList
                     console.log(response)
                 },
-                error: function(response){
+                error: function (response) {
                     console.log(response);
                 }
             })

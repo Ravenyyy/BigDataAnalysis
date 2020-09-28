@@ -536,7 +536,7 @@ let yearDyRate = []
 function getDjDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -619,7 +619,7 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -651,7 +651,7 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/user/getDwByUnitId',
+    url: localStorage.getItem("url") + 'user/getDwByUnitId',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

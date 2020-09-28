@@ -709,7 +709,7 @@ let heartColor = ''
 function getDjData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildPerson/getPartyBuildPerson',
+    url: localStorage.getItem("url") + 'partyBuildPerson/getPartyBuildPerson',
     traditional: true,
     data: {
       uid: localStorage.getItem("personId"),
@@ -745,7 +745,7 @@ function getDjData () {
 function getAssessData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getAssessPerson',
+    url: localStorage.getItem("url") + 'assessPerson/getAssessPerson',
     traditional: true,
     data: {
       uid: localStorage.getItem("personId"),
@@ -775,7 +775,7 @@ function getAssessData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getPersonWorks',
+    url: localStorage.getItem("url") + 'assessPerson/getPersonWorks',
     traditional: true,
     data: {
       uid: localStorage.getItem("personId"),
@@ -798,7 +798,7 @@ function getAssessData () {
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getEduPerson',
+    url: localStorage.getItem("url") + 'educationPerson/getEduPerson',
     traditional: true,
     data: {
       uid: localStorage.getItem("personId"),
@@ -842,7 +842,7 @@ function getEduData () {
 function getHeartData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyPerson/getPsyPerson',
+    url: localStorage.getItem("url") + 'psyPerson/getPsyPerson',
     traditional: true,
     data: {
       uid: localStorage.getItem("personId"),

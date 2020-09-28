@@ -1536,7 +1536,7 @@ let personArr = []
 function getDjData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1574,7 +1574,7 @@ function tb_wn1 () {
   var dataArray = [{}]
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/warning/getWarningByStation',
+    url: localStorage.getItem("url") + 'warning/getWarningByStation',
     data: {
       id: localStorage.getItem("unitId"),
       resolutionType: 0
@@ -1612,7 +1612,7 @@ function tb_wn2 () {
   var dataArray = [{}]
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/warning/getWarningByStation',
+    url: localStorage.getItem("url") + 'warning/getWarningByStation',
     data: {
       id: localStorage.getItem("unitId"),
       resolutionType: 1
@@ -1682,7 +1682,7 @@ function submitData (resolution, resolutionType) {
   console.log(resolution)
   $.ajax({
     type: 'PUT',
-    url: 'http://localhost:8880/warning/updateWarningType',
+    url: localStorage.getItem("url") + 'warning/updateWarningType',
     data: {
       id: userId,
       resolutionType: resolutionType,
@@ -1700,7 +1700,7 @@ function submitData (resolution, resolutionType) {
 function getAssessData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    url: localStorage.getItem("url") + 'assessUnit/getAssessUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1723,7 +1723,7 @@ function getAssessData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+    url: localStorage.getItem("url") + 'assessPerson/getAssessPersonByUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1764,7 +1764,7 @@ let hasTreat = 0;
 function getHeartData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    url: localStorage.getItem("url") + 'psyUnit/getPsyUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1803,7 +1803,7 @@ let isNowClass = 0;
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getAverageByLevel',
+    url: localStorage.getItem("url") + 'educationPerson/getAverageByLevel',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1820,7 +1820,7 @@ function getEduData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getTakeExamNum',
+    url: localStorage.getItem("url") + 'educationPerson/getTakeExamNum',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1839,7 +1839,7 @@ function getEduData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getClassNum',
+    url: localStorage.getItem("url") + 'educationPerson/getClassNum',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

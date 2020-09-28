@@ -167,7 +167,7 @@
     }
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/user/getUserByID',
+      url: localStorage.getItem("url") + 'user/getUserByID',
       traditional: true,
       data: {
         id: localStorage.getItem("personId")

@@ -452,7 +452,7 @@ let yearDyRate = [] //年度统计党员占比
 function getDjDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
@@ -506,7 +506,7 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -530,7 +530,7 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/user/getDwByUnitId',
+    url: localStorage.getItem("url") + 'user/getDwByUnitId',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

@@ -438,7 +438,7 @@ let examTop10List = [];
 function getEduStationDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getTop10Person',
+    url: localStorage.getItem("url") + 'educationPerson/getTop10Person',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -455,7 +455,7 @@ function getEduStationDetailData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'educationUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -507,7 +507,7 @@ function getBoxData () {
   let appActiveRate = 0;
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getEduUnit',
+    url: localStorage.getItem("url") + 'educationUnit/getEduUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

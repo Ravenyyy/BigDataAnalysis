@@ -791,7 +791,7 @@ let yearNotPass = []
 function getAssessDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'assessUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
@@ -823,7 +823,7 @@ function getAssessDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'assessUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

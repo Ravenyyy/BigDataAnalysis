@@ -472,7 +472,7 @@ let seriousPersonList = [];
 function getHeartDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyPerson/getSeriousPeople',
+    url: localStorage.getItem("url") + 'psyPerson/getSeriousPeople',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -489,7 +489,7 @@ function getHeartDetailData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    url: localStorage.getItem("url") + 'psyUnit/getPsyUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -547,7 +547,7 @@ function getHeartDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'psyUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

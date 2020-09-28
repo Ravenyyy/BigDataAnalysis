@@ -30,7 +30,7 @@ function initBaiduMap () {
   console.log(localStorage.getItem("stationName"))
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/baiduMap/getMapByParentId',
+    url: localStorage.getItem("url") + 'baiduMap/getMapByParentId',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId")

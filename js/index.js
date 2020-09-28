@@ -2067,13 +2067,13 @@ function tb_edu () {
 function tb_wn1 () {
     var dataArray = [{}]
     $.ajax({
-        type:'GET',
-        url: 'http://localhost:8880/warning/getWarningByZongdui',
-        data:{
+        type: 'GET',
+        url: localStorage.getItem("url") + 'warning/getWarningByZongdui',
+        data: {
             id: 1,
-            resolutionType:0
+            resolutionType: 0
         },
-        success: function(response){
+        success: function (response) {
             dataArray = response.extra.warningList
             console.log(dataArray)
             var tr = "";
@@ -2097,7 +2097,7 @@ function tb_wn1 () {
 
             addTableClick("wn_tb1", dataArray);
         },
-        error: function(response){
+        error: function (response) {
             console.log(response);
         }
     })
@@ -2214,13 +2214,13 @@ function addTableClick (tableName, dataArray) {
 function tb_wn2 () {
     var dataArray = [{}];
     $.ajax({
-        type:'GET',
-        url: 'http://localhost:8880/warning/getWarningByZongdui',
-        data:{
+        type: 'GET',
+        url: localStorage.getItem("url") + 'warning/getWarningByZongdui',
+        data: {
             id: 1,
-            resolutionType:1
+            resolutionType: 1
         },
-        success: function(response){
+        success: function (response) {
             dataArray = response.extra.warningList
             console.log(dataArray)
             var tr = "";
@@ -2234,17 +2234,17 @@ function tb_wn2 () {
                 var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
                 var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
                 tr = tr + '<tr>' +
-                "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-                "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
-                "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
-                "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-                '</tr>';
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
             }
             $('#wn_tb2').append(tr);
 
             addTableClick("wn_tb2", dataArray);
         },
-        error: function(response){
+        error: function (response) {
             console.log(response);
         }
     })
@@ -2322,5 +2322,5 @@ function tb_wn2 () {
 
 
     // ];
-    
+
 }
