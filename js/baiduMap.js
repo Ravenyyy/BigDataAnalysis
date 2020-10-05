@@ -57,7 +57,7 @@ function initBaiduMap () {
         let option = {
           position: labelPoint
         }
-        let myLabel = new BMapGL.Label(data[i].stationName, option)
+        let myLabel = new BMapGL.Label(data[i].unitName, option)
         myLabel.setStyle({
           border: "2px",
           color: "white",
@@ -74,7 +74,7 @@ function initBaiduMap () {
         var _id = data[i].stationId;
         marker.customData = {
           id: data[i].stationId,
-          name: data[i].stationName
+          name: data[i].unitName
         }; //自定义参数id
         marker.addEventListener("click", function (e) {
 
