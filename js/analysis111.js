@@ -684,6 +684,7 @@ function getseriesData(queryItem, xAxisDate){
         // item.name = condition.resultList[i].name   //显示每条线的名称
         console.log(resultList[i])
         for(let j=0; j<xAxisDate.length; j++){
+            console.log("resultList[j]:",resultList[j])
             if(condition.numType==0){//整数
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
             }else if(condition.numType==1){//百分比，XX率
