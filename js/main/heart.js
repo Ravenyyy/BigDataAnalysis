@@ -580,7 +580,7 @@ let hasTreat = 0;
 function getHeartData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    url: localStorage.getItem("url") + 'psyUnit/getPsyUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

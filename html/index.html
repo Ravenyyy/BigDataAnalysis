@@ -194,7 +194,11 @@
 <script>
   // onload
   $(function () {
+    localStorage.setItem("url", "http://localhost:8880/")
     console.log(localStorage.getItem("unitName"))
+    console.log(localStorage.getItem("unitId"))
+    console.log(localStorage.getItem("level"))
+
     if (localStorage.getItem("month") == "undefined" || localStorage.getItem("month") == null) {
       function addDateZero(num) {
         return (num < 10 ? "0" + num : num);
@@ -220,7 +224,7 @@
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/unit/getUnitById',
+      url: localStorage.getItem("url") + 'unit/getUnitById',
       traditional: true,
       data: {
         id: localStorage.getItem("unitId")
@@ -301,7 +305,7 @@
     var link = document.createElement("a");
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/poi/getReport',
+      url: localStorage.getItem("url") + 'poi/getReport',
       data: {
         unitId: localStorage.getItem("unitId"),
         month: localStorage.getItem("month"),
@@ -323,7 +327,7 @@
   function back() {
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/unit/getFatherID',
+      url: localStorage.getItem("url") + 'unit/getFatherID',
       // traditional: true,
       data: {
         id: localStorage.getItem("unitId")

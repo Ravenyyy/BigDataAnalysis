@@ -190,19 +190,20 @@
 <script>
   // onload
   $(function () {
+    console.log(localStorage.getItem("unitId"))
+    console.log(localStorage.getItem("unitName"))
     document.getElementById("title").innerHTML = localStorage.getItem("unitName")
 
-    // smart();
-    // getDjData();
+    getDjData();
     getAssessData();
-    // getHeartData();
-    // getEduData();
-    // tb_wn1();
-    // tb_wn2();
+    getHeartData();
+    getEduData();
+    tb_wn1();
+    tb_wn2();
 
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/unit/getUnitById',
+      url: localStorage.getItem("url") + 'unit/getUnitById',
       traditional: true,
       data: {
         id: localStorage.getItem("unitId")
@@ -284,23 +285,9 @@
   }
 
   function back() {
-    $.ajax({
-      type: 'GET',
-      url: 'http://localhost:8880/unit/getFatherID',
-      traditional: true,
-      data: {
-        id: localStorage.getItem("unitId")
-      },
-      success: function (response) {
-        localStorage.setItem("unitId", response.extra.fatherId)
-        localStorage.setItem("unitName", response.extra.unitName)
-        localStorage.setItem("level", response.extra.unitLevel)
-        console.log(localStorage.getItem("unitName"))
-      },
-      error: function (response) {
-        console.log(response);
-      }
-    })
+    localStorage.setItem("unitId", localStorage.getItem("stationId"))
+    localStorage.setItem("unitName", localStorage.getItem("stationName"))
+    localStorage.setItem("level", 3)
   }
 </script>
 

@@ -2,7 +2,7 @@
 function dj_3 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#dj_3"));
-  var xData = ["党员大会", "支委会", "党小组会", "党课", "党委会", "民主生活会", "组织生活会"];
+  var xData = ["党员大会", "支部会", "党小组会", "党课", "党委会", "民主生活会", "组织生活会"];
   var data = {
     edu: [
       developNum,
@@ -536,7 +536,7 @@ let yearDyRate = []
 function getDjDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -619,10 +619,11 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       let unitList = response.extra.unitList
@@ -650,7 +651,7 @@ function getDjDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/user/getDwByUnitId',
+    url: localStorage.getItem("url") + 'user/getDwByUnitId',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

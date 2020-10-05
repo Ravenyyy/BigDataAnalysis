@@ -149,9 +149,6 @@
 <script>
   // onload
   $(function () {
-
-    smart();
-
     getDjData();
     getAssessData()
     getEduData();
@@ -170,14 +167,19 @@
     }
     $.ajax({
       type: 'GET',
-      url: 'http://localhost:8880/user/getUserByID',
+      url: localStorage.getItem("url") + 'user/getUserByID',
       traditional: true,
       data: {
-        id: 1
+        id: localStorage.getItem("personId")
       },
       success: function (response) {
         document.getElementById("name").innerHTML = "姓名：" + response.extra.userInfo.uname;
-        document.getElementById("sex").innerHTML = "性别：" + response.extra.userInfo.sex;
+        if (response.extra.userInfo.sex == 1) {
+          document.getElementById("sex").innerHTML = "性别：男"
+        } else {
+          document.getElementById("sex").innerHTML = "性别：女"
+        }
+
         document.getElementById("birthday").innerHTML = "出生年月：" + formateDate(response.extra.userInfo
           .birthday);
         document.getElementById("unit").innerHTML = "部门：" + response.extra.userInfo.unitName;

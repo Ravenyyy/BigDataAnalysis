@@ -47,8 +47,8 @@ function edu_1 () {
     yAxis: [{
       name: '平均分',
       type: "value",
-      min: 70,
-      max: 100,
+      // min: 70,
+      // max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -65,8 +65,8 @@ function edu_1 () {
     {
       name: '总完成率',
       type: "value",
-      min: 70,
-      max: 100,
+      // min: 70,
+      // max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -76,7 +76,7 @@ function edu_1 () {
       // 修改y轴分割线的颜色
       splitLine: {
         lineStyle: {
-          color: "#white"
+          color: "rgba(255,255,255,0.2)",
         }
       },
       axisLabel: {
@@ -111,7 +111,7 @@ function edu_1 () {
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'educationUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),

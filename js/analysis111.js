@@ -96,102 +96,102 @@ const conditionTemplate = `
     </Col>
 </Row>
 `
-var new_element=document.createElement("script");
-new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","../js/moment.js");
+var new_element = document.createElement("script");
+new_element.setAttribute("type", "text/javascript");
+new_element.setAttribute("src", "../js/moment.js");
 document.body.appendChild(new_element);
 
 const condition = new Vue({
     el: '#condition',
     template: conditionTemplate,
-    data(){
-        return{
-            queryItem:{
-                startTime:'',
-                endTime:'',
-                zongdui:false,
-                zhidui:[],
-                dadui:[],
-                station:[],
-                person:[],
-                firstTarget:'',
-                secondTarget:''
+    data () {
+        return {
+            queryItem: {
+                startTime: '',
+                endTime: '',
+                zongdui: false,
+                zhidui: [],
+                dadui: [],
+                station: [],
+                person: [],
+                firstTarget: '',
+                secondTarget: ''
             },
-            oldStation:[],
-            oldPerson:[],
-            zhiduiSelect:[],
-            daduiSelect:[],
-            stationSelect:[],
-            personSelect:[],
-            zongduiFlag:false,
+            oldStation: [],
+            oldPerson: [],
+            zhiduiSelect: [],
+            daduiSelect: [],
+            stationSelect: [],
+            personSelect: [],
+            zongduiFlag: false,
 
-            firstTargetSelect:[],
-            secondTargetSelect:[],
-            numType:0,//0:非百分比的数字，1：XX率
-            resultList:[],
+            firstTargetSelect: [],
+            secondTargetSelect: [],
+            numType: 0,//0:非百分比的数字，1：XX率
+            resultList: [],
         }
     },
     methods: {
-        check(){
-            
-            var endTime1=moment(this.queryItem.endTime).format("YYYY-MM-DD")
-            var endTime2= new Date(Date.parse(endTime1.replace(/-/g,  "/"))); 
-            var now=new Date()
-            if(now.getFullYear()==endTime2.getFullYear()&&now.getMonth()<=endTime2.getMonth()){
+        check () {
+
+            var endTime1 = moment(this.queryItem.endTime).format("YYYY-MM-DD")
+            var endTime2 = new Date(Date.parse(endTime1.replace(/-/g, "/")));
+            var now = new Date()
+            if (now.getFullYear() == endTime2.getFullYear() && now.getMonth() <= endTime2.getMonth()) {
                 this.$Message.error("不能选择大于本月的时间！！")//这里没有返回false，考虑到选择了大于本月的时间，前台的数据会将null转换为0
             }
-            if(this.queryItem.startTime=='' || this.queryItem.endTime==''){
+            if (this.queryItem.startTime == '' || this.queryItem.endTime == '') {
                 this.$Message.error("月份不能为空！！")
                 return false;
             }
-            if(this.queryItem.startTime > this.queryItem.endTime){
+            if (this.queryItem.startTime > this.queryItem.endTime) {
                 this.$Message.error("结束月份不能小于开始月份！！")
                 return false;
             }
-            if(this.queryItem.secondTarget == ''){
+            if (this.queryItem.secondTarget == '') {
                 this.$Message.error("二级指标未选择！！")
                 return false;
             }
-            if(this.queryItem.zongdui==false&&this.queryItem.zhidui.length==0){
+            if (this.queryItem.zongdui == false && this.queryItem.zhidui.length == 0) {
                 this.$Message.error("未选择查询条件！！")
                 return false;
             }
 
             return true;
         },
-        search(){
+        search () {
             console.log(this.queryItem)
             let flag = this.check()
-            if(flag){
-                
+            if (flag) {
+
                 // initEcharts(this.queryItem)
-                var queryData=$.extend({}, this.queryItem);
-                var startTime=moment(queryData.startTime).format("YYYY-MM-DD")
-                queryData.startTime=startTime
-                var endTime=moment(queryData.endTime).format("YYYY-MM-DD")
-                queryData.endTime=endTime
+                var queryData = $.extend({}, this.queryItem);
+                var startTime = moment(queryData.startTime).format("YYYY-MM-DD")
+                queryData.startTime = startTime
+                var endTime = moment(queryData.endTime).format("YYYY-MM-DD")
+                queryData.endTime = endTime
                 console.log(queryData)
-                var _this=this
+                var _this = this
                 $.ajax({
                     type: "post",
-                    url: 'http://localhost:8880/search/searchByItem',
+                    url: localStorage.getItem("url") + 'search/searchByItem',
                     contentType: "application/json;charset=utf-8",
-                    data:JSON.stringify(queryData),
+                    data: JSON.stringify(queryData),
                     dataType: "json",
                     success: function (response) {
                         console.log(response.extra.resultList);
-                        _this.resultList=response.extra.resultList;
-                        _this.numType=response.extra.numType
+                        _this.resultList = response.extra.resultList;
+                        _this.numType = response.extra.numType
                         initEcharts(_this.queryItem)
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
             }
         },
-        zongduiChange(){
-            if(this.queryItem.zongdui){
+        zongduiChange () {
+            if (this.queryItem.zongdui) {
                 this.$Notice.info({
                     title: '注意',
                     desc: '选择总队，则支队、大队、消防站和个人都被置为不可选！',
@@ -199,128 +199,128 @@ const condition = new Vue({
                 });
                 this.zongduiFlag = true
                 this.queryItem.zhidui = []
-                this.queryItem.dadui  = []
+                this.queryItem.dadui = []
                 this.queryItem.station = []
                 this.queryItem.person = []
-            }else{
+            } else {
                 this.zongduiFlag = false
             }
         },
-        getDaduiSelect(){
+        getDaduiSelect () {
             let zhiduiData = this.queryItem.zhidui
-            if(zhiduiData.length == 0){
+            if (zhiduiData.length == 0) {
                 this.daduiSelect = []
-            }else{
+            } else {
                 console.log(zhiduiData);
-                var zhiduiIdStr=''
-                for(var i=0;i<zhiduiData.length;i++){
-                    if(i!=zhiduiData.length-1){
-                        zhiduiIdStr+=zhiduiData[i]+'-';
-                    }else{
-                        zhiduiIdStr+=zhiduiData[i];
+                var zhiduiIdStr = ''
+                for (var i = 0; i < zhiduiData.length; i++) {
+                    if (i != zhiduiData.length - 1) {
+                        zhiduiIdStr += zhiduiData[i] + '-';
+                    } else {
+                        zhiduiIdStr += zhiduiData[i];
                     }
                 }
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/unit/getUnitByParentId',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'unit/getUnitByParentId',
+                    data: {
                         // parentId: zhiduiData[zhiduiData.length-1]
-                        unitIdStr:zhiduiIdStr
+                        unitIdStr: zhiduiIdStr
                     },
-                    success: function(response){
+                    success: function (response) {
                         condition.daduiSelect = response.extra.unitList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
             }
         },
-        getStationSelect(){
+        getStationSelect () {
             let daduiData = this.queryItem.dadui
-            if(daduiData.length == 0){
+            if (daduiData.length == 0) {
                 this.stationSelect = []
-            }else{
-                var daduiIdStr=''
-                for(var i=0;i<daduiData.length;i++){
-                    if(i!=daduiData.length-1){
-                        daduiIdStr+=daduiData[i]+'-';
-                    }else{
-                        daduiIdStr+=daduiData[i];
+            } else {
+                var daduiIdStr = ''
+                for (var i = 0; i < daduiData.length; i++) {
+                    if (i != daduiData.length - 1) {
+                        daduiIdStr += daduiData[i] + '-';
+                    } else {
+                        daduiIdStr += daduiData[i];
                     }
                 }
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/unit/getUnitByParentId',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'unit/getUnitByParentId',
+                    data: {
                         // parentId: daduiData[daduiData.length-1]
-                        unitIdStr:daduiIdStr
+                        unitIdStr: daduiIdStr
                     },
-                    success: function(response){
+                    success: function (response) {
                         condition.stationSelect = response.extra.unitList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
             }
         },
-        stationChange(value){
-            if((value.length!=0 && this.oldStation.length==0) || (value.length==0 && this.oldStation.length!=0)){
-                this.queryItem.firstTarget=''
+        stationChange (value) {
+            if ((value.length != 0 && this.oldStation.length == 0) || (value.length == 0 && this.oldStation.length != 0)) {
+                this.queryItem.firstTarget = ''
             }
             this.oldStation = [].concat(value)
-            let stationData=this.queryItem.station
-            if(stationData.length==0){
+            let stationData = this.queryItem.station
+            if (stationData.length == 0) {
                 this.personSelect = []
-            }else{
-                var staionStr='';
-                for(var i=0;i<stationData.length;i++){
-                    if(i!=stationData.length-1){
-                        staionStr+=stationData[i]+'-';
-                    }else{
-                        staionStr+=stationData[i];
+            } else {
+                var staionStr = '';
+                for (var i = 0; i < stationData.length; i++) {
+                    if (i != stationData.length - 1) {
+                        staionStr += stationData[i] + '-';
+                    } else {
+                        staionStr += stationData[i];
                     }
                 }
 
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/user/getUserByParentId',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'user/getUserByParentId',
+                    data: {
                         // parentId: daduiData[daduiData.length-1]
-                        unitIdStr:staionStr
+                        unitIdStr: staionStr
                     },
-                    success: function(response){
+                    success: function (response) {
                         console.log(response);
                         condition.personSelect = response.extra.userList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
             }
         },
-        personChange(value){
-            if((value.length!=0 && this.oldPerson.length==0) || (value.length==0 && this.oldPerson.length!=0)){
-                this.queryItem.firstTarget=''
+        personChange (value) {
+            if ((value.length != 0 && this.oldPerson.length == 0) || (value.length == 0 && this.oldPerson.length != 0)) {
+                this.queryItem.firstTarget = ''
             }
             this.oldPerson = [].concat(value)
         },
-        getSecondTarget(){
-            this.secondTargetSelect=[]
-            if(this.queryItem.person!=''){
+        getSecondTarget () {
+            this.secondTargetSelect = []
+            if (this.queryItem.person != '') {
 
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/statisticItem/getSecondItem',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'statisticItem/getSecondItem',
+                    data: {
                         unitLevel: 3,
-                        parentId:this.queryItem.firstTarget
+                        parentId: this.queryItem.firstTarget
                     },
-                    success: function(response){
+                    success: function (response) {
                         condition.secondTargetSelect = response.extra.secondItemList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
@@ -360,18 +360,18 @@ const condition = new Vue({
                 //         {id:16, name:'手机违规使用次数'},
                 //     ]
                 // }
-            }else if(this.queryItem.station!='' && this.queryItem.person==''){
+            } else if (this.queryItem.station != '' && this.queryItem.person == '') {
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/statisticItem/getSecondItem',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'statisticItem/getSecondItem',
+                    data: {
                         unitLevel: 2,
-                        parentId:this.queryItem.firstTarget
+                        parentId: this.queryItem.firstTarget
                     },
-                    success: function(response){
+                    success: function (response) {
                         condition.secondTargetSelect = response.extra.secondItemList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
@@ -413,19 +413,19 @@ const condition = new Vue({
                 //         {id:18, name:'手机违规使用人数'},
                 //     ]
                 // }
-            }else{
+            } else {
 
                 $.ajax({
-                    type:'GET',
-                    url: 'http://localhost:8880/statisticItem/getSecondItem',
-                    data:{
+                    type: 'GET',
+                    url: localStorage.getItem("url") + 'statisticItem/getSecondItem',
+                    data: {
                         unitLevel: 1,
-                        parentId:this.queryItem.firstTarget
+                        parentId: this.queryItem.firstTarget
                     },
-                    success: function(response){
+                    success: function (response) {
                         condition.secondTargetSelect = response.extra.secondItemList
                     },
-                    error: function(response){
+                    error: function (response) {
                         console.log(response);
                     }
                 })
@@ -477,22 +477,22 @@ const condition = new Vue({
 })
 
 //初始化折线图
-function initEcharts(queryItem) {
+function initEcharts (queryItem) {
     // 实例化对象
     var myChart = echarts.init(document.querySelector("#result"));
-    
+
     // 指定配置和数据
     option = {
         color: ['#FF6EB4', '#ffff00', '#7fff00', '#00f2f1', '#FD866A', '#9E87FF', '#58D5FF'],
-        title:{
-            show:true,
-            text:'',
-            textStyle:{
-                color:'#ffffff',
-                fontSize:20
+        title: {
+            show: true,
+            text: '',
+            textStyle: {
+                color: '#ffffff',
+                fontSize: 20
             },
-            left:"7%",
-            top:"3%",
+            left: "7%",
+            top: "3%",
         },
         tooltip: {
             trigger: 'axis',
@@ -504,7 +504,7 @@ function initEcharts(queryItem) {
             // 修饰图例文字的颜色
             textStyle: {
                 color: "#FFFFFF",
-                fontSize:16
+                fontSize: 16
             }
         },
         grid: {
@@ -535,6 +535,7 @@ function initEcharts(queryItem) {
             },
         },
         yAxis: {
+<<<<<<< HEAD
                 name: '平均分',
                 type: "value",
                 // 修饰刻度标签的颜色
@@ -558,7 +559,27 @@ function initEcharts(queryItem) {
                     color: '#275F82' //改变区域颜色
                     }
                     },
+=======
+            name: '平均分',
+            type: "value",
+            // 修饰刻度标签的颜色
+            axisLine: {
+                lineStyle: {
+                    color: "white"
+                }
             },
+            // 修改y轴分割线的颜色
+            splitLine: {
+                lineStyle: {
+                    color: "rgba(255,255,255,0.2)",
+                }
+>>>>>>> f7b4bb867023f3ee3a431e76e585398ec1bb5dde
+            },
+            axisLabel: {
+                fontSize: 15,
+                // formatter: '{value} %'
+            },
+        },
 
         series: []
     };
@@ -575,66 +596,66 @@ function initEcharts(queryItem) {
     option.title.text = title + '---' + yAxisName
     option.xAxis.data = xAxisDate
     option.yAxis.name = yAxisName
-    if(condition.numType==1){
-        option.yAxis.axisLabel={
-            fontSize:15,
+    if (condition.numType == 1) {
+        option.yAxis.axisLabel = {
+            fontSize: 15,
             formatter: '{value} %'
         }
-        
-        
-    }else if(condition.numType==2){
-        option.yAxis.axisLabel={
-            fontSize:15,
-            formatter: function(value,index){
-                var result="";
-                switch(value){
-                    case 2:result="否";break;
-                    case 1:result="是";break;
-                    default:"-";
+
+
+    } else if (condition.numType == 2) {
+        option.yAxis.axisLabel = {
+            fontSize: 15,
+            formatter: function (value, index) {
+                var result = "";
+                switch (value) {
+                    case 2: result = "否"; break;
+                    case 1: result = "是"; break;
+                    default: "-";
                 }
-                
+
                 return result;
             }
         }
-        option.yAxis.max=2
-        option.yAxis.splitNumber =2
-        option.yAxis.min=1
-    }else if(condition.numType==3){
-        option.yAxis.axisLabel={
-            fontSize:15,
-            formatter: function(value,index){
-                var result="";
-                switch(value){
-                    case 1:result="优秀";break;
-                    case 2:result="称职";break;
-                    case 3:result="基本称职";break;
-                    case 4:result="不称职";break;
-                    default:"-";
+        option.yAxis.max = 2
+        option.yAxis.splitNumber = 2
+        option.yAxis.min = 1
+    } else if (condition.numType == 3) {
+        option.yAxis.axisLabel = {
+            fontSize: 15,
+            formatter: function (value, index) {
+                var result = "";
+                switch (value) {
+                    case 1: result = "优秀"; break;
+                    case 2: result = "称职"; break;
+                    case 3: result = "基本称职"; break;
+                    case 4: result = "不称职"; break;
+                    default: "-";
                 }
-                
+
                 return result;
             },
-            rotate:40 
+            rotate: 40
         }
-        option.yAxis.max=4
-        option.yAxis.splitNumber =4
-    }else {
-        option.yAxis.axisLabel={
-            fontSize:15
+        option.yAxis.max = 4
+        option.yAxis.splitNumber = 4
+    } else {
+        option.yAxis.axisLabel = {
+            fontSize: 15
         }
-        
-        
+
+
     }
     option.series = []
-    for(let i=0; i<seriesData.length; i++){
+    for (let i = 0; i < seriesData.length; i++) {
         option.series.push(
             {
                 name: seriesData[i].name,
                 type: "line",
-                lineStyle:{
+                lineStyle: {
                     width: 4
                 },
-                symbolSize: 8,  
+                symbolSize: 8,
                 //设置折线图颜色  
                 // itemStyle : {    
                 //     normal : {    
@@ -662,27 +683,28 @@ function initEcharts(queryItem) {
     });
 }
 
-function getseriesData(queryItem, xAxisDate){
+function getseriesData (queryItem, xAxisDate) {
     let info = getUnit(queryItem)
     let unitFlag = info.flag
     // let unit = info.unit
     let seriesData = []
-    for(let i=0; i<condition.resultList.length;i++){
-        let item = {name:'', data:[]}
-        let resultList=[]
-        for(var key in condition.resultList[i] ){
-            
-            if(condition.numType==1){
-                item.name=key+'(%)';//显示每条线的名称
-            }else if(condition.numType==2){
-                item.name=key+'(1:是;2:否)';//显示每条线的名称
-            }else{
-                item.name=key;//显示每条线的名称
+    for (let i = 0; i < condition.resultList.length; i++) {
+        let item = { name: '', data: [] }
+        let resultList = []
+        for (var key in condition.resultList[i]) {
+
+            if (condition.numType == 1) {
+                item.name = key + '(%)';//显示每条线的名称
+            } else if (condition.numType == 2) {
+                item.name = key + '(1:是;2:否)';//显示每条线的名称
+            } else {
+                item.name = key;//显示每条线的名称
             }
-            resultList=condition.resultList[i][key]
+            resultList = condition.resultList[i][key]
         }
         // item.name = condition.resultList[i].name   //显示每条线的名称
         console.log(resultList[i])
+<<<<<<< HEAD
         for(let j=0; j<xAxisDate.length; j++){
             console.log("resultList[j]:",resultList[j])
             if(condition.numType==0){//整数
@@ -693,32 +715,43 @@ function getseriesData(queryItem, xAxisDate){
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j])
             }else if(condition.numType==4){//小数但不是百分比
                 item.data.push((resultList[j]==undefined||resultList[j]==null)?0:resultList[j].toFixed(2))
+=======
+        for (let j = 0; j < xAxisDate.length; j++) {
+            if (condition.numType == 0) {//整数
+                item.data.push((resultList[j] == undefined || resultList[j] == null) ? 0 : resultList[j])
+            } else if (condition.numType == 1) {//百分比，XX率
+                item.data.push((resultList[j] == undefined || resultList[j] == null) ? 0 : (resultList[j] * 100).toFixed(2))
+            } else if (condition.numType == 2 || condition.numType == 3) {//是否性质的数值或者评价等级
+                item.data.push((resultList[j] == undefined || resultList[j] == null) ? 0 : resultList[j])
+            } else if (condition.numType == 4) {//小数但不是百分比
+                item.data.push((resultList[j] == undefined || resultList[j] == null) ? 0 : resultList[j].toFixed(2))
+>>>>>>> f7b4bb867023f3ee3a431e76e585398ec1bb5dde
             }
-            
+
         }
         seriesData.push(item)
     }
 
-    return {"seriesData": seriesData, "unit": unitFlag}
+    return { "seriesData": seriesData, "unit": unitFlag }
 }
 
-function getUnit(queryItem){
-    if(queryItem.person != ''){
-        return {"flag":5, "unit": queryItem.person}
-    }else if(queryItem.station != ''){
-        return {"flag":4, "unit": queryItem.station}
-    }else if(queryItem.dadui != ''){
-        return {"flag":3, "unit": queryItem.dadui}
-    }else if(queryItem.zhidui != ''){
-        return {"flag":2, "unit": queryItem.zhidui}
-    }else if(queryItem.zongdui){
-        return {"flag":1, "unit": [1]}
-    }else{
-        return {"flag":1, "unit": []}
+function getUnit (queryItem) {
+    if (queryItem.person != '') {
+        return { "flag": 5, "unit": queryItem.person }
+    } else if (queryItem.station != '') {
+        return { "flag": 4, "unit": queryItem.station }
+    } else if (queryItem.dadui != '') {
+        return { "flag": 3, "unit": queryItem.dadui }
+    } else if (queryItem.zhidui != '') {
+        return { "flag": 2, "unit": queryItem.zhidui }
+    } else if (queryItem.zongdui) {
+        return { "flag": 1, "unit": [1] }
+    } else {
+        return { "flag": 1, "unit": [] }
     }
 }
 
-function getyAxisName(queryItem, unit){
+function getyAxisName (queryItem, unit) {
     console.log(unit);
     // let secondTarget = [];
     // if(unit==5){
@@ -788,29 +821,29 @@ function getyAxisName(queryItem, unit){
     //     ]
     // }
 
-    for(let i=0; i<condition.secondTargetSelect.length; i++){
-        if(queryItem.secondTarget == condition.secondTargetSelect[i].id){
+    for (let i = 0; i < condition.secondTargetSelect.length; i++) {
+        if (queryItem.secondTarget == condition.secondTargetSelect[i].id) {
             return condition.secondTargetSelect[i].name
         }
     }
 }
 
-function getTitle(queryItem){
+function getTitle (queryItem) {
     let firstTarget = [
-        {id:1, name:'智慧党建'},
-        {id:2, name:'政治教育'},
-        {id:3, name:'心理测询'},
-        {id:4, name:'全员考核'},
-        {id:5, name:'智慧营区'},
+        { id: 1, name: '智慧党建' },
+        { id: 2, name: '政治教育' },
+        { id: 3, name: '心理测询' },
+        { id: 4, name: '全员考核' },
+        { id: 5, name: '智慧营区' },
     ]
-    for(let i=0; i<firstTarget.length; i++){
-        if(queryItem.firstTarget == firstTarget[i].id){
+    for (let i = 0; i < firstTarget.length; i++) {
+        if (queryItem.firstTarget == firstTarget[i].id) {
             return firstTarget[i].name
         }
     }
 }
 
-function getMonthBetween(start, end){
+function getMonthBetween (start, end) {
     let result = []
     let s = start.split('-')
     let e = end.split('-')
@@ -822,109 +855,109 @@ function getMonthBetween(start, end){
 
     let curr = min
     let str = ""
-    while(curr <= max){
+    while (curr <= max) {
         let month = curr.getMonth()
-        if(month === 0){
-            str = (curr.getFullYear()-1) + '-' + 12
-        }else{
-            str = curr.getFullYear() + '-' + (month<10 ? ('0'+month):month)
+        if (month === 0) {
+            str = (curr.getFullYear() - 1) + '-' + 12
+        } else {
+            str = curr.getFullYear() + '-' + (month < 10 ? ('0' + month) : month)
         }
 
         result.push(str)
-        curr.setMonth(month+1)
+        curr.setMonth(month + 1)
     }
     return result;
 }
 
-function dateToString(date){ 
-    var year = date.getFullYear() 
-    var month =(date.getMonth() + 1).toString()  
-    if (month.length == 1) { 
+function dateToString (date) {
+    var year = date.getFullYear()
+    var month = (date.getMonth() + 1).toString()
+    if (month.length == 1) {
         month = "0" + month;
     }
     var dateTime = year + "-" + month
-    return dateTime; 
+    return dateTime;
 }
 
-function toPercent(point){
-    var str=Number(point*100).toFixed(2);
-    str+="%";
+function toPercent (point) {
+    var str = Number(point * 100).toFixed(2);
+    str += "%";
     return str;
 }
 
 let unitList = [
     [
-        {id:1, name:'湖北总队'}
+        { id: 1, name: '湖北总队' }
     ],
     [
-        {id: 1, name: '武汉'},
-        {id: 2, name: '鄂州'},
-        {id: 3, name: '黄冈'},
-        {id: 4, name: '襄阳'},
-        {id: 5, name: '荆门'},
-        {id: 6, name: '宜昌'},
-        {id: 7, name: '孝感'},
-        {id: 8, name: '荆州'},
+        { id: 1, name: '武汉' },
+        { id: 2, name: '鄂州' },
+        { id: 3, name: '黄冈' },
+        { id: 4, name: '襄阳' },
+        { id: 5, name: '荆门' },
+        { id: 6, name: '宜昌' },
+        { id: 7, name: '孝感' },
+        { id: 8, name: '荆州' },
     ],
     [
-        {id: 1, name: '武昌'},
-        {id: 2, name: '汉阳'}
+        { id: 1, name: '武昌' },
+        { id: 2, name: '汉阳' }
     ],
     [
-        {id: 1, name: '珞珈山'},
-        {id: 2, name: '七里庙'}
+        { id: 1, name: '珞珈山' },
+        { id: 2, name: '七里庙' }
     ],
     [
-        {id: 1, name: '张三'},
-        {id: 2, name: '李四'}
+        { id: 1, name: '张三' },
+        { id: 2, name: '李四' }
     ]
 ]
 
-function getFirstTarget(){
+function getFirstTarget () {
     $.ajax({
-        type:'GET',
-        url: 'http://localhost:8880/statisticItem/getFirstItem',
-        success: function(response){
+        type: 'GET',
+        url: localStorage.getItem("url") + 'statisticItem/getFirstItem',
+        success: function (response) {
             condition.firstTargetSelect = response.extra.firstItemList
         },
-        error: function(response){
+        error: function (response) {
             console.log(response);
         }
     })
 }
 
-function getZhiduiSelect(){
+function getZhiduiSelect () {
     $.ajax({
-        type:'GET',
-        url: 'http://localhost:8880/unit/getZhidui',
-        success: function(response){
+        type: 'GET',
+        url: localStorage.getItem("url") + 'unit/getZhidui',
+        success: function (response) {
             condition.zhiduiSelect = response.extra.zhiduiList
         },
-        error: function(response){
+        error: function (response) {
             console.log(response);
         }
     })
 }
 
-function test(){
+function test () {
     $.ajax({
-        type:'GET',
-        url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+        type: 'GET',
+        url: localStorage.getItem("url") + 'assessPerson/getAssessPersonByUnit',
         traditional: true,
-        data:{
-            unitId:266,
-            month:'2020-09'
+        data: {
+            unitId: 266,
+            month: '2020-09'
         },
-        success: function(response){
+        success: function (response) {
             console.log(response);
         },
-        error: function(response){
+        error: function (response) {
             console.log(response);
         }
     })
 }
 
-window.onload=()=>{
+window.onload = () => {
     // getZhidui();
     getFirstTarget();
     getZhiduiSelect();

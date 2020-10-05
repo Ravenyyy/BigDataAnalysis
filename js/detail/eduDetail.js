@@ -47,8 +47,6 @@ function edu_1 () {
     yAxis: [{
       name: '平均分',
       type: "value",
-      min: 50,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -65,8 +63,6 @@ function edu_1 () {
     {
       name: '参与率',
       type: "value",
-      min: 70,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -339,8 +335,6 @@ function edu_4 () {
     },
     yAxis: [{
       name: '参与率',
-      min: 50,
-      max: 100,
       type: "value",
       // 修饰刻度标签的颜色
       axisLine: {
@@ -543,7 +537,6 @@ function edu_6 () {
     yAxis: [{
       // name: '分数',
       type: "value",
-      min: 50,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -608,7 +601,7 @@ let eduFinishRateList = [];
 function getEduDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'educationUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
@@ -641,10 +634,11 @@ function getEduDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'educationUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response)

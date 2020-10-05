@@ -637,7 +637,7 @@ function assess_4 () {
     xAxis: [{
       type: 'category',
 
-      boundaryGap: false,
+      // boundaryGap: false,
       data: xAxisData,
       axisPointer: {
         type: 'shadow'
@@ -1027,7 +1027,7 @@ function getAssessDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    url: localStorage.getItem("url") + 'assessUnit/getAssessUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1054,7 +1054,7 @@ function getAssessDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+    url: localStorage.getItem("url") + 'assessPerson/getAssessPersonByUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1083,10 +1083,12 @@ function getAssessDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'assessUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
+
     },
     success: function (response) {
       let unitList = response.extra.unitList
