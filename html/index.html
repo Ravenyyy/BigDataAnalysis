@@ -311,7 +311,7 @@
         month: localStorage.getItem("month"),
       },
       success: function (response) {
-        let url = '/static/jx/result.docx'
+        let url = '../static/jx/result.docx'
         link.setAttribute('href', url)
         if (link.download !== undefined) {
           link.download = "月报.docx";

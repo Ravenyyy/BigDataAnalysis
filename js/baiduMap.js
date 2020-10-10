@@ -71,9 +71,9 @@ function initBaiduMap () {
         map.addOverlay(myLabel)
 
 
-        var _id = data[i].stationId;
+        var _id = data[i].id;
         marker.customData = {
-          id: data[i].stationId,
+          id: data[i].id,
           name: data[i].unitName
         }; //自定义参数id
         marker.addEventListener("click", function (e) {
