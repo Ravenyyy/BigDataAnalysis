@@ -41,7 +41,14 @@ function heart_1 () {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     },
     yAxis: [{
@@ -156,7 +163,14 @@ function heart_2 () {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     },
     yAxis: [{
@@ -461,7 +475,14 @@ function heart_5 () {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     },
     yAxis: [{
@@ -534,7 +555,7 @@ function heart_6 () {
       top: "20%",
       left: "7%",
       right: "4%",
-      bottom: "11%",
+      bottom: "15%",
       show: true,
       borderColor: "white",
       containLabel: false
@@ -554,8 +575,16 @@ function heart_6 () {
         }
       },
       axisLabel: {
+        margin: 25,
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     }],
     yAxis: [{
@@ -635,7 +664,6 @@ function heart_6 () {
     }
     ]
   };
-
 
   // 把配置给实例对象
   myChart.setOption(option);

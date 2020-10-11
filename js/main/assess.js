@@ -36,7 +36,14 @@ function assess_1 () {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     },
     yAxis: {

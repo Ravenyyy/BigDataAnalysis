@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../css/modal.css" />
   <link rel="stylesheet" type="text/css" href="../library/iview/iview.css">
   <script type="text/javascript" src="../library/vue/vue.min.js"></script>
-  <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
+  <script type="text/javascript" src="../library/iview/iview.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
       <ul>
         <li><a href="#">报告下载</a></li>
         <li><a href="#">分析研判</a></li>
-        <li><a onclick="back()" href="index.html">返回大队</a></li>
+        <li><a onclick="back()" href="index.html">返回上级</a></li>
       </ul>
     </div>
     <script>
@@ -198,8 +198,10 @@
     getAssessData();
     getHeartData();
     getEduData();
+    getSmartData();
     tb_wn1();
     tb_wn2();
+
 
     $.ajax({
       type: 'GET',

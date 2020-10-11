@@ -438,7 +438,7 @@ function heart_3 () {
       // subtext: '301',
       textStyle: {
         color: '#ffff00',
-        fontSize: 16,
+        fontSize: 14,
         // align: 'center'
       },
       // subtextStyle: {
@@ -459,7 +459,8 @@ function heart_3 () {
     series: [{
       type: 'pie',
       center: ['50%', '50%'],
-      radius: ['60%', '80%'],
+      radius: ['50%', '65%'],
+      startAngle: '45',
       // clockwise: true,
       // avoidLabelOverlap: true,
       hoverOffset: 15,
@@ -476,8 +477,8 @@ function heart_3 () {
             fontWeight: 'bold',
           },
           labelLine: {
-            length: 15,
-            length2: 10,
+            length: 5,
+            length2: 5,
             show: true,
             color: '#00ffff',
 
@@ -528,20 +529,22 @@ function heart_4 () {
       name: "干预情况",
       type: 'pie',
       selectedMode: 'single',
-      radius: [0, '80%'],
+      radius: [0, '70%'],
       label: {
         normal: {
-          position: 'inner',
-          formatter: "{b}: {c}人",
+          position: 'outer',
+          formatter: "{b}: \n   {c}人",
           textStyle: {
             fontSize: 16
           },
         }
       },
       labelLine: {
-        normal: {
-          show: false
-        },
+        length: 5,
+        length2: 5,
+        show: true,
+        color: '#00ffff',
+
       },
       data: [{
         'name': '正在干预',

@@ -42,7 +42,19 @@ function initBaiduMap () {
       localStorage.setItem("baiduMapData", data)
       var map = new BMapGL.Map("map");
       // 创建地图实例
-      var point = new BMapGL.Point(114.322179, 30.534496);
+      var sumX = 0, sumY = 0, count = 0;
+      for(var i = 0; i < data.length; i++){
+        if(data[i].stationX != null && data[i].stationY) {
+          sumX += parseFloat(data[i].stationX);
+          sumY += parseFloat(data[i].stationY);
+          count++;
+        }
+      }
+      if(count != 0){
+        var point = new BMapGL.Point(sumX/count, sumY/count);
+      }else{
+        var point = new BMapGL.Point(114.322179, 30.534496);
+      }
       // 创建点坐标
       map.centerAndZoom(point, 13);
       // 初始化地图，设置中心点坐标和地图级别

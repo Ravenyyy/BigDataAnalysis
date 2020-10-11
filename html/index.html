@@ -23,7 +23,7 @@
       <ul>
         <li><a onclick="downloadReport()">报告下载</a></li>
         <li><a href="analysis.html">分析研判</a></li>
-        <li><a onclick="back()">返回首页</a></li>
+        <li><a onclick="back()">返回上级</a></li>
       </ul>
     </div>
     <script>
@@ -271,14 +271,6 @@
     var data = $('form').serializeArray();
     console.log(data);
     modal.style.display = "none";
-  }
-
-  function toEducation() {
-    window.location = '/edu/education.html'
-  }
-
-  function toAssessment() {
-    window.location = '/assess/assessment.html'
   }
 
   function toDjDetail() {

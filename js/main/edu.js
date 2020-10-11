@@ -21,7 +21,7 @@ function edu_1 () {
       top: "20%",
       left: "8%",
       right: "12%",
-      bottom: "10%",
+      bottom: "17%",
       show: true,
       borderColor: "rgba(255,255,255,0.2)",
       containLabel: false
@@ -41,7 +41,14 @@ function edu_1 () {
       },
       axisLabel: {
         interval: 0,
-        fontSize: 12
+        fontSize: 12,
+        formatter:function(value){
+          var res = value;
+          if(res.length > 3) {
+            res = res.substring(0, 2);
+          }
+          return res.split("").join("\n");
+        }
       },
     },
     yAxis: [{
@@ -105,7 +112,6 @@ function edu_1 () {
   window.addEventListener("resize", function () {
     myChart.resize();
   });
-
 }
 
 function getEduData () {
