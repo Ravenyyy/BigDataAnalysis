@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <h1>湖北消防救援队伍教育管理智慧党建分析</h1>
+    <h1><span id="title"></span>消防救援队伍教育管理智慧党建分析</h1>
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
@@ -30,7 +30,7 @@
 
       <div class="panel">
         <h2>主题党日“十事联动”支部开展情况统计</h2>
-        <div class="table">
+        <div class="table" style="overflow-y: scroll;">
           <table id="dj_1">
             <tr>
               <th class="tb_col">支队</th>
@@ -52,12 +52,12 @@
       </div>
       <div class="panel">
         <h2>组织生活开展情况统计</h2>
-        <div class="table">
+        <div class="table" style="overflow-y: scroll;">
           <table id="dj_2">
             <tr>
               <th class="tb_col">支队</th>
               <th class="tb_col">党委大会</th>
-              <th class="tb_col">支委会</th>
+              <th class="tb_col">支部会</th>
               <th class="tb_col">党小组会</th>
               <th class="tb_col">党课</th>
               <th class="tb_col">党委会</th>
@@ -106,12 +106,8 @@
 <script>
   // onload
   $(function () {
-
+    document.getElementById("title").innerHTML = localStorage.getItem("unitName")
     getDjDetailData()
-    // dj_3();
-    // dj_4();
-    // dj_5();
-    // dj_6();
 
   });
 </script>

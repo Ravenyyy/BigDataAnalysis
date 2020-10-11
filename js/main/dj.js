@@ -872,7 +872,7 @@ let dyNum = [];
 function getPartyBuildData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

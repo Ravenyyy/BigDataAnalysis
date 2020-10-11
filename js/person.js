@@ -515,7 +515,7 @@ function dj_2 () {
       },
       xAxis: {
         type: "category",
-        data: ['党员大会', '支委会', '党小组会', '党课'],
+        data: ['党员大会', '支部会', '党小组会', '党课'],
         // 修饰刻度标签的颜色
         axisLine: {
           lineStyle: {
@@ -680,6 +680,7 @@ function assess_tb () {
   }
   $('#assess_tb').append(tr);
 }
+
 function strToArray (string) {
   var array = [];
   var length = string.length
@@ -691,7 +692,7 @@ function strToArray (string) {
   // console.log(array)
   return array;
 }
-let dictionary = ['', '优秀', '称职', '基本称职', '不称职']
+let dictionary = ['未参评', '优秀', '称职', '基本称职', '不称职']
 let ssld = []
 let zzsh = []
 let level = ''
@@ -704,13 +705,14 @@ let examAverage = ''
 let heartList = []
 let isProblem = ""
 let heartColor = ''
+
 function getDjData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildPerson/getPartyBuildPerson',
+    url: localStorage.getItem("url") + 'partyBuildPerson/getPartyBuildPerson',
     traditional: true,
     data: {
-      uid: localStorage.getItem("unitId"),
+      uid: localStorage.getItem("personId"),
       month: localStorage.getItem("month"),
     },
     success: function (response) {
@@ -743,10 +745,10 @@ function getDjData () {
 function getAssessData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getAssessPerson',
+    url: localStorage.getItem("url") + 'assessPerson/getAssessPerson',
     traditional: true,
     data: {
-      uid: localStorage.getItem("unitId"),
+      uid: localStorage.getItem("personId"),
       month: localStorage.getItem("month"),
     },
     success: function (response) {
@@ -773,10 +775,10 @@ function getAssessData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getPersonWorks',
+    url: localStorage.getItem("url") + 'assessPerson/getPersonWorks',
     traditional: true,
     data: {
-      uid: localStorage.getItem("unitId"),
+      uid: localStorage.getItem("personId"),
       month: localStorage.getItem("month"),
     },
     success: function (response) {
@@ -796,11 +798,11 @@ function getAssessData () {
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getEduPerson',
+    url: localStorage.getItem("url") + 'educationPerson/getEduPerson',
     traditional: true,
     data: {
-      uid: 1,
-      month: '2020-08'
+      uid: localStorage.getItem("personId"),
+      month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)
@@ -840,21 +842,45 @@ function getEduData () {
 function getHeartData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyPerson/getPsyPerson',
+    url: localStorage.getItem("url") + 'psyPerson/getPsyPerson',
     traditional: true,
     data: {
-      uid: localStorage.getItem("unitId"),
+      uid: localStorage.getItem("personId"),
       month: localStorage.getItem("month"),
     },
     success: function (response) {
       console.log(response)
       let person = response.extra.psyPerson;
-      heartList.push(person.irritable * 7 + 3)
-      heartList.push(person.depressive * 7 + 3)
-      heartList.push(person.anxious * 7 + 3)
-      heartList.push(person.hostile * 7 + 3)
-      heartList.push(person.force * 7 + 3)
-      heartList.push(person.other * 7 + 3)
+      if (person.irritable == 1) {
+        heartList.push(person.irritable * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.depressive == 1) {
+        heartList.push(person.depressive * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.anxious == 1) {
+        heartList.push(person.anxious * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.hostile == 1) {
+        heartList.push(person.hostile * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.force == 1) {
+        heartList.push(person.force * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
+      if (person.other == 1) {
+        heartList.push(person.other * 7 + 3)
+      } else {
+        heartList.push(3)
+      }
       if (person.isProblem != undefined && person.isProblem != null && person.isProblem == 1) {
         isProblem = "是"
         heartColor = "#DB7093"

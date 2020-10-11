@@ -58,8 +58,6 @@ function edu_3 () {
     },
     yAxis: [{
       name: '参与率',
-      min: 50,
-      max: 100,
       type: "value",
       // 修饰刻度标签的颜色
       axisLine: {
@@ -174,8 +172,6 @@ function edu_4 () {
     yAxis: [{
       name: '平均分',
       type: "value",
-      min: 50,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -192,8 +188,6 @@ function edu_4 () {
     {
       name: '参与率',
       type: "value",
-      min: 70,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -382,7 +376,6 @@ function edu_6 () {
     yAxis: [{
       // name: '分数',
       type: "value",
-      min: 50,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -445,7 +438,7 @@ let examTop10List = [];
 function getEduStationDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getTop10Person',
+    url: localStorage.getItem("url") + 'educationPerson/getTop10Person',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -462,25 +455,27 @@ function getEduStationDetailData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'educationUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
+
     },
     success: function (response) {
       console.log(response)
       var unitList = response.extra.unitList;
       for (var index in unitList) {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
-        electFinishRateList.push(unitList[index].electFinishRate)
-        bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
-        examFinishRateList.push(unitList[index].examFinishRate)
-        examJoinRateList.push(unitList[index].examJoinRate)
+        electFinishRateList.push(unitList[index].electFinishRate * 100)
+        bixiuFinishRateList.push(unitList[index].bixiuFinishRate * 100)
+        examFinishRateList.push(unitList[index].examFinishRate * 100)
+        examJoinRateList.push(unitList[index].examJoinRate * 100)
         examAverageList.push(unitList[index].examAverage)
-        examPassRateList.push(unitList[index].examPassRate)
-        examGoodRateList.push(unitList[index].examGoodRate)
-        eduJoinRateList.push(unitList[index].eduJoinRate)
-        eduFinishRateList.push(unitList[index].eduFinishRate)
+        examPassRateList.push(unitList[index].examPassRate * 100)
+        examGoodRateList.push(unitList[index].examGoodRate * 100)
+        eduJoinRateList.push(unitList[index].eduJoinRate * 100)
+        eduFinishRateList.push(unitList[index].eduFinishRate * 100)
         appActiveList.push(unitList[index].appActive / unitList[index].total * 100)
         edu_3();
         edu_4();
@@ -512,7 +507,7 @@ function getBoxData () {
   let appActiveRate = 0;
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getEduUnit',
+    url: localStorage.getItem("url") + 'educationUnit/getEduUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -524,8 +519,8 @@ function getBoxData () {
       examAverage = unit.examAverage + '';
       examJoinNum = unit.examJoinNum + '';
       examNotPassNum = unit.examJoinNum - unit.examPassNum + '';
-      appActiveRate = (unit.appActive / unit.total).toFixed(2) * 100 + "%"
-
+      appActiveRate = (unit.appActive / unit.total * 100).toFixed(1) + "%"
+      console.log(appActiveRate)
       var examAverageArray = strToArray(examAverage)
       var examAverageStr = ""
       for (var i = 0; i < examAverage.length; i++) {

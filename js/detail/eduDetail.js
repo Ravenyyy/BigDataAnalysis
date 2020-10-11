@@ -47,8 +47,6 @@ function edu_1 () {
     yAxis: [{
       name: '平均分',
       type: "value",
-      min: 50,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -65,8 +63,6 @@ function edu_1 () {
     {
       name: '参与率',
       type: "value",
-      min: 70,
-      max: 100,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -339,8 +335,6 @@ function edu_4 () {
     },
     yAxis: [{
       name: '参与率',
-      min: 50,
-      max: 100,
       type: "value",
       // 修饰刻度标签的颜色
       axisLine: {
@@ -543,7 +537,6 @@ function edu_6 () {
     yAxis: [{
       // name: '分数',
       type: "value",
-      min: 50,
       // 修饰刻度标签的颜色
       axisLine: {
         lineStyle: {
@@ -608,7 +601,7 @@ let eduFinishRateList = [];
 function getEduDetailData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'educationUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
@@ -620,14 +613,14 @@ function getEduDetailData () {
       console.log(unitList)
       for (var index in unitList) {
         unitNameList.push(unitList[index].unitName)
-        examJoinRateList.push(unitList[index].examJoinRate)
+        examJoinRateList.push(unitList[index].examJoinRate * 100)
         examAverageList.push(unitList[index].examAverage)
-        examPassRateList.push(unitList[index].examPassRate)
-        examGoodRateList.push(unitList[index].examGoodRate)
+        examPassRateList.push(unitList[index].examPassRate * 100)
+        examGoodRateList.push(unitList[index].examGoodRate * 100)
         appActiveList.push((unitList[index].appActive / unitList[index].total).toFixed(2) * 100)
-        bixiuFinishRateList.push(unitList[index].bixiuFinishRate)
-        electFinishRateList.push(unitList[index].electFinishRate)
-        examFinishRateList.push(unitList[index].examFinishRate)
+        bixiuFinishRateList.push(unitList[index].bixiuFinishRate * 100)
+        electFinishRateList.push(unitList[index].electFinishRate * 100)
+        examFinishRateList.push(unitList[index].examFinishRate * 100)
         edu_1();
         edu_2();
         edu_3();
@@ -641,10 +634,11 @@ function getEduDetailData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationUnit/getOneYearList',
+    url: localStorage.getItem("url") + 'educationUnit/getOneYearList',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
+      month: localStorage.getItem("month")
     },
     success: function (response) {
       console.log(response)
@@ -653,8 +647,8 @@ function getEduDetailData () {
         monthList.push(unitList[index].month.substring(5, 7) + '月')
         eduAverageList.push(unitList[index].eduAverage)
         examAverageMonthList.push(unitList[index].examAverage)
-        eduJoinRateList.push(unitList[index].eduJoinRate)
-        eduFinishRateList.push(unitList[index].eduFinishRate)
+        eduJoinRateList.push(unitList[index].eduJoinRate * 100)
+        eduFinishRateList.push(unitList[index].eduFinishRate * 100)
       }
       edu_5();
       edu_6();

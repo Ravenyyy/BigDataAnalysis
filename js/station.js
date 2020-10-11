@@ -1144,6 +1144,7 @@ function assess_2 () {
   personArr.sort(function (a, b) {
     return b.score - a.score
   });
+  console.log(personArr);
   var tr = "";
   var length = personArr.length > 10 ? 10 : personArr.length
   for (var i = 0; i < personArr.length; i++) {
@@ -1154,6 +1155,17 @@ function assess_2 () {
       '</tr>';
   }
   $('#asswss_tb').append(tr);
+  addAssessTableClick("asswss_tb")
+}
+
+function addAssessTableClick (tableName) {
+  $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+    $(tritem).click(function () {
+      localStorage.setItem("personId", personArr[trindex - 1].uid)
+      console.log(localStorage.getItem("personId"));
+      window.location.href = "person.html"
+    })
+  })
 }
 
 // 智慧党建1
@@ -1254,7 +1266,7 @@ function dj_1 () {
 function dj_2 () {
   // 实例化对象
   var myChart = echarts.init(document.querySelector("#dj2"));
-  var xData = ['党员大会', '支委会', '党小组会', '党课'];
+  var xData = ['党员大会', '支部会', '党小组会', '党课'];
   var yData = zzsh;
 
   function getValArr (arr, key) {
@@ -1375,139 +1387,139 @@ function dj_2 () {
 }
 
 
-function tb_wn1 () {
-  var dataArray = [{
-    name: "翁超",
-    time: "2020-8-17 09:10",
-    type: "政治教育",
-    content: "考试不及格",
-    flag: "最新预警"
-  },
-  {
-    name: "刘彦淇",
-    time: "2020-8-16 14:00",
-    type: "政治教育",
-    content: "未参加学习",
-    flag: "最新预警"
-  },
-  {
-    name: "王功行",
-    time: "2020-8-15 12:20",
-    type: "智慧党建",
-    content: "未参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    name: "文军",
-    time: "2020-8-15 10:00",
-    type: "心理测询",
-    content: "心理测询异常",
-    flag: "最新预警"
-  },
-  {
-    name: "赵章全",
-    time: "2020-8-12 09:00",
-    type: "全员考核",
-    content: "本月被评定为不称职",
-    flag: "最新预警"
-  },
-  {
-    name: "王锦巍",
-    time: "2020-8-09 13:00",
-    type: "心理测询",
-    content: "睡眠质量一直不良",
-    flag: "最新预警"
-  },
-  {
-    name: "李玉潇",
-    time: "2020-8-09 15:00",
-    type: "全员考核",
-    content: "本月训练不合格",
-    flag: "最新预警"
-  }
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb1').append(tr);
-}
+// function tb_wn1() {
+//   var dataArray = [{
+//       name: "翁超",
+//       time: "2020-8-17 09:10",
+//       type: "政治教育",
+//       content: "考试不及格",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "刘彦淇",
+//       time: "2020-8-16 14:00",
+//       type: "政治教育",
+//       content: "未参加学习",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "王功行",
+//       time: "2020-8-15 12:20",
+//       type: "智慧党建",
+//       content: "未参加主题党日活动",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "文军",
+//       time: "2020-8-15 10:00",
+//       type: "心理测询",
+//       content: "心理测询异常",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "赵章全",
+//       time: "2020-8-12 09:00",
+//       type: "全员考核",
+//       content: "本月被评定为不称职",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "王锦巍",
+//       time: "2020-8-09 13:00",
+//       type: "心理测询",
+//       content: "睡眠质量一直不良",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "李玉潇",
+//       time: "2020-8-09 15:00",
+//       type: "全员考核",
+//       content: "本月训练不合格",
+//       flag: "最新预警"
+//     }
+//   ];
+//   var tr = "";
+//   for (var i = 0; i < dataArray.length; i++) {
+//     tr = tr + '<tr>' +
+//       "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+//       "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+//       "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+//       "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+//       '</tr>';
+//   }
+//   $('#wn_tb1').append(tr);
+// }
 
-function tb_wn2 () {
-  var dataArray = [{
-    name: "史意芳",
-    time: "2020-8-17 10:00",
-    type: "心理测询",
-    content: "心理测询异常",
-    flag: "最新预警"
-  },
-  {
-    name: "潘栋",
-    time: "2020-8-17 09:10",
-    type: "政治教育",
-    content: "考试不及格",
-    flag: "最新预警"
-  },
-  {
-    name: "余峰",
-    time: "2020-8-16 08:00",
-    type: "智慧党建",
-    content: "未参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    name: "曹雷",
-    time: "2020-8-15 13:00",
-    type: "心理测询",
-    content: "睡眠质量一直不良",
-    flag: "最新预警"
-  },
-  {
-    name: "何予栋",
-    time: "2020-8-15 14:00",
-    type: "政治教育",
-    content: "本月还未参加学习",
-    flag: "最新预警"
-  },
-  {
-    name: "孙小康",
-    time: "2020-8-13 08:00",
-    type: "全员考核",
-    content: "未参加全员考核",
-    flag: "最新预警"
-  },
-  {
-    name: "谌基海",
-    time: "2020-8-12 09:00",
-    type: "全员考核",
-    content: "本月被评定为不称职",
-    flag: "最新预警"
-  },
-  {
-    name: "张云",
-    time: "2020-8-09 15:00",
-    type: "全员考核",
-    content: "本月训练不合格",
-    flag: "最新预警"
-  },
+// function tb_wn2() {
+//   var dataArray = [{
+//       name: "史意芳",
+//       time: "2020-8-17 10:00",
+//       type: "心理测询",
+//       content: "心理测询异常",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "潘栋",
+//       time: "2020-8-17 09:10",
+//       type: "政治教育",
+//       content: "考试不及格",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "余峰",
+//       time: "2020-8-16 08:00",
+//       type: "智慧党建",
+//       content: "未参加主题党日活动",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "曹雷",
+//       time: "2020-8-15 13:00",
+//       type: "心理测询",
+//       content: "睡眠质量一直不良",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "何予栋",
+//       time: "2020-8-15 14:00",
+//       type: "政治教育",
+//       content: "本月还未参加学习",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "孙小康",
+//       time: "2020-8-13 08:00",
+//       type: "全员考核",
+//       content: "未参加全员考核",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "谌基海",
+//       time: "2020-8-12 09:00",
+//       type: "全员考核",
+//       content: "本月被评定为不称职",
+//       flag: "最新预警"
+//     },
+//     {
+//       name: "张云",
+//       time: "2020-8-09 15:00",
+//       type: "全员考核",
+//       content: "本月训练不合格",
+//       flag: "最新预警"
+//     },
 
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb2').append(tr);
-}
+//   ];
+//   var tr = "";
+//   for (var i = 0; i < dataArray.length; i++) {
+//     tr = tr + '<tr>' +
+//       "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+//       "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+//       "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+//       "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+//       '</tr>';
+//   }
+//   $('#wn_tb2').append(tr);
+// }
 
 
 
@@ -1524,7 +1536,7 @@ let personArr = []
 function getDjData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/partyBuildUnit/getPartyBuildUnit',
+    url: localStorage.getItem("url") + 'partyBuildUnit/getPartyBuildUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1558,10 +1570,137 @@ function getDjData () {
   })
 }
 
+function tb_wn1 () {
+  var dataArray = [{}]
+  $.ajax({
+    type: 'GET',
+    url: localStorage.getItem("url") + 'warning/getWarningByStation',
+    data: {
+      id: localStorage.getItem("unitId"),
+      resolutionType: 0
+    },
+    success: function (response) {
+      dataArray = response.extra.warningList
+      console.log(dataArray)
+      var tr = "";
+      for (var i = 0; i < dataArray.length; i++) {
+        var date = new Date(dataArray[i].createTime)
+        var Y = date.getFullYear() + '-'
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+        var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+        console.log(Y + M + D + h + m + s)
+        tr = tr + '<tr>' +
+          "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+          "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+          "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+          "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+          '</tr>';
+      }
+      $('#wn_tb1').append(tr);
+      addTableClick("wn_tb1", dataArray);
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
+function tb_wn2 () {
+  var dataArray = [{}]
+  $.ajax({
+    type: 'GET',
+    url: localStorage.getItem("url") + 'warning/getWarningByStation',
+    data: {
+      id: localStorage.getItem("unitId"),
+      resolutionType: 1
+    },
+    success: function (response) {
+      dataArray = response.extra.warningList
+      console.log(dataArray)
+      var tr = "";
+      for (var i = 0; i < dataArray.length; i++) {
+        var date = new Date(dataArray[i].createTime)
+        var Y = date.getFullYear() + '-'
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+        var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+        console.log(Y + M + D + h + m + s)
+        tr = tr + '<tr>' +
+          "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+          "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+          "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+          "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+          '</tr>';
+      }
+      $('#wn_tb2').append(tr);
+      addTableClick("wn_tb2", dataArray);
+
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
+function addTableClick (tableName, dataArray) {
+  $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
+
+    $(tritem).click(function () {
+
+      if (tableName == "wn_tb1") {
+        $(".modal-body > p").text("最新待处理风险预警信息")
+      } else {
+        $(".modal-body > p").text("正在处理风险预警信息")
+      }
+      document.getElementById("simpleModal").style.display = "block";
+      var tdContent = dataArray[trindex - 1]
+      localStorage.setItem('warningUser', tdContent.id)
+      console.log(tdContent)
+      $('#modal-ul').find("li").each(function (index, item) {
+        console.log(item);
+        if (index == 0) {
+          $(item).text("来源：" + tdContent.warning)
+        } else if (index == 1) {
+          $(item).text("详情：" + tdContent.content)
+        } else if (index == 2) {
+          $(item).text("状态：" + tdContent.typeName)
+        }
+      })
+    })
+  })
+}
+
+function submitData (resolution, resolutionType) {
+  var userId = localStorage.getItem('warningUser');
+  console.log(userId)
+  console.log(resolutionType)
+  console.log(resolution)
+  $.ajax({
+    type: 'PUT',
+    url: localStorage.getItem("url") + 'warning/updateWarningType',
+    data: {
+      id: userId,
+      resolutionType: resolutionType,
+      resolution: resolution,
+    },
+    success: function (response) {
+      location.reload();
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
 function getAssessData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    url: localStorage.getItem("url") + 'assessUnit/getAssessUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1584,7 +1723,7 @@ function getAssessData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessPerson/getAssessPersonByUnit',
+    url: localStorage.getItem("url") + 'assessPerson/getAssessPersonByUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1621,10 +1760,11 @@ let force = 0;
 let other = 0;
 let onTreat = 0;
 let hasTreat = 0;
+
 function getHeartData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/psyUnit/getPsyUnit',
+    url: localStorage.getItem("url") + 'psyUnit/getPsyUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1659,10 +1799,11 @@ let notTakeExamNum = 0;
 let notTakeClass = 0;
 let allClass = 0;
 let isNowClass = 0;
+
 function getEduData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getAverageByLevel',
+    url: localStorage.getItem("url") + 'educationPerson/getAverageByLevel',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1679,7 +1820,7 @@ function getEduData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getTakeExamNum',
+    url: localStorage.getItem("url") + 'educationPerson/getTakeExamNum',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -1698,7 +1839,7 @@ function getEduData () {
   })
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/educationPerson/getClassNum',
+    url: localStorage.getItem("url") + 'educationPerson/getClassNum',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),

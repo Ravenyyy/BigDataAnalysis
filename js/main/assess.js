@@ -231,7 +231,7 @@ let noPassArr = [];
 function getAssessData () {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getAssessUnit',
+    url: localStorage.getItem("url") + 'assessUnit/getAssessUnit',
     traditional: true,
     data: {
       unitId: localStorage.getItem("unitId"),
@@ -248,7 +248,7 @@ function getAssessData () {
 
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:8880/assessUnit/getUnitByParent',
+    url: localStorage.getItem("url") + 'assessUnit/getUnitByParent',
     traditional: true,
     data: {
       parentId: localStorage.getItem("unitId"),
