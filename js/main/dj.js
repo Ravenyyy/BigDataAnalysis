@@ -774,7 +774,7 @@ function dj_4 () {
       name: '',
       type: 'pie',
       clockWise: false,
-      startAngle: '45',
+      startAngle: '145',
       center: ['50%', '40%'],
       radius: ['65%', '70%'],
       hoverAnimation: false,
@@ -796,8 +796,8 @@ function dj_4 () {
             fontWeight: 'bold',
           },
           labelLine: {
-            length: 10,
-            length2: 15,
+            length: 5,
+            length2: 5,
             show: true,
             color: '#00ffff',
 
