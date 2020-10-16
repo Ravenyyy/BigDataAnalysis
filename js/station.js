@@ -782,268 +782,123 @@ function smart () {
   // 基于准备好的dom，初始化echarts实例
   var myChart = echarts.init(document.getElementById('smart'));
 
-  var getData = [{
-    day: "2020-08-01",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-02",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-03",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-04",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-05",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-06",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-07",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-08",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-09",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-10",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-11",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-12",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-13",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-14",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-15",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-16",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-17",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-18",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  {
-    day: "2020-08-19",
-    sleep: 4,
-    train: 6,
-    drive: 9,
-    phone: 12
-  },
-  {
-    day: "2020-08-20",
-    sleep: 7,
-    train: 3,
-    drive: 8,
-    phone: 10
-  },
-  {
-    day: "2020-08-21",
-    sleep: 9,
-    train: 11,
-    drive: 13,
-    phone: 25
-  },
-  // {"day":"2020-08-22","count":2},{"day":"2020-08-23","count":77},{"day":"2020-08-24","count":77},
-  // {"day":"2020-08-25","count":89},{"day":"2020-08-26","count":34},{"day":"2020-08-27","count":22},
-  // {"day":"2020-08-28","count":26},{"day":"2020-08-29","count":36},{"day":"2020-08-30","count":76},
-  {
-    day: "2020-08-31",
-    sleep: 8,
-    train: 7,
-    drive: 9,
-    phone: 17
-  }
-  ]
-  var data1 = [];
-  for (var i = 0; i < getData.length; i++) {
-    var sum = getData[i].sleep + getData[i].train + getData[i].drive + getData[i].phone
-    data1.push([getData[i].day, sum])
-  }
-
-  var color = ["#00f2f1", "#ed3f35", "#BBFFFF", "#4EEE94"]
-
-  var option = {
-    tooltip: {
-      trigger: 'item',
-      formatter: function (params, ticket, callback) {
-        // console.log(params);
-        var htmlStr = '';
-        var seriesName = params.seriesName; //图例名称    
-        htmlStr += seriesName + '<br/>'; //x轴的名称
-        // console.log(getData);
-
-        for (var j = 0; j < 4; j++) {
-          var sname = ''
-          var svalue = ''
-          if (j == 0) {
-            sname = '睡眠质量不良'
-            svalue = getData[j].sleep
-          } else if (j == 1) {
-            sname = '训练不合格'
-            svalue = getData[j].train
-          } else if (j == 2) {
-            sname = '违规驾驶'
-            svalue = getData[j].drive
-          } else if (j == 3) {
-            sname = '手机违规使用'
-            svalue = getData[j].phone
-          }
-
-          htmlStr += '<div>';
-          htmlStr += '<span style="margin-right:5px;display:inline-block;width:10px;height:10px;border-radius:5px;background-color:' + color[j] + ';"></span>';
-          htmlStr += sname + '：' + svalue
-          htmlStr += '</div>'
-        }
-        return htmlStr;
-      }
+  var myColor = ['#00FFFF', '#00FFFF', '#00FFFF', '#00FFFF', '#00FFFF'];
+  option = {
+    grid: {
+      left: '16%',
+      top: '20%',
+      right: '0%',
+      bottom: '8%',
+      containLabel: true
     },
-    calendar: [{
-      top: "10%",
-      left: 'center',
-      range: '2020-08',
-      orient: 'vertical',
-      cellSize: [50, 36],
-      splitLine: {
-        show: false,
-        lineStyle: {
-          color: '#ffffff',
-          width: 3,
-          type: 'solid'
-        }
-      },
-      yearLabel: {
-        show: false
-      },
-      monthLabel: {
-        show: false
-      },
-      dayLabel: {
-        firstDay: 1,
-        margin: 8,
-        nameMap: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+    xAxis: [{
+      show: false,
+    }],
+    yAxis: [{
+      axisTick: 'none',
+      axisLine: 'none',
+      offset: '27',
+      axisLabel: {
         textStyle: {
-          color: '#ffffff'
+          color: '#ffffff',
+          fontSize: '18',
         }
       },
-      itemStyle: {
-        color: "rgba(0, 0, 0, 0)",
-        borderColor: "rgba(255, 255, 255, 1)",
-        borderWidth: 1
-      }
+      data: ['手机违规使用人数',
+        '违规驾驶人数',
+        '训练不合格人数',
+        '睡眠质量不良人数'
+      ]
+    }, {
+      axisTick: 'none',
+      axisLine: 'none',
+      axisLabel: {
+        textStyle: {
+          color: '#ffffff',
+          fontSize: '16',
+        }
+      },
+      data: ['114', '145', '101', '70']
+    }, {
+      name: '',
+      nameGap: '50',
+      nameTextStyle: {
+        color: '#ffffff',
+        fontSize: '16',
+      },
+      axisLine: {
+        lineStyle: {
+          color: 'rgba(0,0,0,0)'
+        }
+      },
+      data: [],
     }],
     series: [{
-      name: '违规人员统计',
-      type: 'effectScatter',
-      coordinateSystem: 'calendar',
-      data: data1,
-      symbolSize: function (val) {
-        val = val[1] / 7;
-        if (val != 0) {
-          val = val < 5 ? 5 : Math.min(val, 9);
-        }
-        return val;
-      },
+      name: '条',
+      type: 'bar',
+      yAxisIndex: 0,
+      data: ['114', '145', '101', '70'],
+      barWidth: 8,
       itemStyle: {
         normal: {
-          color: '#FA8072'
+          color: function (params) {
+            var num = myColor.length;
+            return myColor[params.dataIndex % num]
+          },
         }
       },
-      label: {
-        show: true,
-        formatter (params) {
-          return params.value[0].split("-")[2]
+      z: 2
+    }, {
+      name: '白框',
+      type: 'bar',
+      yAxisIndex: 1,
+      barGap: '-100%',
+      data: [149, 149, 149, 149],
+      barWidth: 12,
+      itemStyle: {
+        normal: {
+          color: '#0e2147',
+          barBorderRadius: 5,
+        }
+      },
+      z: 1
+    }, {
+      name: '外框',
+      type: 'bar',
+      yAxisIndex: 2,
+      barGap: '-100%',
+      data: [150, 150, 150, 150],
+      barWidth: 18,
+      itemStyle: {
+        normal: {
+          color: function (params) {
+            var num = myColor.length;
+            return myColor[params.dataIndex % num]
+          },
+          barBorderRadius: 5,
+        }
+      },
+      z: 0
+    },
+      {
+        name: '外圆',
+        type: 'scatter',
+        hoverAnimation: false,
+        data: [0, 0, 0, 0],
+        yAxisIndex: 2,
+        symbolSize: 26,
+        itemStyle: {
+          normal: {
+            color: function (params) {
+              var num = myColor.length;
+              return myColor[params.dataIndex % num]
+            },
+            opacity: 1,
+          }
         },
-        offset: [11, -11],
-        color: '#FFFFFF'
+        z: 2
       }
-    }]
-
+    ]
   };
   // 使用刚指定的配置项和数据显示图表。
   myChart.setOption(option);
@@ -1051,6 +906,7 @@ function smart () {
     myChart.resize();
   });
 }
+
 
 // 全员考核
 function assess_1 () {

@@ -97,6 +97,7 @@ function edu_1 () {
       type: "line",
       // 是否让线条圆滑显示
       smooth: true,
+      yAxisIndex: 1,
       data: yData1
     },
     {
