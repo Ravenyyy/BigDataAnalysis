@@ -573,101 +573,173 @@ function dj_2 () {
 }
 
 function tb_wn1 () {
-  var dataArray = [{
-    time: "2020-8-17 09:10",
-    type: "政治教育",
-    content: "考试不及格",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-16 14:00",
-    type: "政治教育",
-    content: "未参加学习",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-16 08:00",
-    type: "智慧党建",
-    content: "未参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 12:20",
-    type: "智慧党建",
-    content: "参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 10:00",
-    type: "心理测询",
-    content: "心理测询异常",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 12:20",
-    type: "智慧党建",
-    content: "参加主题党日活动",
-    flag: "最新预警"
-  },
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb1').append(tr);
+  var dataArray = [{}]
+    $.ajax({
+        type: 'GET',
+        url: localStorage.getItem("url") + 'warning/getWarningByPerson',
+        data: {
+            id: localStorage.getItem("personId"),
+            resolutionType: 0
+        },
+        success: function (response) {
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            for (var i = 0; i < dataArray.length; i++) {
+                var date = new Date(dataArray[i].createTime)
+                var Y = date.getFullYear() + '-'
+                var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+                var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+                var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+                var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+                var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+                console.log(Y + M + D + h + m + s)
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb1').append(tr);
+
+            addTableClick("wn_tb1", dataArray);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    })
+  // var dataArray = [{
+  //   time: "2020-8-17 09:10",
+  //   type: "政治教育",
+  //   content: "考试不及格",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-16 14:00",
+  //   type: "政治教育",
+  //   content: "未参加学习",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-16 08:00",
+  //   type: "智慧党建",
+  //   content: "未参加主题党日活动",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 12:20",
+  //   type: "智慧党建",
+  //   content: "参加主题党日活动",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 10:00",
+  //   type: "心理测询",
+  //   content: "心理测询异常",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 12:20",
+  //   type: "智慧党建",
+  //   content: "参加主题党日活动",
+  //   flag: "最新预警"
+  // },
+  // ];
+  // var tr = "";
+  // for (var i = 0; i < dataArray.length; i++) {
+  //   tr = tr + '<tr>' +
+  //     "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+  //     "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+  //     "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+  //     '</tr>';
+  // }
+  // $('#wn_tb1').append(tr);
 }
 
 function tb_wn2 () {
-  var dataArray = [{
-    time: "2020-8-17 10:00",
-    type: "心理测询",
-    content: "心理测询异常",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-16 08:00",
-    type: "智慧党建",
-    content: "未参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 13:00",
-    type: "心理测询",
-    content: "睡眠质量一直不良",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 14:00",
-    type: "政治教育",
-    content: "未参加学习",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-16 08:00",
-    type: "智慧党建",
-    content: "未参加主题党日活动",
-    flag: "最新预警"
-  },
-  {
-    time: "2020-8-15 10:00",
-    type: "心理测询",
-    content: "心理测询异常",
-    flag: "最新预警"
-  }
-  ];
-  var tr = "";
-  for (var i = 0; i < dataArray.length; i++) {
-    tr = tr + '<tr>' +
-      "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
-      "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
-      "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
-      '</tr>';
-  }
-  $('#wn_tb2').append(tr);
+  var dataArray = [{}];
+    $.ajax({
+        type: 'GET',
+        url: localStorage.getItem("url") + 'warning/getWarningByPerson',
+        data: {
+            id: localStorage.getItem("personId"),
+            resolutionType: 1
+        },
+        success: function (response) {
+            dataArray = response.extra.warningList
+            console.log(dataArray)
+            var tr = "";
+            console.log(dataArray.length)
+            for (var i = 0; i < dataArray.length; i++) {
+                var date = new Date(dataArray[i].createTime)
+                var Y = date.getFullYear() + '-'
+                var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+                var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+                var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+                var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+                var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+                tr = tr + '<tr>' +
+                    "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+                    "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+                    "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+                    "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+                    '</tr>';
+            }
+            $('#wn_tb2').append(tr);
+
+            addTableClick("wn_tb2", dataArray);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    })
+  // var dataArray = [{
+  //   time: "2020-8-17 10:00",
+  //   type: "心理测询",
+  //   content: "心理测询异常",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-16 08:00",
+  //   type: "智慧党建",
+  //   content: "未参加主题党日活动",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 13:00",
+  //   type: "心理测询",
+  //   content: "睡眠质量一直不良",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 14:00",
+  //   type: "政治教育",
+  //   content: "未参加学习",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-16 08:00",
+  //   type: "智慧党建",
+  //   content: "未参加主题党日活动",
+  //   flag: "最新预警"
+  // },
+  // {
+  //   time: "2020-8-15 10:00",
+  //   type: "心理测询",
+  //   content: "心理测询异常",
+  //   flag: "最新预警"
+  // }
+  // ];
+  // var tr = "";
+  // for (var i = 0; i < dataArray.length; i++) {
+  //   tr = tr + '<tr>' +
+  //     "<td class=\"tb_time\">" + dataArray[i].time + "</td>" +
+  //     "<td class=\"tb_type\">" + dataArray[i].type + "</td>" +
+  //     "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+  //     '</tr>';
+  // }
+  // $('#wn_tb2').append(tr);
 }
 
 function assess_tb () {
