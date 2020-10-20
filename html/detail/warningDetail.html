@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../../css/detail.css" />
+  <link rel="stylesheet" type="text/css" href="../../library/iview/iview.css">
+  <script type="text/javascript" src="../../library/vue/vue.min.js"></script>
+  <script type="text/javascript" src="../../library/iview/iview.min.js.map"></script>
+</head>
+
+<body>
+  <header>
+    <h1><span id="title"></span>消防救援队伍教育管理预警分析</h1>
+    <div class="showTime" id="showTime"></div>
+    <div class="bnt">
+      <ul>
+        <li><a href="#">报告下载</a></li>
+        <li><a href="#">分析研判</a></li>
+        <li><a href="../index.html">返回上级</a></li>
+      </ul>
+    </div>
+    <script>
+    </script>
+  </header>
+  <section class="mainbox">
+    <div class="column">
+      <div class="double-panel">
+        <h2>待处理风险预警信息</h2>
+        <div class="table" style="overflow-y: scroll;">
+          <table id="wn_tb1">
+            <tr>
+                <th class="tb_zhidui">支队</th>
+                <th class="tb_time">时间</th>
+                <th class="tb_type">类型</th>
+                <th class="tb_content">内容</th>
+            </tr>
+          </table>
+          <div class="panel-footer"></div>
+        </div>
+        <!-- <div class="panel-footer"></div> -->
+      </div>
+    </div>
+    <div class="column">
+      <div class="double-panel">
+        <h2>正在处理风险预警信息</h2>
+        <div class="table" style="overflow-y: scroll;">
+          <table id="wn_tb2">
+            <tr>
+              <th class="tb_zhidui">支队</th>
+              <th class="tb_time">时间</th>
+              <th class="tb_type">类型</th>
+              <th class="tb_content">内容</th>
+            </tr>
+          </table>
+          <div class="panel-footer"></div>
+        </div>
+    </div>
+    <div class="column">
+      <div class="double-panel">
+        <h2>完成处理风险预警信息</h2>
+        <div class="table" style="overflow-y: scroll;">
+          <table id="wn_tb3">
+            <tr>
+                <th class="tb_zhidui">支队</th>
+                <th class="tb_time">时间</th>
+                <th class="tb_type">类型</th>
+                <th class="tb_content">内容</th>
+            </tr>
+          </table>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>预 警 信 息 查 看</h2>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.3rem; text-align: center;">最新风险预警信息</p>
+        <ul id="modal-ul">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <!-- <form>
+          处理状态:&nbsp;<input type="radio" name="state" value="0">待处理&nbsp;
+          <input type="radio" name="state" value="3">交由下级督办<br>
+        </form> -->
+        <!-- <div class="handle">
+          <button onclick="submit()">保存</button>
+          <button onclick="closeModal()">关闭</button>
+        </div> -->
+      </div>
+      <!-- <div class="modal-footer">
+            <h3>弹框底部</h3>
+        </div> -->
+    </div>
+  </div>
+</body>
+<script src="../../js/flexible.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script src="../../js/detail/warningDetail.js"></script>
+<script src="../../js/main/date.js"></script>
+
+<script>
+  // onload
+  $(function () {
+    document.getElementById("title").innerHTML = localStorage.getItem("unitName")
+    tb_wn1();
+    tb_wn2();
+    tb_wn3();
+  });
+</script>
+
+</html>
