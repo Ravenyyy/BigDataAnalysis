@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <link rel="stylesheet" href="../../css/warning.css" />
+  <link rel="stylesheet" href="../../css/modal.css" />
   <link rel="stylesheet" type="text/css" href="../../library/iview/iview.css">
   <script type="text/javascript" src="../../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../../library/iview/iview.min.js.map"></script>
@@ -27,7 +28,7 @@
   </header>
   <section class="mainbox">
     <div class="column">
-      <div class="double-panel">
+      <div class="panel">
         <h2>待处理风险预警信息</h2>
         <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb1">
@@ -44,7 +45,7 @@
       </div>
     </div>
     <div class="column">
-      <div class="double-panel">
+      <div class="panel">
         <h2>正在处理风险预警信息</h2>
         <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb2">
@@ -57,9 +58,10 @@
           </table>
           <div class="panel-footer"></div>
         </div>
+      </div>
     </div>
     <div class="column">
-      <div class="double-panel">
+      <div class="panel">
         <h2>完成处理风险预警信息</h2>
         <div class="table" style="overflow-y: scroll;">
           <table id="wn_tb3">
@@ -117,6 +119,38 @@
     tb_wn2();
     tb_wn3();
   });
+
+  // 获取弹窗元素
+  var modal = document.getElementById("simpleModal");
+
+  // 获取关闭弹窗按钮元素
+  var closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+  // 监听关闭弹窗事件
+  closeBtn.addEventListener("click", closeModal);
+
+  // 监听window关闭弹窗事件
+  window.addEventListener("click", outsideClick);
+
+  // 关闭弹框事件
+  function closeModal() {
+    // $('form')[0].reset();
+    modal.style.display = "none";
+  }
+
+  // outsideClick
+  function outsideClick(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  function submit() {
+    var data = $('form').serializeArray();
+    console.log(data);
+    modal.style.display = "none";
+  }
+
 </script>
 
 </html>

@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="../../css/detail.css" />
+  <link rel="stylesheet" href="../../css/warning.css" />
+  <link rel="stylesheet" href="../../css/modal.css" />
   <link rel="stylesheet" type="text/css" href="../../library/iview/iview.css">
   <script type="text/javascript" src="../../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../../library/iview/iview.min.js.map"></script>
@@ -19,7 +20,7 @@
       <ul>
         <li><a href="#">报告下载</a></li>
         <li><a href="#">分析研判</a></li>
-        <li><a href="../index.html">返回上级</a></li>
+        <li><a href="../station.html">返回上级</a></li>
       </ul>
     </div>
     <script>
@@ -58,8 +59,8 @@
           </table>
           <div class="panel-footer"></div>
         </div>
+      </div>
     </div>
-
     <div class="column">
       <div class="panel">
         <h2>完成处理风险预警信息</h2>
@@ -77,6 +78,38 @@
       </div>
     </div>
   </section>
+  <div id="simpleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="closeBtn">&times;</span>
+        <h2>预 警 信 息 处 理</h2>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.3rem; text-align: center;">最新风险预警信息</p>
+        <ul id="modal-ul">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <form>
+          <label>处理意见:</label>&nbsp;&nbsp;
+          <textarea name="opinion"></textarea>
+          <br><br>
+          处理状态:&nbsp;&nbsp;
+          <input type="radio" name="state" value="0">待处理&nbsp;
+          <input type="radio" name="state" value="1">正在处理&nbsp;
+          <input type="radio" name="state" value="2">处理完成&nbsp;
+        </form>
+        <div class="handle">
+          <button onclick="submit()">保存</button>
+          <button onclick="closeModal()">关闭</button>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+            <h3>弹框底部</h3>
+        </div> -->
+    </div>
+  </div>
 </body>
 <script src="../../js/flexible.js"></script>
 <script src="../../js/jquery.js"></script>
@@ -92,6 +125,49 @@
     tb_wn2();
     tb_wn3();
   });
+
+    // 获取弹窗元素
+    var modal = document.getElementById("simpleModal");
+
+// 获取关闭弹窗按钮元素
+var closeBtn = document.getElementsByClassName("closeBtn")[0];
+
+// 监听关闭弹窗事件
+closeBtn.addEventListener("click", closeModal);
+
+// 监听window关闭弹窗事件
+window.addEventListener("click", outsideClick);
+
+// 关闭弹框事件
+function closeModal() {
+  // $('form')[0].reset();
+  modal.style.display = "none";
+}
+
+// outsideClick
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function submit() {
+    var data = $('form').serializeArray();
+    console.log(data);
+    var opinion = "";
+    var type = 0;
+    $.each(data, function (i, field) {
+      if (field.name == "opinion") {
+        opinion = field.value;
+      }
+      if (field.name == "state") {
+        type = field.value;
+      }
+      console.log(field.name + ":" + field.value);
+    });
+    submitData(opinion, type);
+    modal.style.display = "none";
+  }
 </script>
 
 </html>
