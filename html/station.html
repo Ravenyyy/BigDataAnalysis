@@ -11,32 +11,6 @@
   <script type="text/javascript" src="../library/vue/vue.min.js"></script>
   <script type="text/javascript" src="../library/iview/iview.min.js.map"></script>
 </head>
-<style>
-  #mb {
-    display: none;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    *position: absolute;
-    *height: 1380px;
-    background: black;
-    top: 0;
-    left: 0;
-    opacity: 0.6;
-    text-align:center;
-    z-index: 9999;
-  }
-
-  #loading{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10000;
-    font-size: 14px;
-    color: white;
-  }
-
-</style>
 
 <body>
   <header>
@@ -168,10 +142,36 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1">
-        <h2 onclick="toSmartDetail()">智慧队站</h2>
-        <div class="chart" id="smart"></div>
-        <div class="panel-footer"></div>
+      <div class="panel" >
+        <h2> 关键词</h2>
+        <div class="half-table">
+          <h3>常态关键词</h3>
+          <div style="overflow-y:scroll;height: 2.65rem">
+            <table id="hots_tb" >
+              <tr>
+                <th >排名</th>
+                <th >敏感词</th>
+                <th >次数</th>
+                <th >人数</th>
+              </tr>
+            </table>
+          </div>>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="half-table" style="margin-left: 1%">
+          <h3>极端敏感词</h3>
+          <div style="overflow-y:scroll;height: 2.65rem">
+            <table id="sens_tb" >
+              <tr>
+                <th >排名</th>
+                <th >敏感词</th>
+                <th >次数</th>
+                <th >人数</th>
+              </tr>
+            </table>
+          </div>>
+          <div class="panel-footer"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -230,9 +230,12 @@
     getAssessData();
     getHeartData();
     getEduData();
-    getSmartData();
+/*    getSmartData();*/
     tb_wn1();
     tb_wn2();
+
+    tb_hots();
+    tb_sens();
 
 
     $.ajax({

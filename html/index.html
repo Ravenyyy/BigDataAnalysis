@@ -162,7 +162,7 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel">
+      <div class="panel" onclick="toKeywordsDatail()">
         <h2> 关键词</h2>
         <div class="half-table">
           <h3>常态关键词</h3>
@@ -179,7 +179,7 @@
         <div class="panel-footer"></div>
       </div>
         <div class="half-table" style="margin-left: 1%">
-          <h3>极端关键词</h3>
+          <h3>极端敏感词</h3>
           <div style="overflow-y:scroll;height: 2.65rem">
             <table id="sens_tb" >
               <tr>
@@ -348,6 +348,10 @@
 
   function toAssessDetail() {
     window.location = './detail/assessDetail.html'
+  }
+
+  function toKeywordsDatail() {
+    window.location = './detail/keywordsDetail.html'
   }
 
   function downloadReport() {
