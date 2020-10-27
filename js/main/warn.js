@@ -135,6 +135,276 @@ function tb_edu () {
   $('#edu_tb').append(tr);
 }
 
+ function tb_hots(){
+   var dataArray = [{
+     name: "武汉支队",
+     compulsory: "100%",
+     elective: "100%",
+     exam: "100%",
+     finish: "100%",
+     average: 97.7
+   },
+     {
+       name: "宜昌支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 95.3
+     },
+     {
+       name: "鄂州支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 98.2
+     },
+     {
+       name: "襄阳支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 96.5
+     },
+     {
+       name: "黄石支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 99.2
+     },
+     {
+       name: "荆门支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 97.8
+     },
+     {
+       name: "咸宁支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 98.3
+     },
+     {
+       name: "十堰支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 95.7
+     },
+     {
+       name: "随州支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 99.1
+     },
+     {
+       name: "孝感支队",
+       compulsory: "90%",
+       elective: "90%",
+       exam: "70%",
+       finish: "82%",
+       average: 83.2
+     },
+     {
+       name: "荆州支队",
+       compulsory: "99%",
+       elective: "99%",
+       exam: "95%",
+       finish: "96%",
+       average: 92.2
+     },
+     {
+       name: "黄冈支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 89.2
+     },
+     {
+       name: "恩施支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 96.6
+     },
+     {
+       name: "汉江支队",
+       compulsory: "100%",
+       elective: "100%",
+       exam: "100%",
+       finish: "100%",
+       average: 97.5
+     },
+     {
+       name: "训保支队",
+       compulsory: "90%",
+       elective: "90%",
+       exam: "80%",
+       finish: "85%",
+       average: 89.2
+     },
+   ];
+
+   var tr = "";
+   for (var i = 0; i < dataArray.length; i++) {
+     tr = tr + '<tr>' +
+         "<td>" + dataArray[i].name + "</td>" +
+         "<td>" + dataArray[i].compulsory + "</td>" +
+         "<td>" + dataArray[i].elective + "</td>" +
+         "<td>" + dataArray[i].exam + "</td>" +
+         '</tr>';
+   }
+   $('#hots_tb').append(tr);
+ }
+
+function tb_sens(){
+  var dataArray = [{
+    name: "武汉支队",
+    compulsory: "100%",
+    elective: "100%",
+    exam: "100%",
+    finish: "100%",
+    average: 97.7
+  },
+    {
+      name: "宜昌支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 95.3
+    },
+    {
+      name: "鄂州支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 98.2
+    },
+    {
+      name: "襄阳支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 96.5
+    },
+    {
+      name: "黄石支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 99.2
+    },
+    {
+      name: "荆门支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 97.8
+    },
+    {
+      name: "咸宁支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 98.3
+    },
+    {
+      name: "十堰支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 95.7
+    },
+    {
+      name: "随州支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 99.1
+    },
+    {
+      name: "孝感支队",
+      compulsory: "90%",
+      elective: "90%",
+      exam: "70%",
+      finish: "82%",
+      average: 83.2
+    },
+    {
+      name: "荆州支队",
+      compulsory: "99%",
+      elective: "99%",
+      exam: "95%",
+      finish: "96%",
+      average: 92.2
+    },
+    {
+      name: "黄冈支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 89.2
+    },
+    {
+      name: "恩施支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 96.6
+    },
+    {
+      name: "汉江支队",
+      compulsory: "100%",
+      elective: "100%",
+      exam: "100%",
+      finish: "100%",
+      average: 97.5
+    },
+    {
+      name: "训保支队",
+      compulsory: "90%",
+      elective: "90%",
+      exam: "80%",
+      finish: "85%",
+      average: 89.2
+    },
+  ];
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].compulsory + "</td>" +
+        "<td>" + dataArray[i].elective + "</td>" +
+        "<td>" + dataArray[i].exam + "</td>" +
+        '</tr>';
+  }
+  $('#sens_tb').append(tr);
+}
+
 function tb_wn1 () {
   var dataArray = [{}]
   var chooseUrl = "";
