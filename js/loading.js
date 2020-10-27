@@ -19,15 +19,15 @@ var opts = {
 
 var spinner = new Spinner(opts);
 
-function startLoading(){
+function startLoading () {
     //请求时spinner出现
-    $("#mb").css("display","block");
+    $("#mb").css("display", "block");
     var target = $('#loading').get(0);
     spinner.spin(target);
 }
 
-function stopLoading(){
+function stopLoading () {
     //关闭spinner
-    $("#mb").css("display","none");
+    $("#mb").css("display", "none");
     spinner.spin();
 }
