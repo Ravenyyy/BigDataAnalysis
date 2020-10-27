@@ -13,11 +13,11 @@
 
 <body>
   <header>
-    <h1>七里庙消防救援队伍教育管理大数据研判平台</h1>
+    <h1>消防救援队伍教育管理大数据研判平台</h1>
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
-        <li><a href="#">报告下载</a></li>
+        <li><a onclick="downloadReport()">报告下载</a></li>
         <li><a href="#">分析研判</a></li>
         <li><a href="station.html">返回消防站</a></li>
       </ul>
@@ -139,6 +139,11 @@
         <div class="panel-footer"></div>
       </div>
     </div>
+    <div id="mb">
+      <div id="loading">
+        报告生成中
+      </div>
+    </div>
   </section>
 </body>
 <script src="../js/flexible.js"></script>
@@ -146,6 +151,10 @@
 <script src="../js/echarts.min.js"></script>
 <script src="../js/person.js"></script>
 <script src="../js/main/date.js"></script>
+<script src="../js/spin.min.js"></script>
+<script src="../js/loading.js"></script>
+
+
 <script>
   // onload
   $(function () {
@@ -192,7 +201,31 @@
     })
 
   });
-
+  function downloadReport() {
+    // startLoading();
+    var link = document.createElement("a");
+    $.ajax({
+      type: 'GET',
+      url: localStorage.getItem("url") + 'poi/getReportPerson',
+      data: {
+        unitId: localStorage.getItem("personId"),
+        month: localStorage.getItem("month"),
+      },
+      success: function (response) {
+        let url = '../static/jx/result.docx'
+        link.setAttribute('href', url)
+        if (link.download !== undefined) {
+          link.download = "个人月报.docx";
+        }
+        link.click();
+        // stopLoading();
+      },
+      error: function (response) {
+        console.log(response);
+        // stopLoading();
+      }
+    })
+  }
   function toEducation() {
     window.location = '/edu/education.html'
   }
@@ -200,6 +233,8 @@
   function toAssessment() {
     window.location = '/assess/assessment.html'
   }
+
+  
 </script>
 
 </html>
