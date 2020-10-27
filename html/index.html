@@ -14,6 +14,31 @@
     src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=mGxSq0nDy6k7OfjQ9vlPdvT3kxmKrMm5">
   </script>
 </head>
+<style>
+  #mb {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    *position: absolute;
+    *height: 1380px;
+    background: black;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    text-align:center;
+  }
+
+  #loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    font-size: 14px;
+    color: white;
+  }
+
+</style>
 
 <body>
   <header>
@@ -196,6 +221,11 @@
         </div> -->
     </div>
   </div>
+  <div id="mb">
+    <div id="loading">
+      报告生成中
+    </div>
+  </div>
 </body>
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
@@ -203,6 +233,7 @@
 <script src="../js/echartsMap.js"></script>
 <script src="../js/mapData.js"></script>
 <script src="../js/api.js"></script>
+<script src="../js/spin.min.js"></script>
 <script src="../js/baiduMap.js"></script>
 
 <script src="../js/main/heart.js"></script>
@@ -212,6 +243,7 @@
 <script src="../js/main/smart.js"></script>
 <script src="../js/main/warn.js"></script>
 <script src="../js/main/date.js"></script>
+<script src="../js/loading.js"></script>
 
 
 <script>
@@ -318,6 +350,7 @@
   }
 
   function downloadReport() {
+    startLoading();
     var link = document.createElement("a");
     $.ajax({
       type: 'GET',
@@ -332,10 +365,12 @@
         if (link.download !== undefined) {
           link.download = "月报.docx";
         }
-        link.click()
+        link.click();
+        stopLoading();
       },
       error: function (response) {
         console.log(response);
+        stopLoading();
       }
     })
   }
