@@ -1,4 +1,4 @@
-$(function () {
+function  initMap() {
     var name = localStorage.getItem("unitName");
     var level = localStorage.getItem("level");
     // var id = localStorage.getItem("unitId");
@@ -177,12 +177,60 @@ $(function () {
             ],
         };
 
+        var mapList = [];
+
+        $.ajax({
+            type: 'GET',
+            url: localStorage.getItem("url") + 'unit/getUnitByParentId',
+            data: {
+                unitIdStr: localStorage.getItem('unitId')
+            },
+            success: function (response) {
+                /*console.log(JSON.stringify(response.extra.unitList))*/
+                mapList = response.extra.unitList;
+
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+        var data = [
+            {name: '宜昌', value: 200}
+        ];
+        var geoCoordMap = {
+            '宜昌':[111.290843,31.002636]
+        };
+
+        var convertData = function (data) {
+            var res = [];
+            for (var i = 0; i < data.length; i++) {
+                var geoCoord = geoCoordMap[data[i].name];
+                if (geoCoord) {
+                    res.push({
+                        name: data[i].name,
+                        value: geoCoord.concat(data[i].value)
+                    });
+                }
+            }
+            return res;
+        };
+
         var option = {
             tooltip: {
                 trigger: 'item',
                 formatter: function (params) {
                     var res = '';
-                    res += params['data'].name2 + '</br>';
+                    var index = mapList.map(item => item.id).indexOf(params['data'].id);
+                    if(params['data'].id == 3){
+                        var warning_label = '● '+'本月赵伟触发敏感词 [ 自杀 ] 6次'+ '</br>'+
+                            '● '+'黄腾触发敏感词 [ 赌博 ] 7次';
+                        res += params['data'].name2 + '</br>'+
+                            '总人数：' + mapList[index].totalNum + '</br>'+
+                            warning_label+ '</br>';
+                    }else{
+                        res += params['data'].name2 + '</br>'+
+                            '总人数：' + mapList[index].totalNum + '</br>';
+                    }
                     return res;
                 }
                 //formatter: '{b}<br/>{c}'
@@ -195,21 +243,65 @@ $(function () {
                 top: 'bottom',
                 text: ['高', '低'], // 文本，默认为数值文本
                 calculable: true,
+                seriesIndex:1,
                 inRange: {
                     color: ['#42a8be', '#00a69c', '#30ea8b'],//上色范围
                 }
             },//给地图上色
-            series: [{
+            geo: {
+                map: name,
+                roam: true,
+                label: {
+                    show: false
+                },
+                itemStyle: {
+                    areaColor: '#323c48',
+                    borderColor: '#111'
+                },
+                emphasis: {
+                    itemStyle: {
+                        areaColor: '#2a333d'
+                    }
+                }
+            },
+            series: [ {
+                name: 'Top 5',
+                type: 'effectScatter',
+                coordinateSystem: 'geo',
+                layoutCenter: ['50%', '48%'],
+                layoutSize: '95%',
+                data: convertData(data.sort(function (a, b) {
+                    return b.value - a.value;
+                }).slice(0, 1)),
+                encode: {
+                    value: 2
+                },
+                symbolSize: function (val) {
+                    return val[2] / 10;
+                },
+                showEffectOn: 'render',
+                rippleEffect: {
+                    brushType: 'stroke'
+                },
+                hoverAnimation: true,
+                label: {
+                    show: false
+                },
+                visualMap:false,
+                itemStyle: {
+                    normal: {
+                        color: '#e67e22',
+                        shadowBlur: 10,
+                        shadowColor: '#333'
+                    },//正常样式
+                },
+                z:2,
+            },{
                 name: '地图',
                 type: 'map',
                 mapType: name,
                 layoutCenter: ['50%', '48%'],
-                layoutSize: '95%',
                 selectedMode: 'single',
-                label: {
-                    normal: { show: true },
-                    emphasis: { show: true }
-                },
                 itemStyle: {
                     normal: {
                         borderColor: '#30cdd1',
@@ -224,6 +316,7 @@ $(function () {
                 },
                 data: mapData[name],//value的值是上面visualMap属性中设置的颜色色系区间的值，即0~45000
                 label: {
+                    z:3,
                     normal: {
                         show: true,
                         color: '#FFF',
@@ -235,7 +328,7 @@ $(function () {
                     },
                     emphasis: { show: true }
                 },//地图中文字内容及样式控制
-            }]
+            },]
         };
         myChart.setOption(option, true);
         myChart.on('click', function (params) {
@@ -251,5 +344,5 @@ $(function () {
             myChart.resize();
         });
     }
-})
 
+}
