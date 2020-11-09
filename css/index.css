@@ -191,7 +191,7 @@ header .bnt ul li a {
   text-decoration: underline;
 }
 
-.double-panel h3 {
+ h3 {
   height: 0.3rem;
   line-height: 0.3rem;
   text-align: center;
@@ -200,7 +200,7 @@ header .bnt ul li a {
   font-weight: 400;
 }
 
-.double-panel h3 a {
+ h3 a {
   margin: 0 0.1875rem;
   color: #fff;
   text-decoration: underline;
@@ -309,6 +309,61 @@ header .bnt ul li a {
 .double-panel .table1 .panel-footer::after {
   position: absolute;
   bottom: 0.55rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
+
+
+.half-table {
+  width: 49.5%;
+  height: 3.0rem;
+  float: left;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+}
+
+.half-table::before {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.half-table::after {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
+
+.half-table .panel-footer::before {
+  position: absolute;
+  top: -0.4rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.half-table .panel-footer::after {
+  position: absolute;
+  top: -0.4rem;
   right: 0.2rem;
   content: "";
   width: 15px;

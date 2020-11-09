@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>总队-敏感词热词</title>
+    <link rel="stylesheet" href="../../css/detail.css" />
+    <link rel="stylesheet" type="text/css" href="../../library/iview/iview.css">
+    <script type="text/javascript" src="../../library/vue/vue.min.js"></script>
+    <script type="text/javascript" src="../../library/iview/iview.min.js.map"></script>
+</head>
+
+
+<body>
+<header>
+    <h1><span id="title"></span>消防救援队伍教育管理关键词分析</h1>
+    <div class="showTime" id="showTime"></div>
+    <div class="bnt">
+        <ul>
+            <li><a href="#">报告下载</a></li>
+            <li><a href="#">分析研判</a></li>
+            <li><a href="../index.html">返回上级</a></li>
+        </ul>
+    </div>
+    <script>
+    </script>
+</header>
+<section class="mainbox-kw">
+
+    <div class="column">
+
+        <div class="panel">
+            <h2>本月全省敏感词统计</h2>
+            <div class="chart" id="dae"></div>
+            <div class="panel-footer"></div>
+        </div>
+
+
+        <div class="panel">
+            <h2>本月全省热词统计</h2>
+            <div class="chart" id="renjun"></div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+
+
+    <div class="column">
+
+        <div class="panel">
+            <h2>本月全省各支队敏感词top5</h2>
+            <div class="table"><table id="keyword1">
+                <tr>
+                    <th >支队</th>
+                    <th >top1</th>
+                    <th >top2</th>
+                    <th >top3</th>
+                    <th >top4</th>
+                    <th >top5</th>
+                </tr>
+            </table><div class="panel-footer"></div></div>
+            <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel">
+            <h2>本月全省各支队热词top5</h2>
+
+
+            <div class="table"><table id="keyword2">
+                <tr>
+                    <th >支队</th>
+                    <th >top1</th>
+                    <th >top2</th>
+                    <th >top3</th>
+                    <th >top4</th>
+                    <th >top5</th>
+                </tr>
+            </table><div class="panel-footer"></div></div>
+            <div class="panel-footer"></div>
+        </div>
+    </div>
+</section>
+</body>
+<script src="../../js/flexible.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script src="../../js/detail/heartDetail.js"></script>
+<script src="../../js/main/date.js"></script>
+<!--<script src="js/hubei.js"></script>
+<script src="js/myMap.js"></script>-->
+<script>
+    // onload
+    $(function () {
+        document.getElementById("title").innerHTML = localStorage.getItem("unitName");
+        dae();
+
+        renjun();
+
+        /*    zoushi32();*/
+        tb_keyword1();
+        tb_keyword2();
+
+
+    });
+
+    function dae() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('dae'));
+
+        // Generate data
+        var category = ['纵火', '打牌', '喝酒', '买马', '出国', '杀人', '自杀', '不爽', '借钱', '辞职'];
+        var barData = [492, 445, 375, 356, 311, 224, 164,99, 86, 80];
+// option
+        option = {
+            title: {
+                text: '',
+                x: 'center',
+                x: 'center',
+                y: 'bottom',
+                textStyle:{
+                    color:'#ffffff',
+                    fontSize:16,
+                    fontWeight:'normal',
+                },
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                    label: {
+                        show: true,
+                        backgroundColor: '#7FFF00'
+                    }
+                }
+            },
+            legend: {
+                data: ['本月全省敏感词'],
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize:16,
+                },
+                top:'2%',
+            },
+            grid:{
+                x:'6%',
+                width:'88%',
+                bottom:'12%',
+            },
+            xAxis: {
+                data: category,
+                axisLine: {
+                    lineStyle: {
+                        color: '#ffffff'
+                    }
+                },
+                axisTick:{
+                    show:false,
+                },axisLabel: {
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: 16
+                    },
+                    interval: 0, //标签设置为全部显示
+                    formatter: function (params) {
+                        //粘贴以下function内未注释的代码
+                        var newParamsName = ""; // 最终拼接成的字符串
+                        var paramsNameNumber = params.length; // 实际标签的个数
+                        var provideNumber = 5; // 每行能显示的字的个数
+                        var rowNumber = Math.ceil(paramsNameNumber / provideNumber); // 换行的话，需要显示几行，向上取整
+
+                        // 条件等同于rowNumber>1
+                        if (paramsNameNumber > provideNumber) {
+
+                            for (var p = 0; p < rowNumber; p++) {
+                                var tempStr = ""; // 表示每一次截取的字符串
+                                var start = p * provideNumber; // 开始截取的位置
+                                var end = start + provideNumber; // 结束截取的位置
+                                // 此处特殊处理最后一行的索引值
+                                if (p == rowNumber - 1) {
+                                    // 最后一次不换行
+                                    tempStr = params.substring(start, paramsNameNumber);
+                                } else {
+                                    // 每一次拼接字符串并换行
+                                    tempStr = params.substring(start, end) + "\n";
+                                }
+                                newParamsName += tempStr; // 最终拼成的字符串
+                            }
+
+                        } else {
+                            // 将旧标签的值赋给新标签
+                            newParamsName = params;
+                        }
+                        //将最终的字符串返回
+                        return newParamsName
+                    },
+                    margin: 10,
+                },
+                splitLine:{
+                    show:false
+                },
+                inverse: false,
+            },
+            yAxis: [{
+                splitLine: {show: false},
+                axisLine: {
+                    lineStyle: {
+                        color: '#ffffff',
+                    }
+                },
+                axisLabel:{
+                    formatter:'{value} ',
+                }
+            },
+                {
+
+                    splitLine: {show: false},
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ffffff',
+                        }
+                    },
+                    axisLabel:{
+                        formatter:'{value} ',
+                    }
+                }],
+
+            series: [
+
+                {
+                    name: '本月全省敏感词',
+                    type: 'bar',
+                    barWidth: 20,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: 5,
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: '#00FFFF'},
+                                    {offset: 1, color: '#7FFF00'}
+                                ]
+                            )
+                        }
+                    },
+                    data: barData
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart.on('click', function(params){
+            window.location = 'zhidui_yinhang.html';
+        })
+        window.addEventListener("resize", function () {
+            myChart.resize();
+        });
+    }
+
+    function renjun() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('renjun'));
+
+        // Generate data
+        var category = ['习近平', '工作', '发展', '改制', '人民', '建设', '疫情', '中国', '防控', '群众'];
+        var barData = [1681, 1512, 1033, 1024, 945, 696, 567,563, 558, 553];
+// option
+        option = {
+            title: {
+                text: '',
+                x: 'center',
+                y: 'bottom',
+                textStyle:{
+                    color:'#ffffff',
+                    fontSize:16,
+                    fontWeight:'normal',
+                },
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow',
+                    label: {
+                        show: true,
+                        backgroundColor: '#7FFF00'
+                    }
+                }
+            },
+            legend: {
+                data: ['本月全省热词'],
+                textStyle: {
+                    color: '#ffffff',
+                    fontSize:16,
+                },
+                top:'2%',
+            },
+            grid:{
+                x:'6%',
+                width:'88%',
+                bottom:'12%',
+            },
+            xAxis: {
+                data: category,
+                axisLine: {
+                    lineStyle: {
+                        color: '#ffffff'
+                    }
+                },
+                axisTick:{
+                    show:false,
+                },axisLabel: {
+                    textStyle: {
+                        color: "#fff",
+                        fontSize: 16
+                    },
+                    interval: 0, //标签设置为全部显示
+                    formatter: function (params) {
+                        //粘贴以下function内未注释的代码
+                        var newParamsName = ""; // 最终拼接成的字符串
+                        var paramsNameNumber = params.length; // 实际标签的个数
+                        var provideNumber = 5; // 每行能显示的字的个数
+                        var rowNumber = Math.ceil(paramsNameNumber / provideNumber); // 换行的话，需要显示几行，向上取整
+
+                        // 条件等同于rowNumber>1
+                        if (paramsNameNumber > provideNumber) {
+
+                            for (var p = 0; p < rowNumber; p++) {
+                                var tempStr = ""; // 表示每一次截取的字符串
+                                var start = p * provideNumber; // 开始截取的位置
+                                var end = start + provideNumber; // 结束截取的位置
+                                // 此处特殊处理最后一行的索引值
+                                if (p == rowNumber - 1) {
+                                    // 最后一次不换行
+                                    tempStr = params.substring(start, paramsNameNumber);
+                                } else {
+                                    // 每一次拼接字符串并换行
+                                    tempStr = params.substring(start, end) + "\n";
+                                }
+                                newParamsName += tempStr; // 最终拼成的字符串
+                            }
+
+                        } else {
+                            // 将旧标签的值赋给新标签
+                            newParamsName = params;
+                        }
+                        //将最终的字符串返回
+                        return newParamsName
+                    },
+                    margin: 10,
+                },
+                splitLine:{
+                    show:false
+                },
+                inverse: false,
+            },
+            yAxis: [{
+                splitLine: {show: false},
+                axisLine: {
+                    lineStyle: {
+                        color: '#ffffff',
+                    }
+                },
+                axisLabel:{
+                    formatter:'{value} ',
+                }
+            },
+                {
+
+                    splitLine: {show: false},
+                    axisLine: {
+                        lineStyle: {
+                            color: '#ffffff',
+                        }
+                    },
+                    axisLabel:{
+                        formatter:'{value} ',
+                    }
+                }],
+
+            series: [
+                {
+                    name: '本月全省热词',
+                    type: 'bar',
+                    barWidth: 20,
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: 5,
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: '#ff6cfd'},
+                                    {offset: 1, color: '#ff0e5e'}
+                                ]
+                            )
+                        }
+                    },
+                    data: barData
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        myChart.on('click', function(params){
+            window.location = 'zhidui_yinhang.html';
+        })
+        window.addEventListener("resize", function () {
+            myChart.resize();
+        });
+    }
+
+    function tb_keyword1() {
+        var dataArray = [
+            {
+                name: "武汉",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            }, {
+                name: "宜昌",
+                top1: "工作",
+                top2: "改制",
+                top3: "建设",
+                top4: "中国",
+                top5: "群众"
+            },{
+                name: "鄂州",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            },{
+                name: "襄阳",
+                top1: "工作",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "防控"
+            },{
+                name: "黄石",
+                top1: "喝酒",
+                top2: "打牌",
+                top3: "疫情",
+                top4: "工作",
+                top5: "改制"
+            },{
+                name: "荆门",
+                top1: "喝酒",
+                top2: "打牌",
+                top3: "疫情",
+                top4: "工作",
+                top5: "改制"
+            },{
+                name: "咸宁",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            },{
+                name: "十堰",
+                top1: "防控",
+                top2: "人民",
+                top3: "发展",
+                top4: "改制",
+                top5: "群众"
+            },{
+                name: "随州",
+                top1: "打牌",
+                top2: "纵火",
+                top3: "借钱",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "孝感",
+                top1: "防控",
+                top2: "人民",
+                top3: "发展",
+                top4: "改制",
+                top5: "群众"
+            },{
+                name: "荆州",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            },{
+                name: "黄冈",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            },{
+                name: "恩施",
+                top1: "习近平",
+                top2: "发展",
+                top3: "疫情",
+                top4: "改制",
+                top5: "改制"
+            },{
+                name: "汉江",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            },{
+                name: "训保",
+                top1: "习近平",
+                top2: "发展",
+                top3: "疫情",
+                top4: "改制",
+                top5: "改制"
+            },{
+                name: "勤务",
+                top1: "习近平",
+                top2: "改制",
+                top3: "建设",
+                top4: "疫情",
+                top5: "中国"
+            }
+        ];
+
+        var tr = "";
+        for (var i = 0; i < dataArray.length; i++) {
+            tr = tr + '<tr>' +
+                "<td>" + dataArray[i].name + "</td>" +
+                "<td>" + dataArray[i].top1 + "</td>" +
+                "<td>" + dataArray[i].top2 + "</td>" +
+                "<td>" + dataArray[i].top3 + "</td>" +
+                "<td>" + dataArray[i].top4 + "</td>" +
+                "<td>" + dataArray[i].top5 + "</td>" +
+                '</tr>';
+        }
+        $('#keyword1').append(tr);
+    }
+
+    function tb_keyword2() {
+        var dataArray = [
+            {
+                name: "武汉",
+                top1: "纵火",
+                top2: "打牌",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "出国"
+            }, {
+                name: "宜昌",
+                top1: "纵火",
+                top2: "出国",
+                top3: "喝酒",
+                top4: "杀人",
+                top5: "不爽"
+            },{
+                name: "鄂州",
+                top1: "借钱",
+                top2: "喝酒",
+                top3: "自杀",
+                top4: "辞职",
+                top5: "出国"
+            },{
+                name: "襄阳",
+                top1: "出国",
+                top2: "自杀",
+                top3: "喝酒",
+                top4: "出国",
+                top5: "纵火"
+            },{
+                name: "黄石",
+                top1: "喝酒",
+                top2: "打牌",
+                top3: "杀人",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "荆门",
+                top1: "杀人",
+                top2: "不爽",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "辞职"
+            },{
+                name: "咸宁",
+                top1: "喝酒",
+                top2: "出国",
+                top3: "喝酒",
+                top4: "自杀",
+                top5: "喝酒"
+            },{
+                name: "十堰",
+                top1: "出国",
+                top2: "喝酒",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "打牌"
+            },{
+                name: "随州",
+                top1: "打牌",
+                top2: "纵火",
+                top3: "借钱",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "孝感",
+                top1: "喝酒",
+                top2: "出国",
+                top3: "喝酒",
+                top4: "自杀",
+                top5: "喝酒"
+            },{
+                name: "荆州",
+                top1: "纵火",
+                top2: "打牌",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "黄冈",
+                top1: "出国",
+                top2: "自杀",
+                top3: "喝酒",
+                top4: "出国",
+                top5: "纵火"
+            },{
+                name: "恩施",
+                top1: "纵火",
+                top2: "打牌",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "仙桃",
+                top1: "喝酒",
+                top2: "出国",
+                top3: "喝酒",
+                top4: "自杀",
+                top5: "喝酒"
+            },{
+                name: "勤务",
+                top1: "纵火",
+                top2: "打牌",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "出国"
+            },{
+                name: "训保",
+                top1: "纵火",
+                top2: "打牌",
+                top3: "喝酒",
+                top4: "买马",
+                top5: "出国"
+            },
+        ];
+
+        var tr = "";
+        for (var i = 0; i < dataArray.length; i++) {
+            tr = tr + '<tr>' +
+                "<td>" + dataArray[i].name + "</td>" +
+                "<td>" + dataArray[i].top1 + "</td>" +
+                "<td>" + dataArray[i].top2 + "</td>" +
+                "<td>" + dataArray[i].top3 + "</td>" +
+                "<td>" + dataArray[i].top4 + "</td>" +
+                "<td>" + dataArray[i].top5 + "</td>" +
+                '</tr>';
+        }
+        $('#keyword2').append(tr);
+    }
+
+
+</script>
+
+</html>

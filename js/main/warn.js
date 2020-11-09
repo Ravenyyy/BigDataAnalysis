@@ -4,120 +4,90 @@ function tb_edu () {
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 97.7
   },
   {
     name: "宜昌支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 95.3
   },
   {
     name: "鄂州支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 98.2
   },
   {
     name: "襄阳支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 96.5
   },
   {
     name: "黄石支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 99.2
   },
   {
     name: "荆门支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 97.8
   },
   {
     name: "咸宁支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 98.3
   },
   {
     name: "十堰支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 95.7
   },
   {
     name: "随州支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 99.1
   },
   {
     name: "孝感支队",
     compulsory: "90%",
     elective: "90%",
     exam: "70%",
-    finish: "82%",
-    average: 83.2
   },
   {
     name: "荆州支队",
     compulsory: "99%",
     elective: "99%",
     exam: "95%",
-    finish: "96%",
-    average: 92.2
   },
   {
     name: "黄冈支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 89.2
   },
   {
     name: "恩施支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 96.6
   },
   {
     name: "汉江支队",
     compulsory: "100%",
     elective: "100%",
     exam: "100%",
-    finish: "100%",
-    average: 97.5
   },
   {
     name: "训保支队",
     compulsory: "90%",
     elective: "90%",
     exam: "80%",
-    finish: "85%",
-    average: 89.2
   },
   ];
 
@@ -133,6 +103,297 @@ function tb_edu () {
       '</tr>';
   }
   $('#edu_tb').append(tr);
+}
+
+function tb_hots(){
+  var dataArray = [];
+  if(localStorage.getItem("level") == 1){
+    dataArray = [{
+      name: "中国",
+      num: 633,
+      users: 100
+    },{
+      name: "时代",
+      num: 615,
+      users: 80
+    },{
+      name: "习主席",
+      num: 592,
+      users: 112
+    },{
+      name: "武警",
+      num: 466,
+      users: 70
+    },{
+      name: "娱乐",
+      num: 397,
+      users: 90
+    },{
+      name: "王者荣耀",
+      num: 284,
+      users: 21
+    },{
+      name: "篮球",
+      num: 166,
+      users: 155
+    },{
+      name: "足球",
+      num: 133,
+      users: 99
+    },{
+      name: "消防",
+      num: 98,
+      users: 144
+    },{
+      name: "管控",
+      num: 60,
+      users: 78
+    },
+    ];
+  }else if(localStorage.getItem("level") == 2){
+    dataArray = [{
+      name: "习主席",
+      num: 101,
+      users: 24
+    },{
+      name: "中国",
+      num: 61,
+      users: 12
+    },{
+      name: "武警",
+      num: 59,
+      users: 7
+    },{
+      name: "武警",
+      num: 46,
+      users: 14
+    },{
+      name: "篮球",
+      num: 39,
+      users: 23
+    },{
+      name: "足球",
+      num: 24,
+      users: 11
+    },{
+      name: "王者荣耀",
+      num: 16,
+      users: 40
+    },{
+      name: "时代",
+      num: 13,
+      users: 10
+    },{
+      name: "消防",
+      num: 8,
+      users: 8
+    },{
+      name: "管控",
+      num: 6,
+      users: 6
+    },
+    ];
+  }else if(localStorage.getItem("level") == 3){
+    dataArray = [{
+      name: "武警",
+      num: 60,
+      users: 4
+    },{
+      name: "习主席",
+      num: 54,
+      users: 8
+    },{
+      name: "王者荣耀",
+      num: 50,
+      users: 14
+    },{
+      name: "时代",
+      num: 34,
+      users: 7
+    },{
+      name: "娱乐",
+      num: 29,
+      users: 9
+    },{
+      name: "中国",
+      num: 26,
+      users: 21
+    },{
+      name: "消防",
+      num: 14,
+      users: 14
+    },{
+      name: "管控",
+      num: 10,
+      users: 1
+    },{
+      name: "消防",
+      num: 9,
+      users: 8
+    },{
+      name: "救火",
+      num: 6,
+      users: 7
+    },
+    ];
+  }
+
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        "<td>" + dataArray[i].users + "</td>" +
+        '</tr>';
+  }
+   $('#hots_tb').append(tr);
+ }
+
+function tb_sens(){
+  var dataArray = {};
+  if(localStorage.getItem("level") == 1){
+    dataArray = [{
+      name: "喝酒",
+      num: 413,
+      users: 20
+    },{
+      name: "赌球",
+      num: 299,
+      users: 12
+    },{
+      name: "抽烟",
+      num: 182,
+      users: 11
+    },{
+      name: "借钱",
+      num: 108,
+      users: 7
+    },{
+      name: "请假",
+      num: 99,
+      users: 9
+    },{
+      name: "游戏",
+      num: 78,
+      users: 2
+    },{
+      name: "翘班",
+      num: 66,
+      users: 15
+    },{
+      name: "上网",
+      num: 53,
+      users: 9
+    },{
+      name: "通宵",
+      num: 48,
+      users: 14
+    },{
+      name: "消极",
+      num: 40,
+      users: 7
+    },
+    ];
+  }else if(localStorage.getItem("level") == 2){
+    dataArray = [{
+      name: "游戏",
+      num: 102,
+      users: 11
+    },{
+      name: "通宵",
+      num: 98,
+      users: 12
+    },{
+      name: "喝酒",
+      num: 81,
+      users: 9
+    },{
+      name: "郁闷",
+      num: 60,
+      users: 11
+    },{
+      name: "请假",
+      num: 45,
+      users: 2
+    },{
+      name: "吸烟",
+      num: 35,
+      users: 12
+    },{
+      name: "翘班",
+      num: 26,
+      users: 12
+    },{
+      name: "上网",
+      num: 24,
+      users: 9
+    },{
+      name: "通宵",
+      num: 19,
+      users: 14
+    },{
+      name: "借钱",
+      num: 12,
+      users: 7
+    },
+    ];
+  }else {
+    dataArray = [{
+      name: "借钱",
+      num: 20,
+      users: 1
+    },{
+      name: "赌球",
+      num: 19,
+      users: 6
+    },{
+      name: "游戏",
+      num: 18,
+      users: 6
+    },{
+      name: "翘班",
+      num: 16,
+      users: 5
+    },{
+      name: "抽烟",
+      num: 14,
+      users: 11
+    },{
+      name: "喝酒",
+      num: 13,
+      users: 18
+    },{
+      name: "请假",
+      num: 9,
+      users: 6
+    },{
+      name: "消极",
+      num: 6,
+      users: 6
+    },{
+      name: "上网",
+      num: 3,
+      users: 9
+    },{
+      name: "通宵",
+      num: 1,
+      users: 11
+    }
+    ];
+  }
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        "<td>" + dataArray[i].users + "</td>" +
+        '</tr>';
+  }
+  $('#sens_tb').append(tr);
 }
 
 function tb_wn1 () {

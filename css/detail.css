@@ -109,6 +109,24 @@ header .bnt ul li a {
   overflow: hidden;
 }
 
+.mainbox-kw {
+  min-width: 1080px;
+  max-width: 1920px;
+  padding: 0.125rem 0.125rem 0;
+  display: flex;
+}
+
+.mainbox-kw .column {
+  flex: 5;
+  margin: 0 0.125rem 0.1875rem;
+}
+
+/*.mainbox-kw .column:nth-child(2) {
+  flex: 4.8;
+  margin: 0 0.125rem 0.1875rem;
+  overflow: hidden;
+}*/
+
 .panel {
   position: relative;
   height: 5.8125rem;
@@ -258,6 +276,30 @@ header .bnt ul li a {
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
   padding: 0.01rem 0.15rem;
+}
+
+.keywords-panel {
+  position: relative;
+  height: 5.925rem;
+  /*background: url("../images/pushmessage_class.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;*/
+  /* border: 2px solid rgba(40,207,162, 1);*/
+  background: url(../images/biankuang61.png) no-repeat;
+  background-size: 100% 100%;
+  padding: 0rem 0.2rem 0.7rem 0.2rem;
+  margin-bottom: 0.1875rem;
+  /*
+  box-shadow:
+  0 0 10px #b9f2f0;*/
+  /*border: #02a6b5 2px solid;*/
+ }
+
+.keywords-panel .panel-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .double-panel .table::before {
