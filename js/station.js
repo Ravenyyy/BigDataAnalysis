@@ -1620,6 +1620,45 @@ function tb_wn2 () {
   })
 }
 
+function tb_wn3 () {
+  var dataArray = [{}]
+  $.ajax({
+    type: 'GET',
+    url: localStorage.getItem("url") + 'warning/getWarningByStation',
+    data: {
+      id: localStorage.getItem("unitId"),
+      resolutionType: 2
+    },
+    success: function (response) {
+      dataArray = response.extra.warningList
+      console.log(dataArray)
+      var tr = "";
+      for (var i = 0; i < dataArray.length; i++) {
+        var date = new Date(dataArray[i].createTime)
+        var Y = date.getFullYear() + '-'
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+        var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+        console.log(Y + M + D + h + m + s)
+        tr = tr + '<tr>' +
+          "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+          "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+          "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+          "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+          '</tr>';
+      }
+      $('#wn_tb3').append(tr);
+      addTableClick("wn_tb3", dataArray);
+
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
+
 function addTableClick (tableName, dataArray) {
   $("#" + tableName + " > tbody tr").each(function (trindex, tritem) {
 

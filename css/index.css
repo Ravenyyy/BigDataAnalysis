@@ -161,7 +161,7 @@ header .bnt ul li a {
 /* 2倍长方块*/
 .double-panel {
   position: relative;
-  height: 7.95rem;
+  height: 12.1rem;
   background: url(../images/biankuang61.png) no-repeat;
   background-size: 100% 100%;
   padding: 0rem 0.2rem 0.5rem 0.2rem;
@@ -207,7 +207,7 @@ header .bnt ul li a {
 }
 
 .double-panel .table {
-  height: 3.0rem;
+  height: 3.2rem;
   margin-bottom: 0.2rem;
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
@@ -244,7 +244,7 @@ header .bnt ul li a {
 
 .double-panel .table .panel-footer::before {
   position: absolute;
-  bottom: 4.05rem;
+  bottom: 8.0rem;
   left: 0.2rem;
   content: "";
   width: 15px;
@@ -255,7 +255,7 @@ header .bnt ul li a {
 
 .double-panel .table .panel-footer::after {
   position: absolute;
-  bottom: 4.05rem;
+  bottom: 8.0rem;
   right: 0.2rem;
   content: "";
   width: 15px;
@@ -265,7 +265,7 @@ header .bnt ul li a {
 }
 
 .double-panel .table1 {
-  height: 3.0rem;
+  height: 3.2rem;
   margin-bottom: 0.2rem;
   background-color: rgba(44, 135, 209, 0.4);
   border: 1px solid rgba(44, 135, 209, 0.9);
@@ -275,7 +275,7 @@ header .bnt ul li a {
 
 .double-panel .table1::before {
   position: absolute;
-  top: 4.4rem;
+  top: 4.6rem;
   left: 0.2rem;
   content: "";
   width: 15px;
@@ -286,7 +286,7 @@ header .bnt ul li a {
 
 .double-panel .table1::after {
   position: absolute;
-  top: 4.4rem;
+  top: 4.6rem;
   right: 0.2rem;
   content: "";
   width: 15px;
@@ -297,7 +297,7 @@ header .bnt ul li a {
 
 .double-panel .table1 .panel-footer::before {
   position: absolute;
-  bottom: 0.55rem;
+  bottom: 4.3rem;
   left: 0.2rem;
   content: "";
   width: 15px;
@@ -308,7 +308,60 @@ header .bnt ul li a {
 
 .double-panel .table1 .panel-footer::after {
   position: absolute;
-  bottom: 0.55rem;
+  bottom: 4.3rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
+
+.double-panel .table2 {
+  height: 3.2rem;
+  margin-bottom: 0.2rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+  padding: 0.1rem 0.15rem;
+
+}
+
+.double-panel .table2::before {
+  position: absolute;
+  top: 8.3rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.double-panel .table2::after {
+  position: absolute;
+  top: 8.3rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
+
+.double-panel .table2 .panel-footer::before {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.double-panel .table2 .panel-footer::after {
+  position: absolute;
+  bottom: 0.6rem;
   right: 0.2rem;
   content: "";
   width: 15px;

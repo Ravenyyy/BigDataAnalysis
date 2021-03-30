@@ -515,3 +515,50 @@ function tb_wn2 () {
     }
   })
 }
+
+function tb_wn3 () {
+  var dataArray = [{}];
+  var chooseUrl = "";
+  if (localStorage.getItem("level") == 1) {
+    chooseUrl = localStorage.getItem("url") + 'warning/getWarningByZongdui';
+  } else if (localStorage.getItem("level") == 2) {
+    chooseUrl = localStorage.getItem("url") + '/getWarningByZhidui';
+  } else if (localStorage.getItem("level") == 3) {
+    chooseUrl = localStorage.getItem("url") + '/getWarningByDadui';
+  }
+  $.ajax({
+    type: 'GET',
+    url: chooseUrl,
+    data: {
+      id: localStorage.getItem("unitId"),
+      resolutionType: 2
+    },
+    success: function (response) {
+      dataArray = response.extra.warningList
+      console.log(dataArray)
+      var tr = "";
+      console.log(dataArray.length)
+      for (var i = 0; i < dataArray.length; i++) {
+        var date = new Date(dataArray[i].createTime)
+        var Y = date.getFullYear() + '-'
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+        var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' '
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
+        tr = tr + '<tr>' +
+          "<td class=\"tb_zhidui\">" + dataArray[i].name + "</td>" +
+          "<td class=\"tb_time\">" + Y + M + D + h + m + s + "</td>" +
+          "<td class=\"tb_type\">" + dataArray[i].warning + "</td>" +
+          "<td class=\"tb_content\">" + dataArray[i].content + "</td>" +
+          '</tr>';
+      }
+      $('#wn_tb3').append(tr);
+
+      addTableClick("wn_tb3", dataArray);
+    },
+    error: function (response) {
+      console.log(response);
+    }
+  })
+}
