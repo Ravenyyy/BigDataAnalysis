@@ -91,7 +91,59 @@ header .bnt ul li a {
   text-decoration: none
 }
 
+.half-table {
+  width: 49.5%;
+  height: 3.0rem;
+  float: left;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+  background-color: rgba(44, 135, 209, 0.4);
+  border: 1px solid rgba(44, 135, 209, 0.9);
+}
 
+.half-table::before {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.half-table::after {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-top: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
+
+.half-table .panel-footer::before {
+  position: absolute;
+  top: -0.4rem;
+  left: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-left: 3px solid #02a6b5;
+}
+
+.half-table .panel-footer::after {
+  position: absolute;
+  top: -0.4rem;
+  right: 0.2rem;
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-bottom: 3px solid #02a6b5;
+  border-right: 3px solid #02a6b5;
+}
 .mainbox {
   min-width: 1080px;
   max-width: 1920px;
@@ -186,7 +238,31 @@ header .bnt ul li a {
   text-decoration: underline;
 }
 
-.double-panel h3 {
+#mb {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  *position: absolute;
+  *height: 1380px;
+  background: black;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+  text-align:center;
+  z-index: 9999;
+}
+
+#loading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10000;
+  font-size: 14px;
+  color: white;
+}
+
+h3 {
   height: 0.3rem;
   line-height: 0.3rem;
   text-align: center;
@@ -195,7 +271,7 @@ header .bnt ul li a {
   font-weight: 400;
 }
 
-.double-panel h3 a {
+h3 a {
   margin: 0 0.1875rem;
   color: #fff;
   text-decoration: underline;

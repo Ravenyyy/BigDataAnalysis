@@ -572,6 +572,116 @@ function dj_2 () {
 
 }
 
+function tb_hots(){
+  var dataArray = [{
+    name: "习主席",
+    num: 20,
+    users: 112
+  },{
+    name: "中国",
+    num: 14,
+    users: 100
+  },{
+    name: "娱乐",
+    num: 11,
+    users: 90
+  },{
+    name: "王者荣耀",
+    num: 7,
+    users: 21
+  },{
+    name: "时代",
+    num: 6,
+    users: 80
+  },{
+    name: "武警",
+    num: 6,
+    users: 70
+  },{
+    name: "篮球",
+    num: 6,
+    users: 155
+  },{
+    name: "足球",
+    num: 5,
+    users: 99
+  },{
+    name: "消防",
+    num: 4,
+    users: 144
+  },{
+    name: "管控",
+    num: 1,
+    users: 78
+  },
+  ];
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        '</tr>';
+  }
+  $('#hots_tb').append(tr);
+}
+
+function tb_sens(){
+  var dataArray = [{
+    name: "游戏",
+    num: 14,
+    users: 2
+  },{
+    name: "请假",
+    num: 10,
+    users: 9
+  },{
+    name: "喝酒",
+    num: 10,
+    users: 20
+  },{
+    name: "上网",
+    num: 8,
+    users: 9
+  },{
+    name: "通宵",
+    num: 8,
+    users: 14
+  },{
+    name: "赌球",
+    num: 5,
+    users: 12
+  },{
+    name: "抽烟",
+    num: 5,
+    users: 11
+  },{
+    name: "借钱",
+    num: 5,
+    users: 7
+  },{
+    name: "翘班",
+    num: 3,
+    users: 15
+  },{
+    name: "消极",
+    num: 2,
+    users: 7
+  },
+  ];
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        '</tr>';
+  }
+  $('#sens_tb').append(tr);
+}
+
 function tb_wn1 () {
   var dataArray = [{}]
     $.ajax({

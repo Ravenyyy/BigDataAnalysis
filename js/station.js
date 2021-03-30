@@ -1432,7 +1432,117 @@ function getDjData () {
 function getSmartData () {
   smart();
 }
+function tb_hots(){
+  var dataArray = [{
+    name: "中国",
+    num: 633,
+    users: 100
+  },{
+    name: "时代",
+    num: 615,
+    users: 80
+  },{
+    name: "习主席",
+    num: 592,
+    users: 112
+  },{
+    name: "武警",
+    num: 466,
+    users: 70
+  },{
+    name: "娱乐",
+    num: 397,
+    users: 90
+  },{
+    name: "王者荣耀",
+    num: 284,
+    users: 21
+  },{
+    name: "篮球",
+    num: 166,
+    users: 155
+  },{
+    name: "足球",
+    num: 133,
+    users: 99
+  },{
+    name: "消防",
+    num: 98,
+    users: 144
+  },{
+    name: "管控",
+    num: 60,
+    users: 78
+  },
+  ];
 
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        "<td>" + dataArray[i].users + "</td>" +
+        '</tr>';
+  }
+  $('#hots_tb').append(tr);
+}
+
+function tb_sens(){
+  var dataArray = [{
+    name: "喝酒",
+    num: 413,
+    users: 20
+  },{
+    name: "赌球",
+    num: 299,
+    users: 12
+  },{
+    name: "抽烟",
+    num: 182,
+    users: 11
+  },{
+    name: "借钱",
+    num: 108,
+    users: 7
+  },{
+    name: "请假",
+    num: 99,
+    users: 9
+  },{
+    name: "游戏",
+    num: 78,
+    users: 2
+  },{
+    name: "翘班",
+    num: 66,
+    users: 15
+  },{
+    name: "上网",
+    num: 53,
+    users: 9
+  },{
+    name: "通宵",
+    num: 48,
+    users: 14
+  },{
+    name: "消极",
+    num: 40,
+    users: 7
+  },
+  ];
+
+  var tr = "";
+  for (var i = 0; i < dataArray.length; i++) {
+    tr = tr + '<tr>' +
+        "<td>" + (i+1) + "</td>" +
+        "<td>" + dataArray[i].name + "</td>" +
+        "<td>" + dataArray[i].num + "</td>" +
+        "<td>" + dataArray[i].users + "</td>" +
+        '</tr>';
+  }
+  $('#sens_tb').append(tr);
+}
 function tb_wn1 () {
   var dataArray = [{}]
   $.ajax({

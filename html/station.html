@@ -18,7 +18,7 @@
     <div class="showTime" id="showTime"></div>
     <div class="bnt">
       <ul>
-        <li><a href="#">报告下载</a></li>
+        <li><a onclick="downloadReport()">报告下载</a></li>
         <li><a href="#">分析研判</a></li>
         <li><a onclick="back()" href="index.html">返回上级</a></li>
       </ul>
@@ -142,10 +142,36 @@
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1">
-        <h2 onclick="toSmartDetail()">智慧队站</h2>
-        <div class="chart" id="smart"></div>
-        <div class="panel-footer"></div>
+      <div class="panel" >
+        <h2> 关键词</h2>
+        <div class="half-table">
+          <h3>常态关键词</h3>
+          <div style="overflow-y:scroll;height: 2.65rem">
+            <table id="hots_tb" >
+              <tr>
+                <th >排名</th>
+                <th >敏感词</th>
+                <th >次数</th>
+                <th >人数</th>
+              </tr>
+            </table>
+          </div>>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="half-table" style="margin-left: 1%">
+          <h3>极端敏感词</h3>
+          <div style="overflow-y:scroll;height: 2.65rem">
+            <table id="sens_tb" >
+              <tr>
+                <th >排名</th>
+                <th >敏感词</th>
+                <th >次数</th>
+                <th >人数</th>
+              </tr>
+            </table>
+          </div>>
+          <div class="panel-footer"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -181,12 +207,18 @@
         </div> -->
     </div>
   </div>
+  <div id="mb">
+    <div id="loading">
+      报告生成中
+    </div>
+  </div>
 </body>
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/station.js"></script>
 <script src="../js/main/date.js"></script>
+<script src="../js/spin.min.js"></script>
 <script>
   // onload
   $(function () {
@@ -198,9 +230,12 @@
     getAssessData();
     getHeartData();
     getEduData();
-    getSmartData();
+/*    getSmartData();*/
     tb_wn1();
     tb_wn2();
+
+    tb_hots();
+    tb_sens();
 
 
     $.ajax({
@@ -265,6 +300,65 @@
     modal.style.display = "none";
   }
 
+  var opts = {
+    lines: 13, // 花瓣数目
+    length: 12, // 花瓣长度
+    width: 8, // 花瓣宽度
+    radius: 40, // 花瓣距中心半径
+    corners: 1, // 花瓣圆滑度 (0-1)
+    rotate: 0, // 花瓣旋转角度
+    direction: 1, // 花瓣旋转方向 1: 顺时针, -1: 逆时针
+    color: '#fff', // 花瓣颜色
+    speed: 1, // 花瓣旋转速度
+    trail: 60, // 花瓣旋转时的拖影(百分比)
+    shadow: false, // 花瓣是否显示阴影
+    hwaccel: false, //spinner 是否启用硬件加速及高速旋转
+    className: 'spinner', // spinner css 样式名称
+    zIndex: 2e9, // spinner的z轴 (默认是2000000000)
+    top: 'auto', // 菊花相对定位的top
+    left: 'auto',// spinner 相对父容器Left定位 单位 px
+};
+
+var spinner = new Spinner(opts);
+
+function startLoading () {
+    //请求时spinner出现
+    $("#mb").css("display", "block");
+    var target = $('#loading').get(0);
+    spinner.spin(target);
+}
+
+function stopLoading () {
+    //关闭spinner
+    $("#mb").css("display", "none");
+    spinner.spin();
+}
+  function downloadReport() {
+    // startLoading();
+    var link = document.createElement("a");
+    startLoading();
+    $.ajax({
+      type: 'GET',
+      url: localStorage.getItem("url") + 'poi/getReport',
+      data: {
+        unitId: localStorage.getItem("unitId"),
+        month: localStorage.getItem("month"),
+      },
+      success: function (response) {
+        let url = '../static/jx/result.docx'
+        link.setAttribute('href', url)
+        if (link.download !== undefined) {
+          link.download = "消防站月报.docx";
+        }
+        link.click();
+        stopLoading();
+      },
+      error: function (response) {
+        console.log(response);
+        stopLoading();
+      }
+    })
+  }
 
   function toDjDetail() {
     window.location = './stationDetail/djStationDetail.html'

@@ -12,140 +12,173 @@
 </head>
 
 <body>
-  <header>
-    <h1>七里庙消防救援队伍教育管理大数据研判平台</h1>
-    <div class="showTime" id="showTime"></div>
-    <div class="bnt">
-      <ul>
-        <li><a href="#">报告下载</a></li>
-        <li><a href="#">分析研判</a></li>
-        <li><a href="station.html">返回消防站</a></li>
-      </ul>
+<header>
+  <h1>消防救援队伍教育管理大数据研判平台</h1>
+  <div class="showTime" id="showTime"></div>
+  <div class="bnt">
+    <ul>
+      <li><a onclick="downloadReport()">报告下载</a></li>
+      <li><a href="#">分析研判</a></li>
+      <li><a href="station.html">返回消防站</a></li>
+    </ul>
+  </div>
+  <script>
+  </script>
+</header>
+<section class="mainbox">
+  <div class="column">
+
+    <div class="panel dangjian">
+      <h2>智慧党建</h2>
+      <div class="half-div2" id="dj1"></div>
+      <div class="half-div2" id="dj2"></div>
+      <div class="panel-footer"></div>
     </div>
-    <script>
-    </script>
-  </header>
-  <section class="mainbox">
-    <div class="column">
 
-      <div class="panel dangjian">
-        <h2>智慧党建</h2>
-        <div class="half-div2" id="dj1"></div>
-        <div class="half-div2" id="dj2"></div>
-        <div class="panel-footer"></div>
-      </div>
-
-      <div class="panel education">
-        <h2>政治教育</h2>
-        <div class="chart">
-          <div class="edu_line">
-            <div class="edu_col1">课程完成情况</div>
-            <div class="edu_col2" id="kecheng">
-            </div>
-          </div>
-          <div class="edu_line">
-            <div class="edu_col1">考试完成情况</div>
-            <div class="edu_col2" id="kaoshi">
-            </div>
-          </div>
-          <div class="edu_line">
-            <div class="edu_col1">考试分数</div>
-            <div class="edu_col2" id="examAverage">
-            </div>
+    <div class="panel education">
+      <h2>政治教育</h2>
+      <div class="chart">
+        <div class="edu_line">
+          <div class="edu_col1">课程完成情况</div>
+          <div class="edu_col2" id="kecheng">
           </div>
         </div>
-        <div class="panel-footer"></div>
-      </div>
-
-      <div class="panel bar">
-        <h2>
-          心理测询
-        </h2>
-        <div class="chart" id="heart"></div>
-        <div class="panel-footer"></div>
-      </div>
-    </div>
-    <div class="column">
-
-      <div class="map">
-        <div class="left"></div>
-        <div class="right">
-          <ul style="padding:30px; color:aliceblue; font-size: 25px;">
-            <li id="name"></li>
-            <li id="sex"></li>
-            <li id="birthday"></li>
-            <li id="unit"></li>
-            <li id="phone"></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="panel assessment">
-        <h2>全员考核</h2>
-        <div class="half-assess" id="assess"></div>
-        <div class="half-assess">
-          <div class="assess_row1">
-            <table id="assess_tb">
-              <tr>
-                <th class="tb_time">序号</th>
-                <th class="tb_content">内容</th>
-              </tr>
-            </table>
-          </div>
-          <div class="assess_row2">
-            <div class="result" id="otherAssess">互评：称职</div>
-            <div class="result" id="orgAssess">组织评定：优秀</div>
+        <div class="edu_line">
+          <div class="edu_col1">考试完成情况</div>
+          <div class="edu_col2" id="kaoshi">
           </div>
         </div>
-        <div class="panel-footer"></div>
+        <div class="edu_line">
+          <div class="edu_col1">考试分数</div>
+          <div class="edu_col2" id="examAverage">
+          </div>
+        </div>
       </div>
-
-
-
+      <div class="panel-footer"></div>
     </div>
-    <div class="column">
 
-      <div class="double-panel">
-        <h2>风险预警</h2>
-        <h3>最新风险预警信息</h3>
-        <div class="table">
-          <table id="wn_tb1">
+    <div class="panel bar">
+      <h2>
+        心理测询
+      </h2>
+      <div class="chart" id="heart"></div>
+      <div class="panel-footer"></div>
+    </div>
+  </div>
+  <div class="column">
+
+    <div class="map">
+      <div class="left"></div>
+      <div class="right">
+        <ul style="padding:30px; color:aliceblue; font-size: 25px;">
+          <li id="name"></li>
+          <li id="sex"></li>
+          <li id="birthday"></li>
+          <li id="unit"></li>
+          <li id="phone"></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel assessment">
+      <h2>全员考核</h2>
+      <div class="half-assess" id="assess"></div>
+      <div class="half-assess">
+        <div class="assess_row1">
+          <table id="assess_tb">
             <tr>
-              <th class="tb_time">时间</th>
-              <th class="tb_type">类型</th>
+              <th class="tb_time">序号</th>
               <th class="tb_content">内容</th>
             </tr>
           </table>
-          <div class="panel-footer"></div>
         </div>
+        <div class="assess_row2">
+          <div class="result" id="otherAssess">互评：称职</div>
+          <div class="result" id="orgAssess">组织评定：优秀</div>
+        </div>
+      </div>
+      <div class="panel-footer"></div>
+    </div>
 
-        <h3>正在处理风险预警信息</h3>
-        <div class="table1">
-          <table id="wn_tb2">
-            <tr>
-              <th class="tb_time">时间</th>
-              <th class="tb_type">类型</th>
-              <th class="tb_content">内容</th>
-            </tr>
-          </table>
-          <div class="panel-footer"></div>
-        </div>
+
+
+  </div>
+  <div class="column">
+
+    <div class="double-panel">
+      <h2>风险预警</h2>
+      <h3>最新风险预警信息</h3>
+      <div class="table">
+        <table id="wn_tb1">
+          <tr>
+            <th class="tb_time">时间</th>
+            <th class="tb_type">类型</th>
+            <th class="tb_content">内容</th>
+          </tr>
+        </table>
         <div class="panel-footer"></div>
       </div>
 
-      <div class="panel line1">
-        <h2>智慧队站</h2>
-        <div class="chart" id="smart"></div>
+      <h3>正在处理风险预警信息</h3>
+      <div class="table1">
+        <table id="wn_tb2">
+          <tr>
+            <th class="tb_time">时间</th>
+            <th class="tb_type">类型</th>
+            <th class="tb_content">内容</th>
+          </tr>
+        </table>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="panel-footer"></div>
+    </div>
+
+    <div class="panel">
+      <h2> 关键词</h2>
+      <div class="half-table">
+        <h3>常态关键词</h3>
+        <div style="overflow-y:scroll;height: 2.65rem">
+          <table id="hots_tb" >
+            <tr>
+              <th >排名</th>
+              <th >敏感词</th>
+              <th >次数</th>
+            </tr>
+          </table>
+        </div>>
+        <div class="panel-footer"></div>
+      </div>
+      <div class="half-table" style="margin-left: 1%">
+        <h3>极端敏感词</h3>
+        <div style="overflow-y:scroll;height: 2.65rem">
+          <table id="sens_tb" >
+            <tr>
+              <th >排名</th>
+              <th >敏感词</th>
+              <th >次数</th>
+            </tr>
+          </table>
+        </div>>
         <div class="panel-footer"></div>
       </div>
     </div>
-  </section>
+  </div>
+  <div id="mb">
+    <div id="loading">
+      报告生成中
+    </div>
+  </div>
+</section>
 </body>
 <script src="../js/flexible.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/echarts.min.js"></script>
 <script src="../js/person.js"></script>
 <script src="../js/main/date.js"></script>
+<script src="../js/spin.min.js"></script>
+<script src="../js/loading.js"></script>
+
+
 <script>
   // onload
   $(function () {
@@ -155,6 +188,9 @@
     getHeartData();
     tb_wn1();
     tb_wn2();
+
+    tb_hots();
+    tb_sens();
 
     //日期格式转换
     function formateDate(datetime) {
@@ -181,7 +217,7 @@
         }
 
         document.getElementById("birthday").innerHTML = "出生年月：" + formateDate(response.extra.userInfo
-          .birthday);
+                .birthday);
         document.getElementById("unit").innerHTML = "部门：" + response.extra.userInfo.unitName;
         document.getElementById("phone").innerHTML = "电话：" + response.extra.userInfo.phone;
 
@@ -192,7 +228,64 @@
     })
 
   });
+  var opts = {
+    lines: 13, // 花瓣数目
+    length: 12, // 花瓣长度
+    width: 8, // 花瓣宽度
+    radius: 40, // 花瓣距中心半径
+    corners: 1, // 花瓣圆滑度 (0-1)
+    rotate: 0, // 花瓣旋转角度
+    direction: 1, // 花瓣旋转方向 1: 顺时针, -1: 逆时针
+    color: '#fff', // 花瓣颜色
+    speed: 1, // 花瓣旋转速度
+    trail: 60, // 花瓣旋转时的拖影(百分比)
+    shadow: false, // 花瓣是否显示阴影
+    hwaccel: false, //spinner 是否启用硬件加速及高速旋转
+    className: 'spinner', // spinner css 样式名称
+    zIndex: 2e9, // spinner的z轴 (默认是2000000000)
+    top: 'auto', // 菊花相对定位的top
+    left: 'auto',// spinner 相对父容器Left定位 单位 px
+  };
 
+  var spinner = new Spinner(opts);
+
+  function startLoading () {
+    //请求时spinner出现
+    $("#mb").css("display", "block");
+    var target = $('#loading').get(0);
+    spinner.spin(target);
+  }
+
+  function stopLoading () {
+    //关闭spinner
+    $("#mb").css("display", "none");
+    spinner.spin();
+  }
+  function downloadReport() {
+    startLoading();
+    var link = document.createElement("a");
+    $.ajax({
+      type: 'GET',
+      url: localStorage.getItem("url") + 'poi/getReportPerson',
+      data: {
+        unitId: localStorage.getItem("personId"),
+        month: localStorage.getItem("month"),
+      },
+      success: function (response) {
+        let url = '../static/jx/result.docx'
+        link.setAttribute('href', url)
+        if (link.download !== undefined) {
+          link.download = "个人月报.docx";
+        }
+        link.click();
+        stopLoading();
+      },
+      error: function (response) {
+        console.log(response);
+        stopLoading();
+      }
+    })
+  }
   function toEducation() {
     window.location = '/edu/education.html'
   }
@@ -200,6 +293,8 @@
   function toAssessment() {
     window.location = '/assess/assessment.html'
   }
+
+
 </script>
 
 </html>
