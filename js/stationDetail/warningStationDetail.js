@@ -5,7 +5,8 @@ function tb_wn1 () {
       url: localStorage.getItem("url") + 'warning/getWarningByStation',
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 0
+        resolutionType: 0,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList
@@ -43,7 +44,8 @@ function tb_wn1 () {
       url: localStorage.getItem("url") + 'warning/getWarningByStation',
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 1
+        resolutionType: 1,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList
@@ -82,7 +84,8 @@ function tb_wn1 () {
       url: localStorage.getItem("url") + 'warning/getWarningByStation',
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 2
+        resolutionType: 2,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList

@@ -391,7 +391,7 @@ h3 a {
   border-right: 3px solid #02a6b5;
 }
 
-.double-panel .table2 {
+/* .double-panel .table2 {
   height: 3.2rem;
   margin-bottom: 0.2rem;
   background-color: rgba(44, 135, 209, 0.4);
@@ -442,7 +442,7 @@ h3 a {
   height: 15px;
   border-bottom: 3px solid #02a6b5;
   border-right: 3px solid #02a6b5;
-}
+} */
 
 .no {
   background: rgba(255, 255, 255, 0.07);

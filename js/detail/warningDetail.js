@@ -14,7 +14,8 @@
       url: chooseUrl,
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 0
+        resolutionType: 0,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList
@@ -88,7 +89,8 @@
       url: chooseUrl,
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 1
+        resolutionType: 1,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList
@@ -136,7 +138,8 @@
       url: chooseUrl,
       data: {
         id: localStorage.getItem("unitId"),
-        resolutionType: 2
+        resolutionType: 2,
+        month: localStorage.getItem("month")
       },
       success: function (response) {
         dataArray = response.extra.warningList
