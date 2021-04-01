@@ -576,7 +576,7 @@ h3 a {
   z-index: 5;
   height: 6.25rem;
   width: 100%;
-  background: url(../images/station.jpg);
+  /* background: url(../images/station.jpg); */
   background-size: 100% 100%;
 }
 

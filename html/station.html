@@ -74,7 +74,9 @@
         </div>
       </div>
       <div class="map">
-        <div class="chart" id="map"></div>
+        <div class="chart" id="map">
+          <img id="personImg" src="../images/person.jpg" style="object-fit: fill;height: 100%;width: 100%;"> </img>
+        </div>
         <div class="map1"></div>
         <div class="map2"></div>
         <div class="map3"></div>
@@ -249,6 +251,8 @@
         document.getElementById("totalNum").innerHTML = response.extra.unit.totalNum;
         document.getElementById("activeNum").innerHTML = response.extra.unit.activeNum;
         document.getElementById("keyNum").innerHTML = response.extra.unit.keyNum;
+        document.getElementById("personImg").src = response.extra.unit.picture;
+
       },
       error: function (response) {
         console.log(response);

@@ -68,7 +68,9 @@
   <div class="column">
 
     <div class="map">
-      <div class="left"></div>
+      <div class="left">
+        <img id="personImg" src="../images/person.jpg" style="object-fit: fill;height: 100%;width: 100%;"> </img>
+      </div>
       <div class="right">
         <ul style="padding:30px; color:aliceblue; font-size: 25px;">
           <li id="name"></li>
@@ -220,6 +222,7 @@
                 .birthday);
         document.getElementById("unit").innerHTML = "部门：" + response.extra.userInfo.unitName;
         document.getElementById("phone").innerHTML = "电话：" + response.extra.userInfo.phone;
+        document.getElementById("personImg").src = response.extra.userInfo.picture;
 
       },
       error: function (response) {
